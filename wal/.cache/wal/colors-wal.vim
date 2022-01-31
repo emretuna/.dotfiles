@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/emretuna/.config/wallpaper/alena-aenami-lighthouse.jpg"
+let background = "#06090E"
+let foreground = "#ddc1cb"
+let cursor     = "#ddc1cb"
+
+" Colors
+let color0  = "#06090E"
+let color1  = "#185EAD"
+let color2  = "#5D5E96"
+let color3  = "#A06A92"
+let color4  = "#D16E8B"
+let color5  = "#2187D4"
+let color6  = "#6699F0"
+let color7  = "#ddc1cb"
+let color8  = "#9a878e"
+let color9  = "#185EAD"
+let color10 = "#5D5E96"
+let color11 = "#A06A92"
+let color12 = "#D16E8B"
+let color13 = "#2187D4"
+let color14 = "#6699F0"
+let color15 = "#ddc1cb"

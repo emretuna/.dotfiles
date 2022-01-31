@@ -1,0 +1,12 @@
+[user]
+	name = Emre Tuna
+	email = tunaemre@windowslive.com
+[core]
+	excludesfile = ~/.gitignore_global
+    editor = nvim
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
+[credential]
+	helper = store

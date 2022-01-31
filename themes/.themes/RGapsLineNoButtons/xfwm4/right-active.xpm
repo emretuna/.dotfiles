@@ -1,0 +1,9 @@
+/* XPM */
+static char * right_active_xpm[] = {
+"8 1 3 1",
+"#	c #000000 s active_color_2",
+"@	c #999999 s active_text_color_2",
+" 	c None",
+"@##@    "};
+/* RMG 20170418 */
+

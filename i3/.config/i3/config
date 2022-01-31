@@ -1,0 +1,429 @@
+#######################
+# config starts here: #
+#######################
+
+
+#arandr
+exec --no-startup-id ~/.screenlayout/monitor.sh
+
+# Start pywal from wallpaper directory
+exec --no-startup-id wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/dunst/launch_dunst.sh"
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 11
+set $term kitty 
+# set the mod key to the winkey:
+set $mod Mod4
+
+#####################
+# workspace layout: #
+#####################
+
+# default i3 tiling mode:
+workspace_layout default
+
+# i3 stacking layout:
+# Each window will be fullscreen and tabbed top to bottom.
+#workspace_layout stacking
+
+# i3 tabbed layout:
+# Each new window will open fullscreen as a tab (left to right)
+#workspace_layout tabbed
+
+##############################
+# extra options for windows: #
+##############################
+
+# Borders
+#for_window [class=".*"] border pixel 0
+
+# Max windows size
+floating_minimum_size 450 x 450
+floating_maximum_size 1500 x 1500
+
+# Uncomment this to disable title bars
+for_window [class=".*"] border pixel 0
+
+# Gaps (Outer gaps are added to the inner gaps)
+gaps inner 12
+gaps outer 12 
+gaps top 55
+
+# Only enable gaps on a workspace when there is at least one container
+#smart_gaps on
+
+# Activate smart borders (always)
+#smart_borders on
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Disable gap on secondary monitor
+workspace $ws9 gaps top 10
+workspace $ws10 gaps top 10
+
+# switch to workspace
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+bindsym $mod+6    workspace  $ws6
+bindsym $mod+7    workspace  $ws7
+bindsym $mod+8    workspace  $ws8
+bindsym $mod+9    workspace  $ws9
+bindsym $mod+0    workspace  $ws10
+
+# switch to workspace with numpad keys
+bindcode $mod+87 workspace 1
+bindcode $mod+88 workspace 2
+bindcode $mod+89 workspace 3
+bindcode $mod+83 workspace 4
+bindcode $mod+84 workspace 5
+bindcode $mod+85 workspace 6
+bindcode $mod+79 workspace 7
+bindcode $mod+80 workspace 8
+bindcode $mod+81 workspace 9
+bindcode $mod+90 workspace 10
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+
+set $ws1 "1:"
+set $ws2 "2:" 
+set $ws3 "3:" 
+set $ws4 "4:" 
+set $ws5 "5:" 
+set $ws6 "6:" 
+set $ws7 "7:" 
+set $ws8 "8:" 
+set $ws9 "9:" 
+set $ws10 "10:" 
+
+# use workspaces on different displays:
+# where you have to replace VGA-0/HDMI-0 with the names for your displays
+# you can get from xrandr command
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output HDMI-0 
+workspace $ws7 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output DPI-1
+workspace $ws10 output DPI-1
+
+
+
+
+# bind program to workspace and focus to them on startup:
+assign [class="kitty"] $ws10
+assign [class="(?i)brave-browser|(?i)firefox"] $ws1
+assign [class="Nautilus|Nemo|Thunar"] $ws2
+assign [class="Geary"] $ws3
+assign [class="TelegramDesktop|Discord|Zoom"] $ws4
+assign [class="Binance|Cryptowatch"] $ws5
+assign [class="Spotify"] $ws6
+
+# automatic set focus new window if it opens on another workspace then the current:
+# for_window [class=(?i)kitty] focus
+# for_window [class=(?i)brave-browser|(?i)firefox] focus
+# for_window [class=nautilus|nemo|thunar] focus
+# for_window [class=Geary] focus
+# for_window [class=TelegramDesktop|Discord|Zoom] focus
+# for_window [class=Binance|Cryptowatch] focus
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  $ws5
+bindsym $mod+Shift+6    move container to workspace  $ws6
+bindsym $mod+Shift+7    move container to workspace  $ws7
+bindsym $mod+Shift+8    move container to workspace  $ws8
+bindsym $mod+Shift+9    move container to workspace  $ws9
+bindsym $mod+Shift+0    move container to workspace  $ws10
+
+# resize window (you can also use the mouse for that):
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+       bindsym j resize shrink width 10 px or 10 ppt
+       bindsym k resize grow height 10 px or 10 ppt
+       bindsym l resize shrink height 10 px or 10 ppt
+       bindsym ntilde resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym Left resize shrink width 10 px or 10 ppt
+       bindsym Down resize grow height 10 px or 10 ppt
+       bindsym Up resize shrink height 10 px or 10 ppt
+       bindsym Right resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+#bindsym Return mode "default"
+       bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+######################################
+# keybindings for different actions: #
+######################################
+
+## I3 basics
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# kill focused window
+bindsym $mod+q kill
+
+# exit-menu
+bindsym $mod+Shift+e exec rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme '~/.cache/wal/powermenu.rasi' -icon-theme "RosePine"
+
+bindsym $mod+Shift+w exec rofi -modi 'Wifimenu:~/.config/rofi/scripts/wifimenu.sh' -show Wifimenu -theme '~/.cache/wal/wifimenu.rasi' -icon-theme "RosePine"
+# Lock the system
+## lock by blurring the screen:
+bindsym $mod+o exec ~/.config/i3/scripts/blur-lock.sh
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+## Window movements 
+
+# special combo for horizontal split of two windows next to each other
+bindsym $mod+Shift+t split h, layout splith, focus right, move left, focus left
+bindsym $mod+t split h, layout splith, focus left, move right, focus right
+
+# special combo for container tabbed split of two windows next to each other
+bindsym $mod+Shift+x split h, layout tabbed, focus right, move left, focus left
+bindsym $mod+x split h, layout tabbed, focus left, move right, focus right
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+## Scratchpad
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# discord
+for_window [class="discord"] mark "discord", move scratchpad
+bindcode $mod+49 [con_mark="discord"] scratchpad show
+
+# VS Code notes
+for_window [title="^.*- Notes - Visual Studio Code$"] mark "vscode-notes", move scratchpad
+bindsym $mod+Tab [con_mark="vscode-notes"] scratchpad show
+
+# Ranger File Manager 
+bindsym $mod+Shift+Return exec kitty -e ranger
+
+## Multimedia Keys
+
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- 
+
+bindsym XF86AudioMute exec pamixer -t && notify-send "mute: $(pamixer --get-mute)"
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Redirect sound to headphones
+#bindsym $mod+p exec /usr/local/bin/switch-audio-port
+
+# Backlight control
+#bindsym XF86MonBrightnessUp exec xbacklight +10
+#bindsym XF86MonBrightnessDown exec xbacklight -10
+
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+bindsym XF86KbdBrightnessUp exec light -s sysfs/leds/smc::kbd\_backlight -A 5   #increase Kbd brightness
+bindsym XF86KbdBrightnessDown exec light -s sysfs/leds/smc::kbd\_backlight -U 5 #decrease Kbd brightness
+
+# Pulse Audio controls
+
+# volume up
+bindcode $mod+35 exec pamixer -i 5
+# volume down
+bindcode $mod+34 exec pamixer -d 5
+# Switch sound output
+bindsym $mod+p exec ~/.config/i3/scripts/switch_audio_sink.sh
+
+## Interface
+
+# set powersavings for display:
+exec --no-startup-id xset s 480 dpms 600 600 600
+
+# Change wallpaper and colors
+bindsym $mod+Shift+u exec  wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/dunst/launch_dunst.sh"
+
+## App shortcuts
+bindsym $mod+w exec /usr/bin/brave-browser
+bindsym $mod+n exec /usr/bin/nemo
+
+bindsym Print       exec flameshot full
+bindsym Shift+Print exec flameshot gui
+# open new empty workspace
+bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace.sh
+
+
+##########################################
+# configuration for workspace behaviour: #
+##########################################
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#############################################
+# autostart applications/services on login: #
+#############################################
+#libinput gestures
+exec --no-startup-id libinput-gestures-setup start
+
+#get auth work with polkit-gnome
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+# num lock activated
+exec --no-startup-id numlockx off
+
+#networkmanager-applet
+exec --no-startup-id nm-applet
+
+# Do not follow mouse focus
+#focus_follows_mouse yes
+
+# Startup daemons for compositor 
+exec_always --no-startup-id ~/.config/picom/startpicom.sh
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Start seaf-cli daemon
+exec --no-startup-id seaf-cli start
+
+## Workspace Rules 
+assign [class="Lxappearance|Nitrogen"] 6
+assign [class="Xfce4-power-manager-settings"] 6
+
+## Window Rules
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="alacritty-float|kitty-float"] floating enable
+for_window [class="Pcmanfm|Onboard|Yad"] floating enable
+for_window [class="Lxappearance|Nitrogen"] floating enable
+for_window [class="Pavucontrol|Xfce4-power-manager-settings|Nm-connection-editor|Galculator"] floating enable
+for_window [class="feh|Viewnior|Gpicview|Gimp|MPlayer"] floating enable
+for_window [class="Kvantum Manager|qt5ct"] floating enable
+for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
+
+# Autostart in workspace
+#exec_always --no-startup-id ~/.config/i3/scripts/launch_discord.sh
+#exec_always --no-startup-id /usr/bin/code ~/Seafile/Notes # Synchronised notes
+
+######################################
+# color settings for bar and windows #
+######################################
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+
+set_from_resource $color0 i3wm.color0 #f0f0f0
+set_from_resource $color2 i3wm.color2 #f0f0f0
+set_from_resource $color7 i3wm.color7 #f0f0f0
+set_from_resource $color8 i3wm.color8 #f0f0f0
+
+
+# class                 border  backgr. text    indicator  child_border
+client.focused          #4C7899 $color2 #FFFFFF #2E9EF4   #ff833a 
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #color0 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+#####################################
+# Application menu handled by rofi: #
+#####################################
+
+# Greenclip
+set $greenclip ~/.config/i3/scripts/greenclip
+bindsym $mod+Shift+v exec rofi -padding 10 -opacity 80 -modi "clipboard:$greenclip print" -show clipboard -theme ~/.cache/wal/clipboard.rasi
+
+# Greenclip exec
+exec --no-startup-id $greenclip daemon
+
+## rofi bindings fancy application menu (two bindings F9/$mod+d)
+
+bindsym $mod+d exec rofi -no-lazy-grab -drun-display-format {name} -show drun -modi drun -theme ~/.cache/wal/launcher.rasi
+
+## rofi bindings for window menu (two bindings F10/$mod+t)
+
+bindsym $mod+Shift+d exec rofi -no-lazy-grab -show window -modi window -theme ~/.cache/wal/launcher.rasi

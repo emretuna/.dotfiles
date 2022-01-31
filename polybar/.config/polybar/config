@@ -1,0 +1,262 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:color0:#222} 
+foreground = ${xrdb:color7:#222}
+primary = #02c084
+secondary = #65a2d9
+tertiary = ${xrdb:color2:#222}
+fourth = ${xrdb:color8:#f00}
+alert = #ed404c
+
+
+
+[bar/main]
+width = 100%:-48
+height = 36 
+offset-x = 24
+offset-y = 24
+radius = 0.5
+fixed-center = true
+
+line-size = 3
+
+override-redirect = true
+wm-restack = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = DejaVuSansMono Nerd Font:pixelsize=11:antialias=true;2.5
+font-1 =  Iosevka:style=Regular:pixelsize=12:antialias=true;3
+
+modules-left = i3 spotify 
+modules-center = xwindow 
+modules-right = filesystem memory backlight audio system-bluetooth-bluetoothctl wlan battery lan date 
+
+enable-ipc = true
+
+cursor-click = pointer
+
+
+#tray-position = right
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:45:...%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+format = <label-mounted>
+label-mounted = %free%
+label-mounted-foreground = ${colors.primary}
+format-mounted-prefix = " "
+format-mounted-prefix-foreground = ${colors.fourth}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.fourth}
+label = %gb_free%
+label-foreground = ${colors.primary}
+
+[module/i3]
+type = internal/i3
+pin-workspaces = false
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+ws-icon-default = "  "
+ws-icon-0 = "0;0  "
+ws-icon-1 = "1;1  "
+ws-icon-2 = "2;2  "
+ws-icon-3 = "3;3  "
+ws-icon-4 = "4;4  "
+ws-icon-5 = "5;5  "
+ws-icon-6 = "6;6  "
+ws-icon-7 = "7;7  "
+ws-icon-8 = "8;8  "
+ws-icon-9 = "9;9  "
+
+format = <label-state>
+
+label-focused = %index%
+label-focused-foreground = ${colors.tertiary}
+label-focused-underline = ${colors.tertiary}
+label-focused-padding = 1
+
+label-unfocused = ${self.label-focused}
+label-unfocused-foreground = ${colors.fourth}
+label-unfocused-padding = ${self.label-focused-padding}
+
+label-visible = ${self.label-focused}
+label-visible-foreground = ${colors.fourth}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = ${self.label-focused}
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = ${self.label-focused-padding}
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected = "%{A1:gnome-control-center wifi:} %{A}"
+label-connected-foreground = ${colors.primary}
+
+format-disconnected = <label-disconnected>
+label-disconnected = "%{A1:gnome-control-center wifi:}睊 %{A}"
+label-disconnected-foreground = ${colors.alert}
+
+[module/lan]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected = 
+label-connected-foreground = ${colors.primary}
+
+format-disconnected = <label-disconnected>
+label-disconnected = 
+label-disconnected-foreground = ${colors.alert}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%b %d, %Y  "
+time = "%H:%M:%S"
+format-prefix-foreground = ${colors.foreground}
+label = %date%%time%
+
+[module/backlight]
+type = custom/script
+interval = 0.2
+exec = ~/.config/polybar/scripts/backlight.sh
+
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
+
+format-prefix = " "
+
+label = %output%
+format-prefix-foreground = ${colors.fourth}
+label-foreground = ${colors.primary}
+format-padding = 1
+
+[module/audio]
+type = internal/pulseaudio
+
+click-right = pavucontrol
+format-volume = <ramp-volume>
+label-volume-foreground = ${colors.secondary}
+ramp-volume-foreground = ${colors.secondary}
+label-volume = 
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = ﱝ
+label-muted-foreground = ${colors.secondary}
+
+[module/spotify]
+type = custom/script
+tail = true
+; prefix symbol is shown before the text
+format-prefix = "  "
+format-underline = ${colors.tertiary}
+format = <label>
+click-left = playerctl play-pause spotify
+click-right = playerctl next spotify
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
+
+[module/system-bluetooth-bluetoothctl]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-bluetooth-bluetoothctl.sh
+tail = true
+click-left = ~/.config/polybar/scripts/system-bluetooth-bluetoothctl.sh --toggle &
+click-right = blueman-manager
+interval = 10
+
+[module/seafile]
+type = custom/script
+exec = ~/.config/polybar/scripts/get_seafile_sync_status.sh
+tail = true
+interval = 30
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+
+format-charging = <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-full =  
+label-full-foreground = ${colors.fourth}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-foreground = ${colors.fourth}
+
+label-discharging = %percentage% 
+label-discharging-foreground = ${colors.fourth}
+label-charging-foreground = ${colors.fourth}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-bottom = 5 
+margin-top = 5 
+
+; vim:ft=dosini
