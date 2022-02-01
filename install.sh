@@ -32,7 +32,7 @@ nvm install node --lts
     nixpkgs.stow \
     nixpkgs.yarn \
     nixpkgs.fzf \
-    nix-env -iA nixpkgs.fd \
+    nixpkgs.fd \
     nixpkgs.ripgrep \
     nixpkgs.bat \
     nixpkgs.direnv \
