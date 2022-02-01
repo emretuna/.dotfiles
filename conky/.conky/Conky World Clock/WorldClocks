@@ -33,10 +33,10 @@ use_spacer yes
 
 minimum_size 0 0
 TEXT
-${voffset -20}${color 6C4649}${font GE Inspira:pixelsize=150}${time %d}${voffset -60}${font GE Inspira:pixelsize=22}${offset 80}${time %B}${alignr}${time %Y}${font}
+${voffset -20}${color 6C4649}${font GE Inspira:pixelsize=150}${time %d}${voffset -20}${font GE Inspira:pixelsize=22}${offset 80}${time %B}${alignr}${time %Y}${font}
 ${font GE Inspira:pixelsize=78}${alignr}${time %A}${font}
 ${color 986361}${voffset -20}${font GE Inspira:pixelsize=42}
-London               ${alignc}${tztime Europe/London %H:%M:%S}
-Tokyo                 ${alignc}${tztime Asia/Tokyo %H:%M:%S}
-Honk Kong         ${alignc}${tztime Asia/Honk_Kong %H:%M:%S}
-New York            ${alignc}${tztime America/New_York %H:%M:%S}
+London               ${alignc}${tztime Europe/London %H:%M}
+Tokyo                  ${alignc}${tztime Asia/Tokyo %H:%M}
+Honk Kong         ${alignc}${tztime Asia/Honk_Kong %H:%M}
+New York            ${alignc}${tztime America/New_York %H:%M}

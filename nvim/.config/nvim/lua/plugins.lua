@@ -27,17 +27,13 @@ end
 return require("packer").startup({
   function(use)
     -- Packer can manage itself
-    use("wbthomason/packer.nvim")
+    use({"wbthomason/packer.nvim"})
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
-    --use({ "EdenEast/nightfox.nvim", config = get_setup("nightfox") })
-    use({"rose-pine/nvim", config = function()
-        vim.cmd('colorscheme rose-pine')
-    end
-    })
-    use {
+    use({ "themercorp/themer.lua", config = get_setup("themer") })
+    use ({
     "romgrk/barbar.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
-    }
+    })
     use({ "kyazdani42/nvim-web-devicons" })
     use({
       "nvim-lualine/lualine.nvim",
@@ -45,11 +41,11 @@ return require("packer").startup({
       event = "VimEnter",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
-    use {
+    use ({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = get_setup("trouble")
-    }
+    })
     use({
       "folke/zen-mode.nvim",
       config = get_setup("zen-mode"),
@@ -65,7 +61,7 @@ return require("packer").startup({
       config = get_setup("treesitter"),
       run = ":TSUpdate",
     })
-    use("nvim-treesitter/nvim-treesitter-textobjects")
+    use({"nvim-treesitter/nvim-treesitter-textobjects"})
     use({
       "windwp/nvim-autopairs",
       after = "nvim-cmp",
@@ -94,7 +90,7 @@ return require("packer").startup({
       config = get_setup("gitsigns"),
     })
 
-    use("p00f/nvim-ts-rainbow")
+    use({"p00f/nvim-ts-rainbow"})
 
     use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })

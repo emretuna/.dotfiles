@@ -99,5 +99,6 @@ nvm install node --lts
 		cd wallpapers
 		sudo mkdir /usr/share/backgrounds/wallpapers/
 		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
-	
+    #install rust cargo
+	curl https://sh.rustup.rs -sSf | sh
 	echo "DONE BOSS!SEE YA!"

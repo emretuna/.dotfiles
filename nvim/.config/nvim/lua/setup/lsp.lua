@@ -10,10 +10,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- Different machine VAR for office
-local envMachine = os.getenv("MACHINE")
-if envMachine == "work" then
+local envMachine = vim.loop.os_uname().sysnam
+if envMachine == "Linux" then
   machineCmd =
-    "/System/Volumes/Data/usr/local/lib/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server"
+    "/home/emretuna/.nvm/versions/node/v17.4.0/lib/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server"
 else
   machineCmd = "vscode-css-language-server"
 end
