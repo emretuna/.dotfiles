@@ -29,7 +29,6 @@ nvm install node --lts
     nixpkgs.zsh \
     nixpkgs.antibody \
     nixpkgs.neovim \
-    nixpkgs.tmux \
     nixpkgs.stow \
     nixpkgs.yarn \
     nixpkgs.fzf \
