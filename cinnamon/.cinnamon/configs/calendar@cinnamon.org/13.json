@@ -22,7 +22,7 @@
         "default": false,
         "description": "Use a custom date format",
         "tooltip": "Check this to define a custom format for the date in the calendar applet.",
-        "value": false
+        "value": true
     },
     "custom-format": {
         "type": "entry",
@@ -30,7 +30,7 @@
         "description": "Date format",
         "dependency": "use-custom-format",
         "tooltip": "Set your custom format here.",
-        "value": "%A, %B %e, %H:%M"
+        "value": "%A %B %e %H:%M"
     },
     "format-button": {
         "type": "button",

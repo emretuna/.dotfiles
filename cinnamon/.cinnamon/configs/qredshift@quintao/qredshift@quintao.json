@@ -286,7 +286,7 @@
         "units": "K",
         "step": 5,
         "description": "Temperature",
-        "value": 3500
+        "value": 4949
     },
     "nightBrightness": {
         "type": "spinbutton",
@@ -297,7 +297,7 @@
         "units": "%",
         "step": 1,
         "description": "Brightness",
-        "value": 100
+        "value": 70
     },
     "locationRemote": {
         "type": "checkbox",
