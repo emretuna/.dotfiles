@@ -31,10 +31,22 @@ return require("packer").startup({
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     use({ "themercorp/themer.lua", config = get_setup("themer") })
     use ({
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+})
+    use({
     "romgrk/barbar.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
     })
-    use({ "kyazdani42/nvim-web-devicons" })
+    use({"rafamadriz/friendly-snippets"})
+    use({ "ahmedkhalf/project.nvim", config = get_setup("project") })
+    use({"kyazdani42/nvim-web-devicons"})
     use({
       "nvim-lualine/lualine.nvim",
       config = get_setup("lualine"),
@@ -121,7 +133,12 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("hop"),
     })
-    use({ "Shatur/neovim-session-manager", config = get_setup("session") })
+    use({"rmagatti/auto-session", config = get_setup("auto-session") })
+    use({
+      "rmagatti/session-lens",
+      requires = {"rmagatti/auto-session","nvim-telescope/telescope.nvim"},
+      config = get_setup("session"),
+    })
     use({ "windwp/nvim-ts-autotag" })
 
     use({

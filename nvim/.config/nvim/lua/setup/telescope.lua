@@ -1,6 +1,8 @@
 -- Telescope Global remapping
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
+local fb_actions = require("telescope._extensions.file_browser.actions")
+
 require("telescope").setup({
   defaults = {
     winblend = 20,
@@ -23,6 +25,19 @@ require("telescope").setup({
       i = {
         ["<esc>"] = actions.close,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+      },
+    },
+  },
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      mappings = {
+        ["i"] = {
+          ["<S-M>"] = fb_actions.move,
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
       },
     },
   },
@@ -77,4 +92,5 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("sessions")
+require("telescope").load_extension("session-lens")
+require("telescope").load_extension("file_browser")

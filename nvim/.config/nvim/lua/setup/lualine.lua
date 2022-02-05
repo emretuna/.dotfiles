@@ -36,7 +36,7 @@ end
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "rose-pine",
+    theme = "palenight",
     component_separators = { " ", " " },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {},
@@ -55,7 +55,8 @@ require("lualine").setup({
       "filename",
       {
         getWords,
-        color = { fg =  "#333333", bg =  "#eeeeee" },
+        --color = { fg = nfColors["bg_alt"] or "#333333", bg = nfColors["fg"] or "#eeeeee" },
+          color = { fg = "#333333", bg = "#eeeeee" },
         separator = { left = "", right = "" },
       },
     },

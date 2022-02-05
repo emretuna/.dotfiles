@@ -102,7 +102,7 @@
         "type": "checkbox",
         "default": false,
         "description": "Enabled",
-        "value": false
+        "value": true
     },
     "autoUpdate": {
         "type": "checkbox",
@@ -297,7 +297,7 @@
         "units": "%",
         "step": 1,
         "description": "Brightness",
-        "value": 70
+        "value": 90
     },
     "locationRemote": {
         "type": "checkbox",
@@ -317,13 +317,13 @@
         "type": "entry",
         "default": "0",
         "description": "Latitude",
-        "value": "41.007"
+        "value": "41.0177"
     },
     "locationLongitude": {
         "type": "entry",
         "default": "0",
         "description": "Longitude",
-        "value": "28.9718"
+        "value": "28.9744"
     },
     "aboutLocation": {
         "type": "label",

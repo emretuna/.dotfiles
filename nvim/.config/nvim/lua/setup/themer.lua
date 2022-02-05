@@ -1,11 +1,11 @@
 require("themer").setup({
-                colorscheme = "rose_pine_moon",
+                colorscheme = "catppuccin",
                 styles = {
 			comment = { style = 'italic' },
                   	["function"] = { style = 'italic' }, 
                    	functionbuiltin = { style = 'italic' }, 
                    	variable = { style = 'italic' }, 
-                    variableBuiltIn = { style = 'italic' }, 
+                    	variableBuiltIn = { style = 'italic' }, 
                   	parameter  = { style = 'italic' }, 
                 },
             })

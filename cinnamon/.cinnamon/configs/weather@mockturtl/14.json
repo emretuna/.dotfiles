@@ -217,7 +217,7 @@
         "dependency": "manualLocation",
         "description": "Location",
         "tooltip": "You can enter coordinates 'Latitude,Longitude' (e.g. 51.5085,-0.1257) or use 'City,Country-code' (e.g. London,UK) or try to enter {House number} {Street} {City/Town} {Postcode} {Country}. The search algorithm is very flexible with the format. After 3 seconds without typing the address you entered is replaced automatically for validating your choice.",
-        "value": "38.5173,27.2242"
+        "value": "38.4767,27.0991"
     },
     "saveLocation": {
         "type": "button",

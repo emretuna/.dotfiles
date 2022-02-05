@@ -7,11 +7,18 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Map leader to space
-vim.g.mapleader = " "
+vim.g.mapleader = ","
+
+-- Which Key
+map("n", "<leader>m",":WhichKeyVisual<CR>", { silent = true})
 
 -- Nvim Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "<leader>u", ":NvimTreeFindFile<CR>", { silent = true })
+
+-- Switch Session
+-- map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
+map("n", "<Leader>1", ":SearchSession<CR>")
 
 -- Barbar Plugins
 -- Move to previous/next
@@ -105,7 +112,6 @@ map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 map("n", "<Leader>t", "\"=strftime('%c')<CR>Pa", { silent = true })
 
 -- Telescope
-map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
 map("n", "<leader>p", '<cmd>lua require("telescope.builtin").find_files()<cr>')
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
 map("n", "<leader>g", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
@@ -119,12 +125,10 @@ map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions()
 map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
 map("n", "<leader>cd", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
 map("n", "<leader>cr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
-
 map("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 map("n", "<leader>cn", '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 map("v", "<leader>cn", '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-
-map("n", "<leader>ci", "<cmd> lua vim.diagnostic.open_float()<cr>")
+map("n", "<leader>ci", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
 -- Easier split mappings
 map("n", "<Leader><Down>", "<C-W><C-J>", { silent = true })
@@ -144,3 +148,9 @@ map("v", "l", "<cmd>lua require'hop'.hint_lines()<cr>")
 
 -- Symbols outline
 map("n", "<leader>o", ":SymbolsOutline<cr>")
+
+-- ZenMode toggle
+map("n", "<leader>z", ":ZenMode<cr>")
+
+-- Make Option and backspace delete whole words in OSX/Kitty. Requires `macos_option_as_alt yes` to be set in Kitty config
+map("i", "<A-BS>", "<C-W>")

@@ -1,3 +1,3 @@
-require("session_manager").setup({
-  autoload_mode = "Disabled",
+require("session-lens").setup({
+  prompt_title = "Session Switcher",
 })
