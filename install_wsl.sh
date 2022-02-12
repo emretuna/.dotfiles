@@ -44,6 +44,16 @@ nvm install node --lts
 		stow bpytop
 		stow fonts
 		stow ranger
+		
+		#install required dependencies for building packages mostly
+		echo "installing bunch of packages to your `uname -n` desktop"
+
+		echo "installing packages using default package manager"
+		sudo apt install -y gcc \
+				       make \
+				       python3 \
+				       python3-pip
+			       
 
 		echo "installing zsh and setting up things..."
 		# add zsh as a login shell
