@@ -15,24 +15,17 @@ nvm install node --lts
 
   # source nix
   . ~/.nix-profile/etc/profile.d/nix.sh
-  export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
+  
 
   # install packages
     nix-env -iA nixpkgs.glibcLocales\
-    nixpkgs.zsh \
     nixpkgs.antibody \
     nixpkgs.neovim \
-    nixpkgs.stow \
     nixpkgs.yarn \
-    nixpkgs.fzf \
     nixpkgs.fd \
-    nixpkgs.ripgrep \
-    nixpkgs.bat \
-    nixpkgs.direnv \
     nixpkgs.bpytop \
-    nixpkgs.ranger \
-    nixpkgs.trash-cli
-     	
+    
+    export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
 	      
 
 		cd ${HOME}/.dotfiles
@@ -50,9 +43,21 @@ nvm install node --lts
 
 		echo "installing packages using default package manager"
 		sudo apt install -y gcc \
-				       make \
-				       python3 \
-				       python3-pip
+				    make \
+				    python3 \
+				    python3-pip \
+				    zsh \
+				    stow \
+				    fzf \
+				    ripgrep \
+				    bat \
+				    direnv \
+				    ranger \
+				    trash-cli
+				    
+				    
+				    
+				    
 			       
 
 		echo "installing zsh and setting up things..."
