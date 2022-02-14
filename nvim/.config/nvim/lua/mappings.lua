@@ -19,7 +19,6 @@ map("n", "<leader>u", ":NvimTreeFindFile<CR>", { silent = true })
 -- Switch Session
 -- map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
 map("n", "<Leader>1", ":SearchSession<CR>")
-
 -- Barbar Plugins
 -- Move to previous/next
 map('n', '<A-,>', ':BufferPrevious<CR>', opts)
