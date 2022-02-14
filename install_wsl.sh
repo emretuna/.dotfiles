@@ -28,8 +28,8 @@ nvm install node --lts
     nixpkgs.ripgrep \
     nixpkgs.bat \
     nixpkgs.bpytop \
-    nixpkgs.ranger
-     	
+    nixpkgs.ranger \
+    nixpkgs.ueberzug     	
 	      
 
 		cd ${HOME}/.dotfiles
