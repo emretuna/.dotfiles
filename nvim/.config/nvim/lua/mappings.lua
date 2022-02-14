@@ -19,11 +19,16 @@ map("n", "<leader>u", ":NvimTreeFindFile<CR>", { silent = true })
 -- Switch Session
 -- map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
 map("n", "<Leader>1", ":SearchSession<CR>")
+-- Nvim terminal
+map('n', '<Leader>;', ':lua NTGlobal["terminal"]:toggle()<cr>', {silent=true})
+map('n', '<Leader>1', ':lua NTGlobal["terminal"]:open(1)<cr>', {silent=true})
+map('n', '<Leader>+', ':lua NTGlobal["window"]:change_height(2)<cr>', {silent=true})
+map('n', '<Leader>-', ':lua NTGlobal["window"]:change_height(-2)<cr>', {silent=true})
 -- Barbar Plugins
 -- Move to previous/next
-map('n', '<A-,>', ':BufferPrevious<CR>', opts)
-map('n', '<A-.>', ':BufferNext<CR>', opts)
--- Re-order to previous/next
+map('n', '<a-,>', ':bufferprevious<cr>', opts)
+map('n', '<a-.>', ':buffernext<cr>', opts)
+-- re-order to previous/next
 map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
 map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
 -- Goto buffer in position...
