@@ -44,6 +44,7 @@ return require("packer").startup({
     "romgrk/barbar.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
     })
+    use({"wfxr/minimap.vim"})
     use({"rafamadriz/friendly-snippets"})
     use({ "ahmedkhalf/project.nvim", config = get_setup("project") })
     use({"kyazdani42/nvim-web-devicons"})

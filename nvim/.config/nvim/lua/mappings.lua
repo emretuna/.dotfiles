@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Map leader to space
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- Which Key
 map("n", "<leader>m",":WhichKeyVisual<CR>", { silent = true})

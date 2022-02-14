@@ -36,7 +36,7 @@ export NVM_COMPLETION=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 source ${HOME}/.zsh_plugins.sh
-
+source ${HOME}/.nix-profile/etc/profile.d/nix.sh
 
 ## User configuration
 
