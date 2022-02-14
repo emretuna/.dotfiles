@@ -30,16 +30,7 @@ return require("packer").startup({
     use({"wbthomason/packer.nvim"})
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     use({ "themercorp/themer.lua", config = get_setup("themer") })
-    use ({
-  "folke/which-key.nvim",
-  config = function()
-    require("which-key").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-})
+    use ({"folke/which-key.nvim", config = get_setup("whichkey") })
     use({
     "romgrk/barbar.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
