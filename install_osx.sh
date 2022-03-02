@@ -19,6 +19,8 @@ nvm install node --lts
 
   # install packages
     nix-env -iA nixpkgs.glibcLocales\
+    nixpkgs.wget \
+    nixpkgs.php \
     nixpkgs.zsh \
     nixpkgs.antibody \
     nixpkgs.neovim \

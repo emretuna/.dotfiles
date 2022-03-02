@@ -49,6 +49,7 @@ require("lualine").setup({
     },
     lualine_c = {
       { "diagnostics", sources = { "nvim_diagnostic" } },
+      {require('auto-session-library').current_session_name},
       function()
         return "%="
       end,

@@ -35,9 +35,7 @@ return require("packer").startup({
     "romgrk/barbar.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
     })
-    use ({
-    's1n7ax/nvim-terminal',config = get_setup("terminal")
-    })
+    use({"akinsho/toggleterm.nvim" })
     use({"wfxr/minimap.vim"})
     use({"rafamadriz/friendly-snippets"})
     use({ "ahmedkhalf/project.nvim", config = get_setup("project") })
@@ -101,6 +99,7 @@ return require("packer").startup({
 
     use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
+    use({ "williamboman/nvim-lsp-installer", config = get_setup("installer") })
     use({
       "numToStr/Comment.nvim",
       opt = true,
@@ -114,6 +113,7 @@ return require("packer").startup({
       requires = {
         { "nvim-lua/popup.nvim" },
         { "nvim-lua/plenary.nvim" },
+        { "rmagatti/session-lens", requires = "rmagatti/auto-session"},
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
       config = get_setup("telescope"),
@@ -128,12 +128,12 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("hop"),
     })
-    use({"rmagatti/auto-session", config = get_setup("auto-session") })
-    use({
-      "rmagatti/session-lens",
-      requires = {"rmagatti/auto-session","nvim-telescope/telescope.nvim"},
-      config = get_setup("session"),
-    })
+    --use({"rmagatti/auto-session", config = get_setup("auto-session") })
+    --use({
+    --  "rmagatti/session-lens",
+    --  requires = {"rmagatti/auto-session","nvim-telescope/telescope.nvim"},
+    --  config = get_setup("session"),
+    -- })
     use({ "windwp/nvim-ts-autotag" })
 
     use({
