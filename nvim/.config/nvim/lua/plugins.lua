@@ -31,10 +31,7 @@ return require("packer").startup({
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     use({ "themercorp/themer.lua", config = get_setup("themer") })
     use({ "folke/which-key.nvim", config = get_setup("whichkey") })
-    use({
-      "romgrk/barbar.nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
-    })
+    use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", config = get_setup("bufferline") })
     use({ "akinsho/toggleterm.nvim", config = get_setup("toggleterm") })
     use({ "wfxr/minimap.vim" })
     use({ "rafamadriz/friendly-snippets" })
