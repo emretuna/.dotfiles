@@ -18,7 +18,7 @@ map("n", "<leader>u", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- Switch Session
 -- map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
-map("n", "<Leader>1", ":SearchSession [save_current=true]<CR>")
+map("n", "<Leader>1", ":SearchSession <CR>")
 
 -- Update Plugins
 map("n", "<Leader>u", ":PackerSync<CR>")
