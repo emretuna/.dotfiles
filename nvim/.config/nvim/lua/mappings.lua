@@ -10,38 +10,36 @@ end
 vim.g.mapleader = " "
 
 -- Which Key
-map("n", "<leader>m",":WhichKeyVisual<CR>", { silent = true})
+map("n", "<leader>m", ":WhichKeyVisual<CR>", { silent = true })
 
 -- Nvim Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<leader>k", ":NvimTreeFindFile<CR>", { silent = true })
+map("n", "<leader>u", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- Switch Session
 -- map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
-map("n", "<Leader>1", ":SearchSession<CR>")
+map("n", "<Leader>1", ":SearchSession [save_current=true]<CR>")
 
--- Toggle term
-map('n', "<Leader>t", ":ToggleTerm<CR>",{ silent = true })
 -- Barbar Plugins
 -- Move to previous/next
-map('n', '<a-,>', ':bufferprevious<cr>', opts)
-map('n', '<a-.>', ':buffernext<cr>', opts)
+map("n", "<a-,>", ":bufferprevious<cr>", opts)
+map("n", "<a-.>", ":buffernext<cr>", opts)
 -- re-order to previous/next
-map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
-map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
+map("n", "<A-<>", ":BufferMovePrevious<CR>", opts)
+map("n", "<A->>", " :BufferMoveNext<CR>", opts)
 -- Goto buffer in position...
-map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
-map('n', '<A-2>', ':BufferGoto 2<CR>', opts)
-map('n', '<A-3>', ':BufferGoto 3<CR>', opts)
-map('n', '<A-4>', ':BufferGoto 4<CR>', opts)
-map('n', '<A-5>', ':BufferGoto 5<CR>', opts)
-map('n', '<A-6>', ':BufferGoto 6<CR>', opts)
-map('n', '<A-7>', ':BufferGoto 7<CR>', opts)
-map('n', '<A-8>', ':BufferGoto 8<CR>', opts)
-map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
-map('n', '<A-0>', ':BufferLast<CR>', opts)
+map("n", "<A-1>", ":BufferGoto 1<CR>", opts)
+map("n", "<A-2>", ":BufferGoto 2<CR>", opts)
+map("n", "<A-3>", ":BufferGoto 3<CR>", opts)
+map("n", "<A-4>", ":BufferGoto 4<CR>", opts)
+map("n", "<A-5>", ":BufferGoto 5<CR>", opts)
+map("n", "<A-6>", ":BufferGoto 6<CR>", opts)
+map("n", "<A-7>", ":BufferGoto 7<CR>", opts)
+map("n", "<A-8>", ":BufferGoto 8<CR>", opts)
+map("n", "<A-9>", ":BufferGoto 9<CR>", opts)
+map("n", "<A-0>", ":BufferLast<CR>", opts)
 -- Close buffer
-map('n', '<A-c>', ':BufferClose<CR>', opts)
+map("n", "<A-c>", ":BufferClose<CR>", opts)
 -- Wipeout buffer
 --                 :BufferWipeout<CR>
 -- Close commands
@@ -49,11 +47,11 @@ map('n', '<A-c>', ':BufferClose<CR>', opts)
 --                 :BufferCloseBuffersLeft<CR>
 --                 :BufferCloseBuffersRight<CR>
 -- Magic buffer-picking mode
-map('n', '<C-p>', ':BufferPick<CR>', opts)
+map("n", "<C-p>", ":BufferPick<CR>", opts)
 -- Sort automatically by...
-map('n', '<Space>bb', ':BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bd', ':BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
+map("n", "<Space>bb", ":BufferOrderByBufferNumber<CR>", opts)
+map("n", "<Space>bd", ":BufferOrderByDirectory<CR>", opts)
+map("n", "<Space>bl", ":BufferOrderByLanguage<CR>", opts)
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
@@ -125,7 +123,7 @@ map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>
 map("n", "<leader>i", '<cmd>lua require("telescope.builtin").git_status()<cr>')
 map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>')
 map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
-map("n", "<leader>cd", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
+map("n", "<leader>cd", '<cmd>lua require("telescope.builtin").diagnostics()<cr>')
 map("n", "<leader>cr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
 map("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 map("n", "<leader>cn", '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })

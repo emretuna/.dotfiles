@@ -27,29 +27,34 @@ end
 return require("packer").startup({
   function(use)
     -- Packer can manage itself
-    use({"wbthomason/packer.nvim"})
+    use({ "wbthomason/packer.nvim" })
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     use({ "themercorp/themer.lua", config = get_setup("themer") })
-    use ({"folke/which-key.nvim", config = get_setup("whichkey") })
+    use({ "folke/which-key.nvim", config = get_setup("whichkey") })
     use({
-    "romgrk/barbar.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"}
+      "romgrk/barbar.nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
     })
-    use({"akinsho/toggleterm.nvim" })
-    use({"wfxr/minimap.vim"})
-    use({"rafamadriz/friendly-snippets"})
+    use({ "akinsho/toggleterm.nvim", config = get_setup("toggleterm") })
+    use({ "wfxr/minimap.vim" })
+    use({ "rafamadriz/friendly-snippets" })
     use({ "ahmedkhalf/project.nvim", config = get_setup("project") })
-    use({"kyazdani42/nvim-web-devicons"})
+    use({ "kyazdani42/nvim-web-devicons" })
     use({
       "nvim-lualine/lualine.nvim",
       config = get_setup("lualine"),
       event = "VimEnter",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
-    use ({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = get_setup("trouble")
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = get_setup("trouble"),
+    })
+    use({
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = get_setup("todo"),
     })
     use({
       "folke/zen-mode.nvim",
@@ -66,7 +71,7 @@ return require("packer").startup({
       config = get_setup("treesitter"),
       run = ":TSUpdate",
     })
-    use({"nvim-treesitter/nvim-treesitter-textobjects"})
+    use({ "nvim-treesitter/nvim-treesitter-textobjects" })
     use({
       "windwp/nvim-autopairs",
       after = "nvim-cmp",
@@ -83,7 +88,10 @@ return require("packer").startup({
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
         { "hrsh7th/vim-vsnip-integ" },
-        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+        { "f3fora/cmp-spell" },
+        { "octaltree/cmp-look" },
+        { "hrsh7th/cmp-calc" },
+        { "hrsh7th/cmp-emoji" },
       },
       config = get_setup("cmp"),
     })
@@ -95,7 +103,7 @@ return require("packer").startup({
       config = get_setup("gitsigns"),
     })
 
-    use({"p00f/nvim-ts-rainbow"})
+    use({ "p00f/nvim-ts-rainbow" })
 
     use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
@@ -113,7 +121,7 @@ return require("packer").startup({
       requires = {
         { "nvim-lua/popup.nvim" },
         { "nvim-lua/plenary.nvim" },
-        { "rmagatti/session-lens", requires = "rmagatti/auto-session"},
+        { "rmagatti/session-lens", requires = "rmagatti/auto-session" },
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
       config = get_setup("telescope"),
