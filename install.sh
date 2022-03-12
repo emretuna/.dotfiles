@@ -38,7 +38,8 @@ nvm install node --lts
     nixpkgs.direnv \
     nixpkgs.bpytop \
     nixpkgs.ranger \
-    nixpkgs.trash-cli
+    nixpkgs.trash-cli \
+    nixpkgs.code-minimap
      	
 	      
 
