@@ -8,7 +8,7 @@ fi
 # install node
 nvm install node --lts
 
-sudo pacman -S
+sudo pacman -S --noconfirm
     zsh \
     neovim \
     stow \
