@@ -20,7 +20,8 @@ sudo pacman -S
     direnv \
     bpytop \
     ranger \
-    trash-cli
+    trash-cli \
+    rustup
 
  
  yay -S
@@ -78,6 +79,4 @@ sudo pacman -S
 		cd wallpapers
 		sudo mkdir /usr/share/backgrounds/wallpapers/
 		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
-    #install rust cargo
-	curl https://sh.rustup.rs -sSf | sh
 	echo "DONE BOSS!SEE YA!"
