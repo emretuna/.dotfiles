@@ -13,7 +13,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local envMachine = vim.loop.os_uname().sysnam
 if envMachine == "Linux" then
   machineCmd =
-    "/home/emretuna/.nvm/versions/node/v17.4.0/lib/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server"
+    "/home/emretuna/.nvm/versions/node/v18.0.0/lib/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server"
 else
   machineCmd = "vscode-css-language-server"
 end

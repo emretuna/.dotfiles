@@ -81,20 +81,6 @@ nvm install node --lts
 		echo "finishing..."
 		# Use kitty or Alacritty terminal on Linux
 		[ `uname -s` = 'Linux' ] && stow kitty 
-
-
-
-		echo "Installing Brave repository key"
-		sudo apt install apt-transport-https curl		
-		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list		
-
-
-		#continue
-		echo "Updating package lists"
-		sudo apt update
-		sudo apt install -y brave-browser \
-				    
 		
 		cd wallpapers
 		sudo mkdir /usr/share/backgrounds/wallpapers/

@@ -35,6 +35,10 @@ opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
 opt.title = true -- Allows neovom to send the Terminal details of the current window, instead of just getting 'v'
+vim.g.do_filetype_lua = 1 -- new filetype detection
+vim.g.did_load_filetypes = 0
+-- Give me some fenced codeblock goodness
+vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
 vim.o.whichwrap = vim.o.whichwrap .. "<,>" -- Wrap movement between lines in edit mode with arrows
 opt.wrap = true
 -- opt.cc = "80"
@@ -43,6 +47,45 @@ opt.guicursor =
   "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20"
 opt.undodir = vim.fn.stdpath("config") .. "/undo"
 opt.undofile = true
-vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}") -- disabled in visual mode
--- Give me some fenced codeblock goodness
-vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
+
+local api = vim.api
+-- Highlight on yank
+local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+api.nvim_create_autocmd("TextYankPost", {
+  group = yankGrp,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  desc = "Highlight yank",
+})
+
+-- show cursor line only in active window
+local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
+api.nvim_create_autocmd(
+  { "InsertEnter", "WinLeave" },
+  { pattern = "*", command = "set nocursorline", group = cursorGrp }
+)
+
+-- show cursor col line only in active window
+local cursorColGrp = api.nvim_create_augroup("CursorColumn", { clear = true })
+api.nvim_create_autocmd(
+  { "InsertLeave", "WinEnter" },
+  { pattern = "*", command = "set cursorcolumn", group = cursorColGrp }
+)
+api.nvim_create_autocmd(
+  { "InsertEnter", "WinLeave" },
+  { pattern = "*", command = "set nocursorcolumn", group = cursorColGrp }
+)
+
+--vim.cmd([[colorscheme duskfox]]) -- Put your favorite colorscheme here
+
+-- Deal with file loads after updating via git etc
+opt.autoread = true
+-- trigger `autoread` when files changes on disk
+vim.cmd([[
+      autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+      autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+]])

@@ -1,9 +1,8 @@
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+vim.api.nvim_create_autocmd(
+  "BufWritePost",
+  { command = "source <afile> | PackerCompile", group = packer_group, pattern = "init.lua" }
+)
 
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -28,7 +27,6 @@ return require("packer").startup({
   function(use)
     -- Packer can manage itself
     use({ "wbthomason/packer.nvim" })
-    use({ "nathom/filetype.nvim", config = get_setup("filetype") })
     use({ "themercorp/themer.lua", config = get_setup("themer") })
     use({ "folke/which-key.nvim", config = get_setup("whichkey") })
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", config = get_setup("bufferline") })
@@ -68,7 +66,7 @@ return require("packer").startup({
       config = get_setup("treesitter"),
       run = ":TSUpdate",
     })
-    use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+    use("nvim-treesitter/nvim-treesitter-textobjects")
     use({
       "windwp/nvim-autopairs",
       after = "nvim-cmp",
@@ -85,14 +83,16 @@ return require("packer").startup({
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
         { "hrsh7th/vim-vsnip-integ" },
-        { "f3fora/cmp-spell" },
-        { "octaltree/cmp-look" },
-        { "hrsh7th/cmp-calc" },
-        { "hrsh7th/cmp-emoji" },
+        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+        { "rafamadriz/friendly-snippets" },
       },
       config = get_setup("cmp"),
     })
     use({ "kyazdani42/nvim-tree.lua", config = get_setup("tree") })
+use({
+      "rlane/pounce.nvim",
+      config = get_setup("pounce"),
+    })
     use({
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
@@ -118,7 +118,6 @@ return require("packer").startup({
       requires = {
         { "nvim-lua/popup.nvim" },
         { "nvim-lua/plenary.nvim" },
-        { "rmagatti/session-lens", requires = "rmagatti/auto-session" },
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
       config = get_setup("telescope"),
@@ -128,17 +127,12 @@ return require("packer").startup({
     use({ "tpope/vim-repeat" })
     use({ "tpope/vim-surround" })
     use({ "wellle/targets.vim" })
+    -- use({ "Shatur/neovim-session-manager", config = get_setup("session") })
     use({
-      "phaazon/hop.nvim",
-      event = "BufReadPre",
-      config = get_setup("hop"),
+      "rmagatti/session-lens",
+      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+      config = get_setup("session"),
     })
-    --use({"rmagatti/auto-session", config = get_setup("auto-session") })
-    --use({
-    --  "rmagatti/session-lens",
-    --  requires = {"rmagatti/auto-session","nvim-telescope/telescope.nvim"},
-    --  config = get_setup("session"),
-    -- })
     use({ "windwp/nvim-ts-autotag" })
 
     use({

@@ -2,4 +2,5 @@
 
 require("plugins")
 require("options")
+require("setup.spelling")
 require("mappings")
