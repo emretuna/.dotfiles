@@ -8,31 +8,26 @@ fi
 # install node
 nvm install node --lts
 
- # install homebrew
- 
-	 # install nix
-  curl -L https://nixos.org/nix/install | sh
+curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
 
-  # source nix
-  . ~/.nix-profile/etc/profile.d/nix.sh
-  export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
+curl -sLO https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb && sudo dpkg -i nvim-linuxx64.deb
+
+curl -sLO https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap_0.6.4_amd64.deb && sudo dpkg -i code-minimap_0.6.4_amd64.deb
+
+curl -sLO https://github.com/lando/lando/releases/download/v3.6.5/lando-x64-v3.6.5.deb && sudo dpkg -i lando-x64-v3.6.5.deb
 
   # install packages
-    nix-env -iA nixpkgs.glibcLocales\
-    nixpkgs.zsh \
-    nixpkgs.antibody \
-    nixpkgs.neovim \
-    nixpkgs.stow \
-    nixpkgs.yarn \
-    nixpkgs.fzf \
-    nixpkgs.fd \
-    nixpkgs.ripgrep \
-    nixpkgs.bat \
-    nixpkgs.direnv \
-    nixpkgs.bpytop \
-    nixpkgs.ranger \
-    nixpkgs.trash-cli \
-    nixpkgs.code-minimap
+    sudo apt install zsh \
+    stow \
+    yarn \
+    fzf \
+    fd-find \
+    ripgrep \
+    bat \
+    direnv \
+    bpytop \
+    ranger \
+    trash-cli 
      	
 	      
 
