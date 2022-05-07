@@ -15,6 +15,21 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 
+
+echo "Installing Brave repository key"
+		sudo apt install apt-transport-https curl		
+		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list		
+		echo "adding i3-gaps repo"
+		sudo add-apt-repository ppa:regolith-linux/release
+
+        sudo apt install brave-browser
+
+        # add u launcher
+        sudo add-apt-repository ppa:agornostal/ulauncher && sudo apt update && sudo apt install ulauncher && sudo apt install plank
+
+        
+
   # install packages
     brew install zsh \
     antibody \
@@ -45,6 +60,9 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 		stow bpytop
 		stow fonts
 		stow ranger
+        stow ulauncher
+        stow mpv
+        stow plank
 
  	#install required dependencies for building packages mostly
  	echo "installing bunch of packages to your `uname -n` desktop"
