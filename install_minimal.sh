@@ -8,26 +8,31 @@ fi
 # install node
 nvm install node --lts
 
-curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
-curl -sLO https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb && sudo dpkg -i nvim-linuxx64.deb
-
-curl -sLO https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap_0.6.4_amd64.deb && sudo dpkg -i code-minimap_0.6.4_amd64.deb
-
-curl -sLO https://github.com/lando/lando/releases/download/v3.6.5/lando-x64-v3.6.5.deb && sudo dpkg -i lando-x64-v3.6.5.deb
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 
   # install packages
-    sudo apt install zsh \
+    brew install zsh \
+    antibody \
+    neovim \
     stow \
     yarn \
     fzf \
-    fd-find \
+    fd \
     ripgrep \
     bat \
     direnv \
     bpytop \
     ranger \
-    trash-cli 
+    trash-cli \
+    code-minimap 
+    
+    
+    
      	
 	      
 

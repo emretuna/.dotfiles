@@ -26,16 +26,6 @@ cmp.setup({
       }),
       { "i", "c" }
     ),
-    ["<esc>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.abort()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "c",
-    }),
   },
   completion = {
     completeopt = "menu,menuone,noinsert",
@@ -68,15 +58,14 @@ cmp.setup({
   },
 })
 
-cmp.setup.cmdline("/", {
-  sources = {
-    { name = "buffer" },
-  },
-})
+-- cmp.setup.cmdline("/", {
+--   sources = {
+--     { name = "buffer" },
+--   },
+-- })
 
 cmp.setup.cmdline(":", {
   sources = cmp.config.sources({
     { name = "path" },
   }),
 })
-
