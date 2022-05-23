@@ -14,8 +14,6 @@ if [ ! -d ~/.nvm ]; then
 fi
 # install node
 nvm install node --lts
-
- # install homebrew
  
 	 # install nix
   curl -L https://nixos.org/nix/install | sh

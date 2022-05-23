@@ -18,7 +18,7 @@ opt.joinspaces = false -- No double spaces with join
 vim.o.lazyredraw = true
 opt.linebreak = true -- Stop words being broken on wrap
 opt.number = true -- Show line numbers
-opt.list = true -- Show some invisible characters
+opt.list = false -- Show some invisible characters
 opt.listchars = { tab = " ", trail = "·" }
 opt.relativenumber = true
 opt.scrolloff = 4 -- Lines of context

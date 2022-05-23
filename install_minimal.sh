@@ -8,13 +8,6 @@ fi
 # install node
 nvm install node --lts
 
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
-
 
 echo "Installing Brave repository key"
 		sudo apt install apt-transport-https curl		
@@ -30,21 +23,30 @@ echo "Installing Brave repository key"
 
         
 
+   # install nix
+  curl -L https://nixos.org/nix/install | sh
+
+  # source nix
+  . ~/.nix-profile/etc/profile.d/nix.sh
+
+  nix-env -iA nixpkgs.glibcLocales
+  export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
+
   # install packages
-    brew install zsh \
-    antibody \
-    neovim \
-    stow \
-    yarn \
-    fzf \
-    fd \
-    ripgrep \
-    bat \
-    direnv \
-    bpytop \
-    ranger \
-    trash-cli \
-    code-minimap 
+    nix-env -iA nixpkgs.zsh \
+    nixpkgs.antibody \
+    nixpkgs.neovim \
+    nixpkgs.stow \
+    nixpkgs.yarn \
+    nixpkgs.fzf \
+    nixpkgs.fd \
+    nixpkgs.ripgrep \
+    nixpkgs.bat \
+    nixpkgs.direnv \
+    nixpkgs.bpytop \
+    nixpkgs.ranger \
+    nixpkgs.trash-cli \
+    nixpkgs.code-minimap
     
     
     
