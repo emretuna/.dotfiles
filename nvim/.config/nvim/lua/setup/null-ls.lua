@@ -4,6 +4,9 @@ local lSsources = {
   null_ls.builtins.formatting.prettier.with({
     filetypes = {
       "javascript",
+      "javascriptreact",
+      "typescriptreact",
+      "vue",
       "typescript",
       "css",
       "scss",

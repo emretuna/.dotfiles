@@ -38,6 +38,12 @@ alias ls='ls -al'
 # Homebrew alias for daily management (MacOS)
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
+# Nix package manager update 
+alias nixup= 'sudo nix-channel --update'
+
+# Lando commands
+alias landopurge= 'lando poweroff && docker system prune -a --volumes && rm -rf ~/.lando/cache'
+
 # List out all globally installed npm packages
 alias list-npm-globals='npm list -g --depth=0'
 

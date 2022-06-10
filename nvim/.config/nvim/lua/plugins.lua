@@ -32,7 +32,6 @@ return require("packer").startup({
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", config = get_setup("bufferline") })
     use({ "akinsho/toggleterm.nvim", config = get_setup("toggleterm") })
     use({ "wfxr/minimap.vim" })
-    use({ "rafamadriz/friendly-snippets" })
     use({ "ahmedkhalf/project.nvim", config = get_setup("project") })
     use({ "kyazdani42/nvim-web-devicons" })
     use({
@@ -60,7 +59,6 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("colorizer"),
     })
-    -- Post-install/update hook with neovim command
     use({
       "nvim-treesitter/nvim-treesitter",
       config = get_setup("treesitter"),
@@ -83,13 +81,15 @@ return require("packer").startup({
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
         { "hrsh7th/vim-vsnip-integ" },
-        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+        { "f3fora/cmp-spell",
+	{ "hrsh7th/cmp-calc" },
+	{ "hrsh7th/cmp-emoji" } },
         { "rafamadriz/friendly-snippets" },
       },
       config = get_setup("cmp"),
     })
     use({ "kyazdani42/nvim-tree.lua", config = get_setup("tree") })
-use({
+    use({
       "rlane/pounce.nvim",
       config = get_setup("pounce"),
     })
@@ -104,7 +104,6 @@ use({
 
     use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
-    use({ "williamboman/nvim-lsp-installer", config = get_setup("installer") })
     use({
       "numToStr/Comment.nvim",
       opt = true,
@@ -134,7 +133,6 @@ use({
       config = get_setup("session"),
     })
     use({ "windwp/nvim-ts-autotag" })
-
     use({
       "winston0410/range-highlight.nvim",
       requires = { { "winston0410/cmd-parser.nvim" } },
