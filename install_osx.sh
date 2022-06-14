@@ -18,10 +18,7 @@ nvm install node --lts
   export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
 
   # install packages
-    nix-env -iA nixpkgs.glibcLocales\
-    nixpkgs.wget \
-    nixpkgs.php \
-    nixpkgs.zsh \
+    nix-env -iA nixpkgs.wget \
     nixpkgs.antibody \
     nixpkgs.neovim \
     nixpkgs.stow \
@@ -29,12 +26,11 @@ nvm install node --lts
     nixpkgs.fd \
     nixpkgs.ripgrep \
     nixpkgs.bat \
-    nixpkgs.bpytop \
     nixpkgs.ranger \
     nixpkgs.fzf \
     nixpkgs.direnv \
     nixpkgs.trash-cli \
-    nixpkgs.ueberzug     	
+    nixpkgs.code-minimap     	
 	      
 
 		cd ${HOME}/.dotfiles
@@ -43,8 +39,9 @@ nvm install node --lts
 		stow git
 		stow zsh
 		stow nvim
-		stow bpytop
 		stow ranger
+		stow fonts
+		stow kitty
 
 		echo "installing zsh and setting up things..."
 		# add zsh as a login shell
