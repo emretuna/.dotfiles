@@ -81,9 +81,7 @@ return require("packer").startup({
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
         { "hrsh7th/vim-vsnip-integ" },
-        { "f3fora/cmp-spell",
-	{ "hrsh7th/cmp-calc" },
-	{ "hrsh7th/cmp-emoji" } },
+        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
         { "rafamadriz/friendly-snippets" },
       },
       config = get_setup("cmp"),
@@ -104,6 +102,7 @@ return require("packer").startup({
 
     use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
     use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
+    use({ "williamboman/nvim-lsp-installer", config = get_setup("lsp-installer") })
     use({
       "numToStr/Comment.nvim",
       opt = true,
