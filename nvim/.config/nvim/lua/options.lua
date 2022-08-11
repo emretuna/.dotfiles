@@ -1,91 +1,70 @@
-local opt = vim.opt -- to set options
-opt.backspace = { "indent", "eol", "start" }
-opt.clipboard = "unnamedplus"
-opt.completeopt = "menu,menuone,noselect"
-opt.cursorline = true
-opt.cursorcolumn = true
-opt.encoding = "utf-8" -- Set default encoding to UTF-8
-opt.expandtab = true -- Use spaces instead of tabs
-opt.foldenable = false
-opt.foldmethod = "indent"
-opt.formatoptions = "l"
-opt.hidden = true -- Enable background buffers
-opt.hlsearch = true -- Highlight found searches
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "split" -- Get a preview of replacements
-opt.incsearch = true -- Shows the match while typing
-opt.joinspaces = false -- No double spaces with join
-vim.o.lazyredraw = true
-opt.linebreak = true -- Stop words being broken on wrap
-opt.number = true -- Show line numbers
-opt.list = false -- Show some invisible characters
-opt.listchars = { tab = " ", trail = "·" }
-opt.relativenumber = true
-opt.scrolloff = 4 -- Lines of context
-opt.shiftround = true -- Round indent
-opt.shiftwidth = 4 -- Size of an indent
-opt.showmode = false -- Don't display mode
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes:1" -- always show signcolumns
-opt.smartcase = true -- Do not ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
-opt.spelllang = { "en_gb" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
-opt.tabstop = 4 -- Number of spaces tabs count for
-opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
-opt.title = true -- Allows neovom to send the Terminal details of the current window, instead of just getting 'v'
-vim.g.do_filetype_lua = 1 -- new filetype detection
-vim.g.did_load_filetypes = 0
--- Give me some fenced codeblock goodness
-vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
-vim.o.whichwrap = vim.o.whichwrap .. "<,>" -- Wrap movement between lines in edit mode with arrows
-opt.wrap = true
--- opt.cc = "80"
-opt.mouse = "a"
-opt.guicursor =
-  "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20"
-opt.undodir = vim.fn.stdpath("config") .. "/undo"
-opt.undofile = true
+local settings = require("user-conf")
+local utils = require("functions")
+local o = vim.opt
+local wo = vim.wo
+local fn = vim.fn
 
-local api = vim.api
--- Highlight on yank
-local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-api.nvim_create_autocmd("TextYankPost", {
-  group = yankGrp,
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  desc = "Highlight yank",
-})
-
--- show cursor line only in active window
-local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
-api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
-api.nvim_create_autocmd(
-  { "InsertEnter", "WinLeave" },
-  { pattern = "*", command = "set nocursorline", group = cursorGrp }
-)
-
--- show cursor col line only in active window
-local cursorColGrp = api.nvim_create_augroup("CursorColumn", { clear = true })
-api.nvim_create_autocmd(
-  { "InsertLeave", "WinEnter" },
-  { pattern = "*", command = "set cursorcolumn", group = cursorColGrp }
-)
-api.nvim_create_autocmd(
-  { "InsertEnter", "WinLeave" },
-  { pattern = "*", command = "set nocursorcolumn", group = cursorColGrp }
-)
-
---vim.cmd([[colorscheme duskfox]]) -- Put your favorite colorscheme here
-
--- Deal with file loads after updating via git etc
-opt.autoread = true
--- trigger `autoread` when files changes on disk
-vim.cmd([[
-      autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-      autocmd FileChangedShellPost *
-        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-]])
+vim.cmd("set inccommand=split")
+o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
+o.updatetime = 300 -- faster completion
+o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
+o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
+o.backup = false -- creates a backup file
+o.swapfile = true -- enable/disable swap file creation
+o.dir = fn.stdpath("data") .. "/swp" -- swap file directory
+o.undofile = true -- enable/disable undo file creation
+o.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
+o.history = 500 -- Use the 'history' option to set the number of lines from command mode that are remembered.
+o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+o.fileencoding = "utf-8" -- the encoding written to a file
+o.conceallevel = 0 -- so that `` is visible in markdown files
+o.number = settings.number
+o.relativenumber = settings.relative_number
+o.cmdheight = 1 -- space for displaying messages/commands
+o.mouse = settings.mouse
+o.showmode = false -- we don't need to see things like -- INSERT -- anymore
+o.showtabline = 2 -- always show tabs
+if settings.global_statusline then
+  o.laststatus = 3
+else
+  o.laststatus = 2
+end
+o.smartcase = true -- smart case
+o.smartindent = true -- make indenting smarter again
+o.splitbelow = true -- force all horizontal splits to go below current window
+o.splitright = true -- force all vertical splits to go to the right of current window
+o.expandtab = true -- convert tabs to spaces
+o.shiftwidth = 2 -- the number of spaces inserted for each indentation
+o.tabstop = 2 -- how many columns a tab counts for
+o.termguicolors = true -- set term gui colors (most terminals support this)
+o.cursorline = true -- highlight the current line
+o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cursor
+o.sidescrolloff = 5 -- The minimal number of columns to scroll horizontally
+o.hlsearch = true -- highlight all matches on previous search pattern
+o.ignorecase = true -- ignore case in search patterns
+o.foldenable = false -- disable folding; enable with zi
+wo.foldcolumn = "1"
+wo.foldcolumn = "1"
+o.list = settings.list
+o.listchars = settings.listchars
+o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
+o.wildmode = "full"
+o.lazyredraw = true -- do not redraw screen while running macros
+if utils.isNotEmpty(settings.grepprg) then
+  o.grepprg = settings.grepprg
+end
+o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
+o.wildignorecase = true -- When set case is ignored when completing file names and directories
+o.wildignore = [[
+.git,.hg,.svn
+*.aux,*.out,*.toc
+*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
+*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
+*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
+*.mp3,*.oga,*.ogg,*.wav,*.flac
+*.eot,*.otf,*.ttf,*.woff
+*.doc,*.pdf,*.cbr,*.cbz
+*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
+*.swp,.lock,.DS_Store,._*
+*/tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/target/**,**.terraform/**"
+]]

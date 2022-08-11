@@ -10,9 +10,9 @@ nvm install node --lts
 
 
 echo "Installing Brave repository key"
-		sudo apt install apt-transport-https curl		
+		sudo apt install apt-transport-https curl
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list		
+		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 		echo "adding i3-gaps repo"
 		sudo add-apt-repository ppa:regolith-linux/release
 
@@ -21,7 +21,7 @@ echo "Installing Brave repository key"
         # add u launcher
         sudo add-apt-repository ppa:agornostal/ulauncher && sudo apt update && sudo apt install ulauncher && sudo apt install plank
 
-        
+
 
    # install nix
   curl -L https://nixos.org/nix/install | sh
@@ -46,12 +46,15 @@ echo "Installing Brave repository key"
     nixpkgs.bpytop \
     nixpkgs.ranger \
     nixpkgs.trash-cli \
-    nixpkgs.code-minimap
-    
-    
-    
-     	
-	      
+    nixpkgs.code-minimap \
+    nixpkgs.shellcheck \
+    nixpkgs.sumneko-lua-language-server \
+    nixpkgs.vale
+
+
+
+
+
 
 		cd ${HOME}/.dotfiles
 		echo "stowing files..."
@@ -68,7 +71,7 @@ echo "Installing Brave repository key"
 
  	#install required dependencies for building packages mostly
  	echo "installing bunch of packages to your `uname -n` desktop"
-  
+
   	echo "installing packages using default package manager"
 	sudo apt install -y gcc \
 	       make \
@@ -87,21 +90,20 @@ echo "Installing Brave repository key"
 		sudo chsh -s $(which zsh) $USER
 
 		echo "tweaking zsh..."
-		# bundle zsh plugins 
+		# bundle zsh plugins
 		antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
-		npm i -g vscode-langservers-extracted
-		npm i -g typescript typescript-language-server
+    sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted
 
 		echo "finish nvim set up..."
 		nvim --headless +PlugInstall +qall
 
 		echo "finishing..."
 		# Use kitty or Alacritty terminal on Linux
-		[ `uname -s` = 'Linux' ] && stow kitty 
-		
+		[ `uname -s` = 'Linux' ] && stow kitty
+
 		cd wallpapers
 		sudo mkdir /usr/share/backgrounds/wallpapers/
 		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
