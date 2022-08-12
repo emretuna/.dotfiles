@@ -58,6 +58,9 @@ packer.startup(function(use)
 
   use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
 
+
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = get_config("bufferline")}
+
   use({
     "nvim-lualine/lualine.nvim",
     config = get_config("lualine"),
@@ -136,8 +139,17 @@ packer.startup(function(use)
   })
 
   use("famiu/bufdelete.nvim")
-
-  use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
+  use ({
+    "williamboman/mason.nvim",
+    requires = {"williamboman/mason-lspconfig.nvim"},
+    config = function()
+      require("mason").setup({
+        automatic_installation = true,
+      })
+    end,
+  })
+  use({"neovim/nvim-lspconfig", config = get_config("lsp")})
+  use("mfussenegger/nvim-dap")
 
   use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
 
@@ -191,8 +203,12 @@ packer.startup(function(use)
 
   if settings.theme == "nightfox" then
     use({ "EdenEast/nightfox.nvim", config = get_config("nightfox") })
-  elseif settings.theme == "catppuccino" then
+  elseif settings.theme == "catppuccin" then
     use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
+  elseif settings.theme == "kanagawa" then
+    use({ "rebelot/kanagawa.nvim", as = "kanagawa", config = get_config("kanagawa") })
+  elseif settings.theme == "onedarkpro" then
+    use({ "olimorris/onedarkpro.nvim", as = "onedarkpro", config = get_config("onedarkpro") })
   else
     use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
   end
