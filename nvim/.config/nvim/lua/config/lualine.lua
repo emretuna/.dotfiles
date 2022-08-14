@@ -25,9 +25,9 @@ require("lualine").setup({
     lualine_b = {
       {
         "diagnostics",
-        on_click = function()
-          vim.diagnostic.setqflist()
-        end,
+        -- on_click = function() -- require nvim 8
+        --   vim.diagnostic.setqflist()
+        -- end,
         sources = { "nvim_diagnostic" },
         sections = { "error", "warn", "info", "hint" },
       },

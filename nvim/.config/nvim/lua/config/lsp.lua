@@ -1,5 +1,5 @@
 local nvim_lsp = require("lspconfig")
-
+local settings = require("user-conf")
 -- detect python venv
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
 local util = require("lspconfig/util")
@@ -29,14 +29,21 @@ capabilities.textDocument.foldingRange = {
 
 local servers = {
   "bashls",
-  "dockerls",
-  "jsonls",
   "pyright",
   "sumneko_lua",
   "terraformls",
   "texlab",
   "tsserver",
+  "html",
+  "solargraph",
+  "cssls",
+  "dockerls",
+  "jsonls",
   "yamlls",
+  "dartls",
+  "intelephense",
+  "phpactor",
+  "sumneko_lua",
 }
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
@@ -162,31 +169,188 @@ for _, lsp in ipairs(servers) do
       },
       cssls = {
         cmd = { "vscode-css-language-server", "--stdio" },
-          settings = {
-            scss = {
-              lint = {
-                idSelector = "warning",
-                zeroUnits = "warning",
-                duplicateProperties = "warning",
-              },
-              completion = {
-                completePropertyWithSemicolon = true,
-                triggerPropertyValueCompletion = true,
-              },
+        settings = {
+          scss = {
+            lint = {
+              idSelector = "warning",
+              zeroUnits = "warning",
+              duplicateProperties = "warning",
+            },
+            completion = {
+              completePropertyWithSemicolon = true,
+              triggerPropertyValueCompletion = true,
             },
           },
+        },
 
-          capabilities = capabilities,
-      }
+        capabilities = capabilities,
+      },
     },
     tsserver = {
-    capabilities = capabilities,
-    on_attach = function(client)
-      client.server_capabilities.document_formatting = false
-    end,
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+      end,
     },
     html = {
-          capabilities = capabilities,
+      capabilities = capabilities,
+    },
+    bashls = {
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.document_formatting = false
+      end,
+    },
+    phpactor = {
+      cmd = { "phpactor", "language-server" },
+      filetypes = { "php" },
+    },
+    intelephense = {
+      cmd = { "intelephense", "--stdio" },
+      filetypes = { "php" },
+      settings = {
+        intelephense = {
+          stubs = {
+            "bcmath",
+            "bz2",
+            "calendar",
+            "Core",
+            "curl",
+            "date",
+            "dba",
+            "dom",
+            "enchant",
+            "fileinfo",
+            "filter",
+            "ftp",
+            "gd",
+            "gettext",
+            "hash",
+            "iconv",
+            "imap",
+            "intl",
+            "json",
+            "ldap",
+            "libxml",
+            "mbstring",
+            "mcrypt",
+            "mysql",
+            "mysqli",
+            "password",
+            "pcntl",
+            "pcre",
+            "PDO",
+            "pdo_mysql",
+            "Phar",
+            "readline",
+            "recode",
+            "Reflection",
+            "regex",
+            "session",
+            "SimpleXML",
+            "soap",
+            "sockets",
+            "sodium",
+            "SPL",
+            "standard",
+            "superglobals",
+            "sysvsem",
+            "sysvshm",
+            "tokenizer",
+            "xml",
+            "xdebug",
+            "xmlreader",
+            "xmlwriter",
+            "yaml",
+            "zip",
+            "zlib",
+            "wordpress",
+            "woocommerce",
+            "acf-pro",
+            "wordpress-globals",
+            "wp-cli",
+            "genesis",
+            "polylang",
+          },
+          environment = {
+            includePaths = "/home/emretuna/.composer/vendor/php-stubs/", -- this line forces the composer path for the stubs in case inteliphense don't find it...
+          },
+          files = {
+            maxSize = 5000000,
+          },
+        },
+      },
+    },
+    tailwindcss = {
+      cmd = { "tailwindcss-language-server", "--stdio" },
+      filetypes = {
+        "aspnetcorerazor",
+        "astro",
+        "astro-markdown",
+        "blade",
+        "django-html",
+        "htmldjango",
+        "edge",
+        "eelixir",
+        "ejs",
+        "erb",
+        "eruby",
+        "gohtml",
+        "haml",
+        "handlebars",
+        "hbs",
+        "html",
+        "html-eex",
+        "heex",
+        "jade",
+        "leaf",
+        "liquid",
+        "markdown",
+        "mdx",
+        "mustache",
+        "njk",
+        "nunjucks",
+        "php",
+        "razor",
+        "slim",
+        "twig",
+        "css",
+        "less",
+        "postcss",
+        "sass",
+        "scss",
+        "stylus",
+        "sugarss",
+        "javascript",
+        "javascriptreact",
+        "reason",
+        "rescript",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+      },
+      init_options = {
+        userLanguages = {
+          eelixir = "html-eex",
+          eruby = "erb",
+        },
+      },
+      settings = {
+        tailwindCSS = {
+          classAttributes = { "class", "className", "classList", "ngClass" },
+          lint = {
+            cssConflict = "warning",
+            invalidApply = "error",
+            invalidConfigPath = "error",
+            invalidScreen = "error",
+            invalidTailwindDirective = "error",
+            invalidVariant = "error",
+            recommendedVariantOrder = "warning",
+          },
+          validate = true,
+        },
+      },
     },
     flags = { debounce_text_changes = 150 },
   })

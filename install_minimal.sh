@@ -49,8 +49,8 @@ echo "Installing Brave repository key"
     nixpkgs.code-minimap \
     nixpkgs.shellcheck \
     nixpkgs.sumneko-lua-language-server \
-    nixpkgs.vale
-
+    nixpkgs.vale \
+    nixpkgs.zoxide
 
 
 
@@ -95,7 +95,7 @@ echo "Installing Brave repository key"
 
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
-    sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted
+    sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted prettierd
 
 		echo "finish nvim set up..."
 		nvim --headless +PlugInstall +qall

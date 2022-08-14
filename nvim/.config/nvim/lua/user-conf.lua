@@ -1,5 +1,5 @@
 local M = {}
-
+M.userdir = "emretuna"
 -- theme: catppuccin/nightfox/kanagawa/onedarkpro
 M.theme = "catppuccin"
 -- Toggle global status line

@@ -58,8 +58,12 @@ packer.startup(function(use)
 
   use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
 
-
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = get_config("bufferline")}
+  use({
+    "akinsho/bufferline.nvim",
+    tag = "v2.*",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = get_config("bufferline"),
+  })
 
   use({
     "nvim-lualine/lualine.nvim",
@@ -139,26 +143,26 @@ packer.startup(function(use)
   })
 
   use("famiu/bufdelete.nvim")
-  use ({
-    "williamboman/mason.nvim",
-    requires = {"williamboman/mason-lspconfig.nvim"},
-    config = function()
-      require("mason").setup({
-        automatic_installation = true,
-      })
-    end,
-  })
-  use({"neovim/nvim-lspconfig", config = get_config("lsp")})
-  use("mfussenegger/nvim-dap")
-
-  use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
-
+  use({ "williamboman/mason.nvim", config = get_config("mason") })
+  use({ "williamboman/mason-lspconfig.nvim", config = get_config("mason-lspconfig") })
+  use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
+  use({ "mfussenegger/nvim-dap", config = get_config("dap") })
+  use("rcarriga/nvim-dap-ui")
+  use("theHamsta/nvim-dap-virtual-text")
+  use({ "folke/trouble.nvim", after = "nvim-lspconfig" })
   use({
     "jose-elias-alvarez/null-ls.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
     config = get_config("null-ls"),
   })
+  use({
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup({})
+    end,
+  })
 
+  use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
   use({
     "simrat39/symbols-outline.nvim",
     cmd = { "SymbolsOutline" },
@@ -252,13 +256,6 @@ packer.startup(function(use)
   use({ "SmiteshP/nvim-navic" })
 
   use({
-    "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup({})
-    end,
-  })
-
-  use({
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
     config = function()
@@ -297,12 +294,10 @@ packer.startup(function(use)
     end,
   })
 
-  use({"rlane/pounce.nvim"})
+  use({ "rlane/pounce.nvim" })
 
-  use({ "folke/zen-mode.nvim",
-    config = get_config("zen")
-  })
-
+  use({ "folke/zen-mode.nvim", config = get_config("zen") })
+  use({ "folke/twilight.nvim" })
 end)
 
 -- TODO: ????

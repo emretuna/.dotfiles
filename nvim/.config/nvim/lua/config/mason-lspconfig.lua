@@ -1,0 +1,23 @@
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "bashls",
+    "pyright",
+    "sumneko_lua",
+    "terraformls",
+    "texlab",
+    "tsserver",
+    "html",
+    "solargraph",
+    "cssls",
+    "dockerls",
+    "jsonls",
+    "yamlls",
+    "dartls",
+    "prettierd",
+    "intelephense",
+    "phpactor",
+    "prettier",
+    "prettierd",
+    "lua",
+  },
+})

@@ -12,13 +12,16 @@ require("nvim-treesitter.configs").setup({
     "toml",
     "yaml",
     "python",
+    "php",
+    "vue",
     -- "hcl",
     -- "java",
     -- "kotlin",
     -- "latex",
     -- "ledger",
     -- "go",
-     }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false,
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
