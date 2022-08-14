@@ -65,9 +65,9 @@ echo "Installing Brave repository key"
 		stow bpytop
 		stow fonts
 		stow ranger
-        stow ulauncher
-        stow mpv
-        stow plank
+    stow ulauncher
+    stow mpv
+    stow plank
 
  	#install required dependencies for building packages mostly
  	echo "installing bunch of packages to your `uname -n` desktop"
@@ -95,7 +95,7 @@ echo "Installing Brave repository key"
 
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
-    sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted prettierd
+    npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted prettierd
 
 		echo "finish nvim set up..."
 		nvim --headless +PlugInstall +qall

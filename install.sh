@@ -1,7 +1,7 @@
 cd ~
 # download dot files
 if [ ! -d ~/.dotfiles ]; then
-  echo "dotfiles download started..." 
+  echo "dotfiles download started..."
   git clone https://github.com/emretuna/.dotfiles
 fi
 
@@ -14,7 +14,7 @@ if [ ! -d ~/.nvm ]; then
 fi
 # install node
 nvm install node --lts
- 
+
 	 # install nix
   curl -L https://nixos.org/nix/install | sh
 
@@ -23,8 +23,7 @@ nvm install node --lts
   export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
 
   # install packages
-    nix-env -iA nixpkgs.glibcLocales\
-    nixpkgs.zsh \
+nix-env -iA nixpkgs.zsh \
     nixpkgs.antibody \
     nixpkgs.neovim \
     nixpkgs.stow \
@@ -37,23 +36,34 @@ nvm install node --lts
     nixpkgs.bpytop \
     nixpkgs.ranger \
     nixpkgs.trash-cli \
-    nixpkgs.code-minimap
-     	
-	      
+    nixpkgs.code-minimap \
+    nixpkgs.shellcheck \
+    nixpkgs.sumneko-lua-language-server \
+    nixpkgs.vale \
+    nixpkgs.zoxide
+
+
+
+
 
 		cd ${HOME}/.dotfiles
 		echo "stowing files..."
 		# stow dotfiles
-		stow git
+    stow git
 		stow zsh
 		stow nvim
 		stow bpytop
 		stow fonts
 		stow ranger
+    stow ulauncher
+    stow mpv
+    stow plank
+
+
 
  	#install required dependencies for building packages mostly
  	echo "installing bunch of packages to your `uname -n` desktop"
-  
+
   	echo "installing packages using default package manager"
 	sudo apt install -y gcc \
 	       make \
@@ -72,27 +82,27 @@ nvm install node --lts
 		sudo chsh -s $(which zsh) $USER
 
 		echo "tweaking zsh..."
-		# bundle zsh plugins 
+		# bundle zsh plugins
 		antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
-		npm i -g vscode-langservers-extracted
-		npm i -g typescript typescript-language-server
+
+     npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted prettierd
 
 		echo "finish nvim set up..."
 		nvim --headless +PlugInstall +qall
 
 		echo "finishing..."
 		# Use kitty or Alacritty terminal on Linux
-		[ `uname -s` = 'Linux' ] && stow kitty 
+		[ `uname -s` = 'Linux' ] && stow kitty
 
 
 
 		echo "Installing Brave repository key"
-		sudo apt install apt-transport-https curl		
+		sudo apt install apt-transport-https curl
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list		
+		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 		echo "adding i3-gaps repo"
 		sudo add-apt-repository ppa:regolith-linux/release
 
@@ -103,7 +113,7 @@ nvm install node --lts
 				    brave-browser \
 				    policykit-1-gnome \
 				    pavucontrol
-				    
+
 		echo "Install picom dependencies..."
 		sudo apt install -y libxext-dev \
 				libxcb1-dev \
@@ -131,12 +141,12 @@ nvm install node --lts
 				meson
 		echo "compiling picom"
 		cd ${HOME}/Downloads &&	git clone https://github.com/ibhagwan/picom.git
-		
+
 		cd ${HOME}/Downloads/picom
 		git submodule update --init --recursive
 		meson --buildtype=release . build
 		ninja -C build install
-		
+
 		echo "installing i3wm tools and required apps..."
 		sudo apt install -y rofi \
 				 nitrogen \
@@ -151,9 +161,9 @@ nvm install node --lts
 				 xdotool \
                  trash-cli \
 				 libinput-tools
-				 
+
 		sudo gpasswd -a $USER input && sudo gpasswd -a $USER video
-		
+
 		echo "pulling libinput-gestures"
 		cd ${HOME}/Downloads
 		git clone https://github.com/bulletmark/libinput-gestures.git
@@ -200,7 +210,7 @@ nvm install node --lts
         make -j$(nproc)
         # Optional. This will install the polybar executable in /usr/local/bin
         sudo make install
-				 
+
 		echo "stow i3 apps"
 		cd ${HOME}/.dotfiles
 		# Extra stuff for tiling wm
@@ -216,7 +226,7 @@ nvm install node --lts
 		stow polybar
 		stow picom
 		stow rofi
-		
+
 		cd wallpapers
 		sudo mkdir /usr/share/backgrounds/wallpapers/
 		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
