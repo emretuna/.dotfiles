@@ -1,5 +1,4 @@
-![Screenshot 1](./screenshots/1.png)
-![Screenshot 2](./screenshots/2.png)
+![Screenshot 1](./screenshots/screenshot.png)
 
 # Important
   Directly use of this repo may conflict with your OS. Repo maintained for personal purposes only, you may get idea using these configurations you are warned :)
