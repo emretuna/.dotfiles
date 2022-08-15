@@ -15,6 +15,7 @@ exec --no-startup-id wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 11
 set $term kitty
+set $altterm gnome-terminal
 # set the mod key to the winkey:
 set $mod Mod4
 
@@ -187,8 +188,8 @@ bindsym $mod+r mode "resize"
 ## I3 basics
 
 # start a terminal
-bindsym $mod+Return exec $term
-
+bindsym $mod+Shift+Return exec $term
+bindsym $mod+Return exec $altterm
 # kill focused window
 bindsym $mod+q kill
 
@@ -272,7 +273,7 @@ for_window [title="^.*- Notes - Visual Studio Code$"] mark "vscode-notes", move 
 bindsym $mod+Tab [con_mark="vscode-notes"] scratchpad show
 
 # Ranger File Manager
-bindsym $mod+Shift+Return exec kitty -e ranger
+bindsym $mod+Shift+n exec kitty -e ranger
 
 ## Multimedia Keys
 
@@ -324,7 +325,7 @@ bindsym $mod+n exec /usr/bin/nemo
 bindsym Print       exec flameshot full
 bindsym Shift+Print exec flameshot gui
 # open new empty workspace
-bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace.sh
+bindsym $mod+Shift+Backspace exec ~/.config/i3/scripts/empty_workspace.sh
 
 
 ##########################################
