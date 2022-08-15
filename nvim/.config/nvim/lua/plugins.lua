@@ -71,6 +71,7 @@ packer.startup(function(use)
     event = "VimEnter",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
+  use({ "SmiteshP/nvim-navic" })
 
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
@@ -253,8 +254,6 @@ packer.startup(function(use)
     config = get_config("alpha-nvim"),
   })
 
-  use({ "SmiteshP/nvim-navic" })
-
   use({
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
@@ -293,9 +292,6 @@ packer.startup(function(use)
       require("focus").setup()
     end,
   })
-
-  use({ "rlane/pounce.nvim" })
-
   use({ "folke/zen-mode.nvim", config = get_config("zen") })
   use({ "folke/twilight.nvim" })
 end)

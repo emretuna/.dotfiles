@@ -87,19 +87,13 @@ wk.register({
   sF = "Find left surrounding",
   sf = "Replace right surrounding",
   ss = { "<Plug>Lightspeed_s", "Search 2-character forward" },
-  -- SS = {"<Plug>Lightspeed_S", "Search 2-character backward"}
+  SS = { "<Plug>Lightspeed_S", "Search 2-character backward" },
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
 -- Register all leader based mappings
 wk.register({
   ["<Tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
-  ["<leader>"] = {
-    name = "Leader",
-    h = { "<cmd>Pounce<cr>", "Pounce" },
-    H = { "<cmd>PounceRepeat<cr>", "Pounce Repeat" },
-    t = { "\"=strftime('%c')<CR>Pa", " Print Time" },
-  },
   b = {
     name = "Buffers",
     b = {
@@ -141,6 +135,7 @@ wk.register({
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
     t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
     z = { "<cmd>ZenMode<cr>", "Zen Mode" },
+    x = { "<cmd>ZenMode<cr>", "Zen Mode" },
   },
   q = {
     name = "Quickfix",

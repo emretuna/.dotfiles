@@ -44,6 +44,7 @@ local servers = {
   "intelephense",
   "phpactor",
   "sumneko_lua",
+  "tailwindcss",
 }
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
@@ -273,7 +274,7 @@ for _, lsp in ipairs(servers) do
             "polylang",
           },
           environment = {
-            includePaths = "/home/emretuna/.composer/vendor/php-stubs/", -- this line forces the composer path for the stubs in case inteliphense don't find it...
+            includePaths = "/home/" .. settings.userdir .. "/.composer/vendor/php-stubs/", -- this line forces the composer path for the stubs in case inteliphense don't find it...
           },
           files = {
             maxSize = 5000000,

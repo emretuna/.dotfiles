@@ -19,5 +19,6 @@ require("mason-lspconfig").setup({
     "prettier",
     "prettierd",
     "lua",
+    "tailwindcss",
   },
 })
