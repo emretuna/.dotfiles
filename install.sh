@@ -104,13 +104,19 @@ nix-env -iA nixpkgs.zsh \
 		sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 		echo "adding i3-gaps repo"
-		sudo add-apt-repository ppa:regolith-linux/release
+		wget -qO - https://regolith-desktop.org/regolith.key | \
+gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
+
+echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
+https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
+sudo tee /etc/apt/sources.list.d/regolith.list
 
 		#continue
 		echo "Updating package lists"
 		sudo apt update
 		sudo apt install -y i3-gaps \
 				    brave-browser \
+                    polybar \
 				    policykit-1-gnome \
 				    pavucontrol
 
@@ -164,52 +170,7 @@ nix-env -iA nixpkgs.zsh \
 
 		sudo gpasswd -a $USER input && sudo gpasswd -a $USER video
 
-		echo "pulling libinput-gestures"
-		cd ${HOME}/Downloads
-		git clone https://github.com/bulletmark/libinput-gestures.git
-		cd libinput-gestures
-		sudo ./libinput-gestures-setup install
-
-        echo "Install Polybar depeendencies"
-
-        cd ${HOME}/Downloads
-        sudo apt install build-essential \
-                               git \
-                               cmake \
-                               cmake-data \
-                               pkg-config \
-                               python3-sphinx \
-                               python3-packaging \
-                               libuv1-dev \
-                               libcairo2-dev \
-                               libxcb1-dev \
-                               libxcb-util0-dev \
-                               libxcb-randr0-dev \
-                               libxcb-composite0-dev \
-                               python3-xcbgen \
-                               xcb-proto \
-                               libxcb-image0-dev \
-                               libxcb-ewmh-dev \
-                               libxcb-icccm4-dev \
-                               libjsoncpp-dev \
-                               libxcb-xkb-dev \
-                               libxcb-xrm-dev \
-                               libxcb-cursor-dev \
-                               libasound2-dev \
-                               libpulse-dev \
-                               libjsoncpp-dev \
-                               libmpdclient-dev \
-                               libcurl4-openssl-dev \
-                               libnl-genl-3-dev
-
-        git clone --recursive https://github.com/polybar/polybar
-        cd polybar
-        mkdir build
-        cd build
-        cmake ..
-        make -j$(nproc)
-        # Optional. This will install the polybar executable in /usr/local/bin
-        sudo make install
+    
 
 		echo "stow i3 apps"
 		cd ${HOME}/.dotfiles

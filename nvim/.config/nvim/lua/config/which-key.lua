@@ -135,7 +135,7 @@ wk.register({
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
     t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
     z = { "<cmd>ZenMode<cr>", "Zen Mode" },
-    x = { "<cmd>:Twilight<cr>", "Zen Mode" },
+    x = { "<cmd>:Twilight<cr>", "Twilight" },
   },
   q = {
     name = "Quickfix",

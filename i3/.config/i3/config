@@ -14,7 +14,7 @@ exec --no-startup-id wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 11
-set $term kitty 
+set $term kitty
 # set the mod key to the winkey:
 set $mod Mod4
 
@@ -48,9 +48,9 @@ floating_maximum_size 1500 x 1500
 for_window [class=".*"] border pixel 0
 
 # Gaps (Outer gaps are added to the inner gaps)
-gaps inner 12
-gaps outer 12 
-gaps top 55
+gaps inner 8
+gaps outer 8
+gaps top 35
 
 # Only enable gaps on a workspace when there is at least one container
 #smart_gaps on
@@ -63,7 +63,11 @@ floating_modifier $mod
 
 # Disable gap on secondary monitor
 workspace $ws9 gaps top 10
+workspace $ws9 gaps inner 2
+workspace $ws9 gaps outer 2
 workspace $ws10 gaps top 10
+workspace $ws10 gaps inner 2
+workspace $ws10 gaps outer 2
 
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
@@ -93,15 +97,15 @@ bindcode $mod+90 workspace 10
 # We use variables to avoid repeating the names in multiple places.
 
 set $ws1 "1:"
-set $ws2 "2:" 
-set $ws3 "3:" 
-set $ws4 "4:" 
-set $ws5 "5:" 
-set $ws6 "6:" 
-set $ws7 "7:" 
-set $ws8 "8:" 
-set $ws9 "9:" 
-set $ws10 "10:" 
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -111,7 +115,7 @@ workspace $ws2 output HDMI-0
 workspace $ws3 output HDMI-0
 workspace $ws4 output HDMI-0
 workspace $ws5 output HDMI-0
-workspace $ws6 output HDMI-0 
+workspace $ws6 output HDMI-0
 workspace $ws7 output HDMI-0
 workspace $ws8 output HDMI-0
 workspace $ws9 output DPI-1
@@ -127,15 +131,16 @@ assign [class="Nautilus|Nemo|Thunar"] $ws2
 assign [class="Geary"] $ws3
 assign [class="TelegramDesktop|Discord|Zoom"] $ws4
 assign [class="Binance|Cryptowatch"] $ws5
-assign [class="Spotify"] $ws6
+assign [class="Spotify|mpv|celluloid"] $ws6
 
 # automatic set focus new window if it opens on another workspace then the current:
-# for_window [class=(?i)kitty] focus
-# for_window [class=(?i)brave-browser|(?i)firefox] focus
-# for_window [class=nautilus|nemo|thunar] focus
-# for_window [class=Geary] focus
-# for_window [class=TelegramDesktop|Discord|Zoom] focus
-# for_window [class=Binance|Cryptowatch] focus
+for_window [class=(?i)kitty] focus
+for_window [class=(?i)brave-browser|(?i)firefox] focus
+for_window [class=nautilus|nemo|thunar] focus
+for_window [class=Geary] focus
+for_window [class=TelegramDesktop|Discord|Zoom] focus
+for_window [class=Binance|Cryptowatch] focus
+for_window [class=Spotify|mpv|celluloid] focus
 
 
 # move focused container to workspace
@@ -201,7 +206,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-## Window movements 
+## Window movements
 
 # special combo for horizontal split of two windows next to each other
 bindsym $mod+Shift+t split h, layout splith, focus right, move left, focus left
@@ -266,14 +271,14 @@ bindcode $mod+49 [con_mark="discord"] scratchpad show
 for_window [title="^.*- Notes - Visual Studio Code$"] mark "vscode-notes", move scratchpad
 bindsym $mod+Tab [con_mark="vscode-notes"] scratchpad show
 
-# Ranger File Manager 
+# Ranger File Manager
 bindsym $mod+Shift+Return exec kitty -e ranger
 
 ## Multimedia Keys
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ 
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- 
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 
 bindsym XF86AudioMute exec pamixer -t && notify-send "mute: $(pamixer --get-mute)"
 
@@ -358,7 +363,7 @@ exec --no-startup-id nm-applet
 # Do not follow mouse focus
 #focus_follows_mouse yes
 
-# Startup daemons for compositor 
+# Startup daemons for compositor
 exec_always --no-startup-id ~/.config/picom/startpicom.sh
 
 # Polybar
@@ -367,7 +372,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Start seaf-cli daemon
 exec --no-startup-id seaf-cli start
 
-## Workspace Rules 
+## Workspace Rules
 assign [class="Lxappearance|Nitrogen"] 6
 assign [class="Xfce4-power-manager-settings"] 6
 
@@ -391,7 +396,7 @@ for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
 ######################################
 
 # Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
@@ -403,7 +408,7 @@ set_from_resource $color8 i3wm.color8 #f0f0f0
 
 
 # class                 border  backgr. text    indicator  child_border
-client.focused          #4C7899 $color2 #FFFFFF #2E9EF4   #ff833a 
+client.focused          #4C7899 $color2 #FFFFFF #2E9EF4   #ff833a
 client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #333333 #color0 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
