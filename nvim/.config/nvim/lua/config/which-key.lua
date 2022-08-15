@@ -111,7 +111,6 @@ wk.register({
     b = { "<cmd>Telescope file_browser<cr>", "File browser" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     l = { "<cmd>Lf<cr>", "Open LF" },
-    p = { "<cmd>NvimTreeToggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     n = { "<cmd>enew<cr>", "New File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
@@ -119,6 +118,7 @@ wk.register({
     z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
   },
   g = { "Git" },
+  e = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
   m = {
     name = "Misc",
     a = {
@@ -135,7 +135,7 @@ wk.register({
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
     t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
     z = { "<cmd>ZenMode<cr>", "Zen Mode" },
-    x = { "<cmd>ZenMode<cr>", "Zen Mode" },
+    x = { "<cmd>:Twilight<cr>", "Zen Mode" },
   },
   q = {
     name = "Quickfix",
