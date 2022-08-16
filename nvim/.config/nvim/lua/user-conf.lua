@@ -1,7 +1,7 @@
 local M = {}
 M.userdir = "emretuna"
--- theme: catppuccin/nightfox/kanagawa/onedarkpro
-M.theme = "catppuccin"
+-- theme: catppuccin/nightfox/kanagawa/onedarkpro/pywal
+M.theme = "pywal"
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep

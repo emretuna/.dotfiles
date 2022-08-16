@@ -214,6 +214,8 @@ packer.startup(function(use)
     use({ "rebelot/kanagawa.nvim", as = "kanagawa", config = get_config("kanagawa") })
   elseif settings.theme == "onedarkpro" then
     use({ "olimorris/onedarkpro.nvim", as = "onedarkpro", config = get_config("onedarkpro") })
+  elseif settings.theme == "pywal" then
+    use({ "AlphaTechnolog/pywal.nvim", as = "pywal", config = get_config("pywal")  })
   else
     use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
   end
