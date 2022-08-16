@@ -1,28 +1,28 @@
 {
-    "wallpaper": "/usr/share/backgrounds/wallpapers/99842.png",
+    "wallpaper": "/usr/share/backgrounds/wallpapers/sleepy_mountains_light_v01.png",
     "alpha": "100",
 
     "special": {
-        "background": "#101322",
-        "foreground": "#e2caca",
-        "cursor": "#e2caca"
+        "background": "#000916",
+        "foreground": "#e6dad7",
+        "cursor": "#e6dad7"
     },
     "colors": {
-        "color0": "#101322",
-        "color1": "#716779",
-        "color2": "#89647C",
-        "color3": "#7A6A84",
-        "color4": "#8D748B",
-        "color5": "#AC7789",
-        "color6": "#AA909D",
-        "color7": "#e2caca",
-        "color8": "#9e8d8d",
-        "color9": "#716779",
-        "color10": "#89647C",
-        "color11": "#7A6A84",
-        "color12": "#8D748B",
-        "color13": "#AC7789",
-        "color14": "#AA909D",
-        "color15": "#e2caca"
+        "color0": "#000916",
+        "color1": "#92907B",
+        "color2": "#EBAD76",
+        "color3": "#A99F8B",
+        "color4": "#D7B799",
+        "color5": "#E1C2B3",
+        "color6": "#EFC6B2",
+        "color7": "#e6dad7",
+        "color8": "#a19896",
+        "color9": "#92907B",
+        "color10": "#EBAD76",
+        "color11": "#A99F8B",
+        "color12": "#D7B799",
+        "color13": "#E1C2B3",
+        "color14": "#EFC6B2",
+        "color15": "#e6dad7"
     }
 }
