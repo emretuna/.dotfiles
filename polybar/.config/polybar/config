@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222} 
+background = ${xrdb:color0:#222}
 foreground = ${xrdb:color7:#222}
 primary = #02c084
 secondary = #65a2d9
@@ -29,7 +29,7 @@ alert = #ed404c
 
 [bar/main]
 width = 100%:-48
-height = 36 
+height = 36
 offset-x = 24
 offset-y = 24
 radius = 0.5
@@ -51,9 +51,9 @@ module-margin-right = 1
 font-0 = DejaVuSansMono Nerd Font:pixelsize=11:antialias=true;2.5
 font-1 =  Iosevka:style=Regular:pixelsize=12:antialias=true;3
 
-modules-left = i3 spotify 
-modules-center = xwindow 
-modules-right = filesystem memory backlight audio system-bluetooth-bluetoothctl wlan battery lan date 
+modules-left = i3 spotify
+modules-center = xwindow
+modules-right = filesystem memory backlight audio system-bluetooth-bluetoothctl wlan battery lan date
 
 enable-ipc = true
 
@@ -134,11 +134,11 @@ interface = wlp4s0
 interval = 3.0
 
 format-connected = <label-connected>
-label-connected = "%{A1:gnome-control-center wifi:} %{A}"
+label-connected = "%{A1:~/.config/rofi/scripts/wifimenu.sh wifi:} %{A}"
 label-connected-foreground = ${colors.primary}
 
 format-disconnected = <label-disconnected>
-label-disconnected = "%{A1:gnome-control-center wifi:}睊 %{A}"
+label-disconnected = "%{A1:~/.config/rofi/scripts/wifimenu.sh wifi:}睊 %{A}"
 label-disconnected-foreground = ${colors.alert}
 
 [module/lan]
@@ -185,7 +185,7 @@ click-right = pavucontrol
 format-volume = <ramp-volume>
 label-volume-foreground = ${colors.secondary}
 ramp-volume-foreground = ${colors.secondary}
-label-volume = 
+label-volume =
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -228,7 +228,7 @@ full-at = 98
 format-charging = <ramp-capacity>
 format-discharging = <ramp-capacity> <label-discharging>
 
-label-full =  
+label-full = 
 label-full-foreground = ${colors.fourth}
 
 ramp-capacity-0 = 
@@ -243,7 +243,7 @@ ramp-capacity-8 = 
 ramp-capacity-9 = 
 ramp-capacity-foreground = ${colors.fourth}
 
-label-discharging = %percentage% 
+label-discharging = %percentage%
 label-discharging-foreground = ${colors.fourth}
 label-charging-foreground = ${colors.fourth}
 
@@ -256,7 +256,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-bottom = 5 
-margin-top = 5 
+margin-bottom = 5
+margin-top = 5
 
 ; vim:ft=dosini
