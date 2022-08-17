@@ -156,6 +156,7 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 		echo "installing i3wm tools and required apps..."
 		sudo apt install -y rofi \
 				 nitrogen \
+         feh \
 				 arandr \
 				 playerctl \
 				 lxappearance \
@@ -170,7 +171,7 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 
 		sudo gpasswd -a $USER input && sudo gpasswd -a $USER video
 
-    
+
 
 		echo "stow i3 apps"
 		cd ${HOME}/.dotfiles
