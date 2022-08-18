@@ -109,12 +109,12 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser<cr>", "File browser" },
+    c = { "<cmd>:%y<CR>", "Select All" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     l = { "<cmd>Lf<cr>", "Open LF" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     n = { "<cmd>enew<cr>", "New File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
-    S = { "<cmd>ggVG<c-$>", "Select All" },
     z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
   },
   g = { "Git" },

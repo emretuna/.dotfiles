@@ -20,7 +20,8 @@ set $term kitty
 set $altterm gnome-terminal
 # set the mod key to the winkey:
 set $mod Mod4
-
+set $Lmon HDMI-0
+set $Rmon DPI-1
 #####################
 # workspace layout: #
 #####################
@@ -66,14 +67,10 @@ gaps top 55
 floating_modifier $mod
 
 # Disable gap on secondary monitor
-workspace $ws9 gaps top 4
-# workspace $ws9 gaps bottom 4
-workspace $ws9 gaps inner 2
-workspace $ws9 gaps outer 2
-workspace $ws10 gaps top 4
-# workspace $ws10 gaps bottom 4
-workspace $ws10 gaps inner 2
-workspace $ws10 gaps outer 2
+ workspace $ws10 gaps top 4
+ workspace $ws10 gaps bottom 4
+ workspace $ws10 gaps inner 2
+ workspace $ws10 gaps outer 2
 
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
@@ -116,16 +113,16 @@ set $ws10 "10:"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
-workspace $ws6 output HDMI-0
-workspace $ws7 output HDMI-0
-workspace $ws8 output HDMI-0
-workspace $ws9 output DPI-1
-workspace $ws10 output DPI-1
+workspace $ws1 output $Lmon
+workspace $ws2 output $Lmon
+workspace $ws3 output $Lmon
+workspace $ws4 output $Lmon
+workspace $ws5 output $Lmon
+workspace $ws6 output $Lmon
+workspace $ws7 output $Lmon
+workspace $ws8 output $Lmon
+workspace $ws9 output $Lmon
+workspace $ws10 output $Rmon
 
 
 
@@ -361,14 +358,14 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # num lock activated
-exec --no-startup-id numlockx off
+exec --no-startup-id numlockx on
 
 #networkmanager-applet
 exec --no-startup-id nm-applet
 
 # Do not follow mouse focus
 #focus_follows_mouse yes
-
+focus_wrapping no
 # Startup daemons for compositor
 exec_always --no-startup-id ~/.config/picom/startpicom.sh
 
