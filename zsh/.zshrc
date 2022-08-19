@@ -49,7 +49,7 @@ source $HOME/.zshrc.d/.functions
 source $HOME/.zshrc.d/.aliases
 
 
-# <C-f> to search most common projects (personal, work) and 
+# <C-f> to search most common projects (personal, work) and
 # open selected in a tmux session. source: The Primeagen
 bindkey -s ^p "tmux-sessionizer\n"
 
