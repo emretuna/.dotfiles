@@ -95,7 +95,7 @@ echo "Installing Brave repository key"
 
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
-    npm i -g intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted prettierd
+    npm i -g intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
 
 		echo "finish nvim set up..."
 		nvim --headless +PlugInstall +qall
@@ -110,3 +110,6 @@ echo "Installing Brave repository key"
     #install rust cargo
 	curl https://sh.rustup.rs -sSf | sh
 	echo "DONE BOSS!SEE YA!"
+
+  echo "Install stylua"
+  cargo install stylua

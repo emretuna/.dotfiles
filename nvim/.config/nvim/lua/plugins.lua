@@ -71,7 +71,6 @@ packer.startup(function(use)
     event = "VimEnter",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
-  use({ "SmiteshP/nvim-navic" })
 
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
@@ -163,6 +162,7 @@ packer.startup(function(use)
     end,
   })
 
+  use({ "SmiteshP/nvim-navic", requires = { "neovim/nvim-lspconfig" } })
   use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
   use({
     "simrat39/symbols-outline.nvim",
@@ -215,7 +215,7 @@ packer.startup(function(use)
   elseif settings.theme == "onedarkpro" then
     use({ "olimorris/onedarkpro.nvim", as = "onedarkpro", config = get_config("onedarkpro") })
   elseif settings.theme == "pywal" then
-    use({ "AlphaTechnolog/pywal.nvim", as = "pywal", config = get_config("pywal")  })
+    use({ "AlphaTechnolog/pywal.nvim", as = "pywal", config = get_config("pywal") })
   else
     use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
   end

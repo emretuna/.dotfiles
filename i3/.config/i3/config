@@ -198,7 +198,7 @@ bindsym $mod+q kill
 # exit-menu
 bindsym $mod+Shift+e exec rofi -modi 'Powermenu:~/.config/rofi/scripts/powermenu.sh' -show Powermenu -theme '~/.cache/wal/powermenu.rasi' -icon-theme "RosePine"
 
-bindsym $mod+Shift+w exec rofi -modi 'Wifimenu:~/.config/rofi/scripts/wifimenu.sh' -show Wifimenu -theme '~/.cache/wal/wifimenu.rasi' -icon-theme "RosePine"
+bindsym $mod+Shift+w exec ~/.config/rofi/scripts/wifimenu.sh
 # Lock the system
 ## lock by blurring the screen:
 bindsym $mod+o exec ~/.config/i3/scripts/blur-lock.sh

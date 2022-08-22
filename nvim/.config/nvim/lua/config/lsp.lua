@@ -1,5 +1,7 @@
 local nvim_lsp = require("lspconfig")
 local settings = require("user-conf")
+local navic = require("nvim-navic")
+
 -- detect python venv
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
 local util = require("lspconfig/util")
@@ -22,6 +24,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- enable folding capabilities for nvim-ufo
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
@@ -205,6 +208,10 @@ for _, lsp in ipairs(servers) do
     phpactor = {
       cmd = { "phpactor", "language-server" },
       filetypes = { "php" },
+      init_options = {
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
+      },
     },
     intelephense = {
       cmd = { "intelephense", "--stdio" },

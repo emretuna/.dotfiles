@@ -25,7 +25,7 @@ require("nvim-tree").setup({
     show_on_dirs = false,
     icons = { hint = "", info = "", warning = "", error = "" },
   },
-  git = { enable = true, ignore = true, timeout = 400 },
+  git = { enable = true, ignore = false, timeout = 400 },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
