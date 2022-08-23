@@ -75,6 +75,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	       ffmpeg \
 	       git \
          xlip \
+
+
+cd wallpapers
+		sudo mkdir /usr/share/backgrounds/wallpapers/
+		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
+
 else
         echo "Os unknown, Install some packages by yourself" # Unknown.
 fi
@@ -105,10 +111,7 @@ fi
 		# Use kitty or Alacritty terminal on Linux
 		[ `uname -s` = 'Linux' ] && stow kitty
 
-		cd wallpapers
-		sudo mkdir /usr/share/backgrounds/wallpapers/
-		sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
-    #install rust cargo
+		    #install rust cargo
 	curl https://sh.rustup.rs -sSf | sh
 	echo "DONE BOSS!SEE YA!"
 
