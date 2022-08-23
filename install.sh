@@ -1,9 +1,4 @@
 cd ~
-# download dot files
-if [ ! -d ~/.dotfiles ]; then
-  echo "dotfiles download started..."
-  git clone https://github.com/emretuna/.dotfiles
-fi
 
 if [ ! -d ~/.nvm ]; then
   echo "nvm install started..."
@@ -16,15 +11,22 @@ fi
 nvm install node --lts
 
 	 # install homebrew
+if ! command -v brew &>/dev/null; then
+  pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
+    pretty_print "Put Homebrew location earlier in PATH ..."
+      printf '\n# recommended by brew doctor\n' >> ~/.zshrc
+      printf 'export PATH="/usr/local/bin:$PATH"\n' >> ~/.zshrc
+      export PATH="/usr/local/bin:$PATH"
+  fi
+else
+  pretty_print "You already have Homebrew installed...good job!"
+fi
 
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-
-  # install packages
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+# install packages
 brew install zsh \
               antibody \
               neovim \
@@ -85,6 +87,7 @@ brew install zsh \
 		# bundle zsh plugins
 		antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
+    echo 'PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
 		echo "started installing node packages..."
 		# install neovim plugins and requirements
 
