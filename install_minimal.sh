@@ -65,7 +65,7 @@ brew install zsh \
 
  	#install required dependencies for building packages mostly
  	echo "installing bunch of packages to your `uname -n` desktop"
-
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   	echo "installing packages using default package manager"
     sudo apt install -y gcc \
 	       make \
@@ -75,7 +75,9 @@ brew install zsh \
 	       ffmpeg \
 	       git \
          xlip \
-
+else
+        echo "Os unknown, Install some packages by yourself" # Unknown.
+fi
 
 		echo "installing zsh and setting up things..."
 		# add zsh as a login shell
