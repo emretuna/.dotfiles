@@ -45,6 +45,7 @@ brew install zsh \
               lua-language-server \
               vale \
               zoxide \
+              stylua
 
 
 

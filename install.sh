@@ -43,7 +43,8 @@ brew install zsh \
               code-minimap \
               lua-language-server \
               vale \
-              zoxide
+              zoxide \
+              stylua
 
 
 

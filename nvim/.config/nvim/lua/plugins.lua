@@ -98,7 +98,7 @@ packer.startup(function(use)
     },
     config = get_config("cmp"),
   })
-
+  use({ "princejoogie/tailwind-highlight.nvim" })
   use({ "rafamadriz/friendly-snippets" })
   use({
     "L3MON4D3/LuaSnip",
