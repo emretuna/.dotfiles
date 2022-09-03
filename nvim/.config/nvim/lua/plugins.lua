@@ -38,7 +38,7 @@ packer.init({
 
 packer.startup(function(use)
   -- actual plugins list
-  use({"wbthomason/packer.nvim",  version = '1.0.0'})
+  use({ "wbthomason/packer.nvim" })
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -97,7 +97,7 @@ packer.startup(function(use)
     },
     config = get_config("cmp"),
   })
-
+  use({ "princejoogie/tailwind-highlight.nvim" })
   use({ "rafamadriz/friendly-snippets" })
   use({
     "L3MON4D3/LuaSnip",

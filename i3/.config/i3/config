@@ -9,6 +9,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 # Start pywal from wallpaper directory
 #exec --no-startup-id wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/dunst/launch_dunst.sh"
 
+exec --no-startup-id ~/.config/wal/startup.sh
 exec --no-startup-id wal -R
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -318,8 +319,7 @@ bindsym $mod+p exec ~/.config/i3/scripts/switch_audio_sink.sh
 exec --no-startup-id xset s 480 dpms 600 600 600
 
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec  wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/dunst/launch_dunst.sh"
-
+bindsym $mod+Shift+u exec ~/.config/i3/scripts/pywal.sh
 #App shortcuts
 bindsym $mod+w exec /usr/bin/brave-browser
 bindsym $mod+n exec /usr/bin/nemo

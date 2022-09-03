@@ -46,7 +46,7 @@ brew install zsh \
               zoxide \
               languagetool \
               shellcheck
-
+              stylua \
 
 
 
