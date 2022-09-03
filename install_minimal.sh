@@ -45,7 +45,9 @@ brew install zsh \
               lua-language-server \
               vale \
               zoxide \
-              languagetool
+              languagetool,
+              shellcheck
+
 
 
 
