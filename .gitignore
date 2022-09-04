@@ -4,6 +4,10 @@ wal/.cache/wal/schemes
 
 
 vscode/.vscode-profiles/**/extensions/**
+!vscode/.vscode-profiles/**/extensions
+
 
 vscode/.vscode-profiles/**/data/**
+
+!vscode/.vscode-profiles/**/data/
 !vscode/.vscode-profiles/**/data/User/*.json
