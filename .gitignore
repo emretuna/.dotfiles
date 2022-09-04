@@ -7,5 +7,8 @@ vscode/.vscode-profiles/**/extensions/*
 
 vscode/.vscode-profiles/**/data/*
 
+vscode/.vscode-profiles/**/data/User/globalStorate
+vscode/.vscode-profiles/**/data/User/workspaceStorage
+
 !vscode/.vscode-profiles/**/data/User/
 !!vscode/.vscode-profiles/**/data/User/settings.json
