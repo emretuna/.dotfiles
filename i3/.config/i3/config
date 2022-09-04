@@ -129,7 +129,7 @@ workspace $ws10 output $Rmon
 
 
 # bind program to workspace and focus to them on startup:
-assign [class="kitty"] $ws10
+assign [class="kitty|vscode"] $ws10
 assign [class="(?i)brave-browser|(?i)firefox"] $ws1
 assign [class="Nautilus|Nemo|Thunar"] $ws2
 assign [class="Geary"] $ws3
@@ -138,7 +138,7 @@ assign [class="Binance|Cryptowatch"] $ws5
 assign [class="Spotify|mpv|celluloid"] $ws6
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class=(?i)kitty] focus
+for_window [class=(?i)kitty|vscode] focus
 for_window [class=(?i)brave-browser|(?i)firefox] focus
 for_window [class=nautilus|nemo|thunar] focus
 for_window [class=Geary] focus
@@ -262,11 +262,11 @@ bindsym $mod+a focus parent
 ## Scratchpad
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+y move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
-
+bindsym $mod+y scratchpad show
+bindsym $mod+Shift+o [class="kitty"] scratchpad show; move position center
 # discord
 for_window [class="discord"] mark "discord", move scratchpad
 bindcode $mod+49 [con_mark="discord"] scratchpad show

@@ -123,7 +123,8 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 				    brave-browser \
                     polybar \
 				    policykit-1-gnome \
-				    pavucontrol
+				    pavucontrol \
+            scrot
 
 		echo "Install picom dependencies..."
 		sudo apt install -y libxext-dev \

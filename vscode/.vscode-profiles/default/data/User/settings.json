@@ -113,5 +113,6 @@
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "window.menuBarVisibility": "hidden"
 }
