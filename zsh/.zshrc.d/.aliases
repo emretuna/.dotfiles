@@ -73,6 +73,7 @@ alias ymp3='youtube-dl --extract-audio --audio-format mp3'
 alias ssh='env TERM=xterm-256color ssh'
 
 # Vscode profiles, let's speed it up with per project type configuration
+alias coded='code --user-data-dir ~/.vscode-profiles/default/data --extensions-dir ~/.vscode-profiles/default/extensions'
 alias codepress='code --user-data-dir ~/.vscode-profiles/wordpress/data --extensions-dir ~/.vscode-profiles/wordpress/extensions'
 alias codevel='code --user-data-dir ~/.vscode-profiles/laravel/data --extensions-dir ~/.vscode-profiles/laravel/extensions'
 alias codevue='code --user-data-dir ~/.vscode-profiles/vue/data --extensions-dir ~/.vscode-profiles/vue/extensions'
