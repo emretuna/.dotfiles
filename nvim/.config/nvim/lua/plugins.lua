@@ -80,6 +80,8 @@ packer.startup(function(use)
     run = ":TSUpdate",
   })
 
+  use("sunjon/shade.nvim")
+
   use("nvim-treesitter/nvim-treesitter-textobjects")
 
   use("RRethy/nvim-treesitter-endwise")
