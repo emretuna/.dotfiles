@@ -1,7 +1,9 @@
 nvim/.config/nvim/plugin/packer_compiled.lua
 nvim/.config/nvim/undo
 wal/.cache/wal/schemes
-vscode/.vscode-profiles/*
+
+vscode/.vscode-profiles/
+
 
 !vscode/.vscode-profiles/laravel/data/User/settings.json
 !vscode/.vscode-profiles/laravel/data/User/extensions.txt
