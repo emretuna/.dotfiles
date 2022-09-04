@@ -1,6 +1,6 @@
 {
   "telemetry.telemetryLevel": "off",
-  "workbench.colorTheme": "Wal",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "editor.semanticHighlighting.enabled": false,
   "workbench.iconTheme": "helium-icon-theme",
   "editor.fontFamily": "Iosevka, Fira Code Retina,Menlo, Monaco, 'Courier New', monospace",
@@ -72,14 +72,7 @@
   "autoimport.filesToScan": "**/*.{jsx,js,vue,ts,tsx}",
   "autoimport.useSemiColon": false,
   "editor.minimap.enabled": false,
-  "googleTranslateExt.languages": [
-    "en",
-    "ar",
-    "tr",
-    "fa",
-    "de",
-    "es"
-  ],
+  "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es"],
   "googleTranslateExt.replaceText": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -102,24 +95,14 @@
   "vim.statusBarColorControl": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "leader",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save",
-      ]
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"]
     }
   ],
   "vim.surround": true,
@@ -130,5 +113,5 @@
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "explorer.confirmDelete": false,
+  "explorer.confirmDelete": false
 }
