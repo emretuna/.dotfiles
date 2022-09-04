@@ -1,20 +1,13 @@
 nvim/.config/nvim/plugin/packer_compiled.lua
 nvim/.config/nvim/undo
 wal/.cache/wal/schemes
-vscode/.vscode-profiles/*
 
-!vscode/.vscode-profiles/laravel/data/User/settings.json
-!vscode/.vscode-profiles/laravel/data/User/extensions.txt
-!vscode/.vscode-profiles/laravel/data/User/install.sh
 
-!vscode/.vscode-profiles/react/data/User/settings.json
-!vscode/.vscode-profiles/react/data/User/extensions.txt
-!vscode/.vscode-profiles/react/data/User/install.sh
+vscode/.vscode-profiles/**/extensions/*
 
-!vscode/.vscode-profiles/vue/data/User/settings.json
-!vscode/.vscode-profiles/vue/data/User/extensions.txt
-!vscode/.vscode-profiles/vue/data/User/install.sh
+vscode/.vscode-profiles/**/data/*
 
-!vscode/.vscode-profiles/wordpress/data/User/settings.json
-!vscode/.vscode-profiles/wordpress/data/User/extensions.txt
-!vscode/.vscode-profiles/wordpress/data/User/install.sh
+vscode/.vscode-profiles/**/data/User/**/
+
+!vscode/.vscode-profiles/**/data/User/
+!!vscode/.vscode-profiles/**/data/User/settings.json
