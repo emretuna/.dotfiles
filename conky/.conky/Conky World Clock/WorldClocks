@@ -1,0 +1,42 @@
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color black
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 20
+gap_y 20
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+
+
+minimum_size 0 0
+TEXT
+${voffset -20}${color 6C4649}${font GE Inspira:pixelsize=150}${time %d}${voffset -20}${font GE Inspira:pixelsize=22}${offset 80}${time %B}${alignr}${time %Y}${font}
+${font GE Inspira:pixelsize=78}${alignr}${time %A}${font}
+${color 986361}${voffset -20}${font GE Inspira:pixelsize=42}
+London               ${alignc}${tztime Europe/London %H:%M}
+Tokyo                  ${alignc}${tztime Asia/Tokyo %H:%M}
+Honk Kong         ${alignc}${tztime Asia/Honk_Kong %H:%M}
+New York            ${alignc}${tztime America/New_York %H:%M}

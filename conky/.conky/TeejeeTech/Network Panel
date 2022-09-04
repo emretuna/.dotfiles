@@ -1,0 +1,62 @@
+# **********************************************************************
+# "CPU Panel (8-core)" theme for Conky by Tony George (teejee2008@gmail.com)
+#
+# Webpage: http://teejeetech.blogspot.in/
+# **********************************************************************
+
+
+background yes
+double_buffer yes
+
+alignment bottom_left
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 650
+gap_y 30
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 170 0
+stippled_borders 0
+update_interval 2.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=10
+color0 white
+color1 EAEAEA
+color2 FFA300
+color3 grey
+
+TEXT
+${color2}Download ${color0}${alignr}${downspeedf eth0} KiB/s
+${downspeedgraph eth0 80,}
+${color2}Upload ${color0}${alignr}${upspeedf eth0} KiB/s 
+${upspeedgraph eth0 80,} 
+${color2}Local${color0}${alignr}${addrs}
+${color2}Public${color0}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}

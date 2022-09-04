@@ -1,0 +1,63 @@
+﻿# **********************************************************************
+# Simple theme for Conky by Tony George (teejee2008@gmail.com)
+#
+# Webpage: http://teejeetech.blogspot.in/
+# **********************************************************************
+
+background yes
+double_buffer yes
+
+alignment bottom_left
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 850
+gap_y 40
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 51
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 200 220
+
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=10
+override_utf8_locale yes
+color0 white
+color1 EAEAEA
+color2 FFA300
+color3 grey
+
+TEXT
+${color2}GPU Temp ${alignr}${color0}${nvidia temp} °C
+${color2}Fan Speed ${alignr}${color0}${execi 5 nvidia-settings -q [fan:0]/GPUCurrentFanSpeed -t} %
+${color2}GPU Clock ${alignr}${color0}${nvidia gpufreq} MHz
+${color2}Mem Clock ${alignr}${color0}${nvidia memfreq} MHz
+${color2}Mem Used ${alignr}${color0}${execi 5 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB
+${image ./nvidia.png -p 0,90 -s 200x132}
