@@ -1,8 +1,0 @@
-nvim/.config/nvim/plugin/packer_compiled.lua
-nvim/.config/nvim/undo
-wal/.cache/wal/schemes
-
-
-vscode/.vscode-profiles/**/extensions/*
-!vscode/.vscode-profiles/**/data/User/*.json
-vscode/.vscode-profiles/**/data/*
