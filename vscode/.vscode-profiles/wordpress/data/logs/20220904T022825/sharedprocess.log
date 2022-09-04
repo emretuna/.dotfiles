@@ -1,0 +1,32 @@
+[2022-09-04 02:28:27.832] [sharedprocess] [info] Starting worker process with pid 85899 (type: fileWatcher, window: 1).
+[2022-09-04 02:29:38.398] [sharedprocess] [info] Getting Manifest... ms-toolsai.jupyter
+[2022-09-04 02:29:38.406] [sharedprocess] [info] Installing extension: ms-toolsai.jupyter
+[2022-09-04 02:29:38.669] [sharedprocess] [info] Getting Manifest... ms-toolsai.jupyter-keymap
+[2022-09-04 02:29:39.375] [sharedprocess] [info] Getting Manifest... ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:40.127] [sharedprocess] [info] Installing extension: ms-toolsai.jupyter-keymap
+[2022-09-04 02:29:40.127] [sharedprocess] [info] Installing extension: ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:41.536] [sharedprocess] [info] Downloaded extension: ms-toolsai.jupyter-keymap /Users/emretuna/.vscode-profiles/wordpress/data/CachedExtensionVSIXs/ms-toolsai.jupyter-keymap-1.0.0
+[2022-09-04 02:29:41.577] [sharedprocess] [info] Extracted extension to /Users/emretuna/.vscode-profiles/wordpress/extensions/.c9c1a08b-4cb8-4f81-aee4-1311c5b4931b: ms-toolsai.jupyter-keymap
+[2022-09-04 02:29:41.594] [sharedprocess] [info] Renamed to /Users/emretuna/.vscode-profiles/wordpress/extensions/ms-toolsai.jupyter-keymap-1.0.0
+[2022-09-04 02:29:41.601] [sharedprocess] [info] Extracting completed. ms-toolsai.jupyter-keymap
+[2022-09-04 02:29:42.452] [sharedprocess] [info] Downloaded extension: ms-toolsai.jupyter-renderers /Users/emretuna/.vscode-profiles/wordpress/data/CachedExtensionVSIXs/ms-toolsai.jupyter-renderers-1.0.9
+[2022-09-04 02:29:42.729] [sharedprocess] [info] Extracted extension to /Users/emretuna/.vscode-profiles/wordpress/extensions/.d47d771f-281a-455e-b00d-948a929de09f: ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:42.748] [sharedprocess] [info] Renamed to /Users/emretuna/.vscode-profiles/wordpress/extensions/ms-toolsai.jupyter-renderers-1.0.9
+[2022-09-04 02:29:42.751] [sharedprocess] [info] Extracting completed. ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:46.572] [sharedprocess] [info] Downloaded extension: ms-toolsai.jupyter /Users/emretuna/.vscode-profiles/wordpress/data/CachedExtensionVSIXs/ms-toolsai.jupyter-2022.8.1002431955
+[2022-09-04 02:29:47.556] [sharedprocess] [info] Extracted extension to /Users/emretuna/.vscode-profiles/wordpress/extensions/.9c43d912-fcb4-46e8-97f4-c584d0a9e432: ms-toolsai.jupyter
+[2022-09-04 02:29:47.572] [sharedprocess] [info] Renamed to /Users/emretuna/.vscode-profiles/wordpress/extensions/ms-toolsai.jupyter-2022.8.1002431955
+[2022-09-04 02:29:47.591] [sharedprocess] [info] Extracting completed. ms-toolsai.jupyter
+[2022-09-04 02:29:47.596] [sharedprocess] [info] Extension installed successfully: ms-toolsai.jupyter-keymap
+[2022-09-04 02:29:47.596] [sharedprocess] [info] Extension installed successfully: ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:47.596] [sharedprocess] [info] Extension installed successfully: ms-toolsai.jupyter
+[2022-09-04 02:29:57.920] [sharedprocess] [info] Uninstalling extension: ms-toolsai.jupyter-renderers@1.0.9
+[2022-09-04 02:29:58.219] [sharedprocess] [info] Detected extension removed from another source ms-toolsai.jupyter-renderers
+[2022-09-04 02:29:58.304] [sharedprocess] [info] Successfully uninstalled extension: ms-toolsai.jupyter-renderers@1.0.9
+[2022-09-04 02:30:00.215] [sharedprocess] [info] Uninstalling extension: ms-toolsai.jupyter-keymap@1.0.0
+[2022-09-04 02:30:00.611] [sharedprocess] [info] Successfully uninstalled extension: ms-toolsai.jupyter-keymap@1.0.0
+[2022-09-04 02:30:02.728] [sharedprocess] [info] Worker process with pid 85899 terminated normally (type: fileWatcher, window: 1).
+[2022-09-04 02:30:03.785] [sharedprocess] [info] Starting worker process with pid 85983 (type: fileWatcher, window: 1).
+[2022-09-04 02:30:13.893] [sharedprocess] [info] Worker process with pid 85983 terminated normally (type: fileWatcher, window: 1).
+[2022-09-04 02:36:01.681] [sharedprocess] [info] Starting worker process with pid 86798 (type: fileWatcher, window: 3).
+[2022-09-04 02:36:03.818] [sharedprocess] [info] Worker process with pid 86798 terminated normally (type: fileWatcher, window: 3).

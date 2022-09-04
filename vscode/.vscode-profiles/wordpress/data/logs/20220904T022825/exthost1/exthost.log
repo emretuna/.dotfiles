@@ -1,0 +1,28 @@
+[2022-09-04 02:28:27.758] [exthost] [info] Extension host with pid 85897 started
+[2022-09-04 02:28:27.825] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+[2022-09-04 02:28:27.871] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-09-04 02:28:27.873] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-09-04 02:28:27.875] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-09-04 02:28:27.894] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-09-04 02:28:27.910] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-09-04 02:28:27.931] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+[2022-09-04 02:28:27.981] [exthost] [info] Eager extensions activated
+[2022-09-04 02:28:27.990] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-04 02:28:27.995] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-04 02:29:48.855] [exthost] [info] ExtensionService#_doActivateExtension ms-toolsai.jupyter, startup: false, activationEvent: 'onWalkthrough:jupyterWelcome'
+[2022-09-04 02:29:49.856] [exthost] [info] ExtensionService#_doActivateExtension ms-toolsai.jupyter-renderers, startup: false, activationEvent: 'api', root cause: ms-toolsai.jupyter
+[2022-09-04 02:30:02.712] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-09-04 02:30:02.721] [exthost] [info] Extension host with pid 85897 exiting with code 0
+[2022-09-04 02:30:04.638] [exthost] [info] Extension host with pid 85984 started
+[2022-09-04 02:30:04.845] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+[2022-09-04 02:30:04.889] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-09-04 02:30:04.891] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-09-04 02:30:04.893] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-09-04 02:30:04.940] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-09-04 02:30:04.959] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-09-04 02:30:04.974] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+[2022-09-04 02:30:05.007] [exthost] [info] Eager extensions activated
+[2022-09-04 02:30:05.025] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-04 02:30:05.031] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-04 02:30:13.755] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-09-04 02:30:13.762] [exthost] [info] Extension host with pid 85984 exiting with code 0

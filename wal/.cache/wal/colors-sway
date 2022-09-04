@@ -1,0 +1,21 @@
+set $wallpaper /usr/share/backgrounds/wallpapers/j3mv3q.png
+
+set $background #0a0c16
+set $foreground #cacddd
+
+set $color0 #0a0c16
+set $color1 #3B508B
+set $color2 #676E93
+set $color3 #A1648D
+set $color4 #7887B2
+set $color5 #7890C4
+set $color6 #9A97AC
+set $color7 #cacddd
+set $color8 #8d8f9a
+set $color9 #3B508B
+set $color10 #676E93
+set $color11 #A1648D
+set $color12 #7887B2
+set $color13 #7890C4
+set $color14 #9A97AC
+set $color15 #cacddd

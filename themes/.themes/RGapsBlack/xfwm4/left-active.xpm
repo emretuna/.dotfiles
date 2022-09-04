@@ -1,0 +1,7 @@
+/* XPM */
+static char * left_active_xpm[] = {
+"11 1 2 1",
+"#	c #000000",
+" 	c None",
+"     ######"};
+/* RMG 20170401 */

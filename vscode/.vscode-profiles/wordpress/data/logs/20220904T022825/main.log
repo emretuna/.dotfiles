@@ -1,0 +1,9 @@
+[2022-09-04 02:28:25.432] [main] [info] update#setState idle
+[2022-09-04 02:28:26.939] [main] [info] Starting extension host with pid 85897 (fork() took 5 ms).
+[2022-09-04 02:28:55.436] [main] [info] update#setState checking for updates
+[2022-09-04 02:28:55.714] [main] [info] update#setState idle
+[2022-09-04 02:30:02.740] [main] [info] Extension host with pid 85897 exited with code: 0, signal: null.
+[2022-09-04 02:30:03.781] [main] [info] Starting extension host with pid 85984 (fork() took 2 ms).
+[2022-09-04 02:30:13.867] [main] [info] Extension host with pid 85984 exited with code: 0, signal: null.
+[2022-09-04 02:36:01.677] [main] [info] Starting extension host with pid 86797 (fork() took 1 ms).
+[2022-09-04 02:36:03.818] [main] [info] Extension host with pid 86797 exited with code: 0, signal: null.

@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# List all files colorized in long format
+alias l="ls -l --color"
+
+# List all files colorized in long format, excluding . and ..
+alias ll="ls -lA --color"
+
+# List only directories
+alias lsd="ls -l --color | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls --color"
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Bundle zsh plugins via antibody
+alias antibody-reload='antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh'
+
+# Colored 'ls' MacOS
+alias ls='ls -al'
+
+# Homebrew alias for daily management (MacOS)
+alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
+
+# Lando commands
+alias landopurge= 'lando poweroff && docker system prune -a --volumes && rm -rf ~/.lando/cache'
+
+# List out all globally installed npm packages
+alias list-npm-globals='npm list -g --depth=0'
+
+# Adds better handling for `rm` using trash-cli
+# https://github.com/sindresorhus/trash-cli
+# You can empty the trash using the empty-trash command
+# https://github.com/sindresorhus/empty-trash-cli
+alias rm='trash'
+
+# use neovim instead of vim
+alias vim='nvim'
+
+# checkout branch using fzf
+alias gcob='git branch | fzf | xargs git checkout'
+
+# open vim config from anywhere
+alias vimrc='vim ${HOME}/.config/nvim/init.vim'
+
+# cat -> bat
+alias cat='bat'
+
+# IP addresses
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ipa="ip -c a"
+
+alias ymp3='youtube-dl --extract-audio --audio-format mp3'
+
+
+# Alacritty ssh : https://github.com/alacritty/alacritty/issues/3443
+alias ssh='env TERM=xterm-256color ssh'
+
+# Vscode profiles, let's speed it up with per project type configuration
+alias codewordpress='code --user-data-dir ~/.vscode-profiles/wordpress/data --extensions-dir ~/.vscode-profiles/wordpress/extensions'
+alias codelaravel='code --user-data-dir ~/.vscode-profiles/laravel/data --extensions-dir ~/.vscode-profiles/laravel/extensions'
+alias codevue='code --user-data-dir ~/.vscode-profiles/vue/data --extensions-dir ~/.vscode-profiles/vue/extensions'
+alias codereact='code --user-data-dir ~/.vscode-profiles/react/data --extensions-dir ~/.vscode-profiles/react/extensions'
