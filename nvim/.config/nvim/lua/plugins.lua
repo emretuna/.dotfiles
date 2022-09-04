@@ -38,7 +38,7 @@ packer.init({
 
 packer.startup(function(use)
   -- actual plugins list
-  use("wbthomason/packer.nvim")
+  use({ "wbthomason/packer.nvim" })
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -57,7 +57,6 @@ packer.startup(function(use)
   use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
 
   use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
-
   use({
     "akinsho/bufferline.nvim",
     tag = "v2.*",
@@ -138,12 +137,15 @@ packer.startup(function(use)
   use({ "tpope/vim-fugitive" }) -- yeah this is not lua but one of the best Vim plugins ever
 
   use("p00f/nvim-ts-rainbow")
-
   use({
     "kevinhwang91/nvim-bqf",
-    requires = { { "junegunn/fzf", module = "nvim-bqf" }, config = get_config("nvim-bqf") },
+    requires = {
+      "junegunn/fzf",
+      module = "nvim-bqf",
+    },
+    ft = "qf",
+    config = get_config("nvim-bqf"),
   })
-
   use("famiu/bufdelete.nvim")
   use({ "williamboman/mason.nvim", config = get_config("mason") })
   use({ "williamboman/mason-lspconfig.nvim", config = get_config("mason-lspconfig") })

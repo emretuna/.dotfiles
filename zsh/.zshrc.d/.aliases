@@ -63,11 +63,17 @@ alias vimrc='vim ${HOME}/.config/nvim/init.vim'
 alias cat='bat'
 
 # IP addresses
-alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ipa="ip -c a"
 
-alias ymp3="youtube-dl --extract-audio --audio-format mp3"
+alias ymp3='youtube-dl --extract-audio --audio-format mp3'
 
 
 # Alacritty ssh : https://github.com/alacritty/alacritty/issues/3443
 alias ssh='env TERM=xterm-256color ssh'
+
+# Vscode profiles, let's speed it up with per project type configuration
+alias codewordpress='code --user-data-dir ~/.vscode-profiles/wordpress/data --extensions-dir ~/.vscode-profiles/wordpress/extensions'
+alias codelaravel='code --user-data-dir ~/.vscode-profiles/laravel/data --extensions-dir ~/.vscode-profiles/laravel/extensions'
+alias codevue='code --user-data-dir ~/.vscode-profiles/vue/data --extensions-dir ~/.vscode-profiles/vue/extensions'
+alias codereact='code --user-data-dir ~/.vscode-profiles/react/data --extensions-dir ~/.vscode-profiles/react/extensions'
