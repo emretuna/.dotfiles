@@ -12,20 +12,20 @@ configuration {
 @import "colors.rasi"
 
 * {
-    color0:     #06070C;
-    color1:     #A6563A;
-    color2:     #9C655D;
-    color3:     #B4896F;
-    color4:     #EC9850;
-    color5:     #CF9572;
-    color6:     #947982;
-    color7:     #e2c9bd;
-    color8:     #9e8c84;
-    color9:     #A6563A;
-    fg:         #e2c9bd;
-    bg:         #06070C;
-    selected-background: #9C655D;
-    selected-foreground: #e2c9bd;
+    color0:     #1d2731;
+    color1:     #C18E78;
+    color2:     #596C86;
+    color3:     #6A748D;
+    color4:     #8C7987;
+    color5:     #A27E82;
+    color6:     #7187A1;
+    color7:     #c7bbbe;
+    color8:     #8b8285;
+    color9:     #C18E78;
+    fg:         #c7bbbe;
+    bg:         #1d2731;
+    selected-background: #596C86;
+    selected-foreground: #c7bbbe;
 }
 
 #window {
