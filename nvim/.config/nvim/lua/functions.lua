@@ -36,14 +36,13 @@ end
 
 -- toggle colorcolumn
 M.toggle_colorcolumn = function()
-  local value = vim.inspect(vim.opt.colorcolumn:get())
-  print(value)
-  if value == "{}" then
+  local value = vim.api.nvim_get_option_value("colorcolumn", {})
+  if value == "" then
     M.notify("Enable colocolumn", "info", "functions.lua")
-    vim.opt.colorcolumn = "79"
+    vim.api.nvim_set_option_value("colorcolumn", "79", {})
   else
     M.notify("Disable colocolumn", "info", "functions.lua")
-    vim.opt.colorcolumn = {}
+    vim.api.nvim_set_option_value("colorcolumn", "", {})
   end
 end
 
@@ -106,38 +105,29 @@ function M.bufdelete(bufnum)
   require("bufdelete").bufdelete(bufnum, true)
 end
 
--- when there is no buffer left show Alpha dashboard
-vim.api.nvim_create_augroup("alpha_on_empty", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-  pattern = "BDeletePre",
-  group = "alpha_on_empty",
-  callback = function(event)
-    local found_non_empty_buffer = false
-    local buffers = M.get_listed_buffers()
+-- sets the winbar with nvim-navic location
+-- inspired by https://github.com/fgheng/winbar.nvim
+function M.show_winbar()
+  -- prevent crashing after initial setup
+  local ok, _ = pcall(require, "nvim-navic")
+  if ok then
+    local navic = require("nvim-navic")
+    if navic.is_available() then
+      -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+      local location = navic.get_location()
+      local value = "%#WinBarSeparator#" .. "%=" .. " " .. "%*" .. location .. "%#WinBarSeparator#" .. " " .. "%*"
 
-    for _, bufnr in ipairs(buffers) do
-      if not found_non_empty_buffer then
-        local name = vim.api.nvim_buf_get_name(bufnr)
-        local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-
-        if bufnr ~= event.buf and name ~= "" and ft ~= "Alpha" then
-          found_non_empty_buffer = true
-        end
-      end
+      vim.api.nvim_set_option_value("winbar", value, { scope = "local" })
+    else
+      vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
     end
-
-    if not found_non_empty_buffer then
-      vim.cmd([[:Alpha]])
-    end
-  end,
-})
+  end
+end
 
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
-  client.server_capabilities.document_formatting = false
-  client.server_capabilities.document_range_formatting = false
-  -- enable illuminate to intelligently highlight
-  require("illuminate").on_attach(client)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
   -- enable navic for displaying current code context
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
@@ -157,7 +147,6 @@ function M.custom_lsp_attach(client, bufnr)
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition" },
       e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
       -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-      f = { "<cmd>lua require('functions').toggle_autoformat()<cr>", "Toggle format on save" },
       i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
       k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
       l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },

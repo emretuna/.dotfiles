@@ -34,8 +34,8 @@ require("go").setup({
           c = { "<cmd>GoCoverage<cr>", "Test coverage" },
           g = { "<cmd>lua require('go.comment').gen()<cr>", "Generate comment" },
           v = { "<cmd>GoVet<cr>", "Go vet" },
-          t = { "<cmd>GoModTidy", "Go mod tidy" },
-          i = { "<cmd>GoModInit", "Go mod init" },
+          t = { "<cmd>GoModTidy<cr>", "Go mod tidy" },
+          i = { "<cmd>GoModInit<cr>", "Go mod init" },
         },
         i = { "<cmd>GoToggleInlay<cr>", "Toggle inlay" },
         l = { "<cmd>GoLint<cr>", "Run linter" },
@@ -111,8 +111,8 @@ require("go").setup({
   dap_debug = false, -- set to false to disable dap
   dap_debug_keymap = false, -- true: use keymap for debugger defined in go/dap.lua
   -- false: do not use keymap in go/dap.lua.  you must define your own.
-  dap_debug_gui = true, -- set to true to enable dap gui, highly recommended
-  dap_debug_vt = true, -- set to true to enable dap virtual text
+  dap_debug_gui = false, -- set to true to enable dap gui, highly recommended
+  dap_debug_vt = false, -- set to true to enable dap virtual text
   build_tags = "", -- set default build tags
   textobjects = true, -- enable default text jobects through treesittter-text-objects
   test_runner = "go", -- richgo, go test, richgo, dlv, ginkgo

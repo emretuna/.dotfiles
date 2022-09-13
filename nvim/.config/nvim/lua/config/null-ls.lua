@@ -1,48 +1,53 @@
--- Here is the formatting config
+local nls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require("null-ls")
-local lSsources = {
-  null_ls.builtins.formatting.prettierd.with({
-    filetypes = {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "vue",
-      "css",
-      "scss",
-      "less",
-      "html",
-      "json",
-      "jsonc",
-      "yaml",
-      "markdown",
-      "graphql",
-      "handlebars",
-      "svelte",
-      "md",
-      "txt",
-    },
-  }),
-  null_ls.builtins.formatting.stylua.with({
-    filetypes = {
-      "lua",
-    },
-    args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
-  }),
-}
 
-require("null-ls").setup({
-  sources = lSsources,
+nls.setup({
+  sources = {
+    -- debug = true,
+    -- root_dir = utils.root_pattern("composer.json", "package.json", "Makefile", ".git"), -- Add composer
+    diagnostics_format = "#{m} (#{c}) [#{s}]", -- Makes PHPCS errors more readeable
+    nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
+    nls.builtins.diagnostics.eslint_d,
+    nls.builtins.formatting.prettier.with({
+      extra_args = { "--single-quote", "false" },
+    }),
+    nls.builtins.formatting.terraform_fmt,
+    nls.builtins.formatting.black,
+    nls.builtins.formatting.goimports,
+    nls.builtins.formatting.gofumpt,
+    nls.builtins.formatting.latexindent.with({
+      extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
+    }),
+    nls.builtins.code_actions.shellcheck,
+    nls.builtins.diagnostics.vale,
+    nls.builtins.diagnostics.markdownlint.with({
+            extra_args = { "--disable", "line-length" },
+    }), -- Install it with `npm i -g markdownlint-cli`
+    nls.builtins.diagnostics.phpcs.with({ -- Use the local installation first
+            only_local = "vendor/bin",
+    }),
+    nls.builtins.formatting.markdownlint,
+    nls.builtins.formatting.phpcbf.with({
+            prefer_local = "vendor/bin",
+    }),
+  },
   on_attach = function(client, bufnr)
+    local wk = require("which-key")
+    local default_options = { silent = true }
+    wk.register({
+      m = {
+        F = { "<cmd>lua require('functions').toggle_autoformat()<cr>", "Toggle format on save" },
+      },
+    }, { prefix = "<leader>", mode = "n", default_options })
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.formatting_seq_sync()
-          -- vim 8 needs this vim.lsp.buf.format({ bufnr = bufnr })
+          if AUTOFORMAT_ACTIVE then -- global var defined in functions.lua
+            vim.lsp.buf.format({ bufnr = bufnr })
+          end
         end,
       })
     end

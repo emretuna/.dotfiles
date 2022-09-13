@@ -32,26 +32,6 @@ map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", default_options)
 map("x", "K", ":move '<-2<CR>gv-gv", default_options)
 map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 
--- Easy split navigation
-map("n", "<Leader>j", "<C-W><C-J>", { silent = true })
-map("n", "<Leader>k", "<C-W><C-K>", { silent = true })
-map("n", "<Leader>l", "<C-W><C-L>", { silent = true })
-map("n", "<Leader>h", "<C-W><C-H>", { silent = true })
-
--- starlite mappings
-map("n", "*", function()
-  return require("starlite").star()
-end, default_options)
-map("n", "g*", function()
-  return require("starlite").g_star()
-end, default_options)
-map("n", "#", function()
-  return require("starlite").hash()
-end, default_options)
-map("n", "g#", function()
-  return require("starlite").g_hash()
-end, default_options)
-
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   return require("functions").escapePair()

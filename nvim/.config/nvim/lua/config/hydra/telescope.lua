@@ -5,16 +5,18 @@ local function cmd(command)
 end
 
 local hint = [[
- _t_: live grep   _s_: grep string
- _H_: header      _S_: symbols
- _R_: register    _P_: plugins
- _p_: projects    _/_: search in file
- _h_: vim help    _c_: execute command
- _k_: keymaps     _;_: commands history
- _O_: options     _?_: search history
- _n_: notifications
+ _f_: files         _p_: projects
+ _t_: live grep     _s_: grep string
+ _H_: header        _S_: symbols
+ _R_: register      _P_: plugins
+ _h_: vim help      _c_: execute command
+ _k_: keymaps       _;_: commands history
+ _O_: options       _?_: search history
+ _n_: notifications _/_: search in file
+ _m_: make
+
  ^
- _<Enter>_: Telescope           _<Esc>_
+ _<Enter>_: Telescope   _q_: Exit
 ]]
 
 Hydra({
@@ -35,10 +37,10 @@ Hydra({
     { "f", cmd("Telescope find_files") },
     { "t", cmd("Telescope live_grep") },
     { "h", cmd("Telescope help_tags"), { desc = "vim help" } },
-    { "H", cmd("Telescope header") },
+    { "H", cmd("Telescope heading") },
     { "k", cmd("Telescope keymaps") },
     { "O", cmd("Telescope vim_options") },
-    { "n", cmd("Telescope notify") },
+    { "m", cmd("Telescope make") },
     { "p", cmd("Telescope projects"), { desc = "projects" } },
     { "P", cmd("Telescope packer") },
     { "r", cmd("Telescope oldfiles"), { desc = "recently opened files" } },
@@ -49,6 +51,6 @@ Hydra({
     { "?", cmd("Telescope search_history"), { desc = "search history" } },
     { ";", cmd("Telescope command_history"), { desc = "command-line history" } },
     { "<Enter>", cmd("Telescope"), { exit = true, desc = "list all pickers" } },
-    { "<Esc>", nil, { exit = true, nowait = true } },
+    { "q", nil, { exit = true, nowait = true } },
   },
 })

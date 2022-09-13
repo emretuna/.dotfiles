@@ -24,12 +24,6 @@ api.nvim_create_autocmd("Filetype", {
   end,
 })
 
--- Close nvim if NvimTree is only running buffer
-api.nvim_create_autocmd(
-  "BufEnter",
-  { command = [[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]] }
-)
-
 -- Highlight on yank
 local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
@@ -43,7 +37,7 @@ api.nvim_create_autocmd(
 )
 -- windows to close with "q"
 api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info" },
+  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info", "dap-float" },
   command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
@@ -63,10 +57,55 @@ api.nvim_create_autocmd(
   { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
+-- when there is no buffer left show Alpha dashboard
+vim.api.nvim_create_augroup("alpha_on_empty", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  pattern = "BDeletePre",
+  group = "alpha_on_empty",
+  callback = function(event)
+    local found_non_empty_buffer = false
+    local buffers = require("functions").get_listed_buffers()
+
+    for _, bufnr in ipairs(buffers) do
+      if not found_non_empty_buffer then
+        local name = vim.api.nvim_buf_get_name(bufnr)
+        local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+
+        if bufnr ~= event.buf and name ~= "" and ft ~= "Alpha" then
+          found_non_empty_buffer = true
+        end
+      end
+    end
+
+    if not found_non_empty_buffer then
+      vim.cmd([[:Alpha]])
+    end
+  end,
+})
+
+if not settings.disable_winbar then
+  vim.api.nvim_create_autocmd(
+    { "DirChanged", "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "BufReadPre" },
+    {
+      callback = function()
+        -- TODO: this should wait for LSP to be available
+        require("functions").show_winbar()
+      end,
+    }
+  )
+end
+
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
-  { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
+  -- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
+  {
+    pattern = { "*.txt", "*.md", "*.tex" },
+    callback = function()
+      vim.opt.spell = true
+      vim.opt.spelllang = "en,de"
+    end,
+  }
 )
 
 -- automatically run PackerSync on save of plugins.lua
