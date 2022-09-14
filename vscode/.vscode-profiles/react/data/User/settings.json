@@ -72,14 +72,7 @@
   "autoimport.filesToScan": "**/*.{jsx,js,vue,ts,tsx}",
   "autoimport.useSemiColon": false,
   "editor.minimap.enabled": false,
-  "googleTranslateExt.languages": [
-    "en",
-    "ar",
-    "tr",
-    "fa",
-    "de",
-    "es"
-  ],
+  "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es"],
   "googleTranslateExt.replaceText": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -101,24 +94,14 @@
   "vim.statusBarColorControl": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "leader",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save",
-      ]
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"]
     }
   ],
   "vim.surround": true,
@@ -127,7 +110,23 @@
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
+    "statusBar.debuggingBackground": "#005f5f",
+    "activityBar.activeBackground": "#ab307e",
+    "activityBar.activeBorder": "#25320e",
+    "activityBar.background": "#ab307e",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#25320e",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#ab307e",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#ab307e",
+    "statusBarItem.remoteBackground": "#832561",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#832561",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#83256199",
+    "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "explorer.confirmDelete": false,
+  "explorer.confirmDelete": false
 }

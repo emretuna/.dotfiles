@@ -134,6 +134,9 @@ for _, lsp in ipairs(servers) do
         diagnostics = {
           enable = true,
         },
+        files = {
+          maxSize = 5000000,
+        },
       },
       -- tailwindcss = {
       -- cmd = { "tailwindcss-language-server", "--stdio" },
