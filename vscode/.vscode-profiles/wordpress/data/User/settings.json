@@ -8,17 +8,6 @@
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "top",
   "workbench.editor.enablePreview": false,
-  "bracket-pair-colorizer-2.colors": [
-    "#dfbf8e",
-    "#87af87",
-    "#cea64a",
-    "#e78a4e",
-    "#d75f5f",
-    "#b16286",
-    "#689d6a",
-    "#b8bb26"
-  ],
-  "bracket-pair-colorizer-2.colorMode": "Consecutive",
   "indentRainbow.colors": [
     "rgba(250, 189, 47, 0.05)",
     "rgba(142, 192, 124, 0.05)",
@@ -69,19 +58,10 @@
       }
     ]
   },
-  "autoimport.filesToScan": "**/*.{jsx,js,vue,ts,tsx}",
-  "autoimport.useSemiColon": false,
   "editor.minimap.enabled": false,
-  "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es"],
-  "googleTranslateExt.replaceText": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.dirStructure": "auto",
-  "i18n-ally.disablePathParsing": true,
-  "i18n-ally.displayLanguage": "en",
-  "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.translate.engines": [],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -89,9 +69,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.unicodeHighlight.includeStrings": false,
   "vim.easymotion": true,
-  "vim.uighlightedyank.enable": true,
   "vim.leader": " ",
-  "vim.statusBarColorControl": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -107,11 +85,6 @@
   "vim.surround": true,
   "vim.sneak": true,
   "vim.camelCaseMotion.enable": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
-  },
   "explorer.confirmDelete": false,
   "window.menuBarVisibility": "hidden"
 }
