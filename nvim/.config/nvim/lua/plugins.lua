@@ -315,7 +315,20 @@ packer.startup(function(use)
     end,
     disable = settings.disable_colorizer,
   })
+use({ "mfussenegger/nvim-lint", config = get_config("lint") })
+  use("sunjon/shade.nvim")
+--use({ "princejoogie/tailwind-highlight.nvim" })
+ use({
+    "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup()
+    end,
+  })
+ use({ "folke/zen-mode.nvim", config = get_config("zen") })
+  use({ "folke/twilight.nvim" })
 end)
+
+
 
 -- TODO:
 -- use({

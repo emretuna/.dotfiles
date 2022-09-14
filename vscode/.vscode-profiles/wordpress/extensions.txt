@@ -31,3 +31,4 @@ wayou.vscode-todo-highlight
 wordpresstoolbox.wordpress-toolbox
 xdebug.php-debug
 Zignd.html-css-class-completion
+

@@ -1,6 +1,6 @@
 local M = {}
 
-M.theme = "catppuccino"
+M.theme = "pywal"
 -- theme: catppuccino, nightfox, tundra, pywal; default is catppuccino
 -- Toggle global status line
 M.global_statusline = true

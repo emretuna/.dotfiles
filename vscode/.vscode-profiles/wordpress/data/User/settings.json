@@ -113,5 +113,6 @@
     "statusBar.debuggingBackground": "#005f5f"
   },
   "explorer.confirmDelete": false,
-  "window.menuBarVisibility": "hidden"
+  "window.menuBarVisibility": "hidden",
+  "intelephense.file.maxSize": 3000000
 }
