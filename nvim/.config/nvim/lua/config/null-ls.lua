@@ -21,14 +21,14 @@ nls.setup({
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
     nls.builtins.diagnostics.markdownlint.with({
-            extra_args = { "--disable", "line-length" },
+      extra_args = { "--disable", "line-length" },
     }), -- Install it with `npm i -g markdownlint-cli`
     nls.builtins.diagnostics.phpcs.with({ -- Use the local installation first
-            only_local = "vendor/bin",
+      only_local = "vendor/bin",
     }),
     nls.builtins.formatting.markdownlint,
     nls.builtins.formatting.phpcbf.with({
-            prefer_local = "vendor/bin",
+      prefer_local = "vendor/bin",
     }),
   },
   on_attach = function(client, bufnr)

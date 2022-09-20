@@ -300,7 +300,7 @@ require("neo-tree").setup({
     --         The first field in each component is the name of the function to call.
     --         The rest of the fields are passed to the function as the "config" argument.
     filtered_items = {
-      visible = true, -- when true, they will just be displayed differently than normal items
+      visible = false, -- when true, they will just be displayed differently than normal items
       force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
       show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
       hide_dotfiles = true,

@@ -84,6 +84,8 @@ packer.startup(function(use)
 
   use("RRethy/nvim-treesitter-endwise")
 
+  use({ "David-Kunz/markid" })
+
   use({
     "hrsh7th/nvim-cmp",
     requires = {
@@ -315,20 +317,30 @@ packer.startup(function(use)
     end,
     disable = settings.disable_colorizer,
   })
-use({ "mfussenegger/nvim-lint", config = get_config("lint") })
+use({
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+    config = get_config("windows"),
+  })
+  use({ "mfussenegger/nvim-lint", config = get_config("lint") })
   use("sunjon/shade.nvim")
---use({ "princejoogie/tailwind-highlight.nvim" })
+  --use({ "princejoogie/tailwind-highlight.nvim" })
+ 
  use({
     "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup()
     end,
   })
- use({ "folke/zen-mode.nvim", config = get_config("zen") })
+  
+  use({ "folke/zen-mode.nvim", config = get_config("zen") })
+  
   use({ "folke/twilight.nvim" })
+
 end)
-
-
 
 -- TODO:
 -- use({
