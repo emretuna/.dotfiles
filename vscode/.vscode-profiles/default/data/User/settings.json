@@ -108,9 +108,9 @@
   "vim.sneak": true,
   "vim.camelCaseMotion.enable": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000"
   },
   "explorer.confirmDelete": false,
   "window.menuBarVisibility": "hidden"

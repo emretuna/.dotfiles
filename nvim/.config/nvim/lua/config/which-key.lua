@@ -108,7 +108,7 @@ wk.register({
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
     c = { "<cmd>:%y<CR>", "Select All" },    
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    f = { "<cmd>" .. require("functions").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
@@ -117,11 +117,8 @@ wk.register({
   g = { "Git" },
   m = {
     name = "Misc",
-    a = {
-      "<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
-      "Test Telegraph",
-    },
     c = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
+    C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     f = { "<cmd>FocusToggle<cr>", "Toggle Focus" },    
     i = { "<cmd>IlluminateToggle<cr>", "Toggle Illuminate" },
@@ -169,12 +166,5 @@ wk.register({
       "Disable the grammar rule under the cursor",
     },
   },
-  z = {
-    name = "Spelling",
-    n = { "]s", "Next" },
-    p = { "[s", "Previous" },
-    a = { "zg", "Add word" },
-    f = { "1z=", "Use 1. correction" },
-    l = { "<cmd>Telescope spell_suggest<cr>", "List corrections" },
-  },
+  z = { "Spelling" },
 }, { prefix = "<leader>", mode = "n", default_options })

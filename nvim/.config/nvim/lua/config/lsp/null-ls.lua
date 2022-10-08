@@ -3,9 +3,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 nls.setup({
   sources = {
-    -- debug = true,
-    -- root_dir = utils.root_pattern("composer.json", "package.json", "Makefile", ".git"), -- Add composer
-    diagnostics_format = "#{m} (#{c}) [#{s}]", -- Makes PHPCS errors more readeable
     nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
     nls.builtins.diagnostics.eslint_d,
     nls.builtins.formatting.prettier.with({
@@ -20,13 +17,9 @@ nls.setup({
     }),
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
-    nls.builtins.diagnostics.markdownlint.with({
-      extra_args = { "--disable", "line-length" },
-    }), -- Install it with `npm i -g markdownlint-cli`
     nls.builtins.diagnostics.phpcs.with({ -- Use the local installation first
       only_local = "vendor/bin",
     }),
-    nls.builtins.formatting.markdownlint,
     nls.builtins.formatting.phpcbf.with({
       prefer_local = "vendor/bin",
     }),

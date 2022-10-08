@@ -91,7 +91,7 @@ telescope.setup({
     scroll_strategy = "cycle",
     selection_strategy = "reset",
     sorting_strategy = "descending",
-    layout_strategy = "horizontal",
+    layout_strategy = "vertical",
     layout_config = {
       width = 0.95,
       height = 0.85,
@@ -124,5 +124,4 @@ telescope.load_extension("heading")
 telescope.load_extension("file_browser")
 telescope.load_extension("packer")
 telescope.load_extension("ui-select")
-telescope.load_extension("notify")
 telescope.load_extension("make")

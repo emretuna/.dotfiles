@@ -16,6 +16,20 @@ M.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
 end
 
+--- Check if a directory exists in this path
+M.isdir = function(path)
+  return vim.fn.isdirectory(path) ~= 0
+end
+
+-- Return telescope files command
+M.telescope_find_files = function()
+  if M.isdir(".git/") == true then
+    return "Telescope git_files"
+  else
+    return "Telescope find_files"
+  end
+end
+
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()
@@ -115,13 +129,33 @@ function M.show_winbar()
     if navic.is_available() then
       -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
       local location = navic.get_location()
-      local value = "%#WinBarSeparator#" .. "%=" .. " " .. "%*" .. location .. "%#WinBarSeparator#" .. " " .. "%*"
+      local value = "%#WinBarSeparator#" .. "%=" .. "%*" .. location .. "%#WinBarSeparator#" .. "%*"
 
       vim.api.nvim_set_option_value("winbar", value, { scope = "local" })
     else
       vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
     end
   end
+end
+
+-- detect python venv
+-- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
+local util = require("lspconfig/util")
+local path = util.path
+function M.get_python_path(workspace)
+  -- Use activated virtualenv.
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+  end
+  -- Find and use virtualenv in workspace directory.
+  for _, pattern in ipairs({ "*", ".*" }) do
+    local match = vim.fn.glob(path.join(workspace, pattern, "pyvenv.cfg"))
+    if match ~= "" then
+      return path.join(path.dirname(match), "bin", "python")
+    end
+  end
+  -- Fallback to system Python.
+  return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
 function M.custom_lsp_attach(client, bufnr)

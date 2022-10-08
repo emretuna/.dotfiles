@@ -42,7 +42,8 @@ packer.startup(function(use)
 
   use({
     "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+    cmd = "Telescope",
     config = get_config("telescope"),
   })
 
@@ -57,6 +58,7 @@ packer.startup(function(use)
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
+    cmd = "NeoTree*",
     requires = {
       {
         -- only needed if you want to use the commands with "_with_window_picker" suffix
@@ -80,9 +82,9 @@ packer.startup(function(use)
     run = ":TSUpdate",
   })
 
-  use("nvim-treesitter/nvim-treesitter-textobjects")
+  use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 
-  use("RRethy/nvim-treesitter-endwise")
+  use({ "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" })
 
   use({ "David-Kunz/markid" })
 
@@ -119,24 +121,24 @@ packer.startup(function(use)
           "DiffviewToggleFiles",
           "DiffviewFocusFiles",
         },
-        config = get_config("diffview"),
+        config = get_config("git.diffview"),
       },
     },
     cmd = "Neogit",
-    config = get_config("neogit"),
+    config = get_config("git.neogit"),
   })
 
-  use({ "f-person/git-blame.nvim", config = get_config("git-blame") })
+  use({ "f-person/git-blame.nvim", config = get_config("git.git-blame") })
 
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-    config = get_config("gitsigns"),
+    config = get_config("git.gitsigns"),
   })
 
   use({ "tpope/vim-fugitive" }) -- yeah this is not lua but one of the best Vim plugins ever
 
-  use("p00f/nvim-ts-rainbow")
+  use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
 
   use({
     "kevinhwang91/nvim-bqf",
@@ -148,14 +150,14 @@ packer.startup(function(use)
     config = get_config("nvim-bqf"),
   })
 
-  use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
+  use({ "neovim/nvim-lspconfig", config = get_config("lsp.lsp") })
 
   use({ "onsails/lspkind-nvim" })
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
-    config = get_config("null-ls"),
+    config = get_config("lsp.null-ls"),
   })
 
   use({
@@ -178,6 +180,7 @@ packer.startup(function(use)
   -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
   use({
     "folke/todo-comments.nvim",
+    cmd = "TodoQuickFix",
     requires = "nvim-lua/plenary.nvim",
     config = get_config("todo"),
   })
@@ -186,53 +189,42 @@ packer.startup(function(use)
 
   use({ "folke/which-key.nvim", config = get_config("which-key") })
 
-  use({ "junegunn/vim-easy-align", cmd = "EasyAlign" }) -- no lua alternative, https://github.com/Vonr/align.nvim not working for me
-
   use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
-  use({ "RRethy/vim-illuminate", config = get_config("illuminate") })
-
   if settings.theme == "nightfox" then
-    use({ "EdenEast/nightfox.nvim", config = get_config("nightfox") })
+    use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
   elseif settings.theme == "catppuccin" then
-    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
+    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("themes.catppuccin") })
   elseif settings.theme == "kanagawa" then
-    use({ "rebelot/kanagawa.nvim", as = "kanagawa", config = get_config("kanagawa") })
+    use({ "rebelot/kanagawa.nvim", as = "kanagawa", config = get_config("themes.kanagawa") })
   elseif settings.theme == "onedarkpro" then
-    use({ "olimorris/onedarkpro.nvim", as = "onedarkpro", config = get_config("onedarkpro") })
+    use({ "olimorris/onedarkpro.nvim", as = "onedarkpro", config = get_config("themes.onedarkpro") })
   elseif settings.theme == "tundra" then
-    use({ "sam4llis/nvim-tundra", config = get_config("tundra") })
+    use({ "sam4llis/nvim-tundra", config = get_config("themes.tundra") })
+  elseif settings.theme == "tokyonight" then
+    use({ "folke/tokyonight.nvim", branch = "main", config = get_config("themes.tokyonight") })
   elseif settings.theme == "pywal" then
-    use({ "AlphaTechnolog/pywal.nvim", as = "pywal", config = get_config("pywal") })
+    use({ "AlphaTechnolog/pywal.nvim", as = "pywal", config = get_config("themes.pywal") })
   else
-    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
+    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("themes.catppuccin") })
   end
 
   use({ "tweekmonster/startuptime.vim" })
 
   use({ "ray-x/go.nvim", requires = "ray-x/guihua.lua", config = get_config("go"), ft = { "go" } })
 
-  use({ "LudoPinelli/comment-box.nvim", config = get_config("comment-box") })
+  use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("comment-box") })
 
   use({ "rcarriga/nvim-notify", config = get_config("notify") })
 
-  use({ "echasnovski/mini.nvim", branch = "stable", config = get_config("mini") })
-
-  use({
-    "waylonwalker/Telegraph.nvim",
-    config = function()
-      require("telegraph").setup({})
-    end,
-  })
-
-  use({ "edluffy/specs.nvim", config = get_config("specs") })
+  use({ "echasnovski/mini.nvim", branch = "main", config = get_config("mini") })
 
   use({ "mfussenegger/nvim-ts-hint-textobject" })
 
   use({
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
-    config = get_config("alpha-nvim"),
+    config = get_config("alpha.alpha"),
   })
 
   use({ "SmiteshP/nvim-navic" })
@@ -240,7 +232,9 @@ packer.startup(function(use)
   use({
     "j-hui/fidget.nvim",
     config = function()
-      require("fidget").setup({})
+      require("fidget").setup({ window = {
+        blend = 0,
+      } })
     end,
   })
 
@@ -264,6 +258,7 @@ packer.startup(function(use)
   use({
     "anuvyklack/hydra.nvim",
     requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
+    commit = "ea91aa820a6cecc57bde764bb23612fff26a15de",
     config = get_config("hydra"),
   })
 
@@ -276,8 +271,10 @@ packer.startup(function(use)
 
   use({
     "williamboman/mason.nvim",
+    cmd = "Mason*",
+    module = "mason-tool-installer",
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
-    config = get_config("mason"),
+    config = get_config("lsp.mason"),
   })
 
   use({
@@ -288,9 +285,6 @@ packer.startup(function(use)
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
     },
-    config = function()
-      require("config.dap").setup()
-    end,
   })
 
   use({
@@ -317,15 +311,37 @@ packer.startup(function(use)
     end,
     disable = settings.disable_colorizer,
   })
-use({
+
+  use({
     "anuvyklack/windows.nvim",
+    event = "VimEnter",
     requires = {
       "anuvyklack/middleclass",
       "anuvyklack/animation.nvim",
     },
     config = get_config("windows"),
   })
-  use({ "mfussenegger/nvim-lint", config = get_config("lint") })
+
+  use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("urlview") })
+
+  -- use({
+  --   "folke/noice.nvim",
+  --   event = "VimEnter",
+  --   config = get_config("noice"),
+  --   requires = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  -- })
+
+  use({
+    "ironhouzi/starlite-nvim",
+    config = get_config("starlite-nvim"),
+  })
+
+  use({ "mfussenegger/nvim-lint", config = get_config("lsp.lint") })
   use("sunjon/shade.nvim")
   --use({ "princejoogie/tailwind-highlight.nvim" })
  
@@ -339,7 +355,6 @@ use({
   use({ "folke/zen-mode.nvim", config = get_config("zen") })
   
   use({ "folke/twilight.nvim" })
-
 end)
 
 -- TODO:
