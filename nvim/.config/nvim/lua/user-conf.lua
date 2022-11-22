@@ -1,7 +1,7 @@
 local M = {}
 
 M.theme = "kanagawa"
--- theme: catppuccino, onedarkpro, nightfox, tundra,tokyonight, kanagawa, pywal; default is catppuccino
+-- theme: catppuccino, onedarkpro, nightfox, tundra, tokyonight, kanagawa, pywal; default is catppuccino
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep

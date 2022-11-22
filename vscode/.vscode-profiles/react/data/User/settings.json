@@ -1,24 +1,12 @@
 {
   "telemetry.telemetryLevel": "off",
-  "workbench.colorTheme": "Wal",
+  "workbench.colorTheme": "Kanagawa",
   "editor.semanticHighlighting.enabled": false,
   "workbench.iconTheme": "helium-icon-theme",
   "editor.fontFamily": "Iosevka, Fira Code Retina,Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.snippetSuggestions": "top",
-  "workbench.editor.enablePreview": false,
-  "bracket-pair-colorizer-2.colors": [
-    "#dfbf8e",
-    "#87af87",
-    "#cea64a",
-    "#e78a4e",
-    "#d75f5f",
-    "#b16286",
-    "#689d6a",
-    "#b8bb26"
-  ],
-  "bracket-pair-colorizer-2.colorMode": "Consecutive",
   "indentRainbow.colors": [
     "rgba(250, 189, 47, 0.05)",
     "rgba(142, 192, 124, 0.05)",
@@ -88,10 +76,7 @@
   "explorer.confirmDragAndDrop": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.unicodeHighlight.includeStrings": false,
-  "vim.easymotion": true,
-  "vim.uighlightedyank.enable": true,
   "vim.leader": " ",
-  "vim.statusBarColorControl": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -105,28 +90,25 @@
     }
   ],
   "vim.surround": true,
-  "vim.sneak": true,
   "vim.camelCaseMotion.enable": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000",
-    "activityBar.activeBackground": "#ab307e",
-    "activityBar.activeBorder": "#25320e",
-    "activityBar.background": "#ab307e",
-    "activityBar.foreground": "#e7e7e7",
-    "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#25320e",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "sash.hoverBorder": "#ab307e",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#ab307e",
-    "statusBarItem.remoteBackground": "#832561",
-    "statusBarItem.remoteForeground": "#e7e7e7",
-    "titleBar.activeBackground": "#832561",
-    "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#83256199",
-    "titleBar.inactiveForeground": "#e7e7e799"
+  "explorer.confirmDelete": false,
+  "window.menuBarVisibility": "hidden",
+  "workbench.editor.enablePreview": false,
+  "editor.defaultFormatter": "rome.rome",
+  "[javascript]": {
+    "editor.defaultFormatter": "rome.rome"
   },
-  "explorer.confirmDelete": false
+  "[typescript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.maxTokenizationLineLength": 10000000,
+  "json.maxItemsComputed": 25000
 }
