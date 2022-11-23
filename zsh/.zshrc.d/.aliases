@@ -78,3 +78,4 @@ alias codepress='code --user-data-dir ~/.vscode-profiles/wordpress/data --extens
 alias codevel='code --user-data-dir ~/.vscode-profiles/laravel/data --extensions-dir ~/.vscode-profiles/laravel/extensions'
 alias codevue='code --user-data-dir ~/.vscode-profiles/vue/data --extensions-dir ~/.vscode-profiles/vue/extensions'
 alias codereact='code --user-data-dir ~/.vscode-profiles/react/data --extensions-dir ~/.vscode-profiles/react/extensions'
+alias codeflutter='code --user-data-dir ~/.vscode-profiles/flutter/data --extensions-dir ~/.vscode-profiles/flutter/extensions'
