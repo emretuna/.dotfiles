@@ -10,22 +10,21 @@ nvm install node --lts
 
 
 
-   # install homebrew
-
- # install homebrew
+	 # install homebrew
 if ! command -v brew &>/dev/null; then
   pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
-    pretty_print "Put Homebrew location earlier in PATH ..."
-      printf '\n# recommended by brew doctor\n' >> ~/.zshrc
-      printf 'export PATH="/usr/local/bin:$PATH"\n' >> ~/.zshrc
-      export PATH="/usr/local/bin:$PATH"
-  fi
+  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+
 else
   pretty_print "You already have Homebrew installed...good job!"
 fi
+
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 
 # install packages
 brew install zsh \

@@ -1,9 +1,9 @@
-local settings = require("user-conf")
-local utils = require("functions")
+local settings = require("settings")
+local utils = require("utils")
 local o = vim.opt
 local fn = vim.fn
 
-vim.cmd("set inccommand=split")
+-- vim.cmd("set inccommand=split")
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
 o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -20,9 +20,11 @@ o.conceallevel = 0 -- so that `` is visible in markdown files
 o.number = settings.number
 o.relativenumber = settings.relative_number
 o.mouse = settings.mouse
-o.cmdheight = settings.cmdheight -- space for displaying messages/commands
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = settings.showtabline
+if not settings.disable_winbar then
+  o.winbar = "%{%v:lua.require'winbar'.get_winbar()%}"
+end
 if settings.global_statusline then
   o.laststatus = 3
 else
@@ -41,14 +43,13 @@ o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cu
 o.sidescrolloff = 5 -- The minimal number of columns to scroll horizontally
 o.hlsearch = true -- highlight all matches on previous search pattern
 o.ignorecase = true -- ignore case in search patterns
-o.foldenable = false -- disable folding; enable with zi; wait for https://github.com/neovim/neovim/pull/17446
+o.foldenable = false -- disable folding; TODO: wait for https://github.com/neovim/neovim/pull/17446
 o.foldcolumn = "1"
 o.foldlevelstart = 99 -- Using ufo provider need a large value, feel free to decrease the value
 o.list = settings.list
 o.listchars = settings.listchars
 o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 o.wildmode = "full"
-o.lazyredraw = true -- do not redraw screen while running macros
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg
 end

@@ -2,12 +2,12 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   dim_inactive = {
-    enabled = false,
+    enabled = true,
     shade = "dark",
     percentage = 0.15,
   },
   transparent_background = false,
-  term_colors = false,
+  term_colors = true,
   compile = {
     enabled = true,
     path = vim.fn.stdpath("cache") .. "/catppuccin",
@@ -76,7 +76,7 @@ catppuccin.setup({
     fern = false,
     barbar = false,
     bufferline = false,
-    markdown = false,
+    markdown = true,
     lightspeed = false,
     ts_rainbow = true,
     hop = false,
@@ -84,8 +84,7 @@ catppuccin.setup({
     telekasten = false,
     symbols_outline = true,
     mini = true,
-    fidget = true,
+    fidget = false,
   },
 })
-vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme catppuccin-mocha]])

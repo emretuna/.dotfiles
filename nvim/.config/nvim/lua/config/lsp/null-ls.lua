@@ -17,19 +17,14 @@ nls.setup({
     }),
     nls.builtins.code_actions.shellcheck,
     nls.builtins.diagnostics.vale,
-    nls.builtins.diagnostics.phpcs.with({ -- Use the local installation first
-      only_local = "vendor/bin",
-    }),
-    nls.builtins.formatting.phpcbf.with({
-      prefer_local = "vendor/bin",
-    }),
+    nls.builtins.code_actions.gitsigns,
   },
   on_attach = function(client, bufnr)
     local wk = require("which-key")
     local default_options = { silent = true }
     wk.register({
       m = {
-        F = { "<cmd>lua require('functions').toggle_autoformat()<cr>", "Toggle format on save" },
+        F = { "<cmd>lua require('config.lsp.utils').toggle_autoformat()<cr>", "Toggle format on save" },
       },
     }, { prefix = "<leader>", mode = "n", default_options })
     if client.supports_method("textDocument/formatting") then

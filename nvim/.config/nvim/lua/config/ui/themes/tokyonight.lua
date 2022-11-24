@@ -1,6 +1,6 @@
 require("tokyonight").setup({
   -- night, storm, day, moon
-  style = "moon",
+  style = "night",
   -- borderless Telescope
   on_highlights = function(hl, c)
     local prompt = "#2d3149"

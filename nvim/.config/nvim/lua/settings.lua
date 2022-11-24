@@ -1,7 +1,8 @@
 local M = {}
 
-M.theme = "kanagawa"
--- theme: catppuccino, onedarkpro, nightfox, tundra, tokyonight, kanagawa, pywal; default is catppuccino
+-- theme: nightfox, tokyonight, tundra; default is catppuccin
+-- refer to the themes settings file for different styles
+M.theme = ""
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -19,15 +20,15 @@ M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- enable PackerSync on plugins.lua save
-M.packer_auto_sync = true
--- set cmdheight
-M.cmdheight = 0
+M.packer_auto_sync = false
 -- Disable integration of Neovim's statusline in your Tmux status
 -- See https://github.com/vimpostor/vim-tpipeline#installation
-M.disable_tmux_statusline_integration = false
+M.disable_tmux_statusline_integration = true
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 M.disable_colorizer = false
+-- Noice heavily changes the Neovim UI ...
+M.disable_noice = true
 -- Disable winbar with nvim-navic location
 M.disable_winbar = false
 -- Number of recent files shown in dashboard
@@ -55,8 +56,11 @@ M.treesitter_ensure_installed = {
   "ledger",
   "lua",
   "markdown",
+  "markdown_inline",
   "python",
+  "regex",
   "toml",
+  "vim",
   "yaml",
 }
 

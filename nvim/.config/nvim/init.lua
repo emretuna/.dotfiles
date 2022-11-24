@@ -1,7 +1,10 @@
 -- References to ./lua/
+
+-- Load global functions
+require("globals")
 -- Plugin management via Packer
 require("plugins")
--- Vim mappings, see lua/config/which.lua for more mappings
+-- "Global" Keymappings
 require("mappings")
 -- All non plugin related (vim) options
 require("options")

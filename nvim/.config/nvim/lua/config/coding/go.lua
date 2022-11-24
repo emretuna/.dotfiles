@@ -1,6 +1,8 @@
 -- NOTE: all LSP and formatting related options are disabeld.
 -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls.lua
 -- NOTE: via `lsp_on_attach` the custom callback used by all other LSPs is called
+local icons = require("config.ui.icons")
+
 require("go").setup({
   go = "go", -- go command, can be go[default] or go1.18beta1
   goimport = "gopls", -- goimport command, can be gopls[default] or goimport
@@ -11,7 +13,7 @@ require("go").setup({
   test_template = "", -- default to testify if not set; g:go_nvim_tests_template  check gotests for details
   test_template_dir = "", -- default to nil if not set; g:go_nvim_tests_template_dir  check gotests for details
   comment_placeholder = "", -- comment_placeholder your cool placeholder e.g. ﳑ       
-  icons = { breakpoint = "🧘", currentpos = "🏃" },
+  icons = { breakpoint = icons.ui.Yoga, currentpos = icons.ui.RunningMan },
   verbose = false, -- output loginf in messages
   lsp_cfg = true, -- true: use non-default gopls setup specified in go/lsp.lua
   -- false: do nothing
@@ -20,7 +22,8 @@ require("go").setup({
   lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
   lsp_diag_underline = false,
   lsp_on_attach = function(client, bufnr)
-    require("functions").custom_lsp_attach(client, bufnr)
+    local utils = require("config.lsp.utils")
+    utils.custom_lsp_attach(client, bufnr)
     local wk = require("which-key")
     local default_options = { silent = true }
     wk.register({
@@ -61,7 +64,7 @@ require("go").setup({
     }, { prefix = "<leader>", mode = "n", default_options })
     wk.register({
       c = {
-        name = "Coding",
+        -- name = "Coding",
         j = { "<cmd>'<,'>GoJson2Struct<cr>", "Json to struct" },
       },
     }, { prefix = "<leader>", mode = "v", default_options })
@@ -71,7 +74,7 @@ require("go").setup({
   lsp_codelens = true, -- set to false to disable codelens, true by default
   lsp_keymaps = false, -- set to false to disable gopls/lsp keymap
   lsp_diag_hdlr = true, -- hook lsp diag handler
-  lsp_diag_virtual_text = { space = 0, prefix = "" }, -- virtual text setup
+  lsp_diag_virtual_text = { space = 0, prefix = icons.arrows.Diamond }, -- virtual text setup
   lsp_diag_signs = true,
   lsp_diag_update_in_insert = true,
   lsp_document_formatting = false,

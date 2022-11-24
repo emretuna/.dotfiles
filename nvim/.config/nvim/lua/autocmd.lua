@@ -1,5 +1,5 @@
 local api = vim.api
-local settings = require("user-conf")
+local settings = require("settings")
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
@@ -37,7 +37,7 @@ api.nvim_create_autocmd(
 )
 -- windows to close with "q"
 api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info", "dap-float" },
+  pattern = { "help", "startuptime", "qf", "fugitive", "null-ls-info", "dap-float" },
   command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
@@ -58,52 +58,33 @@ api.nvim_create_autocmd(
 )
 
 -- when there is no buffer left show Alpha dashboard
-vim.api.nvim_create_augroup("alpha_on_empty", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-  pattern = "BDeletePre",
-  group = "alpha_on_empty",
+-- requires "famiu/bufdelete.nvim" and "goolord/alpha-nvim"
+local alpha_on_empty = api.nvim_create_augroup("alpha_on_empty", { clear = true })
+api.nvim_create_autocmd("User", {
+  pattern = "BDeletePost*",
+  group = alpha_on_empty,
   callback = function(event)
-    local found_non_empty_buffer = false
-    local buffers = require("functions").get_listed_buffers()
+    local fallback_name = vim.api.nvim_buf_get_name(event.buf)
+    local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
+    local fallback_on_empty = fallback_name == "" and fallback_ft == ""
 
-    for _, bufnr in ipairs(buffers) do
-      if not found_non_empty_buffer then
-        local name = vim.api.nvim_buf_get_name(bufnr)
-        local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-
-        if bufnr ~= event.buf and name ~= "" and ft ~= "Alpha" then
-          found_non_empty_buffer = true
-        end
-      end
-    end
-
-    if not found_non_empty_buffer then
-      vim.cmd([[:Alpha]])
+    if fallback_on_empty then
+      -- require("neo-tree").close_all()
+      vim.api.nvim_command("Alpha")
+      vim.api.nvim_command(event.buf .. "bwipeout")
     end
   end,
 })
 
-if not settings.disable_winbar then
-  vim.api.nvim_create_autocmd(
-    { "DirChanged", "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "BufReadPre" },
-    {
-      callback = function()
-        -- TODO: this should wait for LSP to be available
-        require("functions").show_winbar()
-      end,
-    }
-  )
-end
-
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
-  -- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,it,tr<cr>]] }
+  -- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
   {
     pattern = { "*.txt", "*.md", "*.tex" },
     callback = function()
       vim.opt.spell = true
-      vim.opt.spelllang = "en,it,tr"
+      vim.opt.spelllang = "en,de"
     end,
   }
 )
@@ -112,7 +93,7 @@ api.nvim_create_autocmd(
 if settings.packer_auto_sync then
   -- source plugins.lua and run PackerSync on save
   local sync_packer = function()
-    vim.cmd("runtime lua/plugins.lua")
+    vim.api.nvim_command("runtime lua/plugins.lua")
     require("packer").sync()
   end
   api.nvim_create_autocmd({ "BufWritePost" }, {
