@@ -1,20 +1,34 @@
 {
-  "telemetry.telemetryLevel": "off",
-  "workbench.colorTheme": "Kanagawa",
-  "editor.semanticHighlighting.enabled": false,
-  "workbench.iconTheme": "helium-icon-theme",
-  "editor.fontFamily": "Iosevka, Fira Code Retina,Menlo, Monaco, 'Courier New', monospace",
+  //Window
+  "window.menuBarVisibility": "hidden",
+  //Editor
+  "editor.fontFamily": "BlexMono Nerd Font, DejavuSansMono Nerd Font, MesloLGS Nerd Font, Iosevka Nerd Font, JetBrainsMono Nerd Font, Fira Code Retina, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
+  "editor.fontWeight": "normal",
   "editor.snippetSuggestions": "top",
-  "indentRainbow.colors": [
-    "rgba(250, 189, 47, 0.05)",
-    "rgba(142, 192, 124, 0.05)",
-    "rgba(131, 165, 152, 0.05)",
-    "rgba(211, 134, 155, 0.05)",
-    "rgba(254, 128, 25, 0.05)"
-  ],
-  "indentRainbow.errorColor": "rgba(251, 73, 52, 0.2)",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.unicodeHighlight.includeStrings": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "blink",
+  "editor.folding": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.occurrencesHighlight": false,
+  "editor.roundedSelection": false,
+  "editor.selectionHighlight": false,
+  "editor.scrollBeyondLastLine": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.maxTokenizationLineLength": 10000000,
+  "editor.linkedEditing": true,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -34,7 +48,19 @@
           "keyword.control.flow.js", // await
           "keyword.control.conditional.js", // if
           "keyword.control.loop.js", // for
-          "keyword.operator.new.js" // new
+          "keyword.operator.new.js", // new
+          //settings for typescript
+          "support.type.primitive.ts",
+          "entity.name.type.ts",
+          "meta.type.tuple.ts",
+          "meta.type.annotation.ts",
+          "meta.type.parameters.ts",
+          "keyword.operator.type.ts",
+          "meta.return.type.arrow.ts",
+          "keyword.operator.type.annotation.ts",
+          "meta.return.type.ts",
+          "punctuation.definition.typeparameters.begin.ts",
+          "punctuation.definition.typeparameters.end.ts"
         ],
         "settings": {
           "fontStyle": "italic"
@@ -52,14 +78,35 @@
           "entity.name.type.class.js"
         ],
         "settings": {
-          "fontStyle": "italic"
+          "fontStyle": ""
         }
       }
     ]
   },
+  //Workbench
+  "workbench.colorTheme": "Horizon",
+  "workbench.iconTheme": "helium-icon-theme",
+  "workbench.editor.enablePreview": false,
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.editor.showIcons": false,
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "none",
+
+  //Indent Rainbow
+  "indentRainbow.colors": [
+    "rgba(250, 189, 47, 0.05)",
+    "rgba(142, 192, 124, 0.05)",
+    "rgba(131, 165, 152, 0.05)",
+    "rgba(211, 134, 155, 0.05)",
+    "rgba(254, 128, 25, 0.05)"
+  ],
+  "indentRainbow.errorColor": "rgba(251, 73, 52, 0.2)",
+  //Autoimport
   "autoimport.filesToScan": "**/*.{jsx,js,vue,ts,tsx}",
   "autoimport.useSemiColon": false,
-  "editor.minimap.enabled": false,
+
+  //Language
   "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es"],
   "googleTranslateExt.replaceText": true,
   "[html]": {
@@ -70,45 +117,51 @@
   "i18n-ally.displayLanguage": "en",
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.translate.engines": [],
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "explorer.confirmDragAndDrop": false,
+  //Explorer
+  "explorer.confirmDragAndDrop": true,
+  "explorer.confirmDelete": true,
+  "explorer.decorations.colors": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.compactFolders": false,
+
+  //Javascript
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.unicodeHighlight.includeStrings": false,
-  "vim.leader": " ",
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["leader", "w"],
-      "commands": ["workbench.action.files.save"]
-    }
-  ],
-  "vim.surround": true,
-  "vim.camelCaseMotion.enable": true,
-  "explorer.confirmDelete": false,
-  "window.menuBarVisibility": "hidden",
-  "workbench.editor.enablePreview": false,
-  "editor.defaultFormatter": "rome.rome",
-  "[javascript]": {
-    "editor.defaultFormatter": "rome.rome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "rome.rome"
-  },
+  "javascript.autoClosingTags": true,
+  "javascript.suggest.autoImports": true,
+
+  //Typescript
+  "typescript.autoClosingTags": true,
+  "typescript.suggest.autoImports": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "rome.rome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.accessibilitySupport": "off",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": false
+  // React Snippets
+  "reactSnippets.settings.importReactOnTop": false,
+  //Colorize
+  "colorize.languages": ["javascript", "typescript"],
+  // Formatters
+  "eslint.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "prettier.bracketSameLine": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.inlineSuggest.enabled": true,
-  "editor.maxTokenizationLineLength": 10000000,
-  "json.maxItemsComputed": 25000
+  // Json
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "json.maxItemsComputed": 25000,
+  // Material UI
+  "material-ui-snippets.showNotesOnStartup": false,
+  // Dimmer
+  "dimmer.enabled": true,
+  "dimmer.delay": 300,
+  // Misc
+  "telemetry.telemetryLevel": "off",
+  "conf.resource.hfAPIKey": "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",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "tabnine.experimentalAutoImports": true
 }
