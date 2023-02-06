@@ -123,7 +123,7 @@ sudo tee /etc/apt/sources.list.d/regolith.list
                     polybar \
 				    policykit-1-gnome \
 				    pavucontrol \
-            scrot
+            		scrot
 
 		echo "Install picom dependencies..."
 		sudo apt install -y libxext-dev \
@@ -161,7 +161,7 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 		echo "installing i3wm tools and required apps..."
 		sudo apt install -y rofi \
 				 nitrogen \
-         feh \
+         		 feh \
 				 arandr \
 				 playerctl \
 				 lxappearance \
@@ -172,7 +172,8 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 				 wmctrl \
 				 xdotool \
                  trash-cli \
-				 libinput-tools
+				 libinput-tools \
+				 numlockx
 
 		sudo gpasswd -a $USER input && sudo gpasswd -a $USER video
 

@@ -5,7 +5,7 @@
     "grab-mouse-pointer": false,
     "hotkey-show-app": "<Primary>space",
     "render-on-screen": "mouse-pointer-monitor",
-    "show-indicator-icon": true,
+    "show-indicator-icon": false,
     "show-recent-apps": "3",
     "terminal-command": "",
     "theme-name": "Odin Superflat Dark"

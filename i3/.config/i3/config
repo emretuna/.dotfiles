@@ -320,6 +320,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 
 # Change wallpaper and colors
 bindsym $mod+Shift+u exec ~/.config/i3/scripts/pywal.sh
+bindsym $mod+Shift+q exec wal -i /usr/share/backgrounds/wallpapers -o "$HOME/.config/dunst/launch_dunst.sh"
 #App shortcuts
 bindsym $mod+w exec /usr/bin/brave-browser
 bindsym $mod+n exec /usr/bin/nemo
@@ -358,7 +359,7 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # num lock activated
-exec --no-startup-id numlockx on
+exec --no-startup-id numlockx off
 
 #networkmanager-applet
 exec --no-startup-id nm-applet

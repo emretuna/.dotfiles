@@ -19,10 +19,10 @@ configuration {
 
 * {
     al:  #00000000;
-    bg:  #1d2731;
+    bg:  #24222b;
     se:  #101010ff;
     fg:  #FFFFFFff;
-    ac:  #596C86;
+    ac:  #D197AA;
 }
 
 window {
