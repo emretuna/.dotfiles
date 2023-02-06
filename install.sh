@@ -95,7 +95,7 @@ brew install zsh \
      npm i -g intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
 
 		echo "finish nvim set up..."
-		nvim --headless +PlugInstall +qall
+		nvim --headless "+Lazy! sync" +qa \
 
 		echo "finishing..."
 		# Use kitty or Alacritty terminal on Linux
