@@ -1,7 +1,8 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "cmd+k l",
-    "command": "dimmer.ToggleDimmer"
+    "key": "ctrl+cmd+c",
+    "command": "editor.action.changeAll",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]

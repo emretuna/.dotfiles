@@ -11,9 +11,9 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": false,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
-  "editor.formatOnType": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
   "editor.unicodeHighlight.includeStrings": false,
   "editor.accessibilitySupport": "off",
   "editor.cursorBlinking": "blink",
@@ -83,6 +83,8 @@
       }
     ]
   },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+
   //Workbench
   "workbench.colorTheme": "Horizon",
   "workbench.iconTheme": "helium-icon-theme",
@@ -107,7 +109,7 @@
   "autoimport.useSemiColon": false,
 
   //Language
-  "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es"],
+  "googleTranslateExt.languages": ["en", "ar", "tr", "fa", "de", "es", "it"],
   "googleTranslateExt.replaceText": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -135,8 +137,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // React Snippets
-  "reactSnippets.settings.importReactOnTop": false,
   //Colorize
   "colorize.languages": ["javascript", "typescript"],
   // Formatters
@@ -160,8 +160,15 @@
   "dimmer.enabled": true,
   "dimmer.delay": 300,
   // Misc
+  "editor.snippetSuggestions": "inline",
   "telemetry.telemetryLevel": "off",
   "conf.resource.hfAPIKey": "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",
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "tabnine.experimentalAutoImports": true
+  "tabnine.experimentalAutoImports": true,
+  "githubPullRequests.pullBranch": "never",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.language": "en,it,lorem",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontSize": "13"
 }
