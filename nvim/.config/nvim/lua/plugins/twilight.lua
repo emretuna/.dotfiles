@@ -1,6 +1,5 @@
 return {
   "folke/twilight.nvim",
-  config = {},
   keys = {
     { "<Leader>ut", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
   },

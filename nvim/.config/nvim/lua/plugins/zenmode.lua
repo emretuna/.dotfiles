@@ -4,5 +4,5 @@ return {
     { "<Leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
   },
 
-  config = {},
+  opts = {},
 }
