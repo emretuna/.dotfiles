@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Supports a bin directory inside home directory
-export PATH=${HOME}/bin:${HOME}/.local/bin/:/usr/local/sbin:${PATH}
+export PATH=${HOME}/bin:${HOME}/.local/bin/:${PATH}
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=239"
 
