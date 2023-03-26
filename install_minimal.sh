@@ -1,6 +1,6 @@
 if [ ! -d ~/.nvm ]; then
   echo "nvm install started..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
   . ${HOME}/.nvm/nvm.sh
   . ${HOME}/.profile
   . ${HOME}/.bashrc
