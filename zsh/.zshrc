@@ -4,7 +4,14 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+case `uname` in
+  Linux)
+    ## add brew home to PATH in linux/WSL
+    brew_home=/home/linuxbrew/.linuxbrew
+    if [ -d "${brew_home}" ]; then
+      export PATH=${brew_home}/bin:$PATH
+    fi
+esac
 # Supports a bin directory inside home directory
 export PATH=${HOME}/bin:${HOME}/.local/bin/:${PATH}
 
