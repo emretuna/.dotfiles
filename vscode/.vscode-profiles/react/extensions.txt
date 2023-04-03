@@ -23,7 +23,6 @@ Gruntfuggly.todo-tree
 helgardrichard.helium-icon-theme
 infeng.vscode-react-typescript
 kamikillerto.vscode-colorize
-lokalise.i18n-ally
 mattpocock.ts-error-translator
 mhutchie.git-graph
 mikestead.dotenv
@@ -34,7 +33,6 @@ oouo-diogo-perdigao.docthis
 Perkovec.emoji
 QuanLi.focus
 rhalaly.scope-to-this
-riccardoforina.storybook-helper
 rubberduck.rubberduck-vscode
 sburg.vscode-javascript-booster
 SimonSiefke.svg-preview

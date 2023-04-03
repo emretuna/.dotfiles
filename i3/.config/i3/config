@@ -21,8 +21,8 @@ set $term kitty
 set $altterm gnome-terminal
 # set the mod key to the winkey:
 set $mod Mod4
-set $Lmon HDMI-0
-set $Rmon DPI-1
+set $Lmon eDp
+set $Rmon eDp
 #####################
 # workspace layout: #
 #####################
@@ -68,16 +68,16 @@ gaps bottom 0
 floating_modifier $mod
 
 # Disable gap on secondary monitor
-workspace $ws10 gaps top 4
-workspace $ws10 gaps bottom 4
-workspace $ws10 gaps inner 2
-workspace $ws10 gaps outer 2
-
-workspace $ws9 gaps top 4
-workspace $ws9 gaps bottom 4
-workspace $ws9 gaps inner 2
-workspace $ws9 gaps outer 2
-
+# workspace $ws10 gaps top 4
+# workspace $ws10 gaps bottom 4
+# workspace $ws10 gaps inner 2
+# workspace $ws10 gaps outer 2
+#
+# workspace $ws9 gaps top 4
+# workspace $ws9 gaps bottom 4
+# workspace $ws9 gaps inner 2
+# workspace $ws9 gaps outer 2
+#
 
 
 # switch to workspace
@@ -273,10 +273,17 @@ bindsym $mod+Shift+y move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+y scratchpad show
-bindsym $mod+Shift+o [class="kitty"] scratchpad show; move position center
+
+# kitty
+
+exec --no-startup-id $term --name dropdown
+for_window [instance="dropdown"] mark "dropdown", move scratchpad
+bindsym $mod+Shift+o [con_mark="dropdown"] scratchpad show; move position center
+
 # discord
+exec --no-startup-id discord
 for_window [class="discord"] mark "discord", move scratchpad
-bindcode $mod+49 [con_mark="discord"] scratchpad show
+bindcode $mod+Shift+d [class="discord"] scratchpad show
 
 # VS Code notes
 for_window [title="^.*- Notes - Visual Studio Code$"] mark "vscode-notes", move scratchpad
@@ -398,9 +405,6 @@ for_window [class="feh|Viewnior|Gpicview|Gimp|MPlayer"] floating enable
 for_window [class="Kvantum Manager|qt5ct"] floating enable
 for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
 
-# Autostart in workspace
-#exec_always --no-startup-id ~/.config/i3/scripts/launch_discord.sh
-#exec_always --no-startup-id /usr/bin/code ~/Seafile/Notes # Synchronised notes
 
 ######################################
 # color settings for bar and windows #
@@ -442,4 +446,4 @@ bindsym $mod+d exec rofi -no-lazy-grab -drun-display-format {name} -show drun -m
 
 ## rofi bindings for window menu (two bindings F10/$mod+t)
 
-bindsym $mod+Shift+d exec rofi -no-lazy-grab -show window -modi window -theme ~/.cache/wal/launcher.rasi
+bindsym $mod+Shift+Tab exec rofi -no-lazy-grab -show window -modi window -theme ~/.cache/wal/launcher.rasi

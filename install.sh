@@ -2,7 +2,7 @@ cd ~
 
 if [ ! -d ~/.nvm ]; then
 	echo "nvm install started..."
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 	. ${HOME}/.nvm/nvm.sh
 	. ${HOME}/.profile
 	. ${HOME}/.bashrc
@@ -121,31 +121,32 @@ sudo apt install -y i3-gaps \
 
 echo "Install picom dependencies..."
 sudo apt install -y libxext-dev \
-	libxcb1-dev \
-	libxcb-damage0-dev \
-	libxcb-xfixes0-dev \
-	libxcb-shape0-dev \
-	libxcb-render-util0-dev \
-	libxcb-render0-dev \
-	libxcb-randr0-dev \
-	libxcb-composite0-dev \
-	libxcb-image0-dev \
-	libxcb-present-dev \
-	libxcb-xinerama0-dev \
-	libxcb-glx0-dev \
-	libpixman-1-dev \
-	libdbus-1-dev \
-	libconfig-dev \
-	libgl1-mesa-dev \
-	libpcre2-dev \
-	libpcre3-dev \
-	libevdev-dev \
-	uthash-dev \
-	libev-dev \
-	libx11-xcb-dev \
-	meson
+ libxcb1-dev \
+libxcb-damage0-dev \
+libxcb-xfixes0-dev \
+libxcb-shape0-dev \
+libxcb-render-util0-dev \
+libxcb-render0-dev \
+libxcb-randr0-dev \
+libxcb-composite0-dev \
+libxcb-image0-dev \
+libxcb-present-dev \
+libxcb-xinerama0-dev \
+libxcb-glx0-dev \
+libpixman-1-dev \
+libdbus-1-dev \
+libconfig-dev \
+libgl1-mesa-dev \
+libpcre2-dev \
+ libpcre3-dev \
+libevdev-dev \
+uthash-dev \
+libev-dev \
+libx11-xcb-dev \
+meson
+
 echo "compiling picom"
-cd ${HOME}/Downloads && git clone https://github.com/ibhagwan/picom.git
+cd ${HOME}/Downloads && git clone https://github.com/pijulius/picom.git
 
 cd ${HOME}/Downloads/picom
 git submodule update --init --recursive

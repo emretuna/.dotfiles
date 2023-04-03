@@ -181,5 +181,7 @@
   "helium-icon-theme.folders.color": "#e5c07b",
   "workbench.layoutControl.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "tabnine.experimentalAutoImports": true
+  "tabnine.experimentalAutoImports": true,
+  "totalTypeScript.hideAllTips": true,
+  "totalTypeScript.hideBasicTips": true
 }

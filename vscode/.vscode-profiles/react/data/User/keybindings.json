@@ -1,28 +1,7 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "ctrl+cmd+c",
-    "command": "editor.action.changeAll",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+m",
-    "command": "workbench.action.toggleAuxiliaryBar"
-  },
-  {
-    "key": "cmd+j",
-    "command": "workbench.action.showAllSymbols"
-  },
-  {
-    "key": "cmd+t",
-    "command": "-workbench.action.showAllSymbols"
-  },
-  {
-    "key": "cmd+t",
-    "command": "workbench.action.togglePanel"
-  },
-  {
-    "key": "cmd+j",
-    "command": "-workbench.action.togglePanel"
+    "key": "ctrl+[Backquote]",
+    "command": "workbench.action.terminal.toggleTerminal"
   }
 ]

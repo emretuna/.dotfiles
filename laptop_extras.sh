@@ -16,8 +16,3 @@ echo "pulling libinput-gestures"
 
 
         stow gestures
-
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
-
-systemctl enable auto-cpufreq
