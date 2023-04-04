@@ -278,12 +278,13 @@ bindsym $mod+y scratchpad show
 
 exec --no-startup-id $term --name dropdown
 for_window [instance="dropdown"] mark "dropdown", move scratchpad
-bindsym $mod+Shift+o [con_mark="dropdown"] scratchpad show; move position center
+bindsym $mod+Shift+d [con_mark="dropdown"] scratchpad show; move position center
 
 # discord
-exec --no-startup-id discord
-for_window [class="discord"] mark "discord", move scratchpad
-bindcode $mod+Shift+d [class="discord"] scratchpad show
+exec --no-startup-id discord --name discord
+for_window [class="discord"] mark "discord", move scratchpad,sticky enable
+bindsym $mod+Shift+m [title="^.* - Discord"] scratchpad show; move position center
+
 
 # VS Code notes
 for_window [title="^.*- Notes - Visual Studio Code$"] mark "vscode-notes", move scratchpad

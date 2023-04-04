@@ -3,7 +3,7 @@ return {
   { "catppuccin/nvim" },
   { "Shatur/neovim-ayu" },
   { "rebelot/kanagawa.nvim" },
-  { "AlphaTechnolog/pywal.nvim", as = "pywal" },
+  { "AlphaTechnolog/pywal.nvim" },
 
   -- Configure LazyVim to load themes
   {

@@ -183,5 +183,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "tabnine.experimentalAutoImports": true,
   "totalTypeScript.hideAllTips": true,
-  "totalTypeScript.hideBasicTips": true
+  "totalTypeScript.hideBasicTips": true,
+  "githubPullRequests.pullBranch": "never"
 }
