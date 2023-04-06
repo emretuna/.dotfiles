@@ -9,11 +9,13 @@ local config = {}
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
+-- This module should set the appearance-related options.
 
--- This is where you actually apply your config choices
+wezterm.add_to_config_reload_watch_list("home/emretuna/.cache/wal/wezterm-wal.toml")
 
--- For example, changing the color scheme:
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme_dirs = { "/home/emretuna/.cache/wal" }
+config.color_scheme = "Pywal"
+
 config.font = wezterm.font_with_fallback({
 	"BlexMono NF",
 	"JetBrains Mono",

@@ -19,7 +19,7 @@ return {
       -- catppuccin-frappe
       -- catppuccin-macchiato
       -- catppuccin-mocha
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "ayu-dark",
     },
   },
 }
