@@ -68,7 +68,6 @@ alias ipa="ip -c a"
 
 alias ymp3='youtube-dl --extract-audio --audio-format mp3'
 
-
 # Alacritty ssh : https://github.com/alacritty/alacritty/issues/3443
 alias ssh='env TERM=xterm-256color ssh'
 

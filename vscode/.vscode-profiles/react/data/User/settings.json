@@ -89,7 +89,7 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontSize": 13,
   //Workbench
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Ayu Mirage",
   "workbench.editor.enablePreview": false,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
@@ -184,5 +184,6 @@
   "tabnine.experimentalAutoImports": true,
   "totalTypeScript.hideAllTips": true,
   "totalTypeScript.hideBasicTips": true,
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "terminal.integrated.env.linux": {}
 }

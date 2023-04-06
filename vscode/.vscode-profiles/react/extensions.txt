@@ -3,7 +3,6 @@ benshabatnoam.google-translate-ext
 bourhaouta.tailwindshades
 burkeholland.simple-react-snippets
 Cardinal90.multi-cursor-case-preserve
-Catppuccin.catppuccin-vsc
 chrisbibby.hide-node-modules
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
@@ -21,6 +20,7 @@ firsttris.vscode-jest-runner
 GitHub.vscode-pull-request-github
 Gruntfuggly.todo-tree
 helgardrichard.helium-icon-theme
+humao.rest-client
 infeng.vscode-react-typescript
 kamikillerto.vscode-colorize
 mattpocock.ts-error-translator
@@ -40,6 +40,7 @@ steoates.autoimport
 streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-italian
 TabNine.tabnine-vscode
+teabyii.ayu
 tombonnike.vscode-status-bar-format-toggle
 usernamehw.errorlens
 vscodeshift.material-ui-snippets

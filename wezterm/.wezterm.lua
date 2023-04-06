@@ -40,7 +40,7 @@ config.tab_max_width = 25
 config.disable_default_key_bindings = true
 config.term = "wezterm"
 
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
 	{
 		key = "n",
