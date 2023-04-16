@@ -37,15 +37,20 @@ brew install zsh \
 	direnv \
 	bpytop \
 	ranger \
+	mpv \
 	trash-cli \
 	code-minimap \
 	lua-language-server \
 	vale \
 	zoxide \
-	shellcheck
-stylua \
+	shellcheck \
+	stylua \
 	languagetool \
 	lazygit
+
+brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
+
+brew cleanup
 
 cd ${HOME}/.dotfiles
 echo "stowing files..."
@@ -56,9 +61,8 @@ stow nvim
 stow bpytop
 stow fonts
 stow ranger
-stow ulauncher
 stow mpv
-stow plank
+stow wezterm
 
 #install required dependencies for building packages mostly
 echo "installing bunch of packages to your $(uname -n) desktop"
@@ -73,12 +77,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		git \
 		xclip
 
-	cd wallpapers
-	sudo mkdir /usr/share/backgrounds/wallpapers/
-	sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
-
 else
-	echo "Os unknown, Install some packages by yourself" # Unknown.
+	echo "Os unknown, Installing packages with brew" # Unknown.
+	brew install python@3.11 \
+		gcc \
+		make \
+		imagemagick \
+		ffmpeg
+	brew cleanup
+
 fi
 
 echo "installing zsh and setting up things..."
@@ -95,21 +102,16 @@ antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
 echo 'PATH="/usr/local/bin:$PATH"' >>~/.zshrc
 echo "started installing node packages..."
 # install neovim plugins and requirements
-npm i -g intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
+npm i -g neovim intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
 
 echo "finish nvim set up..."
 nvim --headless "+Lazy! sync" +qa
 
-pip3 install pynvim \
-	pywal
-
-echo "finishing..."
-# Use kitty or Alacritty terminal on Linux
-[ $(uname -s) = 'Linux' ] && stow kitty
+pip3 install pynvim
 
 #install rust cargo
 curl https://sh.rustup.rs -sSf | sh
 echo "DONE BOSS!SEE YA!"
 
-echo "Install stylua"
+echo "Installing stylua"
 cargo install stylua

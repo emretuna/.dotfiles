@@ -33,7 +33,7 @@ alias sudo='sudo '
 alias antibody-reload='antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh'
 
 # Colored 'ls' MacOS
-alias ls='ls -al'
+alias ls='exa -l'
 
 # Homebrew alias for daily management (MacOS)
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'

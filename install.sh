@@ -49,6 +49,8 @@ brew install zsh \
 	lazygit \
 	xclip
 
+brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
+brew cleanup
 cd ${HOME}/.dotfiles
 echo "stowing files..."
 # stow dotfiles
@@ -56,11 +58,11 @@ stow git
 stow zsh
 stow nvim
 stow bpytop
-stow fonts
 stow ranger
 stow ulauncher
 stow mpv
 stow plank
+stow wezterm
 
 #install required dependencies for building packages mostly
 echo "installing bunch of packages to your $(uname -n) desktop"
@@ -90,19 +92,13 @@ echo 'PATH="/usr/local/bin:$PATH"' >>~/.zshrc
 echo "started installing node packages..."
 # install neovim plugins and requirements
 
-npm i -g intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
+npm i -g neovim intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
 
 echo "finish nvim set up..."
 nvim --headless "+Lazy! sync" +qa
 
 echo "finishing..."
-# Use kitty or Alacritty terminal on Linux
-[ $(uname -s) = 'Linux' ] && stow kitty
 
-echo "Installing Brave repository key"
-sudo apt install apt-transport-https curl
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 echo "adding i3-gaps repo"
 wget -qO - https://regolith-desktop.org/regolith.key |
 	gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg >/dev/null
@@ -115,7 +111,6 @@ https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" |
 echo "Updating package lists"
 sudo apt update
 sudo apt install -y i3-gaps \
-	brave-browser \
 	polybar \
 	policykit-1-gnome \
 	pavucontrol \
@@ -192,9 +187,6 @@ stow polybar
 stow picom
 stow rofi
 
-cd wallpapers
-sudo mkdir /usr/share/backgrounds/wallpapers/
-sudo find . -name "*.png" -exec cp '{}' /usr/share/backgrounds/wallpapers/ \;
 #install rust cargo
 curl https://sh.rustup.rs -sSf | sh
 echo "DONE BOSS!SEE YA!"
