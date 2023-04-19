@@ -7,7 +7,7 @@ local config = {}
 
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
-	-- window:gui_window():maximize()
+	window:gui_window()
 end)
 
 -- Pywal config
@@ -30,11 +30,15 @@ config.window_decorations = "RESIZE"
 config.color_scheme = "Ayu Mirage"
 config.adjust_window_size_when_changing_font_size = false
 config.window_background_opacity = 0.6
-config.font = wezterm.font("JetBrains Mono")
+
+config.font = wezterm.font_with_fallback({
+	"BlexMono Nerd Font",
+	"JetBrains Mono",
+})
 config.font_size = 14
 
 config.window_frame = {
-	font = wezterm.font({ family = "BlexMono NF", weight = "Bold" }),
+	font = wezterm.font({ family = "Noto Sans", weight = "Regular" }),
 	font_size = 12.0,
 }
 

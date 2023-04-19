@@ -2,9 +2,9 @@
   //Window
   "window.menuBarVisibility": "hidden",
   //Editor
-  "editor.fontFamily": "Zed Mono, monospace", //Alternatives: BlexMono Nerd Font, DejavuSansMono Nerd Font, MesloLGS Nerd Font, Iosevka Nerd Font, JetBrainsMono Nerd Font, Fira Code Retina
+  "editor.fontFamily": "BlexMono Nerd Font, monospace", //Alternatives: BlexMono Nerd Font, DejavuSansMono Nerd Font, MesloLGS Nerd Font, Iosevka Nerd Font, JetBrainsMono Nerd Font, Fira Code Retina
   "editor.fontLigatures": true,
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.fontWeight": "normal",
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 5,
@@ -185,5 +185,6 @@
   "totalTypeScript.hideAllTips": true,
   "totalTypeScript.hideBasicTips": true,
   "githubPullRequests.pullBranch": "never",
-  "terminal.integrated.env.linux": {}
+  "terminal.integrated.env.linux": {},
+  "aws.telemetry": false
 }

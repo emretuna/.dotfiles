@@ -3,7 +3,7 @@
 	email = tunaemre@windowslive.com
 [core]
 	excludesfile = ~/.gitignore_global
-    editor = nvim
+    	editor = vim
 	compression = 0
 [pull]
 	ff = only
