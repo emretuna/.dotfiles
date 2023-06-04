@@ -38,14 +38,14 @@
           "comment",
           "entity.name.type.class", //class names
           "keyword", //import, export, return…
-          //"support.class.builtin.js", //String, Number, Boolean…, this, super
+          "support.class.builtin.js", //String, Number, Boolean…, this, super
           "storage.modifier", //static keyword
           "storage.type.class.js", //class keyword
           "storage.type.function.js", // function keyword
           "storage.type.js", // Variable declarations
           "keyword.control.import.js", // Imports
           "keyword.control.from.js", // From-Keyword
-          //"entity.name.type.js", // new … Expression
+          "entity.name.type.js", // new … Expression
           "keyword.control.flow.js", // await
           "keyword.control.conditional.js", // if
           "keyword.control.loop.js", // for
@@ -89,7 +89,7 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontSize": 13,
   //Workbench
-  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.colorTheme": "Rosé Pine",
   "workbench.editor.enablePreview": false,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,

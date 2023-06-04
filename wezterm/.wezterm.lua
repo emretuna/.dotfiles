@@ -25,11 +25,11 @@ end
 
 config.scrollback_lines = 3500
 config.text_background_opacity = 0.4
-config.macos_window_background_blur = 20
+config.macos_window_background_blur = 25
 config.window_decorations = "RESIZE"
-config.color_scheme = "Ayu Mirage"
+config.color_scheme = "rose-pine"
 config.adjust_window_size_when_changing_font_size = false
-config.window_background_opacity = 0.6
+config.window_background_opacity = 0.3
 
 config.font = wezterm.font_with_fallback({
 	"BlexMono Nerd Font",
@@ -62,6 +62,7 @@ config.keys = {
 	},
 	{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 	{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+	{ key = "w", mods = "SHIFT|CTRL", action = wezterm.action.SpawnWindow },
 	--Tabs function key assignments
 	{ key = "s", mods = "CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "v", mods = "CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },

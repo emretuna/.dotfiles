@@ -3,7 +3,7 @@ return {
   { "catppuccin/nvim" },
   { "Shatur/neovim-ayu" },
   { "rebelot/kanagawa.nvim" },
-  { "AlphaTechnolog/pywal.nvim" },
+  { "rose-pine/neovim", name = "rose-pine" },
 
   -- Configure LazyVim to load themes
   {
@@ -19,7 +19,7 @@ return {
       -- catppuccin-frappe
       -- catppuccin-macchiato
       -- catppuccin-mocha
-      colorscheme = "ayu-dark",
+      colorscheme = "rose-pine",
     },
   },
 }
