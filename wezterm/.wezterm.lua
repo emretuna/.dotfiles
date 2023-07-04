@@ -24,19 +24,19 @@ end
 -- This module should set the appearance-related options.
 
 config.scrollback_lines = 3500
-config.text_background_opacity = 0.4
-config.macos_window_background_blur = 25
+-- config.text_background_opacity = 0.4
+-- config.macos_window_background_blur = 25
 config.window_decorations = "RESIZE"
-config.color_scheme = "rose-pine"
+config.color_scheme = "Kanagawa (Gogh)"
 config.adjust_window_size_when_changing_font_size = false
-config.window_background_opacity = 0.3
+-- config.window_background_opacity = 0.3
 
 config.font = wezterm.font_with_fallback({
 	"BlexMono Nerd Font",
 	"JetBrains Mono",
 })
 config.font_size = 14
-
+config.animation_fps = 60
 config.window_frame = {
 	font = wezterm.font({ family = "Noto Sans", weight = "Regular" }),
 	font_size = 12.0,

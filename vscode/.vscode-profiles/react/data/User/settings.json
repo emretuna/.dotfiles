@@ -1,6 +1,15 @@
 {
   //Window
   "window.menuBarVisibility": "hidden",
+  "workbench.colorTheme": "Kanagawa Wave",
+  "workbench.colorCustomizations": {
+    //"[Kanagawa Wave]": {
+    "activityBar.background": "#1F1F27",
+    "activityBar.border": "#16161C",
+    "editorGroup.border": "#00000000",
+    "sideBar.border": "#16161C"
+    // }
+  },
   //Editor
   "editor.fontFamily": "BlexMono Nerd Font, monospace", //Alternatives: BlexMono Nerd Font, DejavuSansMono Nerd Font, MesloLGS Nerd Font, Iosevka Nerd Font, JetBrainsMono Nerd Font, Fira Code Retina
   "editor.fontLigatures": true,
@@ -12,6 +21,7 @@
   "editor.snippetSuggestions": "top",
   "editor.semanticHighlighting.enabled": true,
   "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
   "breadcrumbs.enabled": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -27,7 +37,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": false
   },
-  "editor.inlineSuggest.enabled": true,
   "editor.maxTokenizationLineLength": 10000000,
   "editor.linkedEditing": true,
   "editor.tokenColorCustomizations": {
@@ -85,11 +94,11 @@
     ]
   },
   "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.inlineSuggest.enabled": true,
+
   // Terminal
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontSize": 13,
-  //Workbench
-  "workbench.colorTheme": "Rosé Pine",
   "workbench.editor.enablePreview": false,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
@@ -97,15 +106,6 @@
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "none",
 
-  //Indent Rainbow
-  "indentRainbow.colors": [
-    "rgba(250, 189, 47, 0.05)",
-    "rgba(142, 192, 124, 0.05)",
-    "rgba(131, 165, 152, 0.05)",
-    "rgba(211, 134, 155, 0.05)",
-    "rgba(254, 128, 25, 0.05)"
-  ],
-  "indentRainbow.errorColor": "rgba(251, 73, 52, 0.2)",
   //Autoimport
   "autoimport.filesToScan": "**/*.{jsx,js,vue,ts,tsx}",
   "autoimport.useSemiColon": false,
@@ -117,6 +117,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "i18n-ally.dirStructure": "auto",
+  "i18n-ally.pathMatcher": "{locale}/index.{ext}",
+  "i18n-ally.enabledParsers": ["ts", "js"],
   "i18n-ally.disablePathParsing": true,
   "i18n-ally.displayLanguage": "en",
   "i18n-ally.sourceLanguage": "en",
@@ -161,7 +163,7 @@
   // Material UI
   "material-ui-snippets.showNotesOnStartup": false,
   // Focus
-  "focus.highlightRange": "block",
+  "focus.highlightRange": "indent",
   "focus.opacity": "0.6",
   //Error Lens
   "errorLens.delay": 2000,
@@ -173,18 +175,12 @@
   "errorLens.fontFamily": "JetBrainsMono Nerd Font",
   "errorLens.fontSize": "12",
   "errorLens.fontWeight": "100",
-  // Misc
-  "telemetry.telemetryLevel": "off",
   "cSpell.language": "en,it,lorem",
   "editor.minimap.enabled": false,
   "workbench.iconTheme": "helium-icon-theme",
   "helium-icon-theme.folders.color": "#e5c07b",
   "workbench.layoutControl.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "tabnine.experimentalAutoImports": true,
-  "totalTypeScript.hideAllTips": true,
-  "totalTypeScript.hideBasicTips": true,
   "githubPullRequests.pullBranch": "never",
-  "terminal.integrated.env.linux": {},
-  "aws.telemetry": false
+  "telemetry.telemetryLevel": "off"
 }
