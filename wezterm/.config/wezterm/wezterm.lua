@@ -1,0 +1,79 @@
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+local tab = require("tab")
+local fonts = require("fonts")
+local keys = require("keys")
+local theme = require("themes.kanagawa")
+
+local lazygit = require("utils.lazygit")
+
+local config = {}
+-- Pywal config
+-- wezterm.add_to_config_reload_watch_list("home/emretuna/.wezterm.lua")
+-- wezterm.add_to_config_reload_watch_list("home/emretuna/.cache/wal/wezterm-wal.toml")
+-- config.color_scheme_dirs = { "/home/emretuna/.cache/wal" }
+-- config.color_scheme = "Pywal"
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+	config = wezterm.config_builder()
+end
+-- This module should set the appearance-related options.
+-- Configurations
+--
+-- Set the Kanagawa theme as the default
+config.colors = theme
+config.term = "wezterm"
+config.warn_about_missing_glyphs = false
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
+config.scrollback_lines = 3500
+-- config.text_background_opacity = 0.4
+-- config.macos_window_background_blur = 25
+config.window_decorations = "RESIZE"
+-- config.window_background_opacity = 0.3
+config.animation_fps = 60
+
+config.show_update_window = false
+config.check_for_updates = false
+
+config.window_background_opacity = 1.0
+config.hyperlink_rules = {
+	{
+		regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",
+		format = "$0",
+	},
+	{
+		regex = "\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b",
+		format = "$0",
+	},
+	{
+		regex = [[\b\w+@[\w-]+(\.[\w-]+)+\b]],
+		format = "mailto:$0",
+	},
+	{
+		regex = [[\bfile://\S*\b]],
+		format = "$0",
+	},
+	{
+		regex = [[\b\w+://(?:[\d]{1,3}\.){3}[\d]{1,3}\S*\b]],
+		format = "$0",
+	},
+	{
+		regex = [[\b[tT](\d+)\b]],
+		format = "https://example.com/tasks/?t=$1",
+	},
+}
+
+-- and finally, return the configuration to wezter
+tab.setup(config)
+fonts.setup(config)
+keys.setup(config)
+
+wezterm.on("lazygit", lazygit)
+return config
