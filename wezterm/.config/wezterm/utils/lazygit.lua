@@ -1,4 +1,4 @@
-local colors = require("../themes.kanagawa")
+local colors = require("../themes/kanagawa")
 
 local lazygit_config = function(window, pane)
 	local colorscheme = {

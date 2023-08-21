@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local tab = require("tab")
 local fonts = require("fonts")
 local keys = require("keys")
-local theme = require("themes.kanagawa")
+local theme = require("themes/kanagawa")
 
 local lazygit = require("utils.lazygit")
 
@@ -33,16 +33,16 @@ config.window_padding = {
 	bottom = 0,
 }
 config.scrollback_lines = 3500
--- config.text_background_opacity = 0.4
--- config.macos_window_background_blur = 25
 config.window_decorations = "RESIZE"
--- config.window_background_opacity = 0.3
+
+config.window_background_opacity = 0.6
+config.text_background_opacity = 0.6
+config.macos_window_background_blur = 25
 config.animation_fps = 60
 
 config.show_update_window = false
 config.check_for_updates = false
 
-config.window_background_opacity = 1.0
 config.hyperlink_rules = {
 	{
 		regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",

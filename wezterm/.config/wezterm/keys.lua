@@ -121,7 +121,7 @@ function Keys.setup(config)
 		},
 		{
 			key = "Q",
-			mods = "ALT",
+			mods = "ALT|SHIFT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
 		{
@@ -131,7 +131,7 @@ function Keys.setup(config)
 				flags = "LAUNCH_MENU_ITEMS|FUZZY|TABS|DOMAINS|WORKSPACES",
 			}),
 		},
-		{ key = "q", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+		{ key = "q", mods = "ALT|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "z", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
 		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
 		{ key = "[", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
@@ -143,15 +143,15 @@ function Keys.setup(config)
 		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-		{ key = "1", mods = "CTRL", action = wezterm.action({ ActivateTab = 0 }) },
-		{ key = "2", mods = "CTRL", action = wezterm.action({ ActivateTab = 1 }) },
-		{ key = "3", mods = "CTRL", action = wezterm.action({ ActivateTab = 2 }) },
-		{ key = "4", mods = "CTRL", action = wezterm.action({ ActivateTab = 3 }) },
-		{ key = "5", mods = "CTRL", action = wezterm.action({ ActivateTab = 4 }) },
-		{ key = "6", mods = "CTRL", action = wezterm.action({ ActivateTab = 5 }) },
-		{ key = "7", mods = "CTRL", action = wezterm.action({ ActivateTab = 6 }) },
-		{ key = "8", mods = "CTRL", action = wezterm.action({ ActivateTab = 7 }) },
-		{ key = "9", mods = "CTRL", action = wezterm.action({ ActivateTab = 8 }) },
+		{ key = "1", mods = "ALT", action = wezterm.action({ ActivateTab = 0 }) },
+		{ key = "2", mods = "ALT", action = wezterm.action({ ActivateTab = 1 }) },
+		{ key = "3", mods = "ALT", action = wezterm.action({ ActivateTab = 2 }) },
+		{ key = "4", mods = "ALT", action = wezterm.action({ ActivateTab = 3 }) },
+		{ key = "5", mods = "ALT", action = wezterm.action({ ActivateTab = 4 }) },
+		{ key = "6", mods = "ALT", action = wezterm.action({ ActivateTab = 5 }) },
+		{ key = "7", mods = "ALT", action = wezterm.action({ ActivateTab = 6 }) },
+		{ key = "8", mods = "ALT", action = wezterm.action({ ActivateTab = 7 }) },
+		{ key = "9", mods = "ALT", action = wezterm.action({ ActivateTab = 8 }) },
 	}
 end
 
