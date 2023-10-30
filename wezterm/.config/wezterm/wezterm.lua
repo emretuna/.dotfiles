@@ -32,44 +32,18 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.scrollback_lines = 3500
+config.scrollback_lines = 10000
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.6
-config.text_background_opacity = 0.6
+config.text_background_opacity = 0.7
 config.macos_window_background_blur = 25
 config.animation_fps = 60
 
 config.show_update_window = false
 config.check_for_updates = false
 
-config.hyperlink_rules = {
-	{
-		regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",
-		format = "$0",
-	},
-	{
-		regex = "\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b",
-		format = "$0",
-	},
-	{
-		regex = [[\b\w+@[\w-]+(\.[\w-]+)+\b]],
-		format = "mailto:$0",
-	},
-	{
-		regex = [[\bfile://\S*\b]],
-		format = "$0",
-	},
-	{
-		regex = [[\b\w+://(?:[\d]{1,3}\.){3}[\d]{1,3}\S*\b]],
-		format = "$0",
-	},
-	{
-		regex = [[\b[tT](\d+)\b]],
-		format = "https://example.com/tasks/?t=$1",
-	},
-}
-
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- and finally, return the configuration to wezter
 tab.setup(config)
 fonts.setup(config)

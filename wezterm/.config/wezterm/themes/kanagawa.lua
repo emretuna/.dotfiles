@@ -1,6 +1,6 @@
 local kanagawa = {
 	foreground = "#dcd7ba",
-	background = "#1f1f28",
+	background = "#1F1F27",
 
 	cursor_bg = "#c8c093",
 	cursor_fg = "#c8c093",
@@ -16,7 +16,7 @@ local kanagawa = {
 	brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
 	indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 	tab_bar = {
-		background = "#1f1f28",
+		background = "#1f1f27",
 		active_tab = {
 			bg_color = "none",
 			fg_color = "#7e9cd8",
@@ -30,11 +30,11 @@ local kanagawa = {
 			fg_color = "#727169",
 		},
 		inactive_tab_hover = {
-			bg_color = "#1f1f28",
+			bg_color = "#1f1f27",
 			fg_color = "#dcd7ba",
 		},
 		new_tab = {
-			bg_color = "#1f1f28",
+			bg_color = "#1f1f27",
 			fg_color = "#dcd7ba",
 		},
 		new_tab_hover = {
