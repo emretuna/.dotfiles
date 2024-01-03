@@ -9,6 +9,10 @@ local function get_process(tab)
 		["docker-compose"] = {
 			{ Text = "󰡨" },
 		},
+		["lazydocker"] = {
+			{ Text = "󰡨" },
+		},
+
 		["nvim"] = {
 			{ Text = "" },
 		},
@@ -66,7 +70,6 @@ local function get_process(tab)
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
-
 	if not process_name then
 		process_name = "zsh"
 	end
@@ -93,7 +96,7 @@ end
 function Tab.setup(config)
 	config.tab_bar_at_bottom = true
 	config.use_fancy_tab_bar = false
-	config.show_new_tab_button_in_tab_bar = false
+	config.show_new_tab_button_in_tab_bar = true
 	config.tab_max_width = 50
 	config.hide_tab_bar_if_only_one_tab = true
 

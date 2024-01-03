@@ -47,7 +47,8 @@ brew install zsh \
 	stylua \
 	languagetool \
 	lazygit \
-	xclip
+	xclip \
+	navi
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
 brew cleanup
