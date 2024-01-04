@@ -13,7 +13,7 @@ return {
     ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
-
+    -- set options for dashboard
     local opts = {
       theme = "doom",
       hide = {
