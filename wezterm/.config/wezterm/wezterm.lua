@@ -35,9 +35,9 @@ config.window_padding = {
 config.scrollback_lines = 10000
 config.window_decorations = "RESIZE"
 
--- config.window_background_opacity = 0.6
--- config.text_background_opacity = 0.7
--- config.macos_window_background_blur = 25
+config.window_background_opacity = 0.6
+config.text_background_opacity = 0.7
+config.macos_window_background_blur = 25
 config.animation_fps = 60
 
 config.show_update_window = false

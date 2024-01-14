@@ -5,8 +5,8 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     build = "make",
     keys = {
-      { "<leader>fm", "<Cmd>:Telescope file_browser<CR>", desc = "File Browser" },
-      { "<leader>fM", "<Cmd>:Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File Browser (cwd)" },
+      { "<leader>fM", "<Cmd>:Telescope file_browser<CR>", desc = "File Browser" },
+      { "<leader>fm", "<Cmd>:Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File Browser (cwd)" },
     },
     config = function()
       require("telescope").load_extension("file_browser")

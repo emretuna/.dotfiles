@@ -67,6 +67,9 @@ local function get_process(tab)
 		["dotnet"] = {
 			{ Text = "󰪮" },
 		},
+		["cointop"] = {
+			{ Text = "" },
+		},
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")

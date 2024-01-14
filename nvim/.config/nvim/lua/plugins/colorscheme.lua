@@ -6,6 +6,7 @@ return {
       -- kanagawa-wave
       -- kanagawa-lotus
       -- kanagawa-dragon
+      -- catppuccin
       colorscheme = "kanagawa",
     },
   },
