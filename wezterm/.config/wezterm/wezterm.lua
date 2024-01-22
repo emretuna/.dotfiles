@@ -40,6 +40,9 @@ config.text_background_opacity = 0.7
 config.macos_window_background_blur = 25
 config.animation_fps = 60
 
+config.initial_rows = 40
+config.initial_cols = 125
+
 config.show_update_window = false
 config.check_for_updates = false
 

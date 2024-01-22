@@ -1,15 +1,5 @@
 cd ~
 
-if [ ! -d ~/.nvm ]; then
-	echo "nvm install started..."
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-	. ${HOME}/.nvm/nvm.sh
-	. ${HOME}/.profile
-	. ${HOME}/.bashrc
-fi
-# install node
-nvm install node --lts
-
 # install homebrew
 if ! command -v brew &>/dev/null; then
 	pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..."
@@ -48,10 +38,12 @@ brew install zsh \
 	languagetool \
 	lazygit \
 	xclip \
-	navi
+	navi \
+	volta
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
 brew cleanup
+
 cd ${HOME}/.dotfiles
 echo "stowing files..."
 # stow dotfiles
