@@ -1,5 +1,3 @@
-![Screenshot 1](./screenshots/screenshot.png)
-
 # Important
   Directly use of this repo may conflict with your OS. Repo maintained for personal purposes only, you may get idea using these configurations you are warned :)
 
@@ -8,6 +6,7 @@
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/emretuna/.dotfiles/main/install.sh)"
   ```
 ## Required
+`If os is linux, will be skipped for osx` 
 # i3-gaps
 https://github.com/Airblader/i3/wiki/installation
 
