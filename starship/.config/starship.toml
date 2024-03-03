@@ -1,4 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 5000
 format = """
 $os\
 $username\
@@ -130,7 +131,7 @@ time_format = "%R"
 format = '[[  $time ](fg:color_fg0)]($style)'
 
 [line_break]
-disabled = false
+disabled = true
 
 [character]
 disabled = false
