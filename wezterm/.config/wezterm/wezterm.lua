@@ -5,8 +5,6 @@ local fonts = require("fonts")
 local keys = require("keys")
 local theme = require("themes/kanagawa")
 
-local lazygit = require("utils.lazygit")
-
 local config = {}
 -- Pywal config
 -- wezterm.add_to_config_reload_watch_list("home/emretuna/.wezterm.lua")
@@ -35,9 +33,9 @@ config.window_padding = {
 config.scrollback_lines = 10000
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.6
-config.text_background_opacity = 0.7
-config.macos_window_background_blur = 25
+config.window_background_opacity = 0.8
+config.text_background_opacity = 0.6
+config.macos_window_background_blur = 50
 config.animation_fps = 60
 
 config.initial_rows = 40
@@ -52,5 +50,4 @@ tab.setup(config)
 fonts.setup(config)
 keys.setup(config)
 
-wezterm.on("lazygit", lazygit)
 return config

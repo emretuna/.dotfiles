@@ -36,7 +36,6 @@ brew install zsh \
 	shellcheck \
 	stylua \
 	languagetool \
-	lazygit \
 	xclip \
 	navi \
 	volta

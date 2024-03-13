@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "LspAttach",
     opts = {
       -- @type lspconfig.options
       servers = {

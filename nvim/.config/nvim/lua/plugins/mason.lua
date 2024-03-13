@@ -1,5 +1,6 @@
 return {
   "williamboman/mason.nvim",
+  lazy = true,
   opts = {
     ensure_installed = {
       "actionlint",
@@ -11,12 +12,14 @@ return {
       "blade-formatter",
       "docker-compose-language-service",
       "dockerfile-language-server",
-      "dot-language-server",
       "eslint_d",
       "flake8",
       "hadolint",
       "html-lsp",
       "intelephense",
+      "js-debug-adapter",
+      "ltex-ls",
+      "markdownlint",
       "nginx-language-server",
       "php-debug-adapter",
       "phpstan",

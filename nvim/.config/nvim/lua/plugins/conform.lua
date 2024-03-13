@@ -1,6 +1,7 @@
 local util = require("conform.util")
 return {
   "stevearc/conform.nvim",
+  event = "LspAttach",
   opts = function()
     ---@class ConformOpts
     local opts = {
@@ -13,12 +14,12 @@ return {
       ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
         lua = { "stylua" },
-        fish = { "fish_indent" },
         sh = { "shfmt" },
         php = { "pint" },
         blade = { "blade-formatter", "rustywind" },
         python = { "black" },
         javascript = { "prettierd" },
+        markdown = { "markdownlint" },
       },
       -- LazyVim will merge the options you set here with builtin formatters.
       -- You can also define any custom formatters here.

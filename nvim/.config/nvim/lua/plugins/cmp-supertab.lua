@@ -3,6 +3,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-emoji",
   },
+  event = "LspAttach",
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local has_words_before = function()

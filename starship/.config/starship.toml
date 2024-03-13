@@ -128,7 +128,7 @@ format = '[[ $symbol( $context) ](fg:#83a598)]($style)'
 [time]
 disabled = false
 time_format = "%R"
-format = '[[  $time ](fg:color_fg0)]($style)'
+format = '[[ 󱑒 $time ](fg:color_fg0)]($style)'
 
 [line_break]
 disabled = true
