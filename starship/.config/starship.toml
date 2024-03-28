@@ -17,7 +17,8 @@ $haskell\
 $python\
 $docker_context\
 $time\
-$line_break$character"""
+"""
+#$line_break $character
 
 palette = 'kanagawa_wave'
 
@@ -33,6 +34,20 @@ color_purple = '#7fb4ca'
 color_red = '#e82424'
 color_yellow = '#dcd7ba'
 
+# palette = 'tokyo_night'
+#
+# [palettes.tokyo_night]
+# color_fg0 = '#c0caf5'
+# color_fg1 = '#565f89'
+# color_fg3 = '#414868'
+# color_blue = '#7aa2f7'
+# color_aqua = '#7dcfff'
+# color_green = '#9ece6a'
+# color_orange = '#ff9e64'
+# color_purple = '#bb9af7'
+# color_red = '#f7768e'
+# color_yellow = '#e0af68'
+#
 [os]
 disabled = false
 style = "fg:color_fg3"
@@ -123,7 +138,7 @@ format = '[[ $symbol( $version) ](fg:color_blue)]($style)'
 
 [docker_context]
 symbol = ""
-format = '[[ $symbol( $context) ](fg:#83a598)]($style)'
+format = '[[ $symbol( $context) ](fg:color_green)]($style)'
 
 [time]
 disabled = false

@@ -38,6 +38,11 @@ brew install zsh \
 	languagetool \
 	xclip \
 	navi \
+	tree \
+	poppler \
+	bat \
+	glow \
+	gitui \
 	volta
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
@@ -50,7 +55,6 @@ stow git
 stow zsh
 stow nvim
 stow bpytop
-stow ranger
 stow ulauncher
 stow mpv
 stow plank

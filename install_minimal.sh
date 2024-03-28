@@ -26,7 +26,6 @@ brew install zsh \
 	bat \
 	direnv \
 	bpytop \
-	ranger \
 	mpv \
 	trash-cli \
 	code-minimap \
@@ -38,6 +37,11 @@ brew install zsh \
 	languagetool \
 	xclip \
 	navi \
+	tree \
+	poppler \
+	bat \
+	glow \
+	gitui \
 	volta
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
@@ -52,7 +56,6 @@ stow zsh
 stow nvim
 stow bpytop
 stow fonts
-stow ranger
 stow mpv
 stow wezterm
 

@@ -29,9 +29,6 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Bundle zsh plugins via antibody
-alias antibody-reload='antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh'
-
 # Colored 'ls' MacOS
 alias ls='exa -l'
 

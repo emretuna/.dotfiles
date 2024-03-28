@@ -11,3 +11,7 @@ vscode/.vscode-profiles/**/data/User/**/
 
 !vscode/.vscode-profiles/**/data/User/
 !!vscode/.vscode-profiles/**/data/User/settings.json
+wezterm/.config/wezterm/wezterm.lua
+wezterm/.config/wezterm/wezterm.lua
+wezterm/.config/wezterm/wezterm.lua
+wezterm/.config/wezterm/wezterm.lua
