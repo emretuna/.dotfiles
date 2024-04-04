@@ -1,1 +1,7 @@
-/lua/base/git-ignored
+tags
+test.sh
+.luarc.json
+nvim
+
+spell/
+lazy-lock.json
