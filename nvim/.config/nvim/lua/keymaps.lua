@@ -29,12 +29,21 @@ end, {
 })
 
 -- tabs
-vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Tab next' })
-vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
+vim.keymap.set('n', ']t', function()
+  vim.cmd.tabnext()
+end, { desc = 'Tab next' })
+vim.keymap.set('n', '[t', function()
+  vim.cmd.tabprevious()
+end, { desc = 'Tab previous' })
 
---buffers
+-- buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
+vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
+
+-- better indent
+vim.keymap.set('x', '<Tab>', '>gv', { desc = 'Indent Line' })
+vim.keymap.set('x', '<S-Tab>', '<gv', { desc = 'Unindent Line' })
 
 --gitui
 vim.keymap.set('n', '<leader>g.', function()
@@ -49,6 +58,14 @@ vim.keymap.set('n', '<leader>g.', function()
     vim.notify('Not a git repository', vim.log.levels.WARN)
   end
 end, { desc = 'Gitui' })
+
+-- terminal mappings
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', { desc = 'Enter Normal Mode' })
+vim.keymap.set('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'Go to Left Window' })
+vim.keymap.set('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'Go to Lower Window' })
+vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'Go to Upper Window' })
+vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { desc = 'Go to Right Window' })
+vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -85,6 +102,18 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
   desc = 'Make q close command history (q: and q?)',
   callback = function(args)
     vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = args.buf, silent = true, nowait = true })
+  end,
+})
+vim.api.nvim_create_autocmd('VimEnter', {
+  desc = 'Disable right contextual menu warning message',
+  callback = function()
+    -- Disable right click message
+    vim.api.nvim_command [[aunmenu PopUp.How-to\ disable\ mouse]]
+    -- vim.api.nvim_command [[aunmenu PopUp.-1-]] -- You can remode a separator like this.
+    vim.api.nvim_command [[menu PopUp.Toggle\ \Breakpoint <cmd>:lua require('dap').toggle_breakpoint()<CR>]]
+    vim.api.nvim_command [[menu PopUp.-2- <Nop>]]
+    vim.api.nvim_command [[menu PopUp.Start\ \Debugger <cmd>:DapContinue<CR>]]
+    vim.api.nvim_command [[menu PopUp.Run\ \Test <cmd>:Neotest run<CR>]]
   end,
 })
 -- vim: ts=2 sts=2 sw=2 et

@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local tab = require("tab")
 local fonts = require("fonts")
 local keys = require("keys")
-local kanagawa = require("themes.kanagawa")
+-- local kanagawa = require("themes.kanagawa")
 
 local config = {}
 -- Pywal config
@@ -21,8 +21,8 @@ end
 -- Configurations
 --
 -- Set the Kanagawa theme as the default
-config.colors = kanagawa
--- config.color_scheme = "tokyonight_night"
+-- config.colors = kanagawa
+config.color_scheme = "tokyonight_night"
 config.term = "wezterm"
 config.warn_about_missing_glyphs = true
 config.enable_scroll_bar = false

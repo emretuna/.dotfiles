@@ -6,7 +6,7 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
+      'b0o/schemastore.nvim',
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
@@ -52,7 +52,6 @@ return {
 
           -- Find references for the word under your cursor.
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -143,6 +142,7 @@ return {
           },
         }
       end
+      pcall(require, 'schemastore')
 
       -- Set default diagnostics
 
@@ -214,6 +214,20 @@ return {
         emmet_ls = {
           filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
         },
+        jsonls = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+        yamlls = {
+          schemaStore = {
+            -- You must disable built-in schemaStore support if you want to use
+            -- this plugin and its advanced options like `ignore`.
+            enable = false,
+            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+            url = '',
+          },
+          schemas = require('schemastore').yaml.schemas(),
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -230,9 +244,12 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'gitui',
+        'codespell',
         'tsserver',
         'phpactor',
         'html',
+        'jsonls',
+        'yamlls',
         'cssls',
         'tailwindcss',
         'svelte',
@@ -243,6 +260,10 @@ return {
         'prettier', -- prettier formatter
         'eslint_d', -- js linter
         'markdownlint',
+        'phpcbf',
+        'phpcs',
+        'php-cs-fixer',
+        'pint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

@@ -16,7 +16,7 @@ echo 'PATH="/usr/local/bin:$PATH"' >>~/.bash_profile
 
 # install packages
 brew install zsh \
-	antibody \
+	antidote \
 	neovim \
 	stow \
 	yarn \
@@ -93,7 +93,7 @@ sudo chsh -s $(which zsh) $USER
 
 echo "tweaking zsh..."
 # bundle zsh plugins
-antibody bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
+antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
 echo 'PATH="/usr/local/bin:$PATH"' >>~/.zshrc
 echo "started installing node packages..."
 # install neovim plugins and requirements

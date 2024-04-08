@@ -13,6 +13,7 @@ return {
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
         svelte = { 'eslint_d' },
+        php = { 'php', 'phpcs' },
       }
 
       local markdownlint = require('lint').linters.markdownlint
@@ -22,6 +23,7 @@ return {
         'MD007',
         '--', -- Required
       }
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}

@@ -11,7 +11,7 @@ return {
       },
       sources = { 'filesystem', 'buffers', 'git_status' },
       source_selector = {
-        winbar = true,
+        winbar = false,
         statusline = false,
         content_layout = 'center',
         sources = {

@@ -18,7 +18,7 @@ vim.g.completion_round_borders_enabled = true
 vim.g.have_nerd_font = true
 
 -- If more than 1 show tabline
-vim.opt.showtabline = 1 -- if more than one display tabline.
+vim.opt.showtabline = 1
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -26,8 +26,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = ''
-
+vim.opt.mouse = 'a'
+-- Disables hozirontal scroll in neovim.
+vim.opt.mousescroll = 'ver:2,hor:5'
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -79,5 +80,25 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Misc Settings
+vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI.
+vim.opt.timeoutlen = 500 -- Shorten key timeout length a little bit for which-key.
+vim.opt.undofile = true -- Enable persistent undo between session and reboots.
+vim.opt.updatetime = 300 -- Length of time to wait before triggering the plugin.
+vim.opt.virtualedit = 'block' -- Allow going past end of line in visual block mode.
+vim.opt.writebackup = false -- Disable making a backup before overwriting a file.
+vim.opt.shada = "!,'1000,<50,s10,h" -- Remember the last 1000 opened files
+vim.opt.undodir = vim.fn.stdpath 'data' .. '/undodir' -- Chooses where to store the undodir.
+vim.opt.history = 1000 -- Number of commands to remember in a history table (per buffer).
+vim.opt.swapfile = false -- Ask what state to recover when opening a file that was not saved.
+vim.opt.wrap = true -- Disable wrapping of lines longer than the width of window.
+vim.opt.colorcolumn = '80' -- PEP8 like character limit vertical bar.
+vim.opt.mousescroll = 'ver:1,hor:0' -- Disables hozirontal scroll in neovim.
+vim.opt.guicursor = 'n:blinkon200,i-ci-ve:ver25' -- Enable cursor blink.
+vim.opt.autochdir = true -- Use current file dir as working dir (See project.nvim).
+vim.opt.scrolloff = 1000 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
+vim.opt.sidescrolloff = 8 -- Same but for side scrolling.
+vim.opt.selection = 'old' -- Don't select the newline symbol when using <End> on visual mode.
 
 -- vim: ts=2 sts=2 sw=2 et

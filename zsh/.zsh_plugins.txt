@@ -6,6 +6,8 @@ robbyrussell/oh-my-zsh path:plugins/git-extras
 robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/history
 
+romkatv/powerlevel10k
+
 rupa/z
 
 zsh-users/zsh-autosuggestions

@@ -9,6 +9,8 @@ return {
     opts = {
       ensure_installed = {
         'json',
+        'json5',
+        'jsonc',
         'javascript',
         'typescript',
         'tsx',
