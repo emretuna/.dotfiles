@@ -28,6 +28,11 @@ end, {
   desc = 'Fast move up',
 })
 
+-- Map ScrollWheelUp to Ctrl+B
+vim.api.nvim_set_keymap('n', '<ScrollWheelUp>', '<C-B>', { noremap = true })
+-- Map ScrollWheelDown to Ctrl+F
+vim.api.nvim_set_keymap('n', '<ScrollWheelDown>', '<C-F>', { noremap = true })
+
 -- tabs
 vim.keymap.set('n', ']t', function()
   vim.cmd.tabnext()

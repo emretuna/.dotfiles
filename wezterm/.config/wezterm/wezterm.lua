@@ -46,6 +46,9 @@ config.initial_cols = 150
 config.show_update_window = false
 config.check_for_updates = false
 
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_rate = 800
+
 -- and finally, return the configuration to wezter
 tab.setup(config)
 fonts.setup(config)

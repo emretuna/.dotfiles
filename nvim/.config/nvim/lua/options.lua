@@ -25,10 +25,6 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
--- Disables hozirontal scroll in neovim.
-vim.opt.mousescroll = 'ver:2,hor:5'
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -82,6 +78,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Misc Settings
+vim.opt.mouse = '' -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI.
 vim.opt.timeoutlen = 500 -- Shorten key timeout length a little bit for which-key.
 vim.opt.undofile = true -- Enable persistent undo between session and reboots.
@@ -94,7 +91,7 @@ vim.opt.history = 1000 -- Number of commands to remember in a history table (per
 vim.opt.swapfile = false -- Ask what state to recover when opening a file that was not saved.
 vim.opt.wrap = true -- Disable wrapping of lines longer than the width of window.
 vim.opt.colorcolumn = '80' -- PEP8 like character limit vertical bar.
-vim.opt.mousescroll = 'ver:1,hor:0' -- Disables hozirontal scroll in neovim.
+-- vim.opt.mousescroll = 'ver:2,hor:5' -- Disables hozirontal scroll in neovim.
 vim.opt.guicursor = 'n:blinkon200,i-ci-ve:ver25' -- Enable cursor blink.
 vim.opt.autochdir = true -- Use current file dir as working dir (See project.nvim).
 vim.opt.scrolloff = 1000 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
