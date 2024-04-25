@@ -1,35 +1,25 @@
 # Important
 
-Directly use of this repo may conflict with your OS. Repo maintained for personal purposes only, you may get idea using these configurations you are warned :)
+Directly use of this repo may conflict with your OS.
+Repo maintained for personal purposes only, you may get inspiration using these configurations it tested
+on linux mint and osx (which is currently supported by the repo).
 
-# .dotfiles
+## Screenshot
 
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/emretuna/.dotfiles/main/install.sh)"
-```
+![screenshot](./screenshot.jpg)
 
-## Required
+### Notes
 
-`If os is linux, will be skipped for osx`
+This repo contains custom neowim configuration includes:
 
-# i3-gaps
+- [x] PHP
+- [x] Javascript (React)
+- [x] Typescript
+- [x] Lua (Configuration for neovim)
 
-<https://github.com/Airblader/i3/wiki/installation>
+Main focus of this repo is to have a keyboard-driven development environment, improving productivity with
+tui apps keeping focus on code.
 
-# pywal
-
-<https://github.com/dylanaraps/pywal/wiki/Installation>
-
-# Picom
-
-<https://github.com/ibhagwan/picom>
-
-# Picom Installation
-
-<https://github.com/yshui/picom>
-
-# Extras for manual install if script fails
-
-```
-sudo apt install rofi polybar imagemagick ffmpeg nitrogen alacritty arandr playerctl lxappearance blueman flameshot libnotify-bin pavucontrol
-```
+- `install.sh` provides complete set up on ubuntu based os.
+- `install_minimal.sh` provides set up for osx.
+- `laptop_extras.sh` some fancy apps to use on ubuntu based os.
