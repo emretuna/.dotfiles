@@ -18,7 +18,7 @@ return {
     }
 
     dashboard.section.header.opts.hl = 'DashboardHeader'
-    vim.cmd 'highlight DashboardHeader guifg=#F7778F'
+    vim.cmd 'highlight DashboardHeader guifg=#73daca'
 
     -- Buttons
     dashboard.section.buttons.val = {

@@ -26,6 +26,10 @@ brew install zsh \
 	bat \
 	direnv \
 	bpytop \
+  yazi \
+	ffmpegthumbnailer \
+	unar \
+	jq \
 	mpv \
 	trash-cli \
 	code-minimap \
@@ -58,6 +62,7 @@ stow bpytop
 stow fonts
 stow mpv
 stow wezterm
+stow yazi
 
 #install required dependencies for building packages mostly
 echo "installing bunch of packages to your $(uname -n) desktop"

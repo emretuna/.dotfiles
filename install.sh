@@ -27,7 +27,10 @@ brew install zsh \
 	bat \
 	direnv \
 	bpytop \
-	ranger \
+	yazi \
+	ffmpegthumbnailer \
+	unar \
+	jq \
 	trash-cli \
 	code-minimap \
 	lua-language-server \
@@ -58,6 +61,7 @@ stow bpytop
 stow ulauncher
 stow mpv
 stow plank
+stow yazi
 stow wezterm
 
 #install required dependencies for building packages mostly
