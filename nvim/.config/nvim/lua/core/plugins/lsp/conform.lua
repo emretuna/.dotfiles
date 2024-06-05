@@ -25,12 +25,12 @@ return {
         html = { 'prettier' },
         json = { 'prettier' },
         yaml = { 'prettier' },
-        markdown = { 'prettier', 'markdownlint' },
+        markdown = { { 'prettier', 'markdownlint' } },
         graphql = { 'prettier' },
         lua = { 'stylua' },
-        php = { 'phpcbf', 'php_cs_fixer', 'pint' },
+        php = { { 'phpcbf', 'php_cs_fixer', 'pint' } },
         ['*'] = { 'codespell' },
-        ['_'] = { 'trim_whitespace', 'trim_newlines' },
+        ['_'] = { { 'trim_whitespace', 'trim_newlines' } },
 
         -- python = { "isort", "black" },
         --
