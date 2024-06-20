@@ -23,6 +23,7 @@ return {
       -- Document existing key chains
       require('which-key').register {
         ['<leader>;'] = { name = '[󱁅]Grapple', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ebug', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
         ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore' },

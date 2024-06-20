@@ -126,6 +126,13 @@ return {
         },
       },
       filesystem = {
+        filtered_items = {
+          hide_gitignored = true,
+          never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+            '.DS_Store',
+            'thumbs.db',
+          },
+        },
         follow_current_file = {
           enabled = true,
           leave_dirs_open = true,

@@ -27,6 +27,7 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'debugloop/telescope-undo.nvim' },
+      { 'xiyaowong/telescope-emoji.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
@@ -77,6 +78,7 @@ return {
       pcall(require('telescope').load_extension, 'macroscope')
       pcall(require('telescope').load_extension, 'undo')
       pcall(require('telescope').load_extension, 'notify')
+      pcall(require('telescope').load_extension, 'emoji')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -84,6 +86,7 @@ return {
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' })
       vim.keymap.set('n', '<leader>fc', builtin.commands, { desc = '[F]ind [C]ommands' })
+      vim.keymap.set('n', '<leader>fe', '<cmd>Telescope emoji<cr>', { desc = '[F]ind [E]moji' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })

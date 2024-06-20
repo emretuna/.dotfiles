@@ -24,8 +24,8 @@ return {
   },
   keys = {
     { 'F7', '<cmd>ToggleTerm<cr>', desc = 'Toggle Terminal' },
-    { '<leader>ut', '<cmd>ToggleTerm direction=float<cr>', desc = '[T]oggle [T]erminal' },
-    { '<leader>u-', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', desc = '[T]oggle [H]orizantal' },
-    { '<leader>u|', '<cmd>ToggleTerm size=80 direction=vertical<cr>', desc = '[T]oggle [V]ertical' },
+    { '<leader>ut', '<cmd>ToggleTerm direction=float<cr>', desc = '[T]oggleTerm Toggle' },
+    { '<leader>u-', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', desc = '[T]oggleTerm Horizantal' },
+    { '<leader>u|', '<cmd>ToggleTerm size=80 direction=vertical<cr>', desc = '[T]oggleTerm Vertical' },
   },
 }

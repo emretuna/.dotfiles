@@ -43,6 +43,9 @@ config.animation_fps = 60
 config.initial_rows = 40
 config.initial_cols = 150
 
+config.command_palette_rows = 14
+config.command_palette_bg_color = "#1a1b26"
+config.command_palette_fg_color = "#959cbd"
 config.show_update_window = false
 config.check_for_updates = false
 

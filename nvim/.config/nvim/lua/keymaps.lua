@@ -45,7 +45,14 @@ end, { desc = 'Tab previous' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
-
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]buffer [D]elete' })
+vim.keymap.set('n', '<leader>bl', '<cmd>ls<cr>', { desc = '[B]buffer [L]ist' })
+vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = '[B]buffer [N]ew' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]buffer [P]revious' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]buffer [N]ext' })
+vim.keymap.set('n', '<leader>bc', function()
+  vim.cmd 'execute "%bd|e#"'
+end, { desc = '[B]buffer [C]lear' })
 -- better indent
 vim.keymap.set('x', '<Tab>', '>gv', { desc = 'Indent Line' })
 vim.keymap.set('x', '<S-Tab>', '<gv', { desc = 'Unindent Line' })

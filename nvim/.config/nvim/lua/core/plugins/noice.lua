@@ -6,6 +6,13 @@ return {
     local enable_lsp = true
     return {
       presets = { bottom_search = true }, -- The kind of popup used for /
+      routes = {
+        {
+          view = 'cmdline',
+          -- view = "notify",
+          filter = { event = 'msg_showmode' },
+        },
+      },
       cmdline = {
         view = 'cmdline', -- The kind of popup used for :
         format = {

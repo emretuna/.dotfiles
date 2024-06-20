@@ -78,7 +78,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Misc Settings
-vim.opt.mouse = '' -- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example! To disable set it to " "
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI.
 vim.opt.timeoutlen = 500 -- Shorten key timeout length a little bit for which-key.
 vim.opt.undofile = true -- Enable persistent undo between session and reboots.
