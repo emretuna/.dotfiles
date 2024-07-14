@@ -5,7 +5,6 @@ return {
     'SmiteshP/nvim-navic',
     'MunifTanjim/nui.nvim',
   },
-  enable = false,
   keys = {
     { '<leader>n', '<cmd>Navbuddy<cr>', desc = '[N]avbuddy' },
   },

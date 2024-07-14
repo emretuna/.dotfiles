@@ -39,7 +39,7 @@ case `uname` in
     fi
 esac
 # Supports a bin directory inside home directory
-export PATH=${HOME}/bin:${HOME}/.local/bin/:${PATH}/$HOME/.composer/vendor/bin:${PATH}
+export PATH="${HOME}/bin:${HOME}/.local/bin:${HOME}/.composer/vendor/bin:${PATH}"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=239"
 

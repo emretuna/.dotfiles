@@ -27,7 +27,8 @@ require('lazy').setup({ { import = 'core.plugins' }, { import = 'core.plugins.ls
     notify = false,
   },
   change_detection = {
-    notify = false,
+    enabled = true,
+    notify = true,
   },
 })
 -- vim: ts=2 sts=2 sw=2 et

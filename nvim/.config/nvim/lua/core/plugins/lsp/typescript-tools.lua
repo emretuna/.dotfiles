@@ -1,6 +1,6 @@
 return {
   'pmizio/typescript-tools.nvim',
-  ft = { 'typescript', 'typescriptreact' },
+  ft = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'neovim/nvim-lspconfig',
@@ -10,6 +10,8 @@ return {
   },
   config = function()
     require('typescript-tools').setup {
+      single_file_support = false,
+      root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
       settings = {
         tsserver_file_preferences = {
           includeInlayParameterNameHints = 'all',
@@ -20,12 +22,12 @@ return {
           allowIncompleteCompletions = false,
           allowRenameOfImportPath = false,
         },
-      },
-      tsserver_plugins = {
-        -- for TypeScript v4.9+
-        '@styled/typescript-styled-plugin',
-        -- or for older TypeScript versions
-        -- "typescript-styled-plugin",
+        tsserver_plugins = {
+          -- for TypeScript v4.9+
+          '@styled/typescript-styled-plugin',
+          -- or for older TypeScript versions
+          -- "typescript-styled-plugin",
+        },
       },
     }
 

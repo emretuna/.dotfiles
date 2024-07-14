@@ -2,6 +2,7 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   dependencies = 'MunifTanjim/nui.nvim',
   cmd = 'Neotree',
+  enabled = false,
   config = function()
     local opts = {
       auto_clean_after_session_restore = true,

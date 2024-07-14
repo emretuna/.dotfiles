@@ -6,6 +6,7 @@ return {
     require('oil').setup {
       columns = { 'icon' },
       keymaps = {
+        ['<C-q>'] = 'actions.close',
         ['<C-h>'] = false,
         ['<C-s>'] = false,
         ['<C-t>'] = false,
@@ -18,6 +19,18 @@ return {
       },
       delete_to_trash = true,
       trash_command = 'rm',
+      float = {
+        -- Padding around the floating window
+        padding = 2,
+        max_width = 0,
+        max_height = 0,
+        border = 'rounded',
+        win_options = {
+          winblend = 0,
+          winhighlight = 'NormalFloat:Normal,FloatBorder:Normal',
+        },
+        preview_split = 'right',
+      },
     }
     -- Open parent directory in current window
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })

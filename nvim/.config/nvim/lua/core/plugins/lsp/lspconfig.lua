@@ -242,28 +242,28 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        'gitui',
         'codespell',
-        'tsserver',
-        'phpactor',
+        'cssls',
+        'emmet_ls',
+        'eslint_d', -- js linter
+        'gitui',
+        'graphql',
         'html',
         'jsonls',
-        'yamlls',
-        'cssls',
-        'tailwindcss',
-        'svelte',
         'lua_ls',
-        'graphql',
-        'emmet_ls',
-        'prismals',
-        'prettier', -- prettier formatter
-        'eslint_d', -- js linter
         'markdownlint',
+        'php-cs-fixer',
+        'phpactor',
         'phpcbf',
         'phpcs',
-        'php-cs-fixer',
         'pint',
+        'prettier', -- prettier formatter
+        'prettierd', -- prettier daemon
+        'prismals',
+        'stylua', -- Used to format Lua code
+        'svelte',
+        'tailwindcss',
+        'yamlls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
