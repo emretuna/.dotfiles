@@ -106,6 +106,20 @@ return {
       -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
     }
 
+    -- PHP
+    dap.adapters.php = {
+      type = 'executable',
+      command = vim.fn.stdpath 'data' .. '/mason/bin/php-debug-adapter',
+    }
+    dap.configurations.php = {
+      {
+        type = 'php',
+        request = 'launch',
+        name = 'Listen for Xdebug',
+        port = 9000,
+      },
+    }
+    -- Javascript and Typescript
     for _, language in ipairs { 'typescript', 'javascript' } do
       require('dap').configurations[language] = {
         -- https://github.com/mxsdev/nvim-dap-vscode-js

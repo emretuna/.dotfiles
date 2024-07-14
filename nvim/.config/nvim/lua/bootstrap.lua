@@ -19,6 +19,19 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({ { import = 'core.plugins' }, { import = 'core.plugins.lsp' } }, {
+  -- Enable luarocks if installed.
+  rocks = { enabled = vim.fn.executable 'luarocks' == 1 },
+  performance = {
+    rtp = { -- Use deflate to download faster from the plugin repos.
+      disabled_plugins = {
+        'tohtml',
+        'gzip',
+        'zipPlugin',
+        'netrwPlugin',
+        'tarPlugin',
+      },
+    },
+  },
   install = {
     colorscheme = { 'tokyonight' },
   },

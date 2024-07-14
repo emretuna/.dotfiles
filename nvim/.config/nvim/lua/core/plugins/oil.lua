@@ -6,7 +6,7 @@ return {
     require('oil').setup {
       columns = { 'icon' },
       keymaps = {
-        ['<C-q>'] = 'actions.close',
+        ['<Esc><Esc>'] = 'actions.close',
         ['<C-h>'] = false,
         ['<C-s>'] = false,
         ['<C-t>'] = false,
