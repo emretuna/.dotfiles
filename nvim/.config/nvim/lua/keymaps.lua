@@ -45,11 +45,11 @@ end, { desc = 'Tab previous' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]buffer [D]elete' })
-vim.keymap.set('n', '<leader>bl', '<cmd>ls<cr>', { desc = '[B]buffer [L]ist' })
-vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = '[B]buffer [N]ew' })
-vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]buffer [P]revious' })
-vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]buffer [N]ext' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>bl', '<cmd>ls<cr>', { desc = '[B]uffer [L]ist' })
+vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = '[B]uffer [N]ew' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
 vim.keymap.set('n', '<leader>bc', function()
   vim.cmd 'execute "%bd|e#"'
 end, { desc = '[B]buffer [C]lear' })
@@ -72,20 +72,17 @@ vim.keymap.set('n', '<leader>g.', function()
 end, { desc = 'Gitui' })
 
 -- terminal mappings
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', { desc = 'Enter Normal Mode' })
+
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', { desc = 'Exit Terminal Mode' })
 vim.keymap.set('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'Go to Left Window' })
 vim.keymap.set('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'Go to Lower Window' })
 vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'Go to Upper Window' })
 vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { desc = 'Go to Right Window' })
 vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

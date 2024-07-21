@@ -30,7 +30,7 @@ function Keys.setup(config)
 	config.keys = {
 		{
 			key = "p",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = wezterm.action.ActivateCommandPalette,
 		},
 		{

@@ -28,9 +28,6 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'debugloop/telescope-undo.nvim' },
       { 'xiyaowong/telescope-emoji.nvim' },
-
-      -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- [[ Configure Telescope ]]
@@ -52,7 +49,7 @@ return {
           ['undo'] = {
             use_delta = true,
             side_by_side = true,
-            diff_context_lines = 0,
+            vim_diff_opts = { ctxlen = 0 },
             entry_format = '󰣜 #$ID, $STAT, $TIME',
             layout_strategy = 'horizontal',
             layout_config = {

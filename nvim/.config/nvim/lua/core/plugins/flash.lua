@@ -1,6 +1,6 @@
 return {
   'folke/flash.nvim',
-  event = 'VeryLazy',
+  events = 'VeryLazy',
   ---@type Flash.Config
   opts = {},
   -- stylua: ignore

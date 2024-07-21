@@ -14,7 +14,7 @@ return {
       WinBarNC = { link = 'WinBarNC' },
     },
     size = 10,
-    open_mapping = [[<F7>]],
+    open_mapping = [[<c-\>]],
     shading_factor = 2,
     direction = 'float',
     float_opts = {
@@ -23,8 +23,7 @@ return {
     },
   },
   keys = {
-    { 'F7', '<cmd>ToggleTerm<cr>', desc = 'Toggle Terminal' },
-    { '<leader>ut', '<cmd>ToggleTerm direction=float<cr>', desc = '[T]oggleTerm Toggle' },
+    { '<F7>', '<cmd>ToggleTerm<cr>', desc = 'Toggle Terminal' },
     { '<leader>u-', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', desc = '[T]oggleTerm Horizantal' },
     { '<leader>u|', '<cmd>ToggleTerm size=80 direction=vertical<cr>', desc = '[T]oggleTerm Vertical' },
   },

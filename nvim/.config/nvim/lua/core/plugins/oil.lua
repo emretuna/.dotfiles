@@ -1,7 +1,6 @@
 return {
   'stevearc/oil.nvim',
   -- Optional dependencies
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('oil').setup {
       columns = { 'icon' },
@@ -18,7 +17,7 @@ return {
         show_hidden = true,
       },
       delete_to_trash = true,
-      trash_command = 'rm',
+      -- trash_command = 'rm',
       float = {
         -- Padding around the floating window
         padding = 2,

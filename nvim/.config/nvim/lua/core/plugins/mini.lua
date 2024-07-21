@@ -1,5 +1,10 @@
 return {
   {
+    'echasnovski/mini.icons',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
     'echasnovski/mini.indentscope',
     event = 'BufRead',
     config = function()

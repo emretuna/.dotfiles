@@ -42,6 +42,16 @@ return {
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       local lspkind = require 'lspkind'
+      local neocodeium = require 'neocodeium'
+      local commands = require 'neocodeium.commands'
+      cmp.event:on('menu_opened', function()
+        neocodeium.clear()
+      end)
+
+      cmp.event:on('menu_closed', function()
+        commands.enable()
+        neocodeium.cycle_or_complete()
+      end)
       -- border opts
       local border_opts = {
         border = 'rounded',
@@ -118,7 +128,6 @@ return {
         sources = {
           { name = 'nvim_lsp', priority = 1000 },
           { name = 'luasnip', priority = 750 },
-          { name = 'codeium', priority = 500 },
           { name = 'path', priority = 250 },
           { name = 'buffer', priority = 250 },
         },

@@ -96,6 +96,8 @@ eval "$(direnv hook zsh)"
 
 # Use modern completion system. Other than enabling globdots for showing
 # hidden files, these ares values in the default generated zsh config.
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 _comp_options+=(globdots)
 

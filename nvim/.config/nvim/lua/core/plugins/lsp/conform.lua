@@ -4,6 +4,7 @@ return {
   lazy = true,
   config = function()
     require('conform').setup {
+      stop_after_first = true,
       notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -19,21 +20,21 @@ return {
         }
       end,
       formatters_by_ft = {
-        typescript = { { 'prettierd', 'prettier' } },
-        typescriptreact = { { 'prettierd', 'prettier' } },
-        javascript = { { 'prettierd', 'prettier' } },
-        javascriptreact = { { 'prettierd', 'prettier' } },
+        typescript = { 'prettierd', 'prettier' },
+        typescriptreact = { 'prettierd', 'prettier' },
+        javascript = { 'prettierd', 'prettier' },
+        javascriptreact = { 'prettierd', 'prettier' },
         svelte = { 'prettier' },
         css = { 'prettier' },
         html = { 'prettier' },
         json = { 'prettier' },
         yaml = { 'prettier' },
-        markdown = { { 'prettier', 'markdownlint' } },
+        markdown = { 'prettier', 'markdownlint' },
         graphql = { 'prettier' },
         lua = { 'stylua' },
-        php = { { 'phpcbf', 'php_cs_fixer', 'pint' } },
+        php = { 'phpcbf', 'php_cs_fixer', 'pint' },
         ['*'] = { 'codespell' },
-        ['_'] = { { 'trim_whitespace', 'trim_newlines' } },
+        ['_'] = { 'trim_whitespace', 'trim_newlines' },
 
         -- python = { "isort", "black" },
         --

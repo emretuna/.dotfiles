@@ -45,8 +45,10 @@ alias list-npm-globals='npm list -g --depth=0'
 # https://github.com/sindresorhus/trash-cli
 # You can empty the trash using the empty-trash command
 # https://github.com/sindresorhus/empty-trash-cli
-alias rm='trash'
-
+alias rm='trash-put'
+alias rl='trash-list'
+alias rr='trash-restore'
+alias re='trash-empty'
 # use neovim instead of vim
 alias vim='nvim'
 
