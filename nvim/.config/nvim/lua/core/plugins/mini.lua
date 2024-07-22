@@ -2,7 +2,12 @@ return {
   {
     'echasnovski/mini.icons',
     event = 'VeryLazy',
-    opts = {},
+    opts = {
+      extension = {
+        ['http'] = { glyph = '󰖟', hl = 'MiniIconsGreen' },
+        ['rest'] = { glyph = '󱂛', hl = 'MiniIconsBlue' },
+      },
+    },
   },
   {
     'echasnovski/mini.indentscope',

@@ -40,6 +40,8 @@ return {
         { '<leader>f_', hidden = true },
         { '<leader>g', group = '[G]it' },
         { '<leader>g_', hidden = true },
+        { '<leader>h', group = '[H]ttp' },
+        { '<leader>h_', hidden = true },
         { '<leader>l', group = '[L]sp' },
         { '<leader>l_', hidden = true },
         { '<leader>ll', group = '[L]aravel' },

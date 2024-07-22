@@ -250,6 +250,7 @@ return {
         'graphql',
         'html',
         'jsonls',
+        'jq',
         'lua_ls',
         'markdownlint',
         'php-cs-fixer',

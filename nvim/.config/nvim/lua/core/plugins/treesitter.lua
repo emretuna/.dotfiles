@@ -11,6 +11,7 @@ return {
         'gitignore',
         'graphql',
         'html',
+        'http',
         'javascript',
         'json',
         'json5',
@@ -27,6 +28,7 @@ return {
         'tsx',
         'typescript',
         'vim',
+        'xml',
         'yaml',
       }, -- Autoinstall languages that are not installed
       auto_install = true,
