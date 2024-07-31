@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
-require('lazy').setup({ { import = 'core.plugins' }, { import = 'core.plugins.lsp' } }, {
+require('lazy').setup({ { import = 'plugins' } }, {
   -- Enable luarocks if installed.
   rocks = { enabled = vim.fn.executable 'luarocks' == 1 },
   performance = {

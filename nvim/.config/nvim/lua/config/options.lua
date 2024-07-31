@@ -80,9 +80,6 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
 -- Misc Settings
 vim.opt.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example! To disable set it to " "
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI.
@@ -100,8 +97,8 @@ vim.opt.colorcolumn = '80' -- PEP8 like character limit vertical bar.
 -- vim.opt.mousescroll = 'ver:2,hor:5' -- Disables hozirontal scroll in neovim.
 vim.opt.guicursor = 'n:blinkon200,i-ci-ve:ver25' -- Enable cursor blink.
 vim.opt.autochdir = true -- Use current file dir as working dir (See project.nvim).
-vim.opt.scrolloff = 1000 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
-vim.opt.sidescrolloff = 8 -- Same but for side scrolling.
+vim.opt.scrolloff = 10 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
+vim.opt.sidescrolloff = 10 -- Same but for side scrolling.
 vim.opt.selection = 'old' -- Don't select the newline symbol when using <End> on visual mode.
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,11 +1,16 @@
 return {
   'monkoose/neocodeium',
-  event = 'VeryLazy',
   config = function()
     local neocodeium = require 'neocodeium'
-    neocodeium.setup { manual = false, silent = true, debounce = true }
+    neocodeium.setup { manual = false, silent = true, debounce = false }
     vim.keymap.set('i', '<c-y>', function()
       neocodeium.accept()
+    end)
+    vim.keymap.set('i', '<c-w>', function()
+      require('neocodeium').accept_word()
+    end)
+    vim.keymap.set('i', '<c-l>', function()
+      require('neocodeium').accept_line()
     end)
     vim.keymap.set('i', '<c-p>', function()
       require('neocodeium').cycle_or_complete(-1)

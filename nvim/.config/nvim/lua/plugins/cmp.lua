@@ -27,6 +27,21 @@ return {
           },
         },
       },
+      {
+        'petertriho/cmp-git',
+        opts = {},
+        config = function()
+          local cmp = require 'cmp'
+          cmp.setup.filetype('gitcommit', {
+            sources = cmp.config.sources({
+              { name = 'git', priority = 50 },
+              { name = 'path', priority = 40 },
+            }, {
+              { name = 'buffer', priority = 50 },
+            }),
+          })
+        end,
+      },
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds other completion capabilities.
