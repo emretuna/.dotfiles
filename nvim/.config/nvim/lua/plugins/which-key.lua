@@ -52,6 +52,8 @@ return {
         { '<leader>lp_', hidden = true },
         { '<leader>lt', group = '[T]ypescript' },
         { '<leader>lt_', hidden = true },
+        { '<leader>n', group = '[N]otes' },
+        { '<leader>n_', hidden = true },
         { '<leader>s', group = '[S]earch' },
         { '<leader>s_', hidden = true },
         { '<leader>t', group = '[T]rouble' },
