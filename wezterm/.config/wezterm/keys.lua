@@ -124,6 +124,7 @@ function Keys.setup(config)
 		{ key = "y", mods = "ALT", action = wezterm.action.ActivateCopyMode },
 		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+		{ key = "z", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
 		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
 		{ key = "1", mods = "ALT", action = wezterm.action({ ActivateTab = 0 }) },

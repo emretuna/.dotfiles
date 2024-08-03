@@ -9,16 +9,16 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # List all files colorized in long format
-alias l="ls -l --color"
+alias l="ls -l --color=always"
 
 # List all files colorized in long format, excluding . and ..
-alias ll="ls -lA --color"
+alias ll="ls -la --color=always"
 
 # List only directories
-alias lsd="ls -l --color | grep --color=never '^d'"
+alias lsd="ls -l --color=always --only-dirs"
 
 # Always use color output for `ls`
-alias ls="command ls --color"
+alias ls="exa --color=always"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -29,14 +29,8 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Colored 'ls' MacOS
-alias ls='exa -l'
-
 # Homebrew alias for daily management (MacOS)
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
-
-# Lando commands
-alias landopurge= 'lando poweroff && docker system prune -a --volumes && rm -rf ~/.lando/cache'
 
 # List out all globally installed npm packages
 alias list-npm-globals='npm list -g --depth=0'
@@ -56,7 +50,7 @@ alias vim='nvim'
 alias gcob='git branch | fzf | xargs git checkout'
 
 # open vim config from anywhere
-alias vimrc='vim ${HOME}/.config/nvim/init.vim'
+alias vimrc='vim ${HOME}/.config/nvim/init.lua'
 
 # cat -> bat
 alias cat='bat'
@@ -73,8 +67,3 @@ alias ssh='env TERM=xterm-256color ssh'
 # Vscode profiles, let's speed it up with per project type configuration
 
 alias codereact='code --profile "react"'
-# alias coded='code --user-data-dir ~/.vscode-profiles/default/data --extensions-dir ~/.vscode-profiles/default/extensions'
-# alias codepress='code --user-data-dir ~/.vscode-profiles/wordpress/data --extensions-dir ~/.vscode-profiles/wordpress/extensions'
-# alias codevel='code --user-data-dir ~/.vscode-profiles/laravel/data --extensions-dir ~/.vscode-profiles/laravel/extensions'
-# alias codevue='code --user-data-dir ~/.vscode-profiles/vue/data --extensions-dir ~/.vscode-profiles/vue/extensions'
-# alias codeflutter='code --user-data-dir ~/.vscode-profiles/flutter/data --extensions-dir ~/.vscode-profiles/flutter/extensions'

@@ -3,8 +3,7 @@ local wezterm = require("wezterm")
 local tab = require("tab")
 local fonts = require("fonts")
 local keys = require("keys")
--- local kanagawa = require("themes.kanagawa")
-
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 local config = {}
 -- Pywal config
 -- wezterm.add_to_config_reload_watch_list("home/emretuna/.wezterm.lua")
@@ -20,9 +19,9 @@ end
 -- This module should set the appearance-related options.
 -- Configurations
 --
--- Set the Kanagawa theme as the default
--- config.colors = kanagawa
-config.color_scheme = "tokyonight_night"
+
+config.colors = theme.colors()
+config.window_frame = theme.window_frame()
 config.term = "wezterm"
 config.warn_about_missing_glyphs = true
 config.enable_scroll_bar = false

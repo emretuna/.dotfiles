@@ -13,4 +13,10 @@ return {
     vim.keymap.set('n', '<leader>hn', ":lua require('kulala').jump_next()<CR>", { desc = '[H]ttp [N]ext', noremap = true, silent = true })
     vim.keymap.set('n', '<leader>hq', ":lua require('kulala').close()<CR>", { desc = '[H]ttp [Q]uit', noremap = true, silent = true })
   end,
+  vim.filetype.add {
+    extension = {
+      ['http'] = 'http',
+      ['rest'] = 'http',
+    },
+  },
 }

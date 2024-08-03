@@ -50,6 +50,7 @@ return {
   --     },
   --   },
   -- },
+  --
   { 'echasnovski/mini.tabline', event = 'VeryLazy', opts = { show_icons = true } },
   { 'echasnovski/mini.ai', event = 'BufReadPost', opts = { n_lines = 500 } },
   { 'echasnovski/mini.surround', event = 'BufReadPost', opts = {} },

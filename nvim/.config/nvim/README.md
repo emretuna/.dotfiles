@@ -1,8 +1,8 @@
 # .dotfiles/nvim/.config/nvim
 
-<a href="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/plugin-manager?style=flat" /></a>
+[![Plugins](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/plugins?style=flat)](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim)
+[![Leader Key](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/leaderkey?style=flat)](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim)
+[![Plugin Manager](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/plugin-manager?style=flat)](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim)
 
 ## Install Instructions
 

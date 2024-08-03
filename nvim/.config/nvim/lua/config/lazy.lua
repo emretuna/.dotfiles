@@ -33,7 +33,7 @@ require('lazy').setup({ { import = 'plugins' } }, {
     },
   },
   install = {
-    colorscheme = { 'tokyonight' },
+    colorscheme = { 'rose-pine' },
   },
   checker = {
     enabled = true,

@@ -35,6 +35,7 @@ return {
           path = '~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Personal/',
         },
       },
+      ui = { enable = false },
       mappings = {
         -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
         ['gf'] = {
@@ -43,19 +44,19 @@ return {
           end,
           opts = { noremap = false, expr = true, buffer = true },
         },
-        -- create and toggle checkboxes
-        ['<leader>ch'] = {
-          action = function()
-            local line = vim.api.nvim_get_current_line()
-            if line:match '%s*- %[' then
-              require('obsidian').util.toggle_checkbox()
-            elseif line:match '%s*-' then
-              vim.cmd [[s/-/- [ ]/]]
-              vim.cmd.nohlsearch()
-            end
-          end,
-          opts = { buffer = true },
-        },
+        -- create and toggle checkboxes no need for now, will use below mapping
+        -- ['<leader>ch'] = {
+        --   action = function()
+        --     local line = vim.api.nvim_get_current_line()
+        --     if line:match '%s*- %[' then
+        --       require('obsidian').util.toggle_checkbox()
+        --     elseif line:match '%s*-' then
+        --       vim.cmd [[s/-/- [ ]/]]
+        --       vim.cmd.nohlsearch()
+        --     end
+        --   end,
+        --   opts = { buffer = true },
+        -- },
         ['<cr>'] = {
           action = function()
             return require('obsidian').util.smart_action()

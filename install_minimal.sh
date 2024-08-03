@@ -58,7 +58,7 @@ echo "stowing files..."
 stow git
 stow zsh
 stow nvim
-stow bpytop
+stow btop
 stow fonts
 stow mpv
 stow wezterm

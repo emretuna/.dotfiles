@@ -57,7 +57,7 @@ echo "stowing files..."
 stow git
 stow zsh
 stow nvim
-stow bpytop
+stow btop
 stow ulauncher
 stow mpv
 stow plank

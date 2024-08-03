@@ -6,10 +6,10 @@ return {
 
   keys = {
     {
-      '<leader>wm',
+      '<leader>wp',
       ft = 'markdown',
       '<cmd>MarkdownPreviewToggle<cr>',
-      desc = '[M]arkdown Preview',
+      desc = 'Markdown [P]review',
     },
   },
   build = function(plugin)
