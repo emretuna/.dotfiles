@@ -1,6 +1,7 @@
 return {
   'adalessa/laravel.nvim',
   event = 'VeryLazy',
+  ft = { 'php', 'blade' },
   dependencies = {
     'nvim-telescope/telescope.nvim',
     'tpope/vim-dotenv',
@@ -26,8 +27,10 @@ return {
       user_commands = require 'laravel.config.user_commands',
       resources = require 'laravel.config.resources',
     }
+  end,
+  init = function()
     vim.keymap.set('n', '<leader>lla', '<cmd>:Laravel artisan<cr>', { desc = '[A]rtisan' })
     vim.keymap.set('n', '<leader>llr', '<cmd>:Laravel routes<cr>', { desc = '[R]outes' })
-    vim.keymap.set('n', '<leader>llm', '<cmd>:Laravel releated<cr>', { desc = '[M]odel Classes' })
+    vim.keymap.set('n', '<leader>llm', '<cmd>:Laravel related<cr>', { desc = '[M]odel Classes' })
   end,
 }

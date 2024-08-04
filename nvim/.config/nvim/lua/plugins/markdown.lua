@@ -1,7 +1,6 @@
 return {
   'MeanderingProgrammer/markdown.nvim',
   ft = { 'markdown', 'norg', 'rmd', 'org' },
-  event = 'BufReadPre',
   opts = {
     code = {
       sign = false,
@@ -15,6 +14,8 @@ return {
   },
   config = function(_, opts)
     require('render-markdown').setup(opts)
+  end,
+  init = function()
     vim.keymap.set('n', '<leader>wm', '<cmd>RenderMarkdown toggle<cr>', { desc = '[M]arkdown Toggle' })
   end,
 }

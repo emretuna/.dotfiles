@@ -10,21 +10,8 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  keys = {
-    { '<leader>nd', ':ObsidianToday<cr>', desc = 'Obsidian [D]aily' },
-    { '<leader>nt', ':ObsidianToday 1<cr>', desc = 'Obsidian [T]omorrow' },
-    { '<leader>ny', ':ObsidianToday -1<cr>', desc = 'Obsidian [Y]esterday' },
-    { '<leader>nb', ':ObsidianBacklinks<cr>', desc = 'Obsidian [B]acklinks' },
-    { '<leader>nl', ':ObsidianLink<cr>', desc = 'Obsidian [L]ink Selection' },
-    { '<leader>nf', ':ObsidianFollowLink<cr>', desc = 'Obsidian [F]ollow Link' },
-    { '<leader>nn', ':ObsidianNew<cr>', desc = 'Obsidian [N]ew' },
-    { '<leader>ns', ':ObsidianSearch<cr>', desc = 'Obsidian [S]earch' },
-    { '<leader>no', ':ObsidianQuickSwitch<cr>', desc = 'Obsidian [O]pen Quickswitch' },
-    { '<leader>nO', ':ObsidianOpen<cr>', desc = 'Obsidian [O]pen In App' },
-  },
-  config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require('obsidian').setup {
+  opts = function()
+    return {
       workspaces = {
         {
           name = 'Dev',
@@ -82,6 +69,30 @@ return {
         return tostring(os.time()) .. '-' .. suffix
       end,
     }
+  end,
+  config = function()
     vim.opt.conceallevel = 1
+  end,
+  init = function()
+    -- Obsidian Daily
+    vim.keymap.set('n', '<leader>nd', ':ObsidianToday<cr>', { desc = 'Obsidian [D]aily' })
+    -- Obsidian Tomorrow
+    vim.keymap.set('n', '<leader>nt', ':ObsidianToday 1<cr>', { desc = 'Obsidian [T]omorrow' })
+    -- Obsidian Yesterday
+    vim.keymap.set('n', '<leader>ny', ':ObsidianToday -1<cr>', { desc = 'Obsidian [Y]esterday' })
+    -- Obsidian Backlinks
+    vim.keymap.set('n', '<leader>nb', ':ObsidianBacklinks<cr>', { desc = 'Obsidian [B]acklinks' })
+    -- Obsidian Link Selection
+    vim.keymap.set('n', '<leader>nl', ':ObsidianLink<cr>', { desc = 'Obsidian [L]ink Selection' })
+    -- Obsidian Follow Link
+    vim.keymap.set('n', '<leader>nf', ':ObsidianFollowLink<cr>', { desc = 'Obsidian [F]ollow Link' })
+    -- Obsidian New
+    vim.keymap.set('n', '<leader>nn', ':ObsidianNew<cr>', { desc = 'Obsidian [N]ew' })
+    -- Obsidian Search
+    vim.keymap.set('n', '<leader>ns', ':ObsidianSearch<cr>', { desc = 'Obsidian [S]earch' })
+    -- Obsidian Open Quickswitch
+    vim.keymap.set('n', '<leader>no', ':ObsidianQuickSwitch<cr>', { desc = 'Obsidian [O]pen Quickswitch' })
+    -- Obsidian Open In App
+    vim.keymap.set('n', '<leader>nO', ':ObsidianOpen<cr>', { desc = 'Obsidian [O]pen In App' })
   end,
 }

@@ -1,11 +1,11 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  event = 'VeryLazy',
   -- NOTE: And you can specify dependencies as well
+  enabled = vim.g.dap_enabled,
   dependencies = {
     -- Creates a beautiful debugger UI
-    'rcarriga/nvim-dap-ui',
+    { 'rcarriga/nvim-dap-ui', enabled = vim.g.dap_enabled },
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -16,6 +16,7 @@ return {
     {
       'rcarriga/cmp-dap',
       dependencies = { 'nvim-cmp' },
+      enabled = vim.g.dap_enabled,
       config = function()
         require('cmp').setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
           sources = {
@@ -24,10 +25,39 @@ return {
         })
       end,
     },
-    { 'mxsdev/nvim-dap-vscode-js' },
+    {
+      'mxsdev/nvim-dap-vscode-js',
+      dependencies = {
+        'microsoft/vscode-js-debug',
+        version = '1.x',
+        build = 'npm i && npm run compile vsDebugServerBundle && mv dist out',
+      },
+    },
     -- Add your own debuggers here
     -- 'leoluz/nvim-dap-go',
   },
+  keys = function(_, keys)
+    local dap = require 'dap'
+    local dapui = require 'dapui'
+    return {
+      -- Basic debugging keymaps, feel free to change to your liking!
+      { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
+      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
+      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
+      { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
+      { 'gb', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
+      {
+        'gB',
+        function()
+          dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+        end,
+        desc = 'Debug: Set Breakpoint',
+      },
+      -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+      { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
+      unpack(keys),
+    }
+  end,
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
@@ -38,37 +68,13 @@ return {
       automatic_installation = true,
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information
-      handlers = {
-        function(config)
-          -- all sources with no handler get passed here
-
-          -- Keep original functionality
-          require('mason-nvim-dap').default_setup(config)
-        end,
-      },
+      handlers = {},
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'php',
         'js-debug-adapter',
       },
     }
-
-    -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<leader>d.', function()
-      -- (Re-)reads launch.json if present
-      if vim.fn.filereadable '.vscode/launch.json' then
-        require('dap.ext.vscode').load_launchjs(nil, { cpptools = { 'c', 'cpp' } })
-      end
-      require('dap').continue()
-    end, { desc = '[S]tart/Continue' })
-    vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Step [I]nto' })
-    vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Step [O]ver' })
-    vim.keymap.set('n', '<leader>dq', dap.step_out, { desc = 'Step Out' })
-    vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
-    vim.keymap.set('n', '<leader>dB', function()
-      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = 'Set [B]reakpoint' })
-
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
@@ -88,20 +94,15 @@ return {
       },
     }
 
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set('n', '<leader>dt', dapui.toggle, { desc = '[D]apui Toggle' })
-
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    -- Install golang specific config
-    -- require('dap-go').setup()
     require('dap-vscode-js').setup {
       -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-      -- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
+      debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug', -- Path to vscode-js-debug installation.
       -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost', 'node', 'chrome' }, -- which adapters to register in nvim-dap
       -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
       -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
       -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
@@ -121,7 +122,7 @@ return {
       },
     }
     -- Javascript and Typescript
-    for _, language in ipairs { 'typescript', 'javascript' } do
+    for _, language in ipairs { 'typescript', 'javascript', 'typescriptreact' } do
       require('dap').configurations[language] = {
         -- https://github.com/mxsdev/nvim-dap-vscode-js
         {
@@ -137,6 +138,14 @@ return {
           name = 'Attach',
           processId = require('dap.utils').pick_process,
           cwd = '${workspaceFolder}',
+        },
+        {
+          type = 'pwa-chrome',
+          request = 'launch',
+          name = 'Start Chrome with "localhost"',
+          url = 'http://localhost:3000',
+          webRoot = '${workspaceFolder}',
+          userDataDir = '${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir',
         },
       }
     end

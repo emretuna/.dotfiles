@@ -1,7 +1,7 @@
 return {
   {
     'echasnovski/mini.icons',
-    event = 'VeryLazy',
+    lazy = true,
     opts = {
       extension = {
         ['http'] = { glyph = '󰖟', hl = 'MiniIconsGreen' },
@@ -11,7 +11,7 @@ return {
   },
   {
     'echasnovski/mini.indentscope',
-    event = 'BufRead',
+    event = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
     config = function()
       vim.api.nvim_create_autocmd('FileType', {
         pattern = {
@@ -51,7 +51,7 @@ return {
   --   },
   -- },
   --
-  { 'echasnovski/mini.tabline', event = 'VeryLazy', opts = { show_icons = true } },
+  { 'echasnovski/mini.tabline', event = 'VimEnter', opts = { show_icons = true } },
   { 'echasnovski/mini.ai', event = 'BufReadPost', opts = { n_lines = 500 } },
   { 'echasnovski/mini.surround', event = 'BufReadPost', opts = {} },
   {

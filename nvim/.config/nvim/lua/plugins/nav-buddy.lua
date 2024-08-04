@@ -5,16 +5,13 @@ return {
     'SmiteshP/nvim-navic',
     'MunifTanjim/nui.nvim',
   },
-  keys = {
-    { '<leader>wn', '<cmd>Navbuddy<cr>', desc = '[N]avbuddy' },
+  opts = {
+    window = {
+      border = 'double',
+    },
+    lsp = { auto_attach = true, preference = 'nvim_lsp' },
   },
-  config = function()
-    local navbuddy = require 'nvim-navbuddy'
-    navbuddy.setup {
-      window = {
-        border = 'double',
-      },
-      lsp = { auto_attach = true, preference = 'nvim_lsp' },
-    }
+  init = function()
+    vim.keymap.set('n', '<leader>wn', '<cmd>Navbuddy<cr>', { desc = '[N]avbuddy' })
   end,
 }

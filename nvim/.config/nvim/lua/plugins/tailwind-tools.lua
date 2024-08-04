@@ -1,6 +1,8 @@
 return {
   'luckasRanarison/tailwind-tools.nvim',
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  ft = { 'html', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'svelte' },
+  event = 'VeryLazy',
   ---@type TailwindTools.Option
   opts = {
     document_color = {

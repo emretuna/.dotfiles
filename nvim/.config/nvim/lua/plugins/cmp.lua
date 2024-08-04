@@ -148,12 +148,18 @@ return {
         },
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
-          format = lspkind.cmp_format {
-            before = require('tailwind-tools.cmp').lspkind_format,
-            maxwidth = 50,
-            ellipsis_char = '...',
-            symbol_map = { Codeium = '' },
-          },
+          format = function(entry, item)
+            local color_item = require('nvim-highlight-colors').format(entry, { kind = item.kind })
+            item = require('lspkind').cmp_format {
+              require('tailwind-tools.cmp').lspkind_format,
+              -- any lspkind format settings here
+            }(entry, item)
+            if color_item.abbr_hl_group then
+              item.kind_hl_group = color_item.abbr_hl_group
+              item.kind = color_item.abbr
+            end
+            return item
+          end,
         },
       }
     end,

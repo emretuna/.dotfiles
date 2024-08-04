@@ -16,6 +16,11 @@ vim.g.completion_round_borders_enabled = true
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+-- Disable some plugins to reduce startup time
+vim.g.dap_enabled = false
+vim.g.dadbod_enabled = false
+vim.g.precognition_enabled = false
+
 -- If more than 1 show tabline
 vim.opt.showtabline = 1
 -- Make line numbers default

@@ -16,8 +16,12 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
-    lazy = false,
     priority = 1000,
+    opts = {
+      --- @usage 'auto'|'main'|'moon'|'dawn'
+      dark_variant = 'main',
+      disable_italics = true,
+    },
     init = function()
       vim.cmd 'colorscheme rose-pine'
     end,

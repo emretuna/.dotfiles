@@ -1,7 +1,7 @@
 return {
   'ahmedkhalf/project.nvim',
-  event = 'VeryLazy',
   cmd = 'ProjectRoot',
+  event = 'VeryLazy',
   opts = {
     -- How to find root directory
     patterns = {

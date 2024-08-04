@@ -1,14 +1,5 @@
 return {
   'rcarriga/nvim-notify',
-  keys = {
-    {
-      '<leader>un',
-      function()
-        require('notify').dismiss { silent = true, pending = true }
-      end,
-      desc = 'Dismiss [N]otifications',
-    },
-  },
   opts = {
     stages = 'static',
     timeout = 3000,
@@ -22,4 +13,9 @@ return {
       vim.api.nvim_win_set_config(win, { zindex = 100 })
     end,
   },
+  init = function()
+    vim.keymap.set('n', '<leader>un', function()
+      require('notify').dismiss { silent = true, pending = true }
+    end, { desc = 'Dismiss All [N]otifications' })
+  end,
 }

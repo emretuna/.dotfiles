@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+alias chrome="open -na 'Brave Browser' --args --profile-directory='Profile 1'"
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."

@@ -1,12 +1,8 @@
 return {
   'mrjones2014/smart-splits.nvim',
   event = 'VeryLazy',
-  config = function()
-    local smartsplits = require 'smart-splits'
-    smartsplits.setup {
-      ignored_buftypes = { 'nofile' },
-      ignored_filetypes = { 'nofile', 'quickfix', 'qf', 'prompt' },
-    }
+  opts = {},
+  init = function()
     -- recommended mappings
     -- resizing splits
     -- these keymaps will also accept a range,
