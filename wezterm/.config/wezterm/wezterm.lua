@@ -4,6 +4,7 @@ local tab = require("tab")
 local fonts = require("fonts")
 local keys = require("keys")
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+local colors = theme.colors()
 local config = {}
 -- Pywal config
 -- wezterm.add_to_config_reload_watch_list("home/emretuna/.wezterm.lua")
@@ -20,7 +21,7 @@ end
 -- Configurations
 --
 
-config.colors = theme.colors()
+config.colors = colors
 config.window_frame = theme.window_frame()
 config.term = "wezterm"
 config.warn_about_missing_glyphs = true
@@ -43,8 +44,8 @@ config.initial_rows = 40
 config.initial_cols = 150
 
 config.command_palette_rows = 14
-config.command_palette_bg_color = "#1a1b26"
-config.command_palette_fg_color = "#959cbd"
+config.command_palette_bg_color = colors.background
+config.command_palette_fg_color = colors.foreground
 config.show_update_window = false
 config.check_for_updates = false
 
