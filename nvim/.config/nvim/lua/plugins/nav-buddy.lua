@@ -5,6 +5,7 @@ return {
     'SmiteshP/nvim-navic',
     'MunifTanjim/nui.nvim',
   },
+  event = { 'BufReadPost', 'BufNewFile' },
   opts = {
     window = {
       border = 'double',

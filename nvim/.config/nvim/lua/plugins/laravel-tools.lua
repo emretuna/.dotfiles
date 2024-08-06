@@ -1,6 +1,5 @@
 return {
   'adalessa/laravel.nvim',
-  event = 'VeryLazy',
   ft = { 'php', 'blade' },
   dependencies = {
     'nvim-telescope/telescope.nvim',
