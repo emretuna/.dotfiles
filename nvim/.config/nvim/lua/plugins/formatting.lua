@@ -32,7 +32,6 @@ return {
       graphql = { 'prettier' },
       lua = { 'stylua' },
       php = { 'phpcbf', 'php_cs_fixer', 'pint' },
-      ['*'] = { 'codespell' },
       ['_'] = { 'trim_whitespace', 'trim_newlines' },
 
       -- python = { "isort", "black" },

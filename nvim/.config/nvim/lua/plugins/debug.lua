@@ -1,11 +1,12 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  lazy = true,
   -- NOTE: And you can specify dependencies as well
   enabled = vim.g.dap_enabled,
   dependencies = {
     -- Creates a beautiful debugger UI
-    { 'rcarriga/nvim-dap-ui', enabled = vim.g.dap_enabled },
+    { 'rcarriga/nvim-dap-ui', lazy = true, enabled = vim.g.dap_enabled },
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -94,7 +95,9 @@ return {
       },
     }
 
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+    dap.listeners.after.event_initialized['dapui_config'] = function()
+      dapui.open { reset = true }
+    end
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 

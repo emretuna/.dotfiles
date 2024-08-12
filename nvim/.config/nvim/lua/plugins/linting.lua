@@ -13,24 +13,12 @@ return {
       php = { 'php', 'phpcs' },
     }
 
-    local markdownlint = require('lint').linters.markdownlint
+    local markdownlint = lint.linters.markdownlint
     markdownlint.args = {
       '--disable',
       'MD013',
       'MD007',
       '--', -- Required
-    }
-
-    local eslint = lint.linters.eslint_d
-    eslint.args = {
-      '--no-warn-ignored',
-      '--format',
-      'json',
-      '--stdin',
-      '--stdin-filename',
-      function()
-        return vim.api.nvim_buf_get_name(0)
-      end,
     }
 
     -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -74,7 +62,11 @@ return {
       group = 'lint',
       callback = function()
         require('lint').try_lint()
+        require('lint').try_lint 'typos'
       end,
     })
+    -- vim.keymap.set('n', '<leader>ul', function()
+    --   require('lint').try_lint()
+    -- end, { desc = 'Trigger linting for current file' })
   end,
 }

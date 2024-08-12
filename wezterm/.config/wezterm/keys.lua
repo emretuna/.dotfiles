@@ -111,6 +111,13 @@ function Keys.setup(config)
 			action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
 		},
 		{
+			key = "p",
+			mods = "ALT|SHIFT",
+			action = wezterm.action.ShowLauncherArgs({
+				flags = "LAUNCH_MENU_ITEMS|FUZZY|TABS|DOMAINS|WORKSPACES",
+			}),
+		},
+		{
 			key = "Q",
 			mods = "ALT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),

@@ -98,8 +98,6 @@ eval "$(direnv hook zsh)"
 # hidden files, these ares values in the default generated zsh config.
 	# Load brew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -U compinit
-_comp_options+=(globdots)
 ## Enable fzf-tab completions
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -140,31 +138,6 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
-# Herd injected PHP binary.
-export PATH="/Users/emretuna/Library/Application Support/Herd/bin/":$PATH
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/emretuna/Library/Application Support/Herd/config/php/82/"
-
-
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="/Users/emretuna/Library/Application Support/Herd/config/php/81/"
-
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/emretuna/Library/Application Support/Herd/config/php/83/"
-
-
-# Herd injected PHP 7.4 configuration.
-export HERD_PHP_74_INI_SCAN_DIR="/Users/emretuna/Library/Application Support/Herd/config/php/74/"
-
-
-# Herd injected NVM configuration
-export NVM_DIR="/Users/emretuna/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

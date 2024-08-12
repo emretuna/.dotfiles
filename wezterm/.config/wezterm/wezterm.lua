@@ -39,7 +39,7 @@ config.window_background_opacity = 0.6
 config.text_background_opacity = 0.4
 config.macos_window_background_blur = 50
 config.animation_fps = 60
-config.prefer_egl = true
+-- config.prefer_egl = true
 
 config.initial_rows = 40
 config.initial_cols = 150

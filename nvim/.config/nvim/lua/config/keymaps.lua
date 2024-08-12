@@ -34,22 +34,18 @@ vim.api.nvim_set_keymap('n', '<ScrollWheelUp>', '<C-B>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<ScrollWheelDown>', '<C-F>', { noremap = true })
 
 -- tabs
-vim.keymap.set('n', ']t', function()
-  vim.cmd.tabnext()
-end, { desc = 'Tab next' })
-vim.keymap.set('n', '[t', function()
-  vim.cmd.tabprevious()
-end, { desc = 'Tab previous' })
+vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Tab next' })
+vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
 
 -- buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
-vim.keymap.set('n', '<leader>bl', '<cmd>ls<cr>', { desc = '[B]uffer [L]ist' })
-vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = '[B]uffer [N]ew' })
-vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
-vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]buffer [D]elete' })
+vim.keymap.set('n', '<leader>bl', '<cmd>ls<cr>', { desc = '[B]buffer [L]ist' })
+vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = '[B]buffer [N]ew' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]buffer [P]revious' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]buffer [N]ext' })
 vim.keymap.set('n', '<leader>bc', function()
   vim.cmd 'execute "%bd|e#"'
 end, { desc = '[B]buffer [C]lear' })
@@ -71,6 +67,12 @@ vim.keymap.set('n', '<leader>g.', function()
   end
 end, { desc = 'Gitui' })
 
+-- Toggle spell checking
+vim.keymap.set('n', '<leader>ws', function()
+  vim.opt.spell = not vim.o.spell
+  print('Spell checking is', (vim.o.spell and 'enabled' or 'disabled'))
+end, { desc = '[S]pellcheck Toggle' })
+
 -- terminal mappings
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -82,7 +84,6 @@ vim.keymap.set('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'Go to Lower Window' 
 vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'Go to Upper Window' })
 vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { desc = 'Go to Right Window' })
 vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
-
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

@@ -1,6 +1,7 @@
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
+  version = '4.4.7',
   opts = function()
     local enable_conceal = true -- Hide command text if true
     local enable_lsp = true
