@@ -62,7 +62,7 @@ return {
       group = 'lint',
       callback = function()
         require('lint').try_lint()
-        require('lint').try_lint 'typos'
+        -- require('lint').try_lint 'typos'
       end,
     })
     -- vim.keymap.set('n', '<leader>ul', function()

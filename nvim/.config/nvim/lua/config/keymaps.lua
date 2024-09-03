@@ -58,14 +58,14 @@ vim.keymap.set('n', '<leader>g.', function()
   local git_dir = vim.fn.finddir('.git', vim.fn.getcwd() .. ';')
   if git_dir ~= '' then
     if vim.fn.executable 'keychain' == 1 then
-      vim.cmd 'TermExec cmd="eval `keychain --eval ~/.ssh/github.key` && gitui && exit"'
+      vim.cmd 'TermExec cmd="eval `keychain --eval ~/.ssh/github.key` && lazygit && exit"'
     else
-      vim.cmd "TermExec cmd='gitui && exit'"
+      vim.cmd "TermExec cmd='lazygit && exit'"
     end
   else
     vim.notify('Not a git repository', vim.log.levels.WARN)
   end
-end, { desc = 'Gitui' })
+end, { desc = 'Lazygit' })
 
 -- Toggle spell checking
 vim.keymap.set('n', '<leader>ws', function()

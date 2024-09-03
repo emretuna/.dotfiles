@@ -15,4 +15,5 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
+grigorii-zander/zsh-npm-scripts-autocomplete
 Aloxaf/fzf-tab

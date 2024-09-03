@@ -18,7 +18,7 @@ vim.g.have_nerd_font = true
 
 -- Disable some plugins to reduce startup time
 vim.g.dap_enabled = false
-vim.g.dadbod_enabled = false
+vim.g.dadbod_enabled = true
 vim.g.precognition_enabled = false
 
 -- If more than 1 show tabline

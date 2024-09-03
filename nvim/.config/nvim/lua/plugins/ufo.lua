@@ -3,7 +3,7 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   dependencies = { 'kevinhwang91/promise-async' },
   opts = {
-    filetype_exclude = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason' },
+    filetype_exclude = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason', 'dbui' },
     preview = {
       mappings = {
         scrollB = '<C-b>',

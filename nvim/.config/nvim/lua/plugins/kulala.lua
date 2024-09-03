@@ -1,6 +1,9 @@
 return {
   'mistweaverco/kulala.nvim',
   ft = { 'http', 'rest' },
+  opts = {
+    default_view = 'headers_body',
+  },
   config = true,
   init = function()
     vim.keymap.set('n', '<leader>h.', ":lua require('kulala').run()<CR>", { desc = '[H]ttp Run', noremap = true, silent = true })
