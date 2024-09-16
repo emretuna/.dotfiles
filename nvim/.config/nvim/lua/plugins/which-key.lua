@@ -16,6 +16,8 @@ return { -- Useful plugin to show you pending keybinds.
     wk.add {
       { '<leader>;', group = '[󱁅]Grapple' },
       { '<leader>;_', hidden = true },
+      { '<leader>a', group = '[A]vante' },
+      { '<leader>a_', hidden = true },
       { '<leader>b', group = '[B]uffers' },
       { '<leader>b_', hidden = true },
       { '<leader>f', group = '[F]ind' },

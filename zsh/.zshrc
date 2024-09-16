@@ -1,3 +1,5 @@
+export ZSH_DOTENV_FILE="$HOME/.env"
+ZSH_DOTENV_PROMPT=false
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -75,9 +77,23 @@ source $HOME/.zshrc.d/.functions
 source $HOME/.zshrc.d/.aliases
 
 
-# <C-f> to search most common projects (personal, work) and
-# open selected in a tmux session. source: The Primeagen
-bindkey -s ^p "tmux-sessionizer\n"
+# <Alt-s> to search most common projects (personal, work) and
+# open selected in a sessh.
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+
+zle     -N             sesh-sessions
+bindkey -M emacs '\es' sesh-sessions
+bindkey -M vicmd '\es' sesh-sessions
+bindkey -M viins '\es' sesh-sessions
 
 # direnv package
 # https://direnv.net/

@@ -20,7 +20,6 @@ end
 -- This module should set the appearance-related options.
 -- Configurations
 --
-
 config.colors = colors
 config.window_frame = theme.window_frame()
 config.term = "wezterm"

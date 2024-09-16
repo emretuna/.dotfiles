@@ -1,8 +1,12 @@
 return {
   'OXY2DEV/markview.nvim',
   lazy = false, -- Recommended
-  ft = 'markdown', -- If you decide to lazy-load anyway
-
+  ft = { 'markdown', 'norg', 'rmd', 'org', 'vimwiki', 'Avante' },
+  opts = {
+    filetypes = { 'markdown', 'norg', 'rmd', 'org', 'vimwiki', 'Avante' },
+    buf_ignore = {},
+    max_length = 99999,
+  },
   dependencies = {
     -- You will not need this if you installed the
     -- parsers manually
