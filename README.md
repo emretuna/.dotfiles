@@ -6,7 +6,7 @@ on linux mint and osx (which is currently supported by the repo).
 
 ## Screenshot
 
-![screenshot](./screenshot.jpg)
+![screenshot](./screenshot.jpeg)
 
 ### Notes
 

@@ -49,7 +49,7 @@ function M.setup(config)
 			end),
 		},
 		{
-			key = "l",
+			key = ";",
 			mods = "LEADER",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.fuzzy_load(win, pane, function(id, label)
