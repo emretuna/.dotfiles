@@ -1,1 +1,2 @@
-wal/.cache/
+**/.cache/
+**/error.log
