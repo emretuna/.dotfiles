@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 
-local Fonts = {}
+local M = {}
 
-function Fonts.setup(config)
+function M.setup(config)
 	config.font = wezterm.font_with_fallback({
 		"JetBrainsMono Nerd Font",
 		"BlexMono Nerd Font",
@@ -17,4 +17,4 @@ function Fonts.setup(config)
 	}
 end
 
-return Fonts
+return M

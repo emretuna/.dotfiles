@@ -32,7 +32,6 @@ brew install zsh \
 	jq \
 	mpv \
 	trash-cli \
-	code-minimap \
 	lua-language-server \
 	vale \
 	zoxide \

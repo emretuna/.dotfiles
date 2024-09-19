@@ -76,25 +76,6 @@ source $HOME/.zshrc.d/.functions
 # Aliases
 source $HOME/.zshrc.d/.aliases
 
-
-# <Alt-s> to search most common projects (personal, work) and
-# open selected in a sessh.
-function sesh-sessions() {
-  {
-    exec </dev/tty
-    exec <&1
-    local session
-    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-    [[ -z "$session" ]] && return
-    sesh connect $session
-  }
-}
-
-zle     -N             sesh-sessions
-bindkey -M emacs '\es' sesh-sessions
-bindkey -M vicmd '\es' sesh-sessions
-bindkey -M viins '\es' sesh-sessions
-
 # direnv package
 # https://direnv.net/
 # installed via homebrew

@@ -50,15 +50,7 @@ end, { desc = '[B]buffer [C]lear' })
 -- better indent
 vim.keymap.set('x', '<Tab>', '>gv', { desc = 'Indent Line' })
 vim.keymap.set('x', '<S-Tab>', '<gv', { desc = 'Unindent Line' })
--- window management
-vim.keymap.set('n', '<leader>uv', '<C-w>v', { desc = 'Split [V]ertically' }) -- split window vertically
-vim.keymap.set('n', '<leader>uh', '<C-w>s', { desc = 'Split [H]orizontally' }) -- split window horizontally
-vim.keymap.set('n', '<leader>ue', '<C-w>=', { desc = 'Make Splits [E]qual' }) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>uq', '<cmd>close<CR>', { desc = 'Close current split' }) -- close current split window
 
-vim.keymap.set('n', '<leader>uo', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
-vim.keymap.set('n', '<leader>ux', '<cmd>tabclose<CR>', { desc = 'Close current tab' }) -- close current tab
-vim.keymap.set('n', '<leader>uf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 --gitui
 vim.keymap.set('n', '<leader>g.', function()
   local git_dir = vim.fn.finddir('.git', vim.fn.getcwd() .. ';')
@@ -130,6 +122,24 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.api.nvim_command [[menu PopUp.-2- <Nop>]]
     vim.api.nvim_command [[menu PopUp.Start\ \Debugger <cmd>:DapContinue<CR>]]
     vim.api.nvim_command [[menu PopUp.Run\ \Test <cmd>:Neotest run<CR>]]
+  end,
+})
+-- Toggle relative line numbers based on mode and focus
+local number_toggle_group = vim.api.nvim_create_augroup('numbertoggle', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave' }, {
+  group = number_toggle_group,
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter' }, {
+  group = number_toggle_group,
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = false
+    end
   end,
 })
 -- vim: ts=2 sts=2 sw=2 et

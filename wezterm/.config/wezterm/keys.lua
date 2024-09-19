@@ -1,21 +1,8 @@
 local wezterm = require("wezterm")
-local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
-local Keys = {}
+local M = {}
 -- you can put the rest of your Wezterm config here
-function Keys.setup(config)
-	smart_splits.apply_to_config(config, {
-		-- the default config is here, if you'd like to use the default keys,
-		-- you can omit this configuration table parameter and just use
-		-- smart_splits.apply_to_config(config)
 
-		-- directional keys to use in order of: left, down, up, right
-		direction_keys = { "h", "j", "k", "l" },
-		-- modifier keys to combine with direction_keys
-		modifiers = {
-			move = "CTRL", -- modifier to use for pane movement, e.g. CTRL+h to move left
-			resize = "META", -- modifier to use for pane resize, e.g. META+h to resize to the left
-		},
-	})
+function M.setup(config)
 	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 	config.disable_default_key_bindings = false
 	config.hyperlink_rules = wezterm.default_hyperlink_rules()
@@ -28,6 +15,18 @@ function Keys.setup(config)
 		},
 	}
 	config.keys = {
+		-- Attach to muxer
+		{
+			key = "a",
+			mods = "LEADER",
+			action = wezterm.action.AttachDomain("unix"),
+		},
+		-- Detach from muxer
+		{
+			key = "d",
+			mods = "LEADER",
+			action = wezterm.action.DetachDomain({ DomainName = "unix" }),
+		},
 		{
 			key = "p",
 			mods = "LEADER",
@@ -39,9 +38,9 @@ function Keys.setup(config)
 			action = wezterm.action.ActivatePaneDirection("Left"),
 		},
 		{
-			key = "l",
+			key = "j",
 			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Right"),
+			action = wezterm.action.ActivatePaneDirection("Down"),
 		},
 		{
 			key = "k",
@@ -49,10 +48,40 @@ function Keys.setup(config)
 			action = wezterm.action.ActivatePaneDirection("Up"),
 		},
 		{
-			key = "j",
+			key = "l",
 			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Down"),
+			action = wezterm.action.ActivatePaneDirection("Right"),
 		},
+		{
+			key = "n",
+			mods = "LEADER",
+			action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
+		},
+		{
+			key = "t",
+			mods = "LEADER",
+			action = wezterm.action.ShowTabNavigator,
+		},
+		{
+			key = "`",
+			mods = "LEADER",
+			action = wezterm.action.ShowLauncherArgs({
+				flags = "LAUNCH_MENU_ITEMS|FUZZY|TABS|DOMAINS|WORKSPACES",
+			}),
+		},
+		{
+			key = ",",
+			mods = "LEADER",
+			action = wezterm.action.PromptInputLine({
+				description = "Enter new name for session",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						wezterm.mux.rename_workspace(window:mux_window():get_workspace(), line)
+					end
+				end),
+			}),
+		},
+
 		{
 			key = "LeftArrow",
 			mods = "LEADER",
@@ -105,24 +134,14 @@ function Keys.setup(config)
 				size = { Percent = 50 },
 			}),
 		},
+
 		{
-			key = "n",
-			mods = "ALT",
-			action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
-		},
-		{
-			key = "p",
-			mods = "ALT|SHIFT",
-			action = wezterm.action.ShowLauncherArgs({
-				flags = "LAUNCH_MENU_ITEMS|FUZZY|TABS|DOMAINS|WORKSPACES",
-			}),
-		},
-		{
-			key = "Q",
+			key = "q",
 			mods = "ALT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
-		{ key = "q", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+
+		{ key = "x", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
 		{ key = "[", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ key = "]", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
@@ -147,4 +166,4 @@ function Keys.setup(config)
 end
 
 -- return keys and mouse
-return Keys
+return M
