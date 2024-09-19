@@ -13,7 +13,9 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
   },
-  init = function()
+  config = function(_, opts)
+		require('zen-mode').setup(opts)
+
     vim.keymap.set('n', '<leader>uz', ':ZenMode<cr>', { desc = '[Z]en Mode' })
   end,
 }

@@ -1,7 +1,6 @@
 return {
   'Shatur/neovim-session-manager',
   cmd = 'SessionManager',
-  config = true,
   opts = function()
     local config = require 'session_manager.config'
     return {
@@ -10,7 +9,8 @@ return {
       autosave_only_in_session = false,
     }
   end,
-  init = function()
+  config = function(_, opts)
+		require('session_manager').setup(opts)
     -- Auto save session
     -- BUG: This feature will auto-close anything nofile before saving.
     --      This include neotree, aerial, mergetool, among others.

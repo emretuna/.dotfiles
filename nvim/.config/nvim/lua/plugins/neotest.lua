@@ -30,6 +30,8 @@ return {
     }
   end,
   config = function(_, opts)
+    require('neotest').setup(opts)
+
     -- get neotest namespace (api call creates or returns namespace)
     local neotest_ns = vim.api.nvim_create_namespace 'neotest'
     vim.diagnostic.config({
@@ -40,6 +42,5 @@ return {
         end,
       },
     }, neotest_ns)
-    require('neotest').setup(opts)
   end,
 }

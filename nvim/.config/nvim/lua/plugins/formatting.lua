@@ -41,7 +41,9 @@ return {
       -- javascript = { { "prettierd", "prettier" } },
     },
   },
-  init = function()
+  config = function(_, opts)
+		require('conform').setup(opts)
+
     vim.api.nvim_create_user_command('FormatDisable', function(args)
       if args.bang then
         -- FormatDisable! will disable formatting just for this buffer

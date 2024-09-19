@@ -1,12 +1,8 @@
 return {
   'epwalsh/obsidian.nvim',
-  ft = 'markdown',
-  event = {
-    -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    'BufReadPre ' .. vim.fn.expand '~/Dev/**/*.md',
-    'BufNewFile ' .. vim.fn.expand '~/Dev/**/*.md',
-  },
+  version = '*', -- recommended, use latest release instead of latest commit
+  lazy = true,
+  ft = { 'markdown', 'norg', 'wiki', 'Alpha' },
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
@@ -70,10 +66,10 @@ return {
       end,
     }
   end,
-  config = function()
+  config = function(_, opts)
+    require('obsidian').setup(opts)
     vim.opt.conceallevel = 1
-  end,
-  init = function()
+
     -- Obsidian Daily
     vim.keymap.set('n', '<leader>nd', ':ObsidianToday<cr>', { desc = 'Obsidian [D]aily' })
     -- Obsidian Tomorrow

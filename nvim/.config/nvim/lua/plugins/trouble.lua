@@ -2,7 +2,9 @@ return {
   'folke/trouble.nvim',
   opts = {}, -- for default options, refer to the configuration section for custom setup.
   cmd = 'Trouble',
-  init = function()
+  config = function(_, opts)
+		require('trouble').setup(opts)
+
     vim.keymap.set('n', '<leader>t.', '<cmd>Trouble diagnostics toggle<cr>', { desc = '[T]rouble Toggle' })
     vim.keymap.set('n', '<leader>t/', '<cmd>Trouble loclist toggle<cr>', { desc = '[T]rouble Location List' })
     vim.keymap.set('n', '<leader>tb', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = '[T]rouble [B]buffer Diagnostics' })

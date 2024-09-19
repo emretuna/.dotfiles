@@ -12,7 +12,9 @@ return {
     },
     attach_to_untracked = false,
   },
-  init = function()
+  config = function(_, opts)
+		require('gitsigns').setup(opts)
+
     vim.keymap.set('n', '<leader>gt', '<cmd>:Gitsigns toggle_current_line_blame<cr>', { desc = '[G]it [T]oggle Blame' })
     vim.keymap.set('n', ']g', function()
       require('gitsigns').next_hunk()

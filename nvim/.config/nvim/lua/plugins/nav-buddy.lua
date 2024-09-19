@@ -12,7 +12,9 @@ return {
     },
     lsp = { auto_attach = true, preference = 'nvim_lsp' },
   },
-  init = function()
+  config = function(_, opts)
+		require('nvim-navbuddy').setup(opts)
+
     vim.keymap.set('n', '<leader>wn', '<cmd>Navbuddy<cr>', { desc = '[N]avbuddy' })
   end,
 }

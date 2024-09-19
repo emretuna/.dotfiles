@@ -57,9 +57,7 @@ return {
   {
     'echasnovski/mini.animate',
     event = 'VeryLazy',
-    config = function()
-      require('mini.animate').setup {
-        opts = function()
+    opts = function()
           -- don't use animate when scrolling with the mouse
           local mouse_scrolled = false
           for _, scroll in ipairs { 'Up', 'Down' } do
@@ -94,15 +92,16 @@ return {
             },
           }
         end,
-      }
+    config = function(_, opts)
+      require('mini.animate').setup(opts)
     end,
   },
   {
     'echasnovski/mini.statusline',
     event = 'VeryLazy',
-    config = function()
-      require('mini.statusline').setup {
-        use_icons = vim.g.have_nerd_font,
+		opts = function()
+	return {
+use_icons = vim.g.have_nerd_font,
         content = {
           active = function()
             local MiniStatusline = require 'mini.statusline'
@@ -132,7 +131,10 @@ return {
             }
           end,
         },
-      }
+	}
+	end,
+    config = function(_, opts)
+      require('mini.statusline').setup(opts)
     end,
   },
 }

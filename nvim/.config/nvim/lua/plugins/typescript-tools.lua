@@ -29,7 +29,9 @@ return {
       },
     },
   },
-  init = function()
+  config = function(_, opts)
+		require('typescript').setup(opts)
+
     vim.keymap.set('n', '<leader>lts', '<cmd>:TSToolsSortImports<cr>', { desc = '[S]ort Imports' })
     vim.keymap.set('n', '<leader>ltu', '<cmd>:TSToolsRemoveUnusedImports<cr>', { desc = 'Remove [U]nused' })
     vim.keymap.set('n', '<leader>lte', '<cmd>:TSToolsRemoveUnused<cr>', { desc = 'Remove [E]mpty Statements' })

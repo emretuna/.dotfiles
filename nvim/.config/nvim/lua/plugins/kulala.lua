@@ -4,8 +4,9 @@ return {
   opts = {
     default_view = 'headers_body',
   },
-  config = true,
-  init = function()
+  config = function(_, opts)
+		require('kulala').setup(opts)
+
     vim.keymap.set('n', '<leader>h.', ":lua require('kulala').run()<CR>", { desc = '[H]ttp Run', noremap = true, silent = true })
     vim.keymap.set('n', '<leader>ht', ":lua require('kulala').toggle_view()<CR>", { desc = '[H]ttp [T]oggle', noremap = true, silent = true })
     vim.keymap.set('n', '<leader>hy', ":lua require('kulala').copy()<CR>", { desc = '[H]ttp [Y]ank', noremap = true, silent = true })

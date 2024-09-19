@@ -16,8 +16,11 @@ return {
           enable = false,
         },
         route_info = {
-          enable = true,
-          position = 'right',
+          enable = true, --- to enable the laravel.nvim virtual text
+          position = 'right', --- where to show the info (available options 'right', 'top')
+          middlewares = true, --- wheather to show the middlewares section in the info
+          method = true, --- wheather to show the method section in the info
+          uri = true, --- wheather to show the uri section in the info
         },
       },
       ui = require 'laravel.config.ui',
@@ -26,8 +29,7 @@ return {
       user_commands = require 'laravel.config.user_commands',
       resources = require 'laravel.config.resources',
     }
-  end,
-  init = function()
+
     vim.keymap.set('n', '<leader>lla', '<cmd>:Laravel artisan<cr>', { desc = '[A]rtisan' })
     vim.keymap.set('n', '<leader>llr', '<cmd>:Laravel routes<cr>', { desc = '[R]outes' })
     vim.keymap.set('n', '<leader>llm', '<cmd>:Laravel related<cr>', { desc = '[M]odel Classes' })

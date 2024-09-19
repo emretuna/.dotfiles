@@ -4,7 +4,9 @@ return {
   ---@type Flash.Config
   opts = {},
   -- stylua: ignore
-	init = function()
+	config = function(_, opts)
+		require("flash").setup(opts)
+
 		-- Flash
 		vim.keymap.set({ 'n', 'x', 'o' }, 's', function() require("flash").jump() end, { desc = "Flash" })
 		-- Flash Treesitter

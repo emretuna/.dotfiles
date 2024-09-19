@@ -13,7 +13,9 @@ return {
       vim.api.nvim_win_set_config(win, { zindex = 100 })
     end,
   },
-  init = function()
+  config = function(_, opts)
+		require('notify').setup(opts)
+
     vim.keymap.set('n', '<leader>un', function()
       require('notify').dismiss { silent = true, pending = true }
     end, { desc = 'Dismiss All [N]otifications' })

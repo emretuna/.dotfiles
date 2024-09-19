@@ -2,7 +2,9 @@ return {
   'mrjones2014/smart-splits.nvim',
   event = 'VeryLazy',
   opts = {},
-  init = function()
+  config = function(_, opts)
+		require('smart-splits').setup(opts)
+
     -- recommended mappings
     -- resizing splits
     -- these keymaps will also accept a range,

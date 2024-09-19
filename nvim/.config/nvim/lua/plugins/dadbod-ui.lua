@@ -11,7 +11,7 @@ return {
     'DBUIFindBuffer',
   },
   enabled = vim.g.dadbod_enabled,
-  init = function()
+  config = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.vim_dadbod_completion_mark = '󱘲'

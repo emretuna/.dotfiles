@@ -30,7 +30,9 @@ return {
       preview_split = 'right',
     },
   },
-  init = function()
+  config = function(_, opts)
+		require('oil').setup(opts)
+
     -- Open parent directory in current window
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 

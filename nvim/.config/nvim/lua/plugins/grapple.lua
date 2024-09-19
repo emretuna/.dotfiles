@@ -6,7 +6,9 @@ return {
     icons = true, -- setting to "true" requires "nvim-web-devicons"
     status = true,
   },
-  init = function()
+  config = function(_, opts)
+		require('grapple').setup(opts)
+
     vim.keymap.set('n', '<leader>;m', '<cmd>Grapple toggle_tags<cr>', { desc = 'Grapple [M]enu' })
     vim.keymap.set('n', '<leader>;t', '<cmd>Grapple toggle<cr>', { desc = 'Grapple [T]oggle' })
     vim.keymap.set('n', '<leader>;s', '<cmd>Grapple open_scopes<cr>', { desc = 'Grapple [S]copes' })

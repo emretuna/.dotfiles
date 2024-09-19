@@ -14,6 +14,8 @@ return {
     },
   },
   config = function(_, opts)
+    require('ufo').setup(opts)
+
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.foldingRange = {
       dynamicRegistration = false,
@@ -37,12 +39,10 @@ return {
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
-    require('ufo').setup(opts)
-  end,
-  init = function()
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
     vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
     vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+
   end,
 }
