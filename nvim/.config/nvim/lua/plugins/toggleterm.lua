@@ -23,10 +23,8 @@ return {
     },
   },
   config = function(_, opts)
-		require('toggleterm').setup(opts)
+    require('toggleterm').setup(opts)
 
     vim.keymap.set('n', '<F7>', '<cmd>ToggleTerm<cr>', { desc = 'Toggle Terminal' })
-    vim.keymap.set('n', '<leader>u-', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', { desc = '[T]oggleTerm Horizantal' })
-    vim.keymap.set('n', '<leader>u|', '<cmd>ToggleTerm size=80 direction=vertical<cr>', { desc = '[T]oggleTerm Vertical' })
   end,
 }

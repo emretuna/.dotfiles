@@ -1,11 +1,12 @@
 return {
   'mistweaverco/kulala.nvim',
+  event = 'VeryLazy',
   ft = { 'http', 'rest' },
   opts = {
     default_view = 'headers_body',
   },
   config = function(_, opts)
-		require('kulala').setup(opts)
+    require('kulala').setup(opts)
 
     vim.keymap.set('n', '<leader>h.', ":lua require('kulala').run()<CR>", { desc = '[H]ttp Run', noremap = true, silent = true })
     vim.keymap.set('n', '<leader>ht', ":lua require('kulala').toggle_view()<CR>", { desc = '[H]ttp [T]oggle', noremap = true, silent = true })

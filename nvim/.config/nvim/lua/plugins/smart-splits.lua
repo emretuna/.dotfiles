@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   opts = {},
   config = function(_, opts)
-		require('smart-splits').setup(opts)
+    require('smart-splits').setup(opts)
 
     -- recommended mappings
     -- resizing splits
@@ -20,9 +20,9 @@ return {
     vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
     vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous)
     -- swapping buffers between windows
-    vim.keymap.set('n', '<leader>uh', require('smart-splits').swap_buf_left, { desc = 'Swap buffer to left' })
-    vim.keymap.set('n', '<leader>uj', require('smart-splits').swap_buf_down, { desc = 'Swap buffer to down' })
-    vim.keymap.set('n', '<leader>uk', require('smart-splits').swap_buf_up, { desc = 'Swap buffer to up' })
-    vim.keymap.set('n', '<leader>ul', require('smart-splits').swap_buf_right, { desc = 'Swap buffer to right' })
+    vim.keymap.set('n', '<leader>th', require('smart-splits').swap_buf_left, { desc = 'Swap buffer to left' })
+    vim.keymap.set('n', '<leader>tj', require('smart-splits').swap_buf_down, { desc = 'Swap buffer to down' })
+    vim.keymap.set('n', '<leader>tk', require('smart-splits').swap_buf_up, { desc = 'Swap buffer to up' })
+    vim.keymap.set('n', '<leader>tl', require('smart-splits').swap_buf_right, { desc = 'Swap buffer to right' })
   end,
 }

@@ -26,20 +26,43 @@ function M.setup(config)
 		local workspace_state = resurrect.workspace_state
 		resurrect.save_state(workspace_state.get_workspace_state())
 	end)
+	wezterm.on("augment-command-palette", function(window, pane)
+		local workspace_state = resurrect.workspace_state
+		return {
+			{
+				brief = "Window | Workspace: Switch Workspace",
+				icon = "md_briefcase_arrow_up_down",
+				action = workspace_switcher.switch_workspace(),
+			},
+			{
+				brief = "Window | Workspace: Rename Workspace",
+				icon = "md_briefcase_edit",
+				action = wezterm.action.PromptInputLine({
+					description = "Enter new name for workspace",
+					action = wezterm.action_callback(function(window, pane, line)
+						if line then
+							wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+							resurrect.save_state(workspace_state.get_workspace_state())
+						end
+					end),
+				}),
+			},
+		}
+	end)
 	local workspace_switcher_keys = {
 		-- Resurrect keymaps
-		{
-			key = "r",
-			mods = "LEADER",
-			action = wezterm.action_callback(function(win, pane)
-				resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-			end),
-		},
-		{
-			key = "R",
-			mods = "LEADER",
-			action = resurrect.window_state.save_window_action(),
-		},
+		-- {
+		-- 	key = "r",
+		-- 	mods = "LEADER",
+		-- 	action = wezterm.action_callback(function(win, pane)
+		-- 		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+		-- 	end),
+		-- },
+		-- {
+		-- 	key = "R",
+		-- 	mods = "LEADER",
+		-- 	action = resurrect.window_state.save_window_action(),
+		-- },
 		{
 			key = "s",
 			mods = "LEADER",

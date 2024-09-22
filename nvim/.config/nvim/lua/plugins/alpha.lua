@@ -22,12 +22,12 @@ return {
 
     -- Buttons
     dashboard.section.buttons.val = {
-      dashboard.button('n', '📋 New     ', '<cmd>ene<CR>'),
-      dashboard.button('r', '⚡ Recent  ', '<cmd>Telescope oldfiles<CR>'),
-      dashboard.button('f', '🐙 Find    ', '<cmd> Telescope live_grep <cr>'),
-      dashboard.button('l', '💤 Lazy    ', '<cmd> Lazy <cr>'),
+      dashboard.button('n', '📋 New     ', '<cmd>enew<CR>'),
+      dashboard.button('r', '⚡ Recent  ', '<cmd>FzfLua oldfiles<CR>'),
+      dashboard.button('f', '🐙 Find    ', '<cmd>FzfLua live_grep <cr>'),
+      dashboard.button('l', '💤 Lazy    ', '<cmd>Lazy <cr>'),
       dashboard.button('s', '🔎 Sessions', '<cmd>SessionManager! load_session<CR>'),
-      dashboard.button('p', '💼 Projects', '<cmd>Telescope projects<CR>'),
+      dashboard.button('p', '💼 Projects', '<cmd>FzfLua projects<CR>'),
       dashboard.button('', ''),
       dashboard.button('q', '   Quit', '<cmd>exit<CR>'),
       --  --button("LDR f '", "  Bookmarks  "),

@@ -1,8 +1,9 @@
 return {
   'adalessa/laravel.nvim',
   ft = { 'php', 'blade' },
+  event = 'VeryLazy',
+  enabled = false, -- TODO: Will be enabled again after fzf-lua support added
   dependencies = {
-    'nvim-telescope/telescope.nvim',
     'tpope/vim-dotenv',
     'MunifTanjim/nui.nvim',
   },
@@ -30,8 +31,8 @@ return {
       resources = require 'laravel.config.resources',
     }
 
-    vim.keymap.set('n', '<leader>lla', '<cmd>:Laravel artisan<cr>', { desc = '[A]rtisan' })
-    vim.keymap.set('n', '<leader>llr', '<cmd>:Laravel routes<cr>', { desc = '[R]outes' })
-    vim.keymap.set('n', '<leader>llm', '<cmd>:Laravel related<cr>', { desc = '[M]odel Classes' })
+    vim.keymap.set('n', '<leader>mla', '<cmd>:Laravel artisan<cr>', { desc = '[A]rtisan' })
+    vim.keymap.set('n', '<leader>mlr', '<cmd>:Laravel routes<cr>', { desc = '[R]outes' })
+    vim.keymap.set('n', '<leader>mlm', '<cmd>:Laravel related<cr>', { desc = '[M]odel Classes' })
   end,
 }

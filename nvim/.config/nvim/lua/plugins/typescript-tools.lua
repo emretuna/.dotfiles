@@ -1,6 +1,5 @@
 return {
   'pmizio/typescript-tools.nvim',
-  ft = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'neovim/nvim-lspconfig',
@@ -30,15 +29,15 @@ return {
     },
   },
   config = function(_, opts)
-		require('typescript').setup(opts)
+    require('typescript-tools').setup(opts)
 
-    vim.keymap.set('n', '<leader>lts', '<cmd>:TSToolsSortImports<cr>', { desc = '[S]ort Imports' })
-    vim.keymap.set('n', '<leader>ltu', '<cmd>:TSToolsRemoveUnusedImports<cr>', { desc = 'Remove [U]nused' })
-    vim.keymap.set('n', '<leader>lte', '<cmd>:TSToolsRemoveUnused<cr>', { desc = 'Remove [E]mpty Statements' })
-    vim.keymap.set('n', '<leader>lta', '<cmd>:TSToolsAddMissingImports<cr>', { desc = '[A]dd Missing Imports' })
-    vim.keymap.set('n', '<leader>ltf', '<cmd>:TSToolsFixAll<cr>', { desc = '[F]ix Errors' })
-    vim.keymap.set('n', '<leader>ltd', '<cmd>:TSToolsGoToSourceDefinition<cr>', { desc = 'Source [D]efinition' })
-    vim.keymap.set('n', '<leader>ltr', '<cmd>:TSToolsRenameFile<cr>', { desc = '[R]ename File' })
-    vim.keymap.set('n', '<leader>ltR', '<cmd>:TSToolsFileReferences<cr>', { desc = 'File [R]eferences' })
+    vim.keymap.set('n', '<leader>mts', '<cmd>:TSToolsSortImports<cr>', { desc = '[S]ort Imports' })
+    vim.keymap.set('n', '<leader>mtu', '<cmd>:TSToolsRemoveUnusedImports<cr>', { desc = 'Remove [U]nused' })
+    vim.keymap.set('n', '<leader>mte', '<cmd>:TSToolsRemoveUnused<cr>', { desc = 'Remove [E]mpty Statements' })
+    vim.keymap.set('n', '<leader>mta', '<cmd>:TSToolsAddMissingImports<cr>', { desc = '[A]dd Missing Imports' })
+    vim.keymap.set('n', '<leader>mtf', '<cmd>:TSToolsFixAll<cr>', { desc = '[F]ix Errors' })
+    vim.keymap.set('n', '<leader>mtd', '<cmd>:TSToolsGoToSourceDefinition<cr>', { desc = 'Source [D]efinition' })
+    vim.keymap.set('n', '<leader>mtr', '<cmd>:TSToolsRenameFile<cr>', { desc = '[R]ename File' })
+    vim.keymap.set('n', '<leader>mtR', '<cmd>:TSToolsFileReferences<cr>', { desc = 'File [R]eferences' })
   end,
 }

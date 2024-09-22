@@ -33,7 +33,19 @@ vim.api.nvim_set_keymap('n', '<ScrollWheelUp>', '<C-B>', { noremap = true })
 -- Map ScrollWheelDown to Ctrl+F
 vim.api.nvim_set_keymap('n', '<ScrollWheelDown>', '<C-F>', { noremap = true })
 
+-- increment/decrement numbers
+vim.keymap.set('n', 'g+', '<C-a>', { desc = 'Increment number' })
+vim.keymap.set('n', 'g-', '<C-x>', { desc = 'Decrement number' })
+
+-- window management
+vim.keymap.set('n', '<leader>u-', '<C-w>v', { desc = 'Split [V]ertically' })
+vim.keymap.set('n', '<leader>u|', '<C-w>s', { desc = 'Split [H]orizontally' })
+vim.keymap.set('n', '<leader>uq', '<cmd>close<CR>', { desc = '[Q]uit Current Split' })
+
 -- tabs
+vim.keymap.set('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
+vim.keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' }) -- close current tab
+vim.keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Tab next' })
 vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
 
