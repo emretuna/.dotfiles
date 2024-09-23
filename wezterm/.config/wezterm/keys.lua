@@ -2,6 +2,11 @@ local wezterm = require("wezterm")
 local M = {}
 -- you can put the rest of your Wezterm config here
 
+wezterm.on("update-plugins", function(window, pane)
+	wezterm.plugin.update_all()
+	window:toast_notification("wezterm", "Plugins updated!", nil, 4000)
+end)
+
 function M.setup(config)
 	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 	config.disable_default_key_bindings = false
@@ -137,11 +142,11 @@ function M.setup(config)
 
 		{
 			key = "q",
-			mods = "ALT",
+			mods = "LEADER",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
-
-		{ key = "x", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+		{ key = "u", mods = "LEADER", action = wezterm.action.EmitEvent("update-plugins") },
+		{ key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
 		{ key = "[", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ key = "]", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },

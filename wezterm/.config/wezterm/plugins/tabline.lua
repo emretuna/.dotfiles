@@ -15,7 +15,6 @@ function M.setup()
 			section_separators = "",
 			component_separators = "",
 			tab_separators = "",
-			extensions = { "resurrect", "smart_workspace_switcher" },
 		},
 	})
 end

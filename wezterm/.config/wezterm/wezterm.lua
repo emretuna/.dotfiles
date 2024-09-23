@@ -11,6 +11,7 @@ local config = {}
 config.unix_domains = {
 	{
 		name = "unix",
+		proxy_command = { "nc", "-U", "/Users/emretuna/.local/share/wezterm/sock" },
 	},
 }
 
@@ -50,11 +51,11 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
-config.window_background_opacity = 0.6
+config.window_background_opacity = 0.7
 config.text_background_opacity = 0.4
 config.macos_window_background_blur = 50
 config.animation_fps = 60
--- config.prefer_egl = true
+config.prefer_egl = true
 
 config.initial_rows = 40
 config.initial_cols = 150
@@ -71,7 +72,7 @@ config.cursor_blink_rate = 800
 fonts.setup(config)
 theme.setup(config)
 keys.setup(config)
-tabline.setup(config)
+tabline.setup()
 smartsplits.setup(config)
 workspaceswitcher.setup(config)
 return config

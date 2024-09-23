@@ -18,7 +18,7 @@ alias ll="ls -la --color=always"
 alias lsd="ls -l --color=always --only-dirs"
 
 # Always use color output for `ls`
-alias ls="exa --color=always"
+alias ls="eza --color=always"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.

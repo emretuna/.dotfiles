@@ -16,9 +16,8 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --border --margin=1 --padding=1"
 
 # Set BAT theme
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="Rosé Pine"
 
 # PATH
 # export PATH=${PATH}:/usr/local/go/bin
 # export PATH=${PATH}:${HOME}/go/bin
-

@@ -52,7 +52,7 @@ vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
 -- buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
-vim.keymap.set('n', '<leader>b.', '<cmd>ls<cr>', { desc = '[B]buffers' })
+-- vim.keymap.set('n', '<leader>b.', '<cmd>ls<cr>', { desc = '[B]buffers' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]buffer [D]elete' })
 vim.keymap.set('n', '<leader>ba', '<cmd>new<cr>', { desc = '[B]buffer [A]dd' })

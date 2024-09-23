@@ -118,7 +118,7 @@ function M.setup(config)
 		{
 			key = "w",
 			mods = "LEADER",
-			action = workspace_switcher.switch_workspace({ extra_args = " | rg -Fxf ~/Code" }),
+			action = workspace_switcher.switch_workspace(),
 		},
 	}
 	-- Append new keys to config.keys
