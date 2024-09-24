@@ -86,8 +86,8 @@ return {
     -- Obsidian Search
     vim.keymap.set('n', '<leader>ns', ':ObsidianSearch<cr>', { desc = 'Obsidian [S]earch' })
     -- Obsidian Open Quickswitch
-    vim.keymap.set('n', '<leader>no', ':ObsidianQuickSwitch<cr>', { desc = 'Obsidian [O]pen Quickswitch' })
+    vim.keymap.set('n', '<leader>n.', ':ObsidianQuickSwitch<cr>', { desc = 'Obsidian Quickswitch' })
     -- Obsidian Open In App
-    vim.keymap.set('n', '<leader>nO', ':ObsidianOpen<cr>', { desc = 'Obsidian [O]pen In App' })
+    vim.keymap.set('n', '<leader>no', ':ObsidianOpen<cr>', { desc = 'Obsidian [O]pen In App' })
   end,
 }

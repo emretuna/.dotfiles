@@ -44,7 +44,7 @@ return {
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-          map('<leader>la', vim.lsp.buf.code_action, 'Code [A]ctions')
+
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
           map('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -56,7 +56,7 @@ return {
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
           vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 
-          vim.keymap.set('n', '<leader>lR', ':LspRestart<CR>', { desc = '[L]SP [R]estart' })
+          vim.keymap.set('n', '<leader>lR', ':LspRestart<CR>', { desc = 'LSP: [R]estart' })
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
