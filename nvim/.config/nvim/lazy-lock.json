@@ -1,6 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "e808bee352d1a6fcf902ca1a71cee76e60e24071" },
   "alpha-nvim": { "branch": "main", "commit": "b6f4129302db197a7249e67a90de3f2b676de13e" },
+  "arrow.nvim": { "branch": "master", "commit": "8b54450ae537564f809ee6883157c82c4f82e6ae" },
   "avante.nvim": { "branch": "main", "commit": "5aec0ba48bb0342c116662aafb6fe58c1cf9d44a" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-dap": { "branch": "master", "commit": "ea92773e84c0ad3288c3bc5e452ac91559669087" },

@@ -27,7 +27,7 @@ return {
       dashboard.button('f', '🐙 Find    ', '<cmd>FzfLua live_grep <cr>'),
       dashboard.button('l', '💤 Lazy    ', '<cmd>Lazy <cr>'),
       dashboard.button('s', '🔎 Sessions', '<cmd>SessionManager! load_session<CR>'),
-      dashboard.button('p', '💼 Projects', '<cmd>FzfLua projects<CR>'),
+      dashboard.button('p', '💼 Projects', ':lua vim.api.nvim_input("<leader>fp")<CR>'),
       dashboard.button('', ''),
       dashboard.button('q', '   Quit', '<cmd>exit<CR>'),
       --  --button("LDR f '", "  Bookmarks  "),

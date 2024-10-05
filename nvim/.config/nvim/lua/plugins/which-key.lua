@@ -14,8 +14,7 @@ return { -- Useful plugin to show you pending keybinds.
     }
     local wk = require 'which-key'
     wk.add {
-      { '<leader>;', group = '[󱁅]Grapple' },
-      { '<leader>;_', hidden = true },
+
       { '<leader>a', group = '[A]i' },
       { '<leader>a_', hidden = true },
       { '<leader>b', group = '[B]uffers' },
@@ -28,10 +27,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>h_', hidden = true },
       { '<leader>l', group = '[L]sp' },
       { '<leader>l_', hidden = true },
-      { 'gL', group = '[L]aravel' },
-      { 'gL_', hidden = true },
-      { 'gT', group = '[T]ypescript' },
-      { 'gT_', hidden = true },
       { '<leader>n', group = '[N]otes' },
       { '<leader>n_', hidden = true },
       { '<leader>s', group = '[S]earch' },
@@ -44,6 +39,10 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>u_', hidden = true },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>w_', hidden = true },
+      { 'gL', group = '[L]aravel' },
+      { 'gL_', hidden = true },
+      { 'gT', group = '[T]ypescript' },
+      { 'gT_', hidden = true },
     }
   end,
 }

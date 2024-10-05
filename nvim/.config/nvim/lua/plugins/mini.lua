@@ -123,6 +123,9 @@ return {
   },
   {
     'echasnovski/mini.statusline',
+    dependencies = {
+      'otavioschwanck/arrow.nvim',
+    },
     event = 'VeryLazy',
     opts = function()
       return {
@@ -143,11 +146,11 @@ return {
             local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
             local location = MiniStatusline.section_location { trunc_width = 75 }
             local search = MiniStatusline.section_searchcount { trunc_width = 75 }
-            local grapple = require('grapple').statusline {}
+            local arrow = require('arrow.statusline').text_for_statusline_with_icons()
 
             return MiniStatusline.combine_groups {
               { hl = mode_hl, strings = { mode } },
-              { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, grapple } },
+              { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, arrow } },
               '%<', -- Mark general truncate point
               { hl = 'MiniStatuslineFilename', strings = { filename } },
               '%=', -- End left alignment
