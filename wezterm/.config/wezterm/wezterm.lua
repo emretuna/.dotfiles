@@ -36,6 +36,7 @@ end
 -- Configurations
 --
 config.term = "wezterm"
+config.default_workspace = "~"
 config.warn_about_missing_glyphs = true
 config.enable_scroll_bar = false
 config.window_padding = {
@@ -51,8 +52,8 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
-config.window_background_opacity = 0.7
-config.text_background_opacity = 0.4
+config.window_background_opacity = 0.6
+config.text_background_opacity = 0.7
 config.macos_window_background_blur = 50
 config.animation_fps = 60
 config.prefer_egl = true

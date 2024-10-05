@@ -48,7 +48,6 @@ vim.keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current t
 vim.keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Tab next' })
 vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
-
 -- buffers
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
@@ -77,7 +76,7 @@ vim.keymap.set('n', '<leader>g.', function()
 end, { desc = 'Lazygit' })
 
 -- Toggle spell checking
-vim.keymap.set('n', '<leader>ws', function()
+vim.keymap.set('n', '<leader>wS', function()
   vim.opt.spell = not vim.o.spell
   print('Spell checking is', (vim.o.spell and 'enabled' or 'disabled'))
 end, { desc = '[S]pellcheck Toggle' })

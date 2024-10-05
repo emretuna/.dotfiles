@@ -13,7 +13,7 @@ return {
     attach_to_untracked = false,
   },
   config = function(_, opts)
-		require('gitsigns').setup(opts)
+    require('gitsigns').setup(opts)
 
     vim.keymap.set('n', '<leader>gt', '<cmd>:Gitsigns toggle_current_line_blame<cr>', { desc = '[G]it [T]oggle Blame' })
     vim.keymap.set('n', ']g', function()
@@ -21,7 +21,7 @@ return {
     end, { silent = true, desc = 'Next [G]it Huk' })
     vim.keymap.set('n', '[g', function()
       require('gitsigns').prev_hunk()
-    end, { silent = true, desc = 'Previous [G]it Hunk' })
+    end, { silent = true, desc = 'Previous Git Hunk' })
     vim.keymap.set('n', '<leader>gl', function()
       require('gitsigns').blame_line()
     end, { silent = true, desc = '[G]it Blame [L]ine' })

@@ -1,4 +1,43 @@
 return {
+  -- TODO: Some todo to add
+  {
+    'echasnovski/mini.hipatterns',
+    event = 'VeryLazy',
+    opts = {
+      highlighters = {
+        fixme = { pattern = 'FIXME', group = 'MiniHipatternsFixme' },
+        hack = { pattern = 'HACK', group = 'MiniHipatternsHack' },
+        todo = { pattern = 'TODO', group = 'MiniHipatternsTodo' },
+        note = { pattern = 'NOTE', group = 'MiniHipatternsNote' },
+      },
+    },
+    config = function(_, opts)
+      require('mini.hipatterns').setup(opts)
+    end,
+  },
+  {
+    'echasnovski/mini.jump2d',
+    event = 'VeryLazy',
+    opts = {
+      view = {
+        dim = true,
+      },
+      silent = true,
+    },
+    config = function(_, opts)
+      require('mini.jump2d').setup(opts)
+    end,
+  },
+  {
+    'echasnovski/mini.splitjoin',
+    config = function()
+      require('mini.splitjoin').setup {
+        mappings = {
+          toggle = 'gS',
+        },
+      }
+    end,
+  },
   {
     'echasnovski/mini.icons',
     lazy = true,
@@ -37,20 +76,6 @@ return {
       }
     end,
   },
-  -- Not required for > neovim 0.10
-  -- {
-  --   'echasnovski/mini.comment',
-  --   event = 'VeryLazy',
-  --   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring', lazy = true, opts = { enable_autocmd = false } },
-  --   opts = {
-  --     options = {
-  --       custom_commentstring = function()
-  --         return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
-  --       end,
-  --     },
-  --   },
-  -- },
-  --
   { 'echasnovski/mini.tabline', event = 'VimEnter', opts = { show_icons = true } },
   { 'echasnovski/mini.ai', event = 'BufReadPost', opts = { n_lines = 500 } },
   { 'echasnovski/mini.surround', event = 'BufReadPost', opts = {} },
@@ -58,40 +83,40 @@ return {
     'echasnovski/mini.animate',
     event = 'VeryLazy',
     opts = function()
-          -- don't use animate when scrolling with the mouse
-          local mouse_scrolled = false
-          for _, scroll in ipairs { 'Up', 'Down' } do
-            local key = '<ScrollWheel' .. scroll .. '>'
-            vim.keymap.set({ '', 'i' }, key, function()
-              mouse_scrolled = true
-              return key
-            end, { expr = true })
-          end
+      -- don't use animate when scrolling with the mouse
+      local mouse_scrolled = false
+      for _, scroll in ipairs { 'Up', 'Down' } do
+        local key = '<ScrollWheel' .. scroll .. '>'
+        vim.keymap.set({ '', 'i' }, key, function()
+          mouse_scrolled = true
+          return key
+        end, { expr = true })
+      end
 
-          local animate = require 'mini.animate'
-          return {
-            open = { enable = false }, -- true causes issues on nvim-spectre
-            resize = {
-              timing = animate.gen_timing.linear { duration = 33, unit = 'total' },
-            },
-            scroll = {
-              timing = animate.gen_timing.linear { duration = 50, unit = 'total' },
-              subscroll = animate.gen_subscroll.equal {
-                predicate = function(total_scroll)
-                  if mouse_scrolled then
-                    mouse_scrolled = false
-                    return false
-                  end
-                  return total_scroll > 1
-                end,
-              },
-            },
-            cursor = {
-              enable = false, -- We don't want cursor ghosting
-              timing = animate.gen_timing.linear { duration = 26, unit = 'total' },
-            },
-          }
-        end,
+      local animate = require 'mini.animate'
+      return {
+        open = { enable = false }, -- true causes issues on nvim-spectre
+        resize = {
+          timing = animate.gen_timing.linear { duration = 33, unit = 'total' },
+        },
+        scroll = {
+          timing = animate.gen_timing.linear { duration = 50, unit = 'total' },
+          subscroll = animate.gen_subscroll.equal {
+            predicate = function(total_scroll)
+              if mouse_scrolled then
+                mouse_scrolled = false
+                return false
+              end
+              return total_scroll > 1
+            end,
+          },
+        },
+        cursor = {
+          enable = false, -- We don't want cursor ghosting
+          timing = animate.gen_timing.linear { duration = 26, unit = 'total' },
+        },
+      }
+    end,
     config = function(_, opts)
       require('mini.animate').setup(opts)
     end,
@@ -99,9 +124,9 @@ return {
   {
     'echasnovski/mini.statusline',
     event = 'VeryLazy',
-		opts = function()
-	return {
-use_icons = vim.g.have_nerd_font,
+    opts = function()
+      return {
+        use_icons = vim.g.have_nerd_font,
         content = {
           active = function()
             local MiniStatusline = require 'mini.statusline'
@@ -131,8 +156,8 @@ use_icons = vim.g.have_nerd_font,
             }
           end,
         },
-	}
-	end,
+      }
+    end,
     config = function(_, opts)
       require('mini.statusline').setup(opts)
     end,

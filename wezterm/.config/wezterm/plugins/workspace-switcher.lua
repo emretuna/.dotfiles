@@ -6,9 +6,11 @@ local M = {}
 
 function M.setup(config)
 	-- Add keys for smart_workspace_switcher
-	workspace_switcher.apply_to_config(config)
 	workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
+	workspace_switcher.apply_to_config(config)
+
 	-- Resurrect configuration
+	resurrect.periodic_save()
 	-- loads the state whenever I create a new workspace
 	wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, path, label)
 		local workspace_state = resurrect.workspace_state
@@ -26,6 +28,8 @@ function M.setup(config)
 		local workspace_state = resurrect.workspace_state
 		resurrect.save_state(workspace_state.get_workspace_state())
 	end)
+
+	-- Add augment-command-palette
 	wezterm.on("augment-command-palette", function(window, pane)
 		local workspace_state = resurrect.workspace_state
 		return {
@@ -51,6 +55,7 @@ function M.setup(config)
 	end)
 	local workspace_switcher_keys = {
 		-- Resurrect keymaps
+
 		-- {
 		-- 	key = "r",
 		-- 	mods = "LEADER",
@@ -71,6 +76,7 @@ function M.setup(config)
 				resurrect.window_state.save_window_action()
 			end),
 		},
+		-- Workspace switcher keys
 		{
 			key = ";",
 			mods = "LEADER",
@@ -114,7 +120,7 @@ function M.setup(config)
 				})
 			end),
 		},
-		-- Workspace Switcher
+		-- Smart Workspace Switcher
 		{
 			key = "w",
 			mods = "LEADER",

@@ -14,6 +14,18 @@ fi
 
 echo 'PATH="/usr/local/bin:$PATH"' >>~/.bash_profile
 
+if ! command -v nvm &>/dev/null; then
+	pretty_print "installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+else
+    echo "NVM is already installed."
+fi
+# Install the latest LTS version of Node.js and npm
+echo "Installing Node.js LTS..."
+nvm install --lts
+
 # install packages
 brew install zsh \
 	antidote \
@@ -44,8 +56,7 @@ brew install zsh \
 	poppler \
 	bat \
 	glow \
-	gitui \
-	volta
+	gitui
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
 

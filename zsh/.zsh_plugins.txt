@@ -7,6 +7,7 @@ robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/history
 robbyrussell/oh-my-zsh path:plugins/composer
 robbyrussell/oh-my-zsh path:plugins/dotenv
+robbyrussell/oh-my-zsh path:plugins/wp-cli
 
 romkatv/powerlevel10k
 

@@ -79,16 +79,19 @@ return {
     vim.keymap.set('n', '<leader>f.', '<cmd>FzfLua oldfiles cwd=~<cr>', { desc = '[F]ind Recent Files ("." for repeat)' })
 
     -- Lsp keymaps
-    vim.keymap.set('n', '<leader>la', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP: [A]ctions' })
-    vim.keymap.set('n', '<leader>lr', '<cmd>FzfLua lsp_references<cr>', { desc = 'LSP: [R]eferences' })
-    vim.keymap.set('n', '<leader>ld', '<cmd>FzfLua lsp_definitions<cr>', { desc = 'LSP: [D]efinitions' })
-    vim.keymap.set('n', '<leader>lD', '<cmd>FzfLua lsp_declarations<cr>', { desc = 'LSP: [D]eclarations' })
+    vim.keymap.set('n', 'ga', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP: [A]ctions' })
+    vim.keymap.set('n', 'gR', '<cmd>FzfLua lsp_references<cr>', { desc = 'LSP: [R]eferences' })
+    vim.keymap.set('n', 'gd', '<cmd>FzfLua lsp_definitions<cr>', { desc = 'LSP: [D]efinitions' })
+    vim.keymap.set('n', 'gD', '<cmd>FzfLua lsp_declarations<cr>', { desc = 'LSP: [D]eclarations' })
+    vim.keymap.set('n', 'gt', '<cmd>FzfLua lsp_typedefs<cr>', { desc = 'LSP: [T]ype [D]efinitions' })
+
     vim.keymap.set('n', '<leader>li', '<cmd>FzfLua lsp_implementations<cr>', { desc = 'LSP: [I]mplementations' })
-    vim.keymap.set('n', '<leader>lt', '<cmd>FzfLua lsp_typedefs<cr>', { desc = 'LSP: [T]ype [D]efinitions' })
     vim.keymap.set('n', '<leader>ls', '<cmd>FzfLua lsp_document_symbols<cr>', { desc = 'LSP: [S]ymbols' })
-    vim.keymap.set('n', '<leader>lS', '<cmd>FzfLua lsp_workspace_symbols<cr>', { desc = 'LSP: [S]ymbols [W]orkspace' })
+    vim.keymap.set('n', '<leader>lS', '<cmd>FzfLua lsp_workspace_symbols<cr>', { desc = 'LSP: Workspace [S]ymbols' })
     vim.keymap.set('n', '<leader>lx', '<cmd>FzfLua lsp_diagnostics_document<cr>', { desc = 'LSP: Diagnostics Document' })
     vim.keymap.set('n', '<leader>lX', '<cmd>FzfLua lsp_diagnostics_workspace<cr>', { desc = 'LSP: Diagnostics Workspace' })
+    vim.keymap.set('n', '<leader>l/', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', { desc = 'LSP: Live Workspace Symbols' })
+    vim.keymap.set('n', '<leader>l.', '<cmd>FzfLua lsp_finder<cr>', { desc = 'LSP: All LSP Locations' })
 
     vim.keymap.set('n', '<leader>b.', '<cmd>FzfLua buffers<cr>', { desc = '[B]uffers' })
 

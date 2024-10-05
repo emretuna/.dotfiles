@@ -1,4 +1,18 @@
 return {
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    lazy = true,
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  { 'Bilal2453/luvit-meta', lazy = true },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -10,12 +24,9 @@ return {
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
-
-      -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
+      local home = os.getenv 'HOME'
       -- LSP provides Neovim with features like:
       --  - Go to definition
       --  - Find references
@@ -47,14 +58,14 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('gr', vim.lsp.buf.rename, '[R]ename')
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- Diagnostic keymaps
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'LSP: Previous Diagnostic Message' })
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'LSP: Next Diagnostic Message' })
 
           vim.keymap.set('n', '<leader>lR', ':LspRestart<CR>', { desc = 'LSP: [R]estart' })
           -- The following two autocommands are used to highlight references of the
@@ -185,25 +196,54 @@ return {
         },
         html = {},
         cssls = {},
-        svelte = {
-          on_attach = function(client, bufnr)
-            on_attach(client, bufnr)
-            vim.api.nvim_create_autocmd('BufWritePost', {
-              pattern = { '*.js', '*.ts' },
-              callback = function(ctx)
-                if client.name == 'svelte' then
-                  client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
-                end
-              end,
-            })
-          end,
-        },
         graphql = {
           filetypes = { 'graphql', 'gql', 'svelte', 'typescriptreact', 'javascriptreact' },
         },
         emmet_ls = {
           filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
         },
+        intelephense = {
+          completion = {
+            enabled = true,
+          },
+          settings = {
+            intelephense = {
+              telemetry = {
+                enabled = false,
+              },
+              stubs = {
+                'acf-pro',
+                'bcmath',
+                'bz2',
+                'calendar',
+                'Core',
+                'curl',
+                'date',
+                'exif',
+                'json',
+                'genesis',
+                'polylang',
+                'Relection',
+                'wordpress',
+                'wordpress-globals',
+                'woocommerce',
+                'wp-cli',
+                'zip',
+                'zlib',
+              },
+              diagnostics = {
+                enable = true,
+              },
+              environment = {
+                includePaths = home .. '~/.composer/vendor/php-stubs/',
+              },
+              files = {
+                maxSize = 5000000,
+              },
+            },
+          },
+        },
+
         jsonls = {
           schemas = require('schemastore').json.schemas(),
           validate = { enable = true },
@@ -238,12 +278,13 @@ return {
         'gitui',
         'graphql',
         'html',
+        'intelephense',
         'jq',
         'jsonls',
         'lua_ls',
         'markdownlint',
         'php-cs-fixer',
-        'phpactor',
+        'phpstan',
         'phpcbf',
         'phpcs',
         'pint',
@@ -251,7 +292,6 @@ return {
         'prettierd', -- prettier daemon
         'prismals',
         'stylua', -- Used to format Lua code
-        'svelte',
         'tailwindcss',
         'typos',
         'yamlls',
