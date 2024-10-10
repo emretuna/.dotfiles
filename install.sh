@@ -51,8 +51,6 @@ brew install fish \
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
 brew cleanup
 
-# starship init
-echo "starship init fish | source" >> ~/.config/fish/config.fish
 
 cd ${HOME}/.dotfiles
 echo "stowing files..."
@@ -68,6 +66,14 @@ stow wezterm
 stow starship
 
 
+# starship init
+echo "starship init fish | source" >> ~/.config/fish/config.fish
+
+# volta init
+echo 'set -gx VOLTA_HOME "$HOME/.volta"' >> ~/.config/fish/config.fish
+
+
+echo 'set -gx PATH "$VOLTA_HOME/bin" $PATH"' >> ~/.config/fish/config.fish
 #install required dependencies for building packages mostly
 echo "installing bunch of packages to your $(uname -n) desktop"
 
@@ -88,6 +94,7 @@ echo "changing default shell"
 # use fish as default shell
 sudo chsh -s $(which fish) $USER
 
+fish
 
 if ! command -v volta &>/dev/null; then
 	volta install node
