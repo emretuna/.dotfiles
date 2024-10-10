@@ -58,16 +58,16 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('gr', vim.lsp.buf.rename, '[R]ename')
+          map('<F2>', vim.lsp.buf.rename, 'Rename')
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
+          map('gK', vim.lsp.buf.signature_help, 'LSP: Signature Help')
+          vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, { buffer = event.buf, desc = 'LSP: Signature Help' })
           -- Diagnostic keymaps
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'LSP: Previous Diagnostic Message' })
           vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'LSP: Next Diagnostic Message' })
 
-          vim.keymap.set('n', '<leader>lR', ':LspRestart<CR>', { desc = 'LSP: [R]estart' })
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -199,9 +199,6 @@ return {
         graphql = {
           filetypes = { 'graphql', 'gql', 'svelte', 'typescriptreact', 'javascriptreact' },
         },
-        emmet_ls = {
-          filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
-        },
         intelephense = {
           completion = {
             enabled = true,
@@ -243,7 +240,6 @@ return {
             },
           },
         },
-
         jsonls = {
           schemas = require('schemastore').json.schemas(),
           validate = { enable = true },
@@ -273,7 +269,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'cssls',
-        'emmet_ls',
+        'emmet-language-server',
         'eslint_d', -- js linter
         'gitui',
         'graphql',

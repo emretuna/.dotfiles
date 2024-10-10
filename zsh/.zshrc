@@ -94,7 +94,12 @@ eval "$(direnv hook zsh)"
 # Use modern completion system. Other than enabling globdots for showing
 # hidden files, these ares values in the default generated zsh config.
 	# Load brew completions
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
 ## Enable fzf-tab completions
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' auto-description 'specify: %d'

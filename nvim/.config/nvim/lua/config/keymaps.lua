@@ -2,7 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 -- Basic keymap shortcuts
-vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = '[S]ave file' })
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = 'Save file' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -38,9 +38,9 @@ vim.keymap.set('n', 'g+', '<C-a>', { desc = 'Increment number' })
 vim.keymap.set('n', 'g-', '<C-x>', { desc = 'Decrement number' })
 
 -- window management
-vim.keymap.set('n', '<leader>u-', '<C-w>v', { desc = 'Split [V]ertically' })
-vim.keymap.set('n', '<leader>u|', '<C-w>s', { desc = 'Split [H]orizontally' })
-vim.keymap.set('n', '<leader>ux', '<cmd>close<CR>', { desc = 'Close Current Split' })
+vim.keymap.set('n', '<leader>m-', '<C-w>v', { desc = 'Split Vertically' })
+vim.keymap.set('n', '<leader>m|', '<C-w>s', { desc = 'Split Horizontally' })
+vim.keymap.set('n', '<leader>mx', '<cmd>close<CR>', { desc = 'Close Current Split' })
 
 -- tabs
 vim.keymap.set('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
@@ -52,11 +52,11 @@ vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Tab previous' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'Buffer next' })
 vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'Buffer previous' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch Buffer' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]buffer [D]elete' })
-vim.keymap.set('n', '<leader>ba', '<cmd>new<cr>', { desc = '[B]buffer [A]dd' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = 'Bbuffer Delete' })
+vim.keymap.set('n', '<leader>ba', '<cmd>new<cr>', { desc = 'Bbuffer Add' })
 vim.keymap.set('n', '<leader>bc', function()
   vim.cmd 'execute "%bd|e#"'
-end, { desc = '[B]buffer [C]lear' })
+end, { desc = 'Bbuffer Clear' })
 -- better indent
 vim.keymap.set('x', '<Tab>', '>gv', { desc = 'Indent Line' })
 vim.keymap.set('x', '<S-Tab>', '<gv', { desc = 'Unindent Line' })
@@ -76,10 +76,10 @@ vim.keymap.set('n', '<leader>g.', function()
 end, { desc = 'Lazygit' })
 
 -- Toggle spell checking
-vim.keymap.set('n', '<leader>wS', function()
+vim.keymap.set('n', '<leader>mS', function()
   vim.opt.spell = not vim.o.spell
   print('Spell checking is', (vim.o.spell and 'enabled' or 'disabled'))
-end, { desc = '[S]pellcheck Toggle' })
+end, { desc = 'Spellcheck Toggle' })
 
 -- terminal mappings
 

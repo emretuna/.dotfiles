@@ -20,9 +20,9 @@ return {
     vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
     vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous)
     -- swapping buffers between windows
-    vim.keymap.set('n', '<leader>bh', require('smart-splits').swap_buf_left, { desc = 'Swap [B]uffer To Left' })
-    vim.keymap.set('n', '<leader>bj', require('smart-splits').swap_buf_down, { desc = 'Swap [B]uffer To Down' })
-    vim.keymap.set('n', '<leader>bk', require('smart-splits').swap_buf_up, { desc = 'Swap [B]uffer To Up' })
-    vim.keymap.set('n', '<leader>bl', require('smart-splits').swap_buf_right, { desc = 'Swap [B]uffer To Right' })
+    vim.keymap.set('n', '<leader>bh', require('smart-splits').swap_buf_left, { desc = 'Swap Buffer To Left' })
+    vim.keymap.set('n', '<leader>bj', require('smart-splits').swap_buf_down, { desc = 'Swap Buffer To Down' })
+    vim.keymap.set('n', '<leader>bk', require('smart-splits').swap_buf_up, { desc = 'Swap Buffer To Up' })
+    vim.keymap.set('n', '<leader>bl', require('smart-splits').swap_buf_right, { desc = 'Swap Buffer To Right' })
   end,
 }

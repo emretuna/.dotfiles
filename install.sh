@@ -2,7 +2,7 @@ cd ~
 
 # install homebrew
 if ! command -v brew &>/dev/null; then
-	pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..."
+	echo "Installing Homebrew, an OSX package manager, follow the instructions..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
@@ -11,27 +11,14 @@ if ! command -v brew &>/dev/null; then
 	echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
 
 else
-	pretty_print "You already have Homebrew installed...good job!"
+	echo "You already have Homebrew installed...good job!"
 fi
 
 echo 'PATH="/usr/local/bin:$PATH"' >>~/.bash_profile
 
 
-if ! command -v nvm &>/dev/null; then
-	pretty_print "installing nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-else
-    echo "NVM is already installed."
-fi
-# Install the latest LTS version of Node.js and npm
-echo "Installing Node.js LTS..."
-nvm install --lts
-
 # install packages
-brew install zsh \
-	antidote \
+brew install fish \
 	neovim \
 	stow \
 	yarn \
@@ -56,25 +43,30 @@ brew install zsh \
 	navi \
 	tree \
 	poppler \
-	bat \
-	glow \
-	gitui
+	gitui \
+	eza \
+	volta \
+	starship
 
 brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono-nerd-font
 brew cleanup
+
+# starship init
+echo "starship init fish | source" >> ~/.config/fish/config.fish
 
 cd ${HOME}/.dotfiles
 echo "stowing files..."
 # stow dotfiles
 stow git
-stow zsh
+stow fish
 stow nvim
 stow btop
-stow ulauncher
 stow mpv
 stow plank
 stow yazi
 stow wezterm
+stow starship
+
 
 #install required dependencies for building packages mostly
 echo "installing bunch of packages to your $(uname -n) desktop"
@@ -88,25 +80,32 @@ sudo apt install -y gcc \
 	ffmpeg \
 	git
 
-echo "installing zsh and setting up things..."
-# add zsh as a login shell
-command -v zsh | sudo tee -a /etc/shells
+echo "installing fish and setting up things..."
+# add fish as a login shell
+command -v fish | sudo tee -a /etc/shells
 
 echo "changing default shell"
-# use zsh as default shell
-sudo chsh -s $(which zsh) $USER
+# use fish as default shell
+sudo chsh -s $(which fish) $USER
 
-echo "tweaking zsh..."
-# bundle zsh plugins
-antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.sh
 
-echo 'PATH="/usr/local/bin:$PATH"' >>~/.zshrc
+if ! command -v volta &>/dev/null; then
+	volta install node
+else
+	echo "You already have node installed with volta ...good job!"
+fi
+
+if ! command -v npm &>/dev/null; then
 echo "started installing node packages..."
 # install neovim plugins and requirements
 
 npm i -g neovim intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
 
-echo "finish nvim set up..."
+echo "finish npm set up..."
+else
+	echo "You already have npm installed...good job!"
+fi
+
 nvim --headless "+Lazy! sync" +qa
 
 echo "finishing..."
@@ -198,6 +197,7 @@ stow i3
 stow polybar
 stow picom
 stow rofi
+stow ulauncher
 
 #install rust cargo
 curl https://sh.rustup.rs -sSf | sh

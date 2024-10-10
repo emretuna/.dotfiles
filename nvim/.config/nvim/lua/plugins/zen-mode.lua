@@ -14,8 +14,8 @@ return {
     -- refer to the configuration section below
   },
   config = function(_, opts)
-		require('zen-mode').setup(opts)
+    require('zen-mode').setup(opts)
 
-    vim.keymap.set('n', '<leader>uz', ':ZenMode<cr>', { desc = '[Z]en Mode' })
+    vim.keymap.set('n', '<leader>mz', ':ZenMode<cr>', { desc = 'Zen Mode' })
   end,
 }

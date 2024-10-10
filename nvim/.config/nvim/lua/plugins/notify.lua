@@ -14,10 +14,10 @@ return {
     end,
   },
   config = function(_, opts)
-		require('notify').setup(opts)
+    require('notify').setup(opts)
 
-    vim.keymap.set('n', '<leader>un', function()
+    vim.keymap.set('n', '<leader>mn', function()
       require('notify').dismiss { silent = true, pending = true }
-    end, { desc = 'Dismiss All [N]otifications' })
+    end, { desc = 'Dismiss All Notifications' })
   end,
 }

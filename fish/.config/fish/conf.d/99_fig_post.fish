@@ -1,0 +1,1 @@
+test -x ~/.local/bin/cw; and eval (~/.local/bin/cw init fish post --rcfile 99_fig_post | string split0)

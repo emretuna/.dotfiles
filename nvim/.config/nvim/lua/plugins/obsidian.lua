@@ -70,24 +70,24 @@ return {
     vim.opt.conceallevel = 1
 
     -- Obsidian Daily
-    vim.keymap.set('n', '<leader>nd', ':ObsidianToday<cr>', { desc = 'Obsidian [D]aily' })
+    vim.keymap.set('n', '<leader>nd', ':ObsidianToday<cr>', { desc = 'Daily' })
     -- Obsidian Tomorrow
-    vim.keymap.set('n', '<leader>nt', ':ObsidianToday 1<cr>', { desc = 'Obsidian [T]omorrow' })
+    vim.keymap.set('n', '<leader>nt', ':ObsidianToday 1<cr>', { desc = 'Tomorrow' })
     -- Obsidian Yesterday
-    vim.keymap.set('n', '<leader>ny', ':ObsidianToday -1<cr>', { desc = 'Obsidian [Y]esterday' })
+    vim.keymap.set('n', '<leader>ny', ':ObsidianToday -1<cr>', { desc = 'Yesterday' })
     -- Obsidian Backlinks
-    vim.keymap.set('n', '<leader>nb', ':ObsidianBacklinks<cr>', { desc = 'Obsidian [B]acklinks' })
+    vim.keymap.set('n', '<leader>nb', ':ObsidianBacklinks<cr>', { desc = 'Backlinks' })
     -- Obsidian Link Selection
-    vim.keymap.set('n', '<leader>nl', ':ObsidianLink<cr>', { desc = 'Obsidian [L]ink Selection' })
+    vim.keymap.set('n', '<leader>nl', ':ObsidianLink<cr>', { desc = 'Link Selection' })
     -- Obsidian Follow Link
-    vim.keymap.set('n', '<leader>nf', ':ObsidianFollowLink<cr>', { desc = 'Obsidian [F]ollow Link' })
+    vim.keymap.set('n', '<leader>nf', ':ObsidianFollowLink<cr>', { desc = 'Follow Link' })
     -- Obsidian New
-    vim.keymap.set('n', '<leader>nn', ':ObsidianNew<cr>', { desc = 'Obsidian [N]ew' })
+    vim.keymap.set('n', '<leader>nn', ':ObsidianNew<cr>', { desc = 'New' })
     -- Obsidian Search
-    vim.keymap.set('n', '<leader>ns', ':ObsidianSearch<cr>', { desc = 'Obsidian [S]earch' })
+    vim.keymap.set('n', '<leader>ns', ':ObsidianSearch<cr>', { desc = 'Search' })
     -- Obsidian Open Quickswitch
-    vim.keymap.set('n', '<leader>n.', ':ObsidianQuickSwitch<cr>', { desc = 'Obsidian Quickswitch' })
+    vim.keymap.set('n', '<leader>n.', ':ObsidianQuickSwitch<cr>', { desc = 'Quickswitch' })
     -- Obsidian Open In App
-    vim.keymap.set('n', '<leader>no', ':ObsidianOpen<cr>', { desc = 'Obsidian [O]pen In App' })
+    vim.keymap.set('n', '<leader>no', ':ObsidianOpen<cr>', { desc = 'Open In App' })
   end,
 }

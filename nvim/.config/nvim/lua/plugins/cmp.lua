@@ -1,8 +1,11 @@
 return {
   { -- Autocompletion
-    'hrsh7th/nvim-cmp',
+    -- 'hrsh7th/nvim-cmp',
+    'iguanacucumber/magazine.nvim',
+    name = 'nvim-cmp', -- Otherwise highlighting gets messed up
     event = 'InsertEnter',
     dependencies = {
+      'monkoose/neocodeium',
       -- Snippet Engine & its associated nvim-cmp source
       {
         'L3MON4D3/LuaSnip',
@@ -50,13 +53,13 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-emoji',
       'onsails/lspkind.nvim',
     },
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
-      local lspkind = require 'lspkind'
       local neocodeium = require 'neocodeium'
       local commands = require 'neocodeium.commands'
       cmp.event:on('menu_opened', function()
@@ -145,6 +148,7 @@ return {
           { name = 'luasnip', priority = 750 },
           { name = 'path', priority = 250 },
           { name = 'buffer', priority = 250 },
+          { name = 'emoji', priority = 50 },
         },
         ---@diagnostic disable-next-line: missing-fields
         formatting = {

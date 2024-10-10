@@ -42,7 +42,7 @@ return {
     },
   },
   config = function(_, opts)
-		require('conform').setup(opts)
+    require('conform').setup(opts)
 
     vim.api.nvim_create_user_command('FormatDisable', function(args)
       if args.bang then
@@ -65,12 +65,12 @@ return {
     })
 
     -- Add keymap to disable and enable format on save
-    vim.keymap.set('n', '<leader>wf', function()
+    vim.keymap.set('n', '<leader>mF', function()
       if vim.b.disable_autoformat or vim.g.disable_autoformat then
         vim.cmd 'FormatEnable'
       else
         vim.cmd 'FormatDisable'
       end
-    end, { desc = 'Toggle [F]ormat' })
+    end, { desc = 'Toggle Format' })
   end,
 }

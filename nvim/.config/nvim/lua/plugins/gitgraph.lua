@@ -2,6 +2,7 @@ return {
   'isakbm/gitgraph.nvim',
   dependencies = { 'sindrets/diffview.nvim' },
   ---@type I.GGConfig
+  ---@diagnostic disable
   opts = {
     format = {
       timestamp = '%H:%M:%S %d-%m-%Y',
@@ -30,7 +31,7 @@ return {
       function()
         require('gitgraph').draw({}, { all = true, max_count = 5000 })
       end,
-      desc = '[G]it [G]raph',
+      desc = 'Git Graph',
     },
   },
 }

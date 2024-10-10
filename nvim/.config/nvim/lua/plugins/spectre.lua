@@ -20,9 +20,9 @@ return {
   config = function(_, opts)
     require('spectre').setup(opts)
 
-    vim.keymap.set('n', '<leader>s.', '<cmd>lua require("spectre").toggle()<cr>', { desc = '[T]oggle Spectre' })
-    vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', { desc = 'Search [W]ord' })
-    vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<cr>', { desc = 'Search [W]ord' })
-    vim.keymap.set('n', '<leader>sf', '<cmd>lua require("spectre").open_file_search({select_word=true})<cr>', { desc = 'Search [C]urrent File' })
+    vim.keymap.set('n', '<leader>s.', '<cmd>lua require("spectre").toggle()<cr>', { desc = 'Toggle Spectre' })
+    vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', { desc = 'Search Word' })
+    vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<cr>', { desc = 'Search Word' })
+    vim.keymap.set('n', '<leader>sf', '<cmd>lua require("spectre").open_file_search({select_word=true})<cr>', { desc = 'Search Current File' })
   end,
 }

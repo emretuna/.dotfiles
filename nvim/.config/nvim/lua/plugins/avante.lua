@@ -27,11 +27,11 @@ return {
       },
       keys = {
         {
-          '<leader>up',
+          '<leader>mp',
           function()
             return vim.bo.filetype == 'AvanteInput' and require('avante.clipboard').paste_image() or require('img-clip').paste_image()
           end,
-          desc = '[P]aste Image',
+          desc = 'Paste Image',
         },
       },
     },

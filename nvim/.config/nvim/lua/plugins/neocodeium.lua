@@ -1,13 +1,13 @@
 return {
   'monkoose/neocodeium',
-  event = 'VeryLazy',
+  lazy = true,
   config = function()
-   local neocodeium = require("neocodeium")
-    neocodeium.setup({
-			manual = false,
-			silent = true,
-			debounce = false,
-		})
+    local neocodeium = require 'neocodeium'
+    neocodeium.setup {
+      manual = false,
+      silent = true,
+      debounce = false,
+    }
     vim.keymap.set('i', '<c-y>', function()
       require('neocodeium').accept()
     end)

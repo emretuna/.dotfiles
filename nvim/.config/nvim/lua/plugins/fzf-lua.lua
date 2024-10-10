@@ -62,42 +62,39 @@ return {
     require('fzf-lua').setup(opts)
     local fzf_lua = require 'fzf-lua'
 
-    vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { desc = '[F]iles' })
-    vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua help_tags<cr>', { desc = '[F]ind [H]elp' })
-    vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua command_history<cr>', { desc = '[F]ind [C]ommand History' })
+    vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<cr>', { desc = 'Files' })
+    vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua help_tags<cr>', { desc = 'Find Help' })
+    vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua command_history<cr>', { desc = 'Find Command History' })
 
-    vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua git_files<cr>', { desc = '[F]ind [G]it Files' })
-    vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua resume<cr>', { desc = '[F]ind [R]esume' })
-    vim.keymap.set('n', '<leader>fm', '<cmd>FzfLua marks<cr>', { desc = '[F]ind [M]arks' })
-    vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua oldfiles<cr>', { desc = '[F]ind [O]ldfiles' })
-    vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<cr>', { desc = '[F]ind current [W]ord' })
-    vim.keymap.set('v', '<leader>fw', '<cmd>FzfLua grep_visual<cr>', { desc = '[F]ind current [W]ord' })
-    vim.keymap.set('n', '<leader>fk', '<cmd>FzfLua keymaps<cr>', { desc = '[F]ind [K]eymaps' })
-    vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua builtin<cr>', { desc = '[F]ind [S]elect Builtin' })
-
-    vim.keymap.set('n', '<leader>f/', '<cmd>FzfLua live_grep<cr>', { desc = '[F]ind Grep' })
-    vim.keymap.set('n', '<leader>f.', '<cmd>FzfLua oldfiles cwd=~<cr>', { desc = '[F]ind Recent Files ("." for repeat)' })
-
+    vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua git_files<cr>', { desc = 'Find Git Files' })
+    vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua resume<cr>', { desc = 'Find Resume' })
+    vim.keymap.set('n', '<leader>fm', '<cmd>FzfLua marks<cr>', { desc = 'Find Marks' })
+    vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua oldfiles<cr>', { desc = 'Find Oldfiles' })
+    vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<cr>', { desc = 'Find current Word' })
+    vim.keymap.set('v', '<leader>fw', '<cmd>FzfLua grep_visual<cr>', { desc = 'Find current Word' })
+    vim.keymap.set('n', '<leader>fk', '<cmd>FzfLua keymaps<cr>', { desc = 'Find Keymaps' })
+    vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua builtin<cr>', { desc = 'Find Select Builtin' })
+    vim.keymap.set('n', '<leader>f/', '<cmd>FzfLua live_grep<cr>', { desc = 'Find Grep' })
+    vim.keymap.set('n', '<leader>f.', '<cmd>FzfLua oldfiles cwd=~<cr>', { desc = 'Find Recent Files ("." for repeat)' })
     -- Lsp keymaps
-    vim.keymap.set('n', 'ga', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP: [A]ctions' })
-    vim.keymap.set('n', 'gR', '<cmd>FzfLua lsp_references<cr>', { desc = 'LSP: [R]eferences' })
-    vim.keymap.set('n', 'gd', '<cmd>FzfLua lsp_definitions<cr>', { desc = 'LSP: [D]efinitions' })
-    vim.keymap.set('n', 'gD', '<cmd>FzfLua lsp_declarations<cr>', { desc = 'LSP: [D]eclarations' })
-    vim.keymap.set('n', 'gt', '<cmd>FzfLua lsp_typedefs<cr>', { desc = 'LSP: [T]ype [D]efinitions' })
-
-    vim.keymap.set('n', '<leader>li', '<cmd>FzfLua lsp_implementations<cr>', { desc = 'LSP: [I]mplementations' })
-    vim.keymap.set('n', '<leader>ls', '<cmd>FzfLua lsp_document_symbols<cr>', { desc = 'LSP: [S]ymbols' })
-    vim.keymap.set('n', '<leader>lS', '<cmd>FzfLua lsp_workspace_symbols<cr>', { desc = 'LSP: Workspace [S]ymbols' })
+    vim.keymap.set('n', 'la', '<cmd>FzfLua lsp_code_actions<cr>', { desc = 'LSP: Actions' })
+    vim.keymap.set('n', 'gr', '<cmd>FzfLua lsp_references<cr>', { desc = 'LSP: References' })
+    vim.keymap.set('n', 'gd', '<cmd>FzfLua lsp_definitions<cr>', { desc = 'LSP: Definitions' })
+    vim.keymap.set('n', 'gD', '<cmd>FzfLua lsp_declarations<cr>', { desc = 'LSP: Declarations' })
+    vim.keymap.set('n', 'go', '<cmd>FzfLua lsp_typedefs<cr>', { desc = 'LSP: Type Definitions' })
+    vim.keymap.set('n', 'gI', '<cmd>FzfLua lsp_implementations<cr>', { desc = 'LSP: Implementations' })
+    vim.keymap.set('n', '<leader>ls', '<cmd>FzfLua lsp_document_symbols<cr>', { desc = 'LSP: Symbols' })
+    vim.keymap.set('n', '<leader>lS', '<cmd>FzfLua lsp_workspace_symbols<cr>', { desc = 'LSP: Workspace Symbols' })
     vim.keymap.set('n', '<leader>lx', '<cmd>FzfLua lsp_diagnostics_document<cr>', { desc = 'LSP: Diagnostics Document' })
     vim.keymap.set('n', '<leader>lX', '<cmd>FzfLua lsp_diagnostics_workspace<cr>', { desc = 'LSP: Diagnostics Workspace' })
     vim.keymap.set('n', '<leader>l/', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', { desc = 'LSP: Live Workspace Symbols' })
     vim.keymap.set('n', '<leader>l.', '<cmd>FzfLua lsp_finder<cr>', { desc = 'LSP: All LSP Locations' })
 
-    vim.keymap.set('n', '<leader>b.', '<cmd>FzfLua buffers<cr>', { desc = '[B]uffers' })
+    vim.keymap.set('n', '<leader>b.', '<cmd>FzfLua buffers<cr>', { desc = 'Buffers' })
 
-    vim.keymap.set('n', '<leader>t.', '<cmd>FzfLua tabs<cr>', { desc = '[T]abs' })
+    vim.keymap.set('n', '<leader>t.', '<cmd>FzfLua tabs<cr>', { desc = 'Tabs' })
     -- neoclip.nvim keymap
-    vim.keymap.set('n', '<leader>fy', '<cmd>:lua require("neoclip.fzf")()<cr>', { desc = '[F]ind [Y]ank History' })
+    vim.keymap.set('n', '<leader>fy', '<cmd>:lua require("neoclip.fzf")()<cr>', { desc = 'Find Yank History' })
     -- Add keymap for project.nvim
     vim.keymap.set('n', '<leader>fp', function()
       local history = require 'project_nvim.utils.history'
@@ -122,9 +119,9 @@ return {
           },
         },
       })
-    end, { desc = '[F]ind [P]roject' })
+    end, { desc = 'Find Project' })
     -- Neovim config
-    vim.keymap.set('n', '<leader>fn', function()
+    vim.keymap.set('n', '<leader>fN', function()
       -- specify vimconfig directory
       local choice = '~/.config/nvim'
       require('fzf-lua').files {
@@ -132,9 +129,9 @@ return {
         cwd = choice,
       }
       vim.cmd('chdir ' .. choice)
-    end, { desc = '[F]ind [N]vim Config' })
+    end, { desc = 'Find Nvim Config' })
     -- Dotfiles config
-    vim.keymap.set('n', '<leader>fd', function()
+    vim.keymap.set('n', '<leader>fD', function()
       -- specify vimconfig directory
       local choice = '~/.dotfiles'
       require('fzf-lua').files {
@@ -142,6 +139,6 @@ return {
         cwd = choice,
       }
       vim.cmd('chdir ' .. choice)
-    end, { desc = '[F]ind [D]otfiles' })
+    end, { desc = 'Find Dotfiles' })
   end,
 }

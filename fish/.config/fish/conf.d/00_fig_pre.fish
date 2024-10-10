@@ -1,0 +1,1 @@
+test -x ~/.local/bin/cw; and eval (~/.local/bin/cw init fish pre --rcfile 00_fig_pre | string split0)

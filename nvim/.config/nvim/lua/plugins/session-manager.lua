@@ -1,6 +1,7 @@
 return {
   'Shatur/neovim-session-manager',
   cmd = 'SessionManager',
+  event = 'VeryLazy',
   opts = function()
     local config = require 'session_manager.config'
     return {
@@ -24,9 +25,9 @@ return {
     --   end
     -- })
   end,
-  vim.keymap.set('n', '<leader>wl', '<cmd>SessionManager! load_last_session<cr>', { desc = '[L]oad last session' }),
-  vim.keymap.set('n', '<leader>ws', '<cmd>SessionManager! save_current_session <cr>', { desc = '[S]ave current session' }),
-  vim.keymap.set('n', '<leader>wd', '<cmd>SessionManager! delete_session <cr>', { desc = '[D]elete session' }),
-  vim.keymap.set('n', '<leader>wf', '<cmd>SessionManager! load_session <cr>', { desc = '[F]ind session' }),
-  vim.keymap.set('n', '<leader>wc', '<cmd>SessionManager! load_current_dir_session <cr>', { desc = '[C]urrent dir session' }),
+  vim.keymap.set('n', '<leader>ml', '<cmd>SessionManager! load_last_session<cr>', { desc = 'Load last session' }),
+  vim.keymap.set('n', '<leader>ms', '<cmd>SessionManager! save_current_session <cr>', { desc = 'Save current session' }),
+  vim.keymap.set('n', '<leader>md', '<cmd>SessionManager! delete_session <cr>', { desc = 'Delete session' }),
+  vim.keymap.set('n', '<leader>mf', '<cmd>SessionManager! load_session <cr>', { desc = 'Find session' }),
+  vim.keymap.set('n', '<leader>mc', '<cmd>SessionManager! load_current_dir_session <cr>', { desc = 'Current dir session' }),
 }

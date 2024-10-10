@@ -55,22 +55,10 @@ function M.setup(config)
 	end)
 	local workspace_switcher_keys = {
 		-- Resurrect keymaps
-
-		-- {
-		-- 	key = "r",
-		-- 	mods = "LEADER",
-		-- 	action = wezterm.action_callback(function(win, pane)
-		-- 		resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-		-- 	end),
-		-- },
-		-- {
-		-- 	key = "R",
-		-- 	mods = "LEADER",
-		-- 	action = resurrect.window_state.save_window_action(),
-		-- },
+		-- https://github.com/MLFlexer/resurrect.wezterm
 		{
 			key = "s",
-			mods = "LEADER",
+			mods = "ALT",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.save_state(resurrect.workspace_state.get_workspace_state())
 				resurrect.window_state.save_window_action()
@@ -78,8 +66,8 @@ function M.setup(config)
 		},
 		-- Workspace switcher keys
 		{
-			key = ";",
-			mods = "LEADER",
+			key = "r",
+			mods = "ALT",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.fuzzy_load(win, pane, function(id, label)
 					local type = string.match(id, "^([^/]+)") -- match before '/'
@@ -107,8 +95,8 @@ function M.setup(config)
 			end),
 		},
 		{
-			key = "c",
-			mods = "LEADER",
+			key = "d",
+			mods = "ALT",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.fuzzy_load(win, pane, function(id)
 					resurrect.delete_state(id)
@@ -123,7 +111,7 @@ function M.setup(config)
 		-- Smart Workspace Switcher
 		{
 			key = "w",
-			mods = "LEADER",
+			mods = "ALT",
 			action = workspace_switcher.switch_workspace(),
 		},
 	}

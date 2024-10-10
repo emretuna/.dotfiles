@@ -1,6 +1,6 @@
 return {
   'akinsho/toggleterm.nvim',
-  event = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
+  event = 'VeryLazy',
   cmd = { 'ToggleTerm', 'TermExec' },
   opts = {
     highlights = {

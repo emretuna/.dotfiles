@@ -11,9 +11,26 @@ return {
     single_file_support = false,
     root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
     settings = {
+      code_lens_mode = 'all',
+      expose_as_code_action = 'all',
+      jsx_close_tag = {
+        enable = true,
+        filetypes = { 'javascriptreact', 'typescriptreact' },
+      },
+      separate_diagnostic_server = true,
+      publish_diagnostic_on = 'insert_leave',
+      tsserver_max_memory = 'auto',
+      complete_function_calls = true,
       tsserver_file_preferences = {
-        includeInlayParameterNameHints = 'all',
         includeCompletionsForModuleExports = true,
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+        importModuleSpecifierPreference = 'non-relative',
         quotePreference = 'auto',
       },
       tsserver_format_options = {
@@ -21,6 +38,7 @@ return {
         allowRenameOfImportPath = false,
       },
       tsserver_plugins = {
+        '@vue/typescript-plugin',
         -- for TypeScript v4.9+
         '@styled/typescript-styled-plugin',
         -- or for older TypeScript versions
@@ -30,14 +48,5 @@ return {
   },
   config = function(_, opts)
     require('typescript-tools').setup(opts)
-
-    vim.keymap.set('n', 'gTs', '<cmd>:TSToolsSortImports<cr>', { desc = '[S]ort Imports' })
-    vim.keymap.set('n', 'gTu', '<cmd>:TSToolsRemoveUnusedImports<cr>', { desc = 'Remove [U]nused' })
-    vim.keymap.set('n', 'gTe', '<cmd>:TSToolsRemoveUnused<cr>', { desc = 'Remove [E]mpty Statements' })
-    vim.keymap.set('n', 'gTa', '<cmd>:TSToolsAddMissingImports<cr>', { desc = '[A]dd Missing Imports' })
-    vim.keymap.set('n', 'gTf', '<cmd>:TSToolsFixAll<cr>', { desc = '[F]ix Errors' })
-    vim.keymap.set('n', 'gTd', '<cmd>:TSToolsGoToSourceDefinition<cr>', { desc = 'Source [D]efinition' })
-    vim.keymap.set('n', 'gTr', '<cmd>:TSToolsRenameFile<cr>', { desc = '[R]ename File' })
-    vim.keymap.set('n', 'gTR', '<cmd>:TSToolsFileReferences<cr>', { desc = 'File [R]eferences' })
   end,
 }

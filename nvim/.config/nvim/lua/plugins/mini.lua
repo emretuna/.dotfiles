@@ -1,5 +1,77 @@
 return {
-  -- TODO: Some todo to add
+  {
+    'echasnovski/mini.clue',
+    opts = function()
+      return {
+        triggers = {
+          -- Leader triggers
+          { mode = 'n', keys = '<Leader>' },
+          { mode = 'x', keys = '<Leader>' },
+
+          -- Built-in completion
+          { mode = 'i', keys = '<C-x>' },
+
+          -- `g` key
+          { mode = 'n', keys = 'g' },
+          { mode = 'x', keys = 'g' },
+
+          -- Marks
+          { mode = 'n', keys = "'" },
+          { mode = 'n', keys = '`' },
+          { mode = 'x', keys = "'" },
+          { mode = 'x', keys = '`' },
+
+          -- Registers
+          { mode = 'n', keys = '"' },
+          { mode = 'x', keys = '"' },
+          { mode = 'i', keys = '<C-r>' },
+          { mode = 'c', keys = '<C-r>' },
+
+          -- Window commands
+          { mode = 'n', keys = '<C-w>' },
+
+          -- `z` key
+          { mode = 'n', keys = 'z' },
+          { mode = 'x', keys = 'z' },
+
+          -- Bracketed
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
+        },
+        window = {
+          delay = 10,
+        },
+        clues = {
+          { mode = 'n', keys = '<Leader>a', desc = 'Ai' },
+          { mode = 'n', keys = '<Leader>b', desc = 'Buffers' },
+          { mode = 'n', keys = '<Leader>f', desc = 'Find' },
+          { mode = 'n', keys = '<Leader>g', desc = 'Git' },
+          { mode = 'n', keys = '<Leader>h', desc = 'Http' },
+          { mode = 'n', keys = '<Leader>l', desc = 'Lsp' },
+          { mode = 'n', keys = '<Leader>n', desc = 'Notes' },
+          { mode = 'n', keys = '<Leader>s', desc = 'Search' },
+          { mode = 'n', keys = '<Leader>t', desc = 'Tabs' },
+          { mode = 'n', keys = '<Leader>m', desc = 'Misc' },
+          { mode = 'n', keys = '<Leader>x', desc = 'Trouble' },
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          require('mini.clue').gen_clues.builtin_completion(),
+          require('mini.clue').gen_clues.g(),
+          require('mini.clue').gen_clues.marks(),
+          require('mini.clue').gen_clues.registers(),
+          require('mini.clue').gen_clues.windows(),
+          require('mini.clue').gen_clues.z(),
+        },
+      }
+    end,
+  },
+  {
+    'echasnovski/mini.pairs',
+    event = 'VeryLazy',
+    opts = {},
+    config = function(_, opts)
+      require('mini.pairs').setup(opts)
+    end,
+  },
   {
     'echasnovski/mini.hipatterns',
     event = 'VeryLazy',
@@ -45,6 +117,15 @@ return {
       extension = {
         ['http'] = { glyph = '󰖟', hl = 'MiniIconsGreen' },
         ['rest'] = { glyph = '󱂛', hl = 'MiniIconsBlue' },
+        ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+        ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
+        ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
+        ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
+        ['eslint.config.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+        ['package.json'] = { glyph = '', hl = 'MiniIconsGreen' },
+        ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+        ['tsconfig.build.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+        ['yarn.lock'] = { glyph = '', hl = 'MiniIconsBlue' },
       },
     },
   },

@@ -1,6 +1,7 @@
 return {
   'nvim-neotest/neotest',
   event = 'VeryLazy',
+  enabled = vim.g.neotest_enabled,
   dependencies = {
     'nvim-neotest/nvim-nio',
     'nvim-lua/plenary.nvim',

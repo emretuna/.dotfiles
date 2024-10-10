@@ -9,7 +9,7 @@ end)
 
 function M.setup(config)
 	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
-	config.disable_default_key_bindings = false
+	config.disable_default_key_bindings = true
 	config.hyperlink_rules = wezterm.default_hyperlink_rules()
 	config.mouse_bindings = {
 		-- Ctrl-click will open the link under the mouse cursor
@@ -78,7 +78,7 @@ function M.setup(config)
 			key = ",",
 			mods = "LEADER",
 			action = wezterm.action.PromptInputLine({
-				description = "Enter new name for session",
+				description = "Enter new name for workspace",
 				action = wezterm.action_callback(function(window, pane, line)
 					if line then
 						wezterm.mux.rename_workspace(window:mux_window():get_workspace(), line)
@@ -139,25 +139,26 @@ function M.setup(config)
 				size = { Percent = 50 },
 			}),
 		},
-
 		{
 			key = "q",
 			mods = "LEADER",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
+		{ key = "f", mods = "SUPER", action = wezterm.action.Search({ CaseSensitiveString = "" }) },
 		{ key = "u", mods = "LEADER", action = wezterm.action.EmitEvent("update-plugins") },
 		{ key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
 		{ key = "[", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ key = "]", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "{", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(-1) },
-		{ key = "}", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(1) },
+		{ key = "[", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(-1) },
+		{ key = "]", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(1) },
 		{ key = "y", mods = "ALT", action = wezterm.action.ActivateCopyMode },
-		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
-		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+		{ key = "c", mods = "ALT", action = wezterm.action({ CopyTo = "Clipboard" }) },
+		{ key = "v", mods = "ALT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 		{ key = "z", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
-		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+		{ key = "=", mods = "ALT", action = wezterm.action.IncreaseFontSize },
+		{ key = "-", mods = "ALT", action = wezterm.action.DecreaseFontSize },
+		{ key = "0", mods = "ALT", action = wezterm.action.ResetFontSize },
 		{ key = "1", mods = "ALT", action = wezterm.action({ ActivateTab = 0 }) },
 		{ key = "2", mods = "ALT", action = wezterm.action({ ActivateTab = 1 }) },
 		{ key = "3", mods = "ALT", action = wezterm.action({ ActivateTab = 2 }) },
