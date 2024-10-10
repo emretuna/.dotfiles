@@ -1,4 +1,4 @@
-# .dotfiles/nvim/.config/nvim
+My Neovim Config
 
 [![Plugins](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/plugins?style=flat)](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim)
 [![Leader Key](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim/badges/leaderkey?style=flat)](https://dotfyle.com/emretuna/dotfiles-nvim-config-nvim)
