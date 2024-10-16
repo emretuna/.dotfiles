@@ -1,5 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 format = """
+$os \
 $username \
 $directory \
 $git_branch \
@@ -17,9 +18,9 @@ $nim \
 $rust \
 $scala \
 $python\n  \
-$time\n  \
 [󰅂](fg:iris)
 """
+
 palette = "rose-pine"
 add_newline = true
 
@@ -32,6 +33,16 @@ rose = '#ebbcba'
 pine = '#31748f'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
+
+[os]
+format = "[](fg:overlay)[ $symbol ]($style)[](fg:overlay)"
+style = "bg:overlay fg:love"
+disabled = false
+
+[os.symbols]
+Macos = " "
+Linux = " "
+Windows = " "
 
 [directory]
 format = "[](fg:overlay)[ $path ]($style)[](fg:overlay)"
