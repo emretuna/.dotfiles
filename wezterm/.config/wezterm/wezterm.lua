@@ -4,7 +4,7 @@ local theme = require("theme")
 local fonts = require("fonts")
 local keys = require("keys")
 local tabline = require("plugins.tabline")
-local smartsplits = require("plugins.smart-splits")
+local move = require("plugins.move")
 local workspaceswitcher = require("plugins.workspace-switcher")
 local config = {}
 
@@ -52,8 +52,8 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
-config.window_background_opacity = 0.6
-config.text_background_opacity = 0.7
+config.window_background_opacity = 0.75
+config.text_background_opacity = 0.50
 config.macos_window_background_blur = 50
 config.animation_fps = 60
 config.prefer_egl = true
@@ -74,6 +74,6 @@ fonts.setup(config)
 theme.setup(config)
 keys.setup(config)
 tabline.setup()
-smartsplits.setup(config)
+move.setup(config)
 workspaceswitcher.setup(config)
 return config

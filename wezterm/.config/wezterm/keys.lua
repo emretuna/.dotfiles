@@ -7,6 +7,16 @@ wezterm.on("update-plugins", function(window, pane)
 	window:toast_notification("wezterm", "Plugins updated!", nil, 4000)
 end)
 
+wezterm.on("toggle-opacity", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if not overrides.window_background_opacity then
+		overrides.window_background_opacity = 1
+	else
+		overrides.window_background_opacity = nil
+	end
+	window:set_config_overrides(overrides)
+end)
+
 function M.setup(config)
 	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 	config.disable_default_key_bindings = true
@@ -32,30 +42,16 @@ function M.setup(config)
 			mods = "LEADER",
 			action = wezterm.action.DetachDomain({ DomainName = "unix" }),
 		},
+		-- toggle opacity
+		{
+			key = "b",
+			mods = "LEADER",
+			action = wezterm.action.EmitEvent("toggle-opacity"),
+		},
 		{
 			key = "p",
 			mods = "LEADER",
 			action = wezterm.action.ActivateCommandPalette,
-		},
-		{
-			key = "h",
-			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Left"),
-		},
-		{
-			key = "j",
-			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Down"),
-		},
-		{
-			key = "k",
-			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Up"),
-		},
-		{
-			key = "l",
-			mods = "LEADER",
-			action = wezterm.action.ActivatePaneDirection("Right"),
 		},
 		{
 			key = "n",
@@ -85,27 +81,6 @@ function M.setup(config)
 					end
 				end),
 			}),
-		},
-
-		{
-			key = "LeftArrow",
-			mods = "LEADER",
-			action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
-		},
-		{
-			key = "DownArrow",
-			mods = "LEADER",
-			action = wezterm.action.AdjustPaneSize({ "Down", 5 }),
-		},
-		{
-			key = "UpArrow",
-			mods = "LEADER",
-			action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
-		},
-		{
-			key = "RightArrow",
-			mods = "LEADER",
-			action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
 		},
 		{
 			key = [[\]],
