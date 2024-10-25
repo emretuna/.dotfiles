@@ -2,6 +2,9 @@ source "$HOME/.config/fish/alias.fish"
 export EDITOR=nvim
 export DIRENV_LOG_FORMAT=
 
+# Set theme to zenbones
+set -g theme 'zenbones'
+
 # Remove greeting
 set fish_greeting
 # Use 256 color terminal

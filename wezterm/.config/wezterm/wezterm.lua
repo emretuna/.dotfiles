@@ -1,10 +1,10 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
-local theme = require("theme")
 local fonts = require("fonts")
 local keys = require("keys")
 local bar = require("plugins.bar")
 local move = require("plugins.move")
+local theme = require("themes.zenbones_dark")
 local workspaceswitcher = require("plugins.workspace-switcher")
 local config = {}
 
@@ -35,6 +35,7 @@ end
 -- This module should set the appearance-related options.
 -- Configurations
 --
+config.colors = theme
 config.term = "wezterm"
 config.default_workspace = "~"
 config.warn_about_missing_glyphs = true
@@ -52,8 +53,8 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
-config.window_background_opacity = 0.80
-config.text_background_opacity = 0.40
+config.window_background_opacity = 0.60
+config.text_background_opacity = 0.50
 config.macos_window_background_blur = 50
 config.animation_fps = 60
 config.prefer_egl = true
@@ -71,7 +72,6 @@ config.cursor_blink_rate = 800
 
 -- and finally, return the configuration to wezter
 fonts.setup(config)
-theme.setup(config)
 keys.setup(config)
 bar.setup(config)
 move.setup(config)

@@ -11,7 +11,6 @@ $cmd_duration \
 $line_break\
 $character"""
 
-
 add_newline = false
 
 [time]
@@ -28,6 +27,17 @@ style = "blue"
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
+
+[os]
+format = '\[[$symbol]($style)\]'
+
+[package]
+format = '\[[$symbol$version]($style)\]'
+disabled = false
+
+
+[memory_usage]
+format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [git_branch]
 format = "[$branch]($style)"
@@ -47,6 +57,10 @@ stashed = "≡"
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
+
+
+[hg_branch]
+format = '\[[$symbol$branch]($style)\]'
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -123,9 +137,6 @@ format = '\[[$symbol($version)]($style)\]'
 [helm]
 format = '\[[$symbol($version)]($style)\]'
 
-[hg_branch]
-format = '\[[$symbol$branch]($style)\]'
-
 [java]
 format = '\[[$symbol($version)]($style)\]'
 
@@ -140,9 +151,6 @@ format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
-
-[memory_usage]
-format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [meson]
 format = '\[[$symbol$project]($style)\]'
@@ -164,12 +172,6 @@ format = '\[[$symbol($version)]($style)\]'
 
 [openstack]
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
-
-[os]
-format = '\[[$symbol]($style)\]'
-
-[package]
-format = '\[[$symbol$version]($style)\]'
 
 [perl]
 format = '\[[$symbol($version)]($style)\]'

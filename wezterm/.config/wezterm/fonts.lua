@@ -4,10 +4,11 @@ local M = {}
 
 function M.setup(config)
 	config.font = wezterm.font_with_fallback({
+		"CommitMono Nerd Font",
 		"JetBrainsMono Nerd Font",
 		"BlexMono Nerd Font",
 	})
-	config.font_size = 14.0
+	config.font_size = 14.50
 	config.underline_thickness = "200%"
 	config.underline_position = "-3pt"
 	config.adjust_window_size_when_changing_font_size = false
