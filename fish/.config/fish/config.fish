@@ -1,14 +1,16 @@
 source "$HOME/.config/fish/alias.fish"
+
 export EDITOR=nvim
 export DIRENV_LOG_FORMAT=
 
 # Set theme to zenbones
-set -g theme 'zenbones'
+set -g theme 'lackluster'
 
 # Remove greeting
 set fish_greeting
+
 # Use 256 color terminal
-set -x TERM xterm-256color
+set -gx TERM xterm-256color
 
 # Add volta to PATH
 set -gx VOLTA_HOME "$HOME/.volta"

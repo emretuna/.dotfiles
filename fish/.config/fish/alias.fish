@@ -16,6 +16,8 @@ alias fa="cd ~/.config/fish/alias.fish && nvim ~/.config/fish/alias.fish"
 alias fs="source ~/.config/fish/config.fish"
 alias vc="nvim ~/.config/nvim"
 alias wc="nvim ~/.config/wezterm"
+alias ac="nvim ~/.config/aerospace/aerospace.toml"
+alias oo="nvim -c Oil"
 
 # NPM aliases
 alias nrd="npm run dev"

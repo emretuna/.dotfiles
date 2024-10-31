@@ -58,7 +58,7 @@ function M.setup(config)
 		-- https://github.com/MLFlexer/resurrect.wezterm
 		{
 			key = "s",
-			mods = "ALT",
+			mods = "LEADER",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.save_state(resurrect.workspace_state.get_workspace_state())
 				resurrect.window_state.save_window_action()
@@ -67,7 +67,7 @@ function M.setup(config)
 		-- Workspace switcher keys
 		{
 			key = "r",
-			mods = "ALT",
+			mods = "LEADER",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.fuzzy_load(win, pane, function(id, label)
 					local type = string.match(id, "^([^/]+)") -- match before '/'
@@ -96,7 +96,7 @@ function M.setup(config)
 		},
 		{
 			key = "d",
-			mods = "ALT",
+			mods = "LEADER",
 			action = wezterm.action_callback(function(win, pane)
 				resurrect.fuzzy_load(win, pane, function(id)
 					resurrect.delete_state(id)
@@ -111,7 +111,9 @@ function M.setup(config)
 		-- Smart Workspace Switcher
 		{
 			key = "w",
-			mods = "ALT",
+			mods = "LEADER",
+			-- filter dirs from ~/.project file
+			-- action = workspace_switcher.switch_workspace({ extra_args = " | -Fzf ~/.projects" }),
 			action = workspace_switcher.switch_workspace(),
 		},
 	}

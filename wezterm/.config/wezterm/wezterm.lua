@@ -4,7 +4,7 @@ local fonts = require("fonts")
 local keys = require("keys")
 local bar = require("plugins.bar")
 local move = require("plugins.move")
-local theme = require("themes.zenbones_dark")
+local theme = require("themes.lackluster")
 local workspaceswitcher = require("plugins.workspace-switcher")
 local config = {}
 
@@ -36,26 +36,27 @@ end
 -- Configurations
 --
 config.colors = theme
-config.term = "wezterm"
+-- config.term = "wezterm"
 config.default_workspace = "~"
 config.warn_about_missing_glyphs = true
 config.enable_scroll_bar = false
 config.window_padding = {
-	left = "0.5cell",
+	left = "0.50cell",
 	right = "0cell",
 	top = "0cell",
 	bottom = "0cell",
 }
 config.scrollback_lines = 3500
 config.window_decorations = "RESIZE"
+config.use_resize_increments = false
 
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
-config.window_background_opacity = 0.60
-config.text_background_opacity = 0.50
-config.macos_window_background_blur = 50
+-- config.window_background_opacity = 0.60
+-- config.text_background_opacity = 0.50
+-- config.macos_window_background_blur = 50
 config.animation_fps = 60
 config.prefer_egl = true
 
@@ -63,12 +64,16 @@ config.initial_rows = 40
 config.initial_cols = 150
 
 config.command_palette_rows = 14
-
+config.command_palette_bg_color = theme.selection_bg
+config.command_palette_fg_color = theme.selection_fg
 config.show_update_window = false
 config.check_for_updates = false
 
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_rate = 800
+
+-- Enable the kitty graphics module
+config.enable_kitty_graphics = true
 
 -- and finally, return the configuration to wezter
 fonts.setup(config)
