@@ -1,0 +1,26 @@
+set fish_color_normal "C5C9C5"          # fg (light gray)
+set fish_color_command "8BA4B0"         # blue-gray
+set fish_color_param "C4746E"           # orange
+set fish_color_keyword "C4B28A"         # red
+set fish_color_quote "8EA4A2"           # green
+set fish_color_redirection "AA759F"     # magenta
+set fish_color_end "F4BF75"             # yellow
+set fish_color_comment "727272"         # medium gray
+set fish_color_error "C4B28A"           # red
+set fish_color_gray "16161D"            # gray
+set fish_color_selection "--background=202020" # accent (dark)
+set fish_color_search_match "--background=202020" # accent
+set fish_color_option "8EA4A2"          # green
+set fish_color_operator "AA759F"        # magenta
+set fish_color_escape "C4746E"          # red
+set fish_color_autosuggestion "727272"  # medium gray
+set fish_color_cancel "C4B28A"          # red
+set fish_color_cwd "F4BF75"             # yellow (current directory)
+set fish_color_user "8EA4A2"            # cyan
+set fish_color_host "8BA4B0"            # blue (host)
+set fish_color_host_remote "8EA4A2"     # green (remote host)
+set fish_color_status "C4B28A"          # red (status)
+set fish_pager_color_progress "16161D"  # gray (progress)
+set fish_pager_color_prefix "AA759F"    # magenta (prefix)
+set fish_pager_color_completion "C5C9C5" # fg (completion)
+set fish_pager_color_description "727272" # medium gray

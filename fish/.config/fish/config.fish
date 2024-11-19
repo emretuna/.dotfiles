@@ -1,13 +1,20 @@
 source "$HOME/.config/fish/alias.fish"
 
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
+carapace _carapace | source
+
 export EDITOR=nvim
 export DIRENV_LOG_FORMAT=
 
-# Set theme to zenbones
-set -g theme 'lackluster'
+# Set theme
+set -g theme 'kanagawa-dragon'
 
 # Remove greeting
 set fish_greeting
+
+## Set default editor
+set -Ux fifc_editor nvim
+set -U fifc_keybinding \cf
 
 # Use 256 color terminal
 set -gx TERM xterm-256color

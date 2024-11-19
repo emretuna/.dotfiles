@@ -8,7 +8,7 @@ function M.setup(config)
 		"JetBrainsMono Nerd Font",
 		"BlexMono Nerd Font",
 	})
-	config.font_size = 14.50
+	config.font_size = 15.00
 	config.underline_thickness = "200%"
 	config.underline_position = "-3pt"
 	config.adjust_window_size_when_changing_font_size = false

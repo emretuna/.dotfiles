@@ -2,7 +2,7 @@ oh-my-fish/plugin-brew
 oh-my-fish/plugin-extract
 oh-my-fish/plugin-osx
 jorgebucaran/fish-bax
-gazorby/fifc
 plttn/fish-eza
 laughedelic/brew-completions
 kidonng/zoxide.fish
+gazorby/fifc@1bc301453f674ed21fac4979c65a9a4cb7f2af61

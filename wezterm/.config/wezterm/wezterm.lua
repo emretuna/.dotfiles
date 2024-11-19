@@ -4,7 +4,7 @@ local fonts = require("fonts")
 local keys = require("keys")
 local bar = require("plugins.bar")
 local move = require("plugins.move")
-local theme = require("themes.lackluster")
+local theme = require("themes.kanagawa-dragon")
 local workspaceswitcher = require("plugins.workspace-switcher")
 local config = {}
 
@@ -54,9 +54,9 @@ config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 
--- config.window_background_opacity = 0.60
--- config.text_background_opacity = 0.50
--- config.macos_window_background_blur = 50
+config.window_background_opacity = 0.75
+-- config.text_background_opacity = 0.60
+config.macos_window_background_blur = 50
 config.animation_fps = 60
 config.prefer_egl = true
 
