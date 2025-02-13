@@ -1,0 +1,9 @@
+# Ignore Fish shell completions
+completions/
+
+# Ignore Fish-generated functions (optional)
+functions/
+
+# Ignore temporary files
+*.swp
+*.swo

@@ -186,10 +186,10 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# [[on-window-detected]]
-# if.app-id = 'com.github.wez.wezterm'
-# run = "move-node-to-workspace T"
-#
-# [[on-window-detected]]
-# if.app-id = 'com.brave.Browser'
-# run = "move-node-to-workspace B"
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = "move-node-to-workspace B"

@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export CARAPACE_BRIDGES:zsh\x2cfish\x2cbash\x2cinshellisense
+SETUVAR --export COLORTERM:truecolor
 SETUVAR --export EZA_LAAD_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2donly\x2ddirs
 SETUVAR --export EZA_LAAID_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons\x1e\x2d\x2donly\x2ddirs
 SETUVAR --export EZA_LAAI_OPTIONS:\x2d\x2dall\x1e\x2d\x2dall\x1e\x2d\x2dbinary\x1e\x2d\x2dicons
@@ -20,7 +20,6 @@ SETUVAR --export EZA_LO_OPTIONS:\x2d\x2doneline
 SETUVAR --export EZA_LT_OPTIONS:\x2d\x2dtree\x1e\x2d\x2dlevel
 SETUVAR --export EZA_L_OPTIONS:\x1d
 SETUVAR --export EZA_STANDARD_OPTIONS:\x2d\x2dgroup\x1e\x2d\x2dheader\x1e\x2d\x2dgroup\x2ddirectories\x2dfirst
-SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR --export __FISH_EZA_ALIASES:l\x1ela\x1eld\x1eli\x1elid\x1elaa\x1elad\x1elai\x1elaid\x1elaad\x1elaai\x1elaaid\x1ell\x1ella\x1elld\x1elli\x1ellid\x1ellaa\x1ellad\x1ellai\x1ellaid\x1ellaad\x1ellaai\x1ellaaid\x1elg\x1elga\x1elgd\x1elgi\x1elgid\x1elgaa\x1elgad\x1elgai\x1elgaid\x1elgaad\x1elgaai\x1elgaaid\x1ele\x1elea\x1eled\x1elei\x1eleid\x1eleaa\x1elead\x1eleai\x1eleaid\x1eleaad\x1eleaai\x1eleaaid\x1elt\x1elta\x1eltd\x1elti\x1eltid\x1eltad\x1eltai\x1eltaid\x1eltaad\x1eltaai\x1eltaaid\x1elc\x1elca\x1elcd\x1elci\x1elcid\x1elcaa\x1elcad\x1elcai\x1elcaid\x1elcaad\x1elcaai\x1elcaaid\x1elo\x1eloa\x1elod\x1eloi\x1eloid\x1eloaa\x1eload\x1eloai\x1eloaid\x1eloaad\x1eloaai\x1eloaaid
 SETUVAR --export __FISH_EZA_BASE_ALIASES:l\x1ell\x1elg\x1ele\x1elt\x1elc\x1elo
 SETUVAR --export __FISH_EZA_EXPANDED:a\x1ed\x1ei\x1eid\x1eaa\x1ead\x1eai\x1eaid\x1eaad\x1eaai\x1eaaid
@@ -36,10 +35,9 @@ SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_brew_files:\x7e/\x2econfig/fish/co
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_extract_files:\x7e/\x2econfig/fish/functions/extract\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_osx_files:\x7e/\x2econfig/fish/functions/cdf\x2efish\x1e\x7e/\x2econfig/fish/functions/flushdns\x2efish\x1e\x7e/\x2econfig/fish/functions/itunes\x2efish\x1e\x7e/\x2econfig/fish/functions/manp\x2efish\x1e\x7e/\x2econfig/fish/functions/pfd\x2efish\x1e\x7e/\x2econfig/fish/functions/pfs\x2efish\x1e\x7e/\x2econfig/fish/functions/pushdf\x2efish\x1e\x7e/\x2econfig/fish/functions/ql\x2efish\x1e\x7e/\x2econfig/fish/functions/showhidden\x2efish\x1e\x7e/\x2econfig/fish/functions/trash\x2efish\x1e\x7e/\x2econfig/fish/functions/unset\x2efish\x1e\x7e/\x2econfig/fish/functions/updatedb\x2efish
 SETUVAR _fisher_plttn_2F_fish_2D_eza_files:\x7e/\x2econfig/fish/functions/eza_git\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2deza\x2efish
-SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/plugin\x2dbrew\x1eoh\x2dmy\x2dfish/plugin\x2dextract\x1eoh\x2dmy\x2dfish/plugin\x2dosx\x1ejorgebucaran/fish\x2dbax\x1ekidonng/zoxide\x2efish\x1eplttn/fish\x2deza\x1elaughedelic/brew\x2dcompletions\x1egazorby/fifc\x401bc301453f674ed21fac4979c65a9a4cb7f2af61
+SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/plugin\x2dbrew\x1eoh\x2dmy\x2dfish/plugin\x2dextract\x1eoh\x2dmy\x2dfish/plugin\x2dosx\x1ejorgebucaran/fish\x2dbax\x1eplttn/fish\x2deza\x1elaughedelic/brew\x2dcompletions\x1ekidonng/zoxide\x2efish\x1egazorby/fifc\x401bc301453f674ed21fac4979c65a9a4cb7f2af61
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR --export fifc_editor:nvim
-SETUVAR fifc_keybinding:\x06
 SETUVAR fifc_open_keybinding:ctrl\x2do
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
@@ -63,7 +61,6 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow\x1e\x2di

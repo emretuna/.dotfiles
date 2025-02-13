@@ -1,23 +1,20 @@
 source "$HOME/.config/fish/alias.fish"
 
-set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
-carapace _carapace | source
-
 export EDITOR=nvim
 export DIRENV_LOG_FORMAT=
-
-# Set theme
-set -g theme 'kanagawa-dragon'
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 # Remove greeting
 set fish_greeting
 
 ## Set default editor
 set -Ux fifc_editor nvim
-set -U fifc_keybinding \cf
+
+# set -U fifc_keybinding \cf
 
 # Use 256 color terminal
-set -gx TERM xterm-256color
+set -Ux COLORTERM truecolor
 
 # Add volta to PATH
 set -gx VOLTA_HOME "$HOME/.volta"
@@ -31,3 +28,10 @@ starship init fish | source
 
 # Add composer vendor bin to PATH
 set -U fish_user_paths $HOME/.composer/vendor/bin
+
+# pnpm
+set -gx PNPM_HOME "/Users/emretuna/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

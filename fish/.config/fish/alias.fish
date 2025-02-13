@@ -11,13 +11,18 @@ alias vi="nvim"
 alias vim="nvim"
 
 # command config aliases
-alias fc="cd ~/.config/fish && nvim ~/.config/fish/"
+alias fc="cd ~/.config/fish && nvim ~/.config/fish/config.fish"
 alias fa="cd ~/.config/fish/alias.fish && nvim ~/.config/fish/alias.fish"
 alias fs="source ~/.config/fish/config.fish"
 alias vc="nvim ~/.config/nvim"
-alias wc="nvim ~/.config/wezterm"
+alias gc="nvim ~/.config/ghostty/config"
+alias tc="nvim ~/.tmux.conf"
 alias ac="nvim ~/.config/aerospace/aerospace.toml"
 alias oo="nvim -c Oil"
+
+alias ts="tmux source-file ~/.tmux.conf"
+alias tk "tmux kill-session"
+alias ta="tmux new-session -A -s Work"
 
 # NPM aliases
 alias nrd="npm run dev"
@@ -29,6 +34,6 @@ alias dcd="docker-compose down"
 
 # git aliases
 alias lg="lazygit"
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
+alias ghs="git status"
+alias gha="git add"
+alias ghc="git commit -m"

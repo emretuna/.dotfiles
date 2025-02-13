@@ -1,0 +1,56 @@
+theme                          = kanagawa-dragon
+macos-titlebar-style           = transparent
+background-opacity             = 0.75
+background-blur-radius         = 40
+
+
+font-family                    = CommitMono Nerd Font Mono
+font-family                    = Noto Color Emoji
+
+font-size                      = 16
+
+font-feature                   = calt
+font-feature                   = cv14
+font-feature                   = ss03
+
+window-save-state              = always
+window-vsync                   = true
+window-inherit-font-size       = true
+
+shell-integration              = fish
+shell-integration-features     = no-cursor,sudo,title
+
+clipboard-paste-protection     = true
+clipboard-trim-trailing-spaces = true
+copy-on-select                 = true
+
+adjust-cursor-thickness        = 3
+adjust-underline-position      = 3
+bold-is-bright                 = true
+cursor-style                   = block
+cursor-style-blink             = true
+cursor-invert-fg-bg            = true
+cursor-opacity                 = 0.7
+
+scrollback-limit               = 4200
+
+link-url                       = true
+mouse-hide-while-typing        = true
+
+
+macos-auto-secure-input        = true
+macos-secure-input-indication  = true
+macos-option-as-alt            = true
+
+macos-auto-secure-input        = true
+macos-icon                     = custom-style
+macos-icon-frame               = beige
+macos-icon-screen-color        = #8ba4b0
+macos-icon-ghost-color         = #c4b28a
+
+keybind = global:cmd+shift+backspace=toggle_quick_terminal
+keybind = global:cmd+shift+R=reload_config
+# To delete from the current position to the start of the line
+keybind = super+backspace=esc:w
+
+# command = /opt/homebrew/bin/fish -c "tmux new -A -s Work"

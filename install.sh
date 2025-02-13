@@ -25,7 +25,7 @@ fish_add_path /usr/local/bin
 
 
 # Install packages
-brew install neovim stow yarn fzf fd ripgrep bat direnv btop ffmpegthumbnailer unar jq trash lua-language-server vale zoxide shellcheck stylua languagetool tree poppler gitui exa volta starship
+brew install neovim stow yarn fzf fd ripgrep ast-grep bat direnv btop ffmpegthumbnailer unar jq trash lua-language-server vale zoxide shellcheck stylua languagetool tree poppler gitui exa volta starship
 
 # Install fonts
 brew tap homebrew/cask-fonts
@@ -36,7 +36,7 @@ brew cleanup
 cd $HOME/.dotfiles
 echo "Stowing files..."
 # Stow dotfiles
-stow git fish nvim btop mpv wezterm starship
+stow git fish nvim btop mpv wezterm starship lazygit
 
 # Starship init
 echo "starship init fish | source" >> ~/.config/fish/config.fish

@@ -1,60 +1,60 @@
 return {
-	foreground = "#c5c9c5",
-	background = "#181616",
+	foreground = "#f8f8f8", -- dragonWhite
+	background = "#0d0c0c", -- dragonBlack0
 
-	cursor_bg = "#C8C093",
-	cursor_fg = "#C8C093",
-	cursor_border = "#C8C093",
+	cursor_bg = "#8992a7", -- dragonViolet
+	cursor_fg = "#c5c9c5", -- dragonWhite
+	cursor_border = "#c5c9c5", -- dragonWhite
 
-	selection_fg = "#C8C093",
-	selection_bg = "#2D4F67",
+	selection_fg = "#c4b28a", -- dragonYellow
+	selection_bg = "#282727", -- dragonBlack4 (enhanced contrast)
 
-	scrollbar_thumb = "#16161D",
-	split = "#16161D",
+	scrollbar_thumb = "#181616", -- dragonBlack3
+	split = "#16161D", -- Matches scrollbar_thumb for consistency
 
 	ansi = {
-		"#0D0C0C",
-		"#C4746E",
-		"#8A9A7B",
-		"#C4B28A",
-		"#8BA4B0",
-		"#A292A3",
-		"#8EA4A2",
-		"#C8C093",
+		"#0d0c0c", -- dragonBlack0
+		"#c4746e", -- dragonRed
+		"#8a9a7b", -- dragonGreen2
+		"#c4b28a", -- dragonYellow
+		"#8ba4b0", -- dragonBlue2
+		"#a292a3", -- dragonPink
+		"#8ea4a2", -- dragonAqua
+		"#a6a69c", -- dragonGray
 	},
 	brights = {
-		"#A6A69C",
-		"#E46876",
-		"#87A987",
-		"#E6C384",
-		"#7FB4CA",
-		"#938AA9",
-		"#7AA89F",
-		"#C5C9C5",
+		"#393836", -- dragonBlack5
+		"#e46876", -- Brighter variant of dragonRed
+		"#87a987", -- dragonGreen
+		"#e6c384", -- Brighter dragonYellow
+		"#7fb4ca", -- Brighter dragonBlue2
+		"#938aa9", -- dragonTeal (alternate purple)
+		"#7aa89f", -- Slightly brighter dragonAqua
+		"#c5c9c5", -- dragonWhite
 	},
 
 	tab_bar = {
-		background = "#181616", -- unified with general background
+		background = "#181616", -- dragonBlack3
 		active_tab = {
-			bg_color = "#2D4F67", -- active tab stands out
-			fg_color = "#C8C093", -- primary highlight color
+			bg_color = "#8992a7", -- dragonViolet
+			fg_color = "#c5c9c5", -- dragonWhite
 		},
 		inactive_tab = {
-			bg_color = "#202020", -- softer contrast for inactive tabs
-			fg_color = "#AFAFAF", -- light_gray
+			bg_color = "#8992a7", -- dragonViolet
+			fg_color = "#c5c9c5", -- dragonWhite
 		},
 		inactive_tab_hover = {
-			bg_color = "#2D4F67", -- hover matches active for clarity
-			fg_color = "#C8C093", -- primary highlight
+			bg_color = "#8992a7", -- dragonViolet
+			fg_color = "#c5c9c5", -- dragonWhite
 		},
 		new_tab = {
-			bg_color = "#202020", -- consistent with inactive_tab
-			fg_color = "#AFAFAF", -- light_gray
+			bg_color = "#8992a7", -- dragonViolet
+			fg_color = "#c5c9c5", -- dragonWhite
 		},
 		new_tab_hover = {
-			bg_color = "#2D4F67", -- matches hover state
-			fg_color = "#C8C093", -- primary highlight
+			bg_color = "#8992a7", -- dragonViolet
+			fg_color = "#c5c9c5", -- dragonWhite
 		},
-		inactive_tab_edge = "#181616", -- blends with background
+		inactive_tab_edge = "#181616", -- dragonBlack3
 	},
 }
