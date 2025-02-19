@@ -36,7 +36,7 @@ brew cleanup
 cd $HOME/.dotfiles
 echo "Stowing files..."
 # Stow dotfiles
-stow git fish nvim btop mpv wezterm starship lazygit
+stow git fish nvim btop mpv wezterm starship
 
 # Starship init
 echo "starship init fish | source" >> ~/.config/fish/config.fish
