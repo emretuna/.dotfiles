@@ -14,7 +14,7 @@ $character"""
 add_newline = false
 
 [time]
-format = '\[[$time]($style)\]'
+format = '\[[ $time ]($style)\]'
 
 [username]
 format = '[$user]($style)'

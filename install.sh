@@ -25,7 +25,7 @@ fish_add_path /usr/local/bin
 
 
 # Install packages
-brew install neovim stow yarn fzf fd ripgrep ast-grep bat direnv btop ffmpegthumbnailer unar jq trash lua-language-server vale zoxide shellcheck stylua languagetool tree poppler gitui exa volta starship
+brew install neovim stow yarn fzf fd ripgrep ast-grep bat direnv btop ffmpegthumbnailer unar jq trash lua-language-server vale zoxide shellcheck stylua languagetool tree poppler gitui exa volta starship grpcurl
 
 # Install fonts
 brew tap homebrew/cask-fonts

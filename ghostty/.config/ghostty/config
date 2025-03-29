@@ -1,21 +1,26 @@
-theme                          = kanagawa-dragon
+theme                          = base-16
 macos-titlebar-style           = transparent
 background-opacity             = 0.75
 background-blur-radius         = 40
 
 
-font-family                    = CommitMono Nerd Font Mono
+font-family                    = IosevkaTermSlab Nerd Font
 font-family                    = Noto Color Emoji
 
-font-size                      = 16
+font-size                      = 15.5
 
 font-feature                   = calt
 font-feature                   = cv14
 font-feature                   = ss03
+adjust-cell-height             = -10%
 
 window-save-state              = always
 window-vsync                   = true
 window-inherit-font-size       = true
+window-padding-balance         = true
+window-padding-y               = 2,0
+window-padding-x               = 2,2
+window-padding-color           = extend-always
 
 shell-integration              = fish
 shell-integration-features     = no-cursor,sudo,title
