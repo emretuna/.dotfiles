@@ -10,7 +10,7 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = store
+	helper = osxkeychain
 [http]
 	postBuffer = 1048576000
 [push]
