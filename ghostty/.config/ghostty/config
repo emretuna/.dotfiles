@@ -1,21 +1,20 @@
 theme                          = base-16
 macos-titlebar-style           = transparent
-background-opacity             = 0.75
-background-blur-radius         = 40
+# background-opacity             = 0.75
+# background-blur-radius         = 40
 
 
 font-family                    = IosevkaTermSlab Nerd Font
 font-family                    = Noto Color Emoji
 
-font-size                      = 15.5
+font-size                      = 17.5
 
 font-feature                   = calt
 font-feature                   = cv14
 font-feature                   = ss03
-adjust-cell-height             = -10%
 
 window-save-state              = always
-window-vsync                   = true
+window-vsync                   = false
 window-inherit-font-size       = true
 window-padding-balance         = true
 window-padding-y               = 2,0

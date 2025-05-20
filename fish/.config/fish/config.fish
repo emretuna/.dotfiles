@@ -1,5 +1,3 @@
-source "$HOME/.config/fish/alias.fish"
-
 export EDITOR=nvim
 export DIRENV_LOG_FORMAT=
 #export LANG=en_US.UTF-8
@@ -20,6 +18,8 @@ set -Ux COLORTERM truecolor
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
+# Add direnv hook
+direnv hook fish | source
 # Add navi source to fish
 navi widget fish | source
 
@@ -39,3 +39,8 @@ end
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+source "$HOME/.config/fish/alias.fish"
+
+# Added by Windsurf
+fish_add_path /Users/emretuna/.codeium/windsurf/bin

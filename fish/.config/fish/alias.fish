@@ -18,7 +18,6 @@ alias vc="nvim ~/.config/nvim"
 alias gc="nvim ~/.config/ghostty/config"
 alias tc="nvim ~/.tmux.conf"
 alias ac="nvim ~/.config/aerospace/aerospace.toml"
-alias oo="nvim -c Oil"
 
 alias ts="tmux source-file ~/.tmux.conf"
 alias tk "tmux kill-session"
